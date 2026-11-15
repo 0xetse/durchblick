@@ -100,3 +100,24 @@ test('the site refuses to be embedded in a frame (frame-ancestors via header)', 
   }, `${baseURL}/`);
   expect(loaded).toBe(false);
 });
+
+test('the trust panel becomes live even if the page is never idle', async ({ page }) => {
+  // A busy main thread (slow phone, loaded CI runner) leaves no idle time. The
+  // panel must still hydrate: before that it shows no live values and no
+  // "Alles löschen". The page stays busy for 8 s; the default 5 s expectation
+  // only holds if hydration does not wait for idle time indefinitely.
+  await page.addInitScript(() => {
+    const end = Date.now() + 8000;
+    const id = setInterval(() => {
+      const until = performance.now() + 45;
+      while (performance.now() < until) {
+        // busy: no idle period for requestIdleCallback
+      }
+      if (Date.now() > end) clearInterval(id);
+    }, 1);
+  });
+  await page.goto('/einstellungen/');
+  await expect(page.locator('astro-island[ssr]')).toHaveCount(0);
+  await page.locator('.trust-panel summary').click();
+  await expect(page.locator('.trust-pop')).toContainText('nur diese Website');
+});
