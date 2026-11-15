@@ -1,0 +1,173 @@
+- id: linkedin-ai-training
+  service: linkedin
+  kind: setting
+  title: Der Nutzung deiner Daten für LinkedIns KI widersprechen
+  goal: "LinkedIn nutzt dein Profil, deine Beiträge und deine KI-Eingaben nicht mehr, um KI zu trainieren, die Texte erzeugt."
+  whyItMatters: "Seit dem 3. November 2025 trainiert LinkedIn in der EU eigene KI mit Profilen, Beiträgen, Kommentaren, Gruppennachrichten und gespeicherten Lebensläufen. Die Einstellung dafür ist ab Werk eingeschaltet."
+  whatChanges: "Laut LinkedIn nutzen LinkedIn und verbundene Firmen wie Microsoft deine LinkedIn-Daten ab dem Widerspruch nicht mehr für das Training von KI, die Inhalte erzeugt."
+  whatDoesNotChange: "Was schon trainiert wurde, wird nicht rückgängig gemacht. KI für Empfehlungen und Sicherheit trainiert LinkedIn weiter; dagegen hilft nur das Formular „Widerspruch gegen die Datenverarbeitung“. Feedback, das du LinkedIn gibst, kann ebenfalls weiter einfließen. Die KI-Funktionen kannst du weiter nutzen."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.linkedin.com/mypreferences/d/settings/data-for-ai-improvement
+  steps: []
+  affects: [li-profile, li-content, li-ai-prompts, li-jobs]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Name der Einstellung („Daten zur Verbesserung generativer KI“) und direkter Link stammen aus der deutschen LinkedIn-Hilfeseite „LinkedIn und generative KI – Häufig gestellte Fragen“ (abgerufen 2026-10-08). Diese Seite nennt keinen Menüweg. Die niederländische Datenschutzbehörde nennt den Weg „Instellingen & Privacy → Gegevensprivacy → Gegevens voor verbetering van generatieve AI“ (niederländische Oberfläche). Eine offizielle deutsche Schritt-Anleitung von LinkedIn haben wir nicht gefunden; daher keine Schritte. Am 2026-10-21 erneut geprüft: Die Hilfeseiten „LinkedIn und generative KI – Häufig gestellte Fragen“ (a5538339) und „Update to our Terms and data use“ (a8059228) nennen weiter nur die Einstellung bzw. einen Link, keinen Menüweg. Menüwege fanden wir nur bei Dritten."
+  sources: [linkedin-help-genai-faq, linkedin-eu-privacy-notice, linkedin-ap-ai-warning-2025, linkedin-dpc-ai-statement-2025]
+- id: linkedin-ads-other-data
+  service: linkedin
+  kind: setting
+  title: Daten von anderen Websites nicht für Werbung nutzen lassen
+  goal: "LinkedIn nutzt nicht mehr für Werbung, was fremde Websites und Firmen über dich melden."
+  whyItMatters: "Viele Firmen bauen ein Code-Stück von LinkedIn in ihre Website ein (Insight Tag), das Besuche von Mitgliedern meldet. Andere laden Listen mit E-Mail-Adressen ihrer Kundschaft hoch. Daraus entsteht Werbung, die dir auf LinkedIn folgt."
+  whatChanges: "LinkedIn zeigt dir keine Werbung mehr, die auf diesen Daten anderer Firmen beruht. Änderungen wirken laut LinkedIn in der Regel innerhalb von 72 Stunden."
+  whatDoesNotChange: "Du siehst weiter Werbung, nur weniger passgenau. Websites mit dem Insight Tag bleiben eingebaut. Werbung nach deinem Profil und deinen Aktivitäten auf LinkedIn regelst du in eigenen Schaltern."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.linkedin.com/psettings/advertising-data
+  steps:
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“ und wähle „Einstellungen & Datenschutz“."
+    - "Öffne den Bereich „Werbedaten“ (in manchen Hilfeseiten „Anzeigendaten“ genannt)."
+    - "Klicke auf den Pfeil neben „Daten von anderen für Anzeigen“."
+    - "Stelle den Schalter auf „Aus“."
+  affects: [li-offplatform]
+  tradeOff: "Werbung passt weniger zu dem, was du anderswo angesehen hast."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit den deutschen Hilfeseiten „So können Unternehmen und Websites LinkedIn fremde Daten für zielgruppenorientierte Werbung durch LinkedIn nutzen“ (Werbedaten > Daten von anderen für Anzeigen > Aus) und „Ihre LinkedIn Ads-Einstellungen aufrufen und verwalten“ (Sie > Einstellungen & Datenschutz > Anzeigendaten) abgeglichen. Die beiden Seiten nennen den Bereich unterschiedlich; nicht in der App geprüft."
+  sources: [linkedin-help-third-party-ad-data, linkedin-help-ad-settings, linkedin-help-third-party-data-use]
+- id: linkedin-ads-profile-activity
+  service: linkedin
+  kind: setting
+  title: Werbung nach Profil und Aktivitäten begrenzen
+  goal: "LinkedIn nutzt weniger Profilangaben, Aktivitäten und geschätzte Merkmale, um dir Werbung zu zeigen."
+  whyItMatters: "Für Werbung nutzt LinkedIn deine Profilangaben, was du liest und anklickst und was es daraus schätzt, etwa Alter, Geschlecht, Interessen oder ob du einen Job suchst."
+  whatChanges: "Du legst einzeln fest, welche Profildaten und welche Aktivitäten und geschätzten Daten LinkedIn für Werbung nutzen darf. Das gilt für Werbung auf und außerhalb von LinkedIn. Änderungen wirken in der Regel innerhalb von 72 Stunden."
+  whatDoesNotChange: "Du siehst weiter Werbung. LinkedIn erfasst deine Aktivitäten weiter und nutzt sie für Feed, Kontakt- und Jobvorschläge."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.linkedin.com/psettings/advertising-data
+  steps:
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“."
+    - "Wähle im Dropdown-Menü „Einstellungen & Datenschutz“."
+    - "Klicke links auf „Anzeigendaten“."
+    - "Gehe die Abschnitte „Profildaten“ und „Aktivitäten und abgeleitete Daten“ durch und stelle Schalter, die du nicht willst, auf „Aus“."
+  affects: [li-profile, li-activity, li-searches, li-location]
+  tradeOff: "Werbung ist weniger auf dich zugeschnitten."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Hilfeseite „Ihre LinkedIn Ads-Einstellungen aufrufen und verwalten“ abgeglichen. Die Seite sagt, dass in der EU manche Schalter als „nicht anwendbar“ erscheinen können, wenn LinkedIn diese Daten dort ohnehin nicht nutzt; nicht in der App geprüft."
+  sources: [linkedin-help-ad-settings, linkedin-eu-privacy-notice]
+- id: linkedin-profile-views-private
+  service: linkedin
+  kind: setting
+  title: Profile anderer im Privatmodus ansehen
+  goal: "Mitglieder, deren Profil du besuchst, sehen nicht mehr, wer du bist."
+  whyItMatters: "Je nach Einstellung erfährt ein Mitglied, dass du sein Profil angesehen hast – mit Name und Profil-Slogan. Das kann zum Beispiel bei einer Jobsuche oder bei Ex-Kolleg*innen unangenehm sein."
+  whatChanges: "Im Privatmodus erscheinst du bei anderen nur als anonymes Mitglied im Privatmodus. Im halbprivaten Modus sehen sie Merkmale wie Jobbezeichnung, Firma oder Branche."
+  whatDoesNotChange: "LinkedIn selbst speichert weiter, welche Profile du ansiehst. Mit einem kostenlosen Konto siehst du im Privatmodus selbst nicht mehr, wer dein Profil besucht hat."
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“."
+    - "Wähle „Einstellungen & Datenschutz“ und klicke links auf „Sichtbarkeit“."
+    - "Klicke im Bereich „Sichtbarkeit Ihres Profils & Netzwerks“ beim Betrachten anderer Profile auf „Sichtbarkeit“."
+    - "Wähle „Privatmodus“ oder „Private Profileigenschaften“. Die Änderung wird automatisch gespeichert."
+  affects: [li-activity]
+  tradeOff: "Mit kostenlosem Konto siehst du nicht mehr, wer dein Profil angesehen hat."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Hilfeseite „Profile im privaten und halbprivaten Modus durchsuchen“ abgeglichen (teils maschinell übersetzt); nicht in der App geprüft."
+  sources: [linkedin-help-private-mode, linkedin-privacy-policy]
+- id: linkedin-remove-imported-contacts
+  service: linkedin
+  kind: setting
+  title: Hochgeladene Adressbuch-Kontakte löschen
+  goal: "LinkedIn löscht die Kontakte, die du aus deinem Handy oder E-Mail-Konto hochgeladen hast."
+  whyItMatters: "Beim Import lädt LinkedIn Namen, Telefonnummern und E-Mail-Adressen deiner Kontakte hoch – auch von Menschen, die gar nicht bei LinkedIn sind – und kann später regelmäßig nachladen."
+  whatChanges: "Laut LinkedIn werden die Kontakte sofort gelöscht. Vorschläge in „Personen, die Sie vielleicht kennen“ passen sich innerhalb von bis zu 72 Stunden an."
+  whatDoesNotChange: "Deine Vernetzungen auf LinkedIn bleiben bestehen. Haben andere ihr Adressbuch mit deinen Daten hochgeladen, bleibt das bei ihnen gespeichert. Den Zugriff auf deine Kontakte entziehst du zusätzlich in den Einstellungen deines Handys."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“ und dann auf „Einstellungen & Datenschutz“ (in der App: Profilfoto > Einstellungen & Privatsphäre > Konto-Einstellungen)."
+    - "Klicke unter „Synchronisierungsoptionen“ auf „Kontakte synchronisieren“."
+    - "Klicke neben „Kontakten“ auf „Alle entfernen“."
+    - "Bestätige im Fenster „Alle Quellen entfernen?“ mit „Weiter“."
+  affects: [li-address-book]
+  tradeOff: "Weniger Vorschläge für Menschen, die du bereits kennst."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Hilfeseite „Importierte Adressbuchkontakte von LinkedIn löschen“ (Desktop und Mobilgerät, teils maschinell übersetzt) abgeglichen; nicht in der App geprüft."
+  sources: [linkedin-help-delete-imported-contacts, linkedin-help-import-contacts]
+- id: linkedin-export
+  service: linkedin
+  kind: export
+  title: Kopie deiner LinkedIn-Daten herunterladen
+  goal: "Du bekommst eine Datei mit deinen Profildaten, Nachrichten, Kontakten, Suchen und dem, was LinkedIn über dich schließt."
+  whyItMatters: "Der Export zeigt auch die Daten für Werbung („Anzeigen-Targeting“) und die „Schlussfolgerungen“, die LinkedIn über dich zieht. Und er sichert deine Inhalte, bevor du dein Konto schließt."
+  whatChanges: "Du wählst einzelne Datenarten (per E-Mail nach wenigen Minuten) oder das große Archiv (innerhalb von 24 Stunden). Der Download-Link gilt 72 Stunden."
+  whatDoesNotChange: "An den gespeicherten Daten ändert sich nichts. Daten zu „Personen, die Sie vielleicht kennen“ und zu deinen Profilbesucher*innen sind nicht enthalten. Für Fehlendes gibt es ein eigenes Anfrageformular."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“."
+    - "Wähle in der Dropdown-Liste „Einstellungen & Datenschutz“ und klicke links auf „Datenschutz“."
+    - "Klicke im Abschnitt „So verwendet LinkedIn Ihre Daten“ auf „Ihre Daten herunterladen“."
+    - "Wähle die Daten aus und klicke auf „Archiv anfordern“."
+    - "Lade die Daten über den Link in der E-Mail herunter, am besten an deinem eigenen Computer."
+  affects: [li-profile, li-content, li-messages, li-network, li-address-book, li-searches, li-ai-prompts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Hilfeseite „Ihre Daten herunterladen“ abgeglichen. Laut Seite „derzeit nicht auf Mobilgeräten verfügbar“."
+  sources: [linkedin-help-download-data, linkedin-eu-privacy-notice]
+- id: linkedin-close-account
+  service: linkedin
+  kind: deletion
+  title: LinkedIn-Konto schließen und löschen
+  goal: "Dein Profil, deine Kontakte und Nachrichten werden gelöscht."
+  whyItMatters: "LinkedIn speichert deine Daten, solange das Konto besteht – auch wenn du es nur alle paar Jahre nutzt."
+  whatChanges: "Dein Profil ist meist nach 24 Stunden nicht mehr sichtbar. LinkedIn löscht die Daten in der Regel innerhalb von 30 Tagen. Innerhalb von 14 Tagen kannst du das Konto meist wieder eröffnen, verlierst aber zum Beispiel Empfehlungen und Gruppenmitgliedschaften."
+  whatDoesNotChange: "Was du anderen geschickt oder in Gruppen gepostet hast, bleibt für sie sichtbar. Suchmaschinen zeigen dein Profil eventuell noch eine Weile. Für rechtliche Pflichten und Betrugsschutz bewahrt LinkedIn manches länger auf. Was schon in KI-Training eingeflossen ist, bleibt."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web, android, ios]
+  steps:
+    - "Lade vorher deine Daten herunter, wenn du sie behalten willst. Kündige ein Premium-Abo und gib Gruppen-Verantwortung ab."
+    - "Klicke oben auf der LinkedIn-Startseite auf das Symbol „Sie“ und wähle „Einstellungen & Datenschutz“ (in der App: Profilbild > Einstellungen > Kontoeinstellungen)."
+    - "Klicke unter „Kontoeinstellungen“ im Abschnitt „Kontoverwaltung“ neben „Konto schließen“ auf „Ändern“."
+    - "Wähle einen Grund und klicke auf „Weiter“."
+    - "Gib dein Passwort ein und klicke auf „Konto schließen“."
+  affects: [li-account, li-profile, li-content, li-messages, li-network, li-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Hilfeseite „Ihr LinkedIn Konto schließen und löschen“ (Desktop, iOS, Android) abgeglichen; Fristen aus Abschnitt 4.3 der Datenschutzrichtlinie."
+  sources: [linkedin-help-close-account, linkedin-privacy-policy]

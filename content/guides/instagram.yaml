@@ -1,0 +1,139 @@
+- id: instagram-less-personalised-ads
+  service: instagram
+  kind: setting
+  title: Weniger stark personalisierte Werbung wählen
+  goal: "Meta nutzt für Werbung auf Instagram nur noch wenige Daten statt allem, was es über dein Verhalten weiß."
+  whyItMatters: "Bei personalisierter Werbung nutzt Meta deine Aktivitäten und die Inhalte, die du ansiehst. Dazu kommen Themen, die dich interessieren könnten, und Profilangaben."
+  whatChanges: "Werbung richtet sich dann vor allem nach den Inhalten, die du gerade in dieser Sitzung ansiehst. Dazu kommen Alter, Geschlecht, Standort, Gerät und deine Reaktionen auf Anzeigen. Die Wahl gilt für alle Konten derselben Kontenübersicht – auch für ein verknüpftes Facebook-Konto."
+  whatDoesNotChange: "Du siehst weiter Werbung, manchmal mit Werbepausen. Instagram wertet deine Aktivität weiter für Feed und Reels aus. Ohne Werbung geht es nur mit dem bezahlten Abo."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "In der App: Tippe auf dein Profilbild, dann auf das Menü und auf „Kontenübersicht“ (bzw. „Meta-Konto“)."
+    - "Am Computer auf instagram.com: Klicke unten links auf „Mehr“ > „Einstellungen“ und links auf „Kontenübersicht“ (bzw. „Meta-Konto“)."
+    - "Wähle „Werbepräferenzen“ und im Tab „Informationen verwalten“ den Punkt „Werbeerlebnis“."
+    - "Wähle weniger stark personalisierte Werbung aus und tippe oder klicke auf „Bestätigen“."
+  affects: [ig-activity, ig-profile, ig-offplatform, ig-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Schritte am 2026-10-21 mit dem Instagram-Hilfeartikel „Verwalten, ob du mehr oder weniger stark personalisierte Werbung sehen möchtest“ (de, Ansichten Android, iPhone und Computer) abgeglichen. Der Artikel sagt ausdrücklich „Diese Option ist nur in der Region Europa verfügbar“. Abruf im gerenderten Browser aus einem Nicht-EU-Netz; die EU-Fassung wird also auch dort ausgeliefert. Den Namen „Meta-Konto“ statt „Kontenübersicht“ nennt der Hinweis zur schrittweisen Umstellung im selben Artikel."
+  sources: [instagram-help-manage-ad-experience, meta-help-manage-ad-experience, meta-help-less-personalised-ads, meta-help-ads-choices-eu]
+- id: instagram-activity-other-businesses
+  service: instagram
+  kind: setting
+  title: Daten von anderen Unternehmen nicht für Werbung nutzen lassen
+  goal: "Meta nutzt nicht mehr für Werbung, was Websites und Apps über deine Aktivitäten dort melden."
+  whyItMatters: "Shops und Apps melden Meta Dinge wie Seitenaufrufe oder Käufe. Das läuft über kleine Code-Bausteine von Meta (Pixel oder SDK). Diese Meldungen können die Werbung in deinem Instagram-Feed bestimmen."
+  whatChanges: "Laut Meta beruht Werbung dann nicht mehr auf diesen Meldungen. Die Einstellung gilt für alle Konten derselben Kontenübersicht."
+  whatDoesNotChange: "Unternehmen können Meta weiter Daten senden. Meta kann sie anonymisieren oder nutzen, um seine Produkte zu verbessern."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps: []
+  affects: [ig-offplatform]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Am 2026-10-21 erneut im gerenderten Browser (de-DE, Nicht-EU-Netz) gelesen, auch die Android-Ansicht: Der Instagram-Hilfeartikel nennt den Weg Profil > Menü > Meta-Konto > Deine Informationen und Berechtigungen > Aktivitäten von anderen Unternehmen und spricht nur von „relevanten Inhalten“. Der entsprechende Facebook-Artikel sagt weiterhin, dass in der Region Europa andere Werbeoptionen gelten. Eine Suche im Instagram-Hilfebereich nach einer Europa-Fassung brachte nur die Artikel zum Werbeerlebnis und zum Abo, die die Einstellung nicht nennen. Der EU-Weg bleibt unbestätigt."
+  sources: [meta-help-activity-other-businesses, instagram-help-activity-other-businesses]
+- id: instagram-ai-training-objection
+  service: instagram
+  kind: setting
+  title: Der Nutzung deiner Daten für Metas KI widersprechen
+  goal: "Meta nutzt deine öffentlichen Instagram-Beiträge und -Kommentare nicht mehr für KI-Training."
+  whyItMatters: "Seit dem 27. Mai 2025 trainiert Meta seine KI mit öffentlichen Inhalten Erwachsener auf Facebook und Instagram in der EU. Das passiert, solange du nicht widersprichst."
+  whatChanges: "Nach dem Widerspruch nutzt Meta deine Informationen laut eigener Aussage nicht mehr für das Training. Meta will auch spätere Widersprüche beachten."
+  whatDoesNotChange: "Was schon trainiert wurde, wird nicht rückgängig gemacht. Stellst du dein Profil auf privat, zählen deine Beiträge außerdem nicht mehr zu den „öffentlichen Inhalten“."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://help.instagram.com/contact/767264225370182
+  steps: []
+  affects: [ig-content, ig-meta-ai]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Widerspruchsmöglichkeit über Meta Newsroom und die irische Datenschutzbehörde bestätigt; die Formular-Adresse nennt die Hamburger Datenschutzbehörde (Stand 27.05.2025). Am 2026-10-21 im gerenderten Browser (de-DE, Nicht-EU-Netz) gefunden: der Instagram-Hilfeartikel zu Widersprüchen in Meta-Produkten (help.instagram.com/2060335334241802). Er zeigt in der Android- und iPhone-Ansicht nur „Diese Informationen sind in deiner Region nicht verfügbar.“ Das Formular braucht eine Anmeldung. Deshalb weiter keine Schritte."
+  sources: [meta-newsroom-ai-training-eu-2025, meta-dpc-ai-statement-2025, meta-hmbbfdi-ai-objection-2025]
+- id: instagram-contacts
+  service: instagram
+  kind: setting
+  title: Kontaktsynchronisierung beenden und hochgeladene Kontakte löschen
+  tradeOff: "Vorschläge, wem du folgen könntest, beruhen dann nicht mehr auf deinem Adressbuch."
+  goal: "Instagram lädt dein Telefonbuch nicht mehr hoch und löscht die schon gespeicherten Kontakte."
+  whyItMatters: "Instagram lädt deine Kontaktliste immer wieder neu hoch und nutzt sie für Kontovorschläge. Darunter sind auch Nummern von Menschen, die gar nicht auf Instagram sind."
+  whatChanges: "Es gibt keine neuen Uploads mehr. Nach dem Löschen verschwinden die gespeicherten Kontakte. Das kann bis zu 90 Tage dauern."
+  whatDoesNotChange: "Abschalten allein löscht nichts. Einzelne Kontakte kannst du nicht löschen. Bis zur endgültigen Löschung kann Instagram weiter Vorschläge auf Basis der Kontakte zeigen."
+  impact: medium
+  minutes: 5
+  difficulty: medium
+  platforms: [android, ios, web]
+  steps:
+    - "In der App: Tippe auf dein Profilbild, dann oben rechts auf das Menü und auf „Kontenübersicht“."
+    - "Wähle „Deine Informationen und Berechtigungen“ und „Kontakte hochladen“, dann das Konto."
+    - "Schalte „Mit Kontakten verknüpfen“ aus und bestätige mit „Verbindung aufheben“. Wiederhole das auf allen Geräten, auf denen du angemeldet bist, und entziehe Instagram am besten auch in den Geräteeinstellungen den Kontaktzugriff."
+    - "Am Computer auf instagram.com: Klicke auf dein Profilbild, dann „Profil bearbeiten“ und „Mehr dazu in der Kontenübersicht“."
+    - "Wähle „Deine Informationen und Berechtigungen“ > „Kontakte verwalten“ > „Alle löschen“ und bestätige mit „Löschen“."
+  affects: [ig-contact-sync]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Instagram-Hilfeartikel zur Kontaktsynchronisierung (de) abgeglichen."
+  sources: [instagram-help-contacts]
+- id: instagram-export
+  service: instagram
+  kind: export
+  title: Kopie deiner Instagram-Daten herunterladen
+  goal: "Du bekommst eine Datei mit deinen Beiträgen, Aktivitäten, Kontakten und weiteren gespeicherten Informationen."
+  whyItMatters: "Der Export zeigt dir, was Instagram über dich gespeichert hat. Und er sichert deine Fotos und Videos."
+  whatChanges: "Du forderst einen Export an. Art der Informationen, Zeitraum, Format und Bildqualität wählst du selbst."
+  whatDoesNotChange: "An den gespeicherten Daten ändert sich nichts."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Öffne „Mehr“ > „Einstellungen“ > „Meta-Konto“ (bzw. „Kontenübersicht“)."
+    - "Wähle „Deine Informationen und Berechtigungen“ > „Deine Informationen exportieren“ > „Export erstellen“."
+    - "Wähle dein Instagram-Profil, tippe auf „Weiter“ und dann „Zu Gerät exportieren“."
+    - "Lege Informationen, Zeitraum, Format und Medienqualität fest und klicke auf „Export starten“. Du wirst benachrichtigt, wenn die Datei bereitsteht."
+  affects: [ig-content, ig-activity, ig-profile, ig-connections, ig-contact-sync]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Instagram-Hilfeartikel zum Exportieren deiner Informationen (de) abgeglichen."
+  sources: [instagram-help-export]
+- id: instagram-delete-account
+  service: instagram
+  kind: deletion
+  title: Instagram-Konto dauerhaft löschen
+  goal: "Dein Profil, deine Fotos, Videos und Kommentare werden endgültig gelöscht."
+  whyItMatters: "Solange das Konto besteht, wertet Instagram deine Aktivität weiter aus und behält deine Inhalte."
+  whatChanges: "Das Konto wird gelöscht. Das kann bis zu 90 Tage dauern."
+  whatDoesNotChange: "Kopien können danach noch eine Zeit in Sicherungen (Backups) liegen. Aus rechtlichen Gründen kann Meta manches länger aufbewahren. Ein verknüpftes Facebook-Konto bleibt bestehen."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web, android, ios]
+  steps:
+    - "Exportiere vorher deine Daten, wenn du sie behalten möchtest."
+    - "Öffne „Mehr“ > „Einstellungen“ > „Kontenübersicht“."
+    - "Wähle „Personenbezogene Angaben“ > „Kontoinhaberschaft und -steuerung“ > „Deaktivieren oder Löschen“ (je nach Kontoumstellung auch über „Konten verwalten“)."
+    - "Wähle das Konto, dann „Konto löschen“ und „Weiter“, und folge den Anweisungen."
+  affects: [ig-profile, ig-content, ig-activity, ig-connections]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Instagram-Hilfeartikel „Dein Instagram-Profil dauerhaft löschen“ (de) abgeglichen; der Artikel nennt zwei Menüvarianten."
+  sources: [instagram-help-delete-account]

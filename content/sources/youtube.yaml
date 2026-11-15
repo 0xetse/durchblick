@@ -1,0 +1,55 @@
+- id: youtube-help-watch-history
+  title: Wiedergabeverlauf ansehen, löschen oder deaktivieren
+  publisher: YouTube-Hilfe
+  url: https://support.google.com/youtube/answer/95725?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: youtube-help-search-history
+  title: Suchverlauf verwalten
+  publisher: YouTube-Hilfe
+  url: https://support.google.com/youtube/answer/57711?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: Abgerufen wurde die Android-Anleitung.
+- id: youtube-help-privacy-basics
+  title: Grundlagen zum Datenschutz in YouTube-Apps
+  publisher: YouTube-Hilfe
+  url: https://support.google.com/youtube/answer/10364219?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: youtube-help-delete-channel
+  title: YouTube-Kanal löschen oder ausblenden
+  publisher: YouTube-Hilfe
+  url: https://support.google.com/youtube/answer/55759?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: global
+  language: de
+- id: youtube-help-ads
+  title: Werbung in Videos, die du dir ansiehst
+  publisher: YouTube-Hilfe
+  url: https://support.google.com/youtube/answer/3181017?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-11-14"
+  region: global
+  language: de
+- id: youtube-how-recommendations
+  title: "How YouTube Works: Recommendations"
+  publisher: YouTube
+  url: https://www.youtube.com/howyoutubeworks/product-features/recommendations/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en

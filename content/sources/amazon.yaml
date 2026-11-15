@@ -1,0 +1,96 @@
+- id: amazon-privacy-notice-de
+  title: Amazon.de Datenschutzerklärung
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+  note: "Letzte Aktualisierung laut Seite: 22.12.2025. Verantwortliche: Amazon Europe Core S.à r.l., Amazon EU S.à r.l., Amazon Media EU S.à r.l. (Luxemburg) und Amazon Digital Germany GmbH (München)."
+- id: amazon-interest-based-ads
+  title: Interessenbasierte Werbung
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=G64JFZVFDY66XG9K
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+  note: "Zuletzt geändert am 22. Dezember 2025. Einwilligung als Rechtsgrundlage für personalisierte Werbung; Zielgruppen-Mitgliedschaft max. 13 Monate."
+- id: amazon-cross-service-use
+  title: Über die serviceübergreifende Verwendung persönlicher Informationen bei Amazon
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=T1fdzp9ecINEaVWTyY
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Seit 6. März 2024 Einwilligung für serviceübergreifende Nutzung (Shop, Alexa, Entertainment, Geräte) erforderlich."
+- id: amazon-request-data
+  title: Persönliche Informationen anfordern
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=TP1zlemejtTn6pwYKS
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+- id: amazon-close-account
+  title: Kontoschließung und Datenlöschung anfordern
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=GDK92DNLSGWTV6MP
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+- id: amazon-browsing-history-help
+  title: Deinen Browserverlauf und deine Cookies ohne Konto verwalten
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=TY1RU5BB9FbdJdado2
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+  note: "Die Seite richtet sich an Nutzer ohne Konto; die Seite 'Browserverlauf' wird aber auch für Konten in der Datenschutzerklärung verlinkt."
+- id: amazon-third-party-recipients
+  title: In welchen Fällen können Dritte Ihre Informationen erhalten?
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=T98LFuVqmNAqRHQkCc
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+- id: amazon-controllers
+  title: Datenschutzrechtlich Verantwortliche
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=GR2TDVTNRVM2PY2M
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+- id: amazon-alexa-privacy
+  title: Alexa, Echo-Geräte und Ihre Privatsphäre
+  publisher: Amazon Europe Core S.à r.l.
+  url: https://www.amazon.de/gp/help/customer/display.html?nodeId=GVP69FUJ48X9DK8V
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: de
+  note: "Erreichbar über https://www.amazon.de/help/AlexaPrivacy (Weiterleitung)."
+- id: amazon-q4-2025-results
+  title: Amazon.com Announces Fourth Quarter Results (Exhibit 99.1)
+  publisher: Amazon.com, Inc. (SEC EDGAR)
+  url: https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: US
+  language: en
+  note: "Werbeerlöse 2025 je Quartal: 13,9 / 15,7 / 17,7 / 21,3 Mrd. USD (zusammen rund 68,6 Mrd. USD) bei rund 717 Mrd. USD Gesamtumsatz."

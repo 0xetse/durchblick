@@ -1,0 +1,70 @@
+# Instagram-specific sources. Shared Meta sources (meta-*) live in facebook.yaml.
+- id: instagram-privacy-policy
+  title: Meta-Datenschutzrichtlinie (über den Instagram-Hilfebereich)
+  publisher: Instagram / Meta
+  url: https://help.instagram.com/519522125107875
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Identischer Text wie die Meta-Datenschutzrichtlinie (Fassung vom 23. Juli 2026); Instagram fällt unter dieselbe Richtlinie. Aus US-Netz abgerufen; EU-Fassung auch über privacycenter.instagram.com am 2026-10-07 nicht erhältlich (gleiche US-Fassung)."
+- id: instagram-help-contacts
+  title: Synchronisierung von Kontakten auf Instagram deaktivieren und synchronisierte Kontakte löschen
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/236691729788553
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Abschalten löscht bereits synchronisierte Kontakte nicht; Löschen nur gesammelt am Computer, Dauer bis zu 90 Tage, in denen weiter Empfehlungen auf Basis der Kontakte möglich sind."
+- id: instagram-help-export
+  title: Deine Informationen auf Instagram überprüfen und exportieren
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/181231772500920
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: instagram-help-delete-account
+  title: Dein Instagram-Profil dauerhaft löschen
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/139886812848894
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Löschung kann bis zu 90 Tage dauern; Backups können danach noch Kopien enthalten."
+- id: instagram-help-e2ee
+  title: Ende-zu-Ende-Verschlüsselung auf Instagram
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/1165835007222763
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "„Ende-zu-Ende-verschlüsselte Nachrichten auf Instagram werden seit dem 8. Mai 2026 nicht mehr unterstützt.“; „Die anderen Ende-zu-Ende-verschlüsselten Chat-Optionen von Meta findest du auf WhatsApp.“ Gerendert mit de-DE aus einem US-Netz; ohne Regionshinweis."
+- id: instagram-help-activity-other-businesses
+  title: Anpassen, welche Inhalte dir auf Instagram basierend auf deinen Aktivitäten bei anderen Unternehmen angezeigt werden
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/2885653514995517
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Gerendert (de-DE, US-Netz). Schritte in der App: Profil > Menü > Kontenübersicht > Deine Informationen und Berechtigungen > Aktivitäten bei anderen Unternehmen. Beschreibt die Einstellung für relevante Inhalte; ein Abschnitt zu Werbung und ein Hinweis zur Region Europa fehlen in dieser Fassung."
+- id: instagram-help-manage-ad-experience
+  title: Verwalten, ob du mehr oder weniger stark personalisierte Werbung sehen möchtest
+  publisher: Instagram-Hilfebereich
+  url: https://help.instagram.com/426488546963771
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: EU
+  language: de
+  note: "Gerendert (de-DE und en-GB, US-Netz) in den Ansichten Android, iPhone und Computer. „Diese Option ist nur in der Region Europa verfügbar.“ App: Profilbild > Menü > Kontenübersicht > Werbepräferenzen > Tab „Informationen verwalten“ > Werbeerlebnis > Bestätigen. Computer: Mehr > Einstellungen > Kontenübersicht > Werbepräferenzen > Informationen verwalten > Werbeerlebnis. Englische Fassung nennt „Meta Account“ statt Kontenübersicht."

@@ -1,0 +1,173 @@
+- id: linkedin-ai-training
+  service: linkedin
+  kind: setting
+  title: Object to LinkedIn using your data for its AI
+  goal: "LinkedIn no longer uses your profile, your posts and what you type into its AI to train AI that creates texts."
+  whyItMatters: "Since 3 November 2025, LinkedIn has been training its own AI in the EU with profiles, posts, comments, group messages and saved CVs. The setting for this is turned on by default."
+  whatChanges: "According to LinkedIn, once you object, LinkedIn and linked companies such as Microsoft no longer use your LinkedIn data to train AI that creates content."
+  whatDoesNotChange: "Training that has already happened is not undone. LinkedIn still trains AI for recommendations and security; only the form “Object to data processing” helps against that. Feedback you give LinkedIn may also still be used. You can still use the AI features."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.linkedin.com/mypreferences/d/settings/data-for-ai-improvement
+  steps: []
+  affects: [li-profile, li-content, li-ai-prompts, li-jobs]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "The name of the setting (“Data for Generative AI Improvement”) and the direct link come from the German version of the LinkedIn help page “LinkedIn and generative AI – frequently asked questions” (retrieved 2026-10-08). That page does not give a menu path. The Dutch data protection authority gives the path “Instellingen & Privacy → Gegevensprivacy → Gegevens voor verbetering van generatieve AI” (Dutch interface). We did not find an official step-by-step guide from LinkedIn in German; therefore no steps. Checked again on 2026-10-21: the help pages “LinkedIn and generative AI (GAI) FAQs” (a5538339) and “Update to our Terms and data use” (a8059228) still only name the setting or link to it, without a menu path. We only found menu paths from third parties."
+  sources: [linkedin-help-genai-faq, linkedin-eu-privacy-notice, linkedin-ap-ai-warning-2025, linkedin-dpc-ai-statement-2025]
+- id: linkedin-ads-other-data
+  service: linkedin
+  kind: setting
+  title: Stop LinkedIn using data from other websites for ads
+  goal: "LinkedIn no longer uses what other websites and companies report about you for ads."
+  whyItMatters: "Many companies put a piece of code from LinkedIn on their website (Insight Tag) that reports visits by members. Others upload lists of their customers' email addresses. This leads to ads that follow you on LinkedIn."
+  whatChanges: "LinkedIn no longer shows you ads based on this data from other companies. According to LinkedIn, changes usually take effect within 72 hours."
+  whatDoesNotChange: "You still see ads, just less closely matched to you. Websites keep the Insight Tag built in. Ads based on your profile and your activity on LinkedIn are controlled by separate switches."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.linkedin.com/psettings/advertising-data
+  steps:
+    - "At the top of the LinkedIn homepage, click the “Me” icon and choose “Settings & Privacy”."
+    - "Open the “Advertising data” section (some help pages use a slightly different name)."
+    - "Click the arrow next to “Data from others for ads”."
+    - "Set the switch to “Off”."
+  affects: [li-offplatform]
+  tradeOff: "Ads match less well what you have looked at elsewhere."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German versions of the help pages on how companies and websites can let LinkedIn use third-party data for targeted ads (Advertising data > Data from others for ads > Off) and on viewing and managing your LinkedIn ad settings (Me > Settings & Privacy > Advertising data). The two pages name the section differently; not checked in the app."
+  sources: [linkedin-help-third-party-ad-data, linkedin-help-ad-settings, linkedin-help-third-party-data-use]
+- id: linkedin-ads-profile-activity
+  service: linkedin
+  kind: setting
+  title: Limit ads based on your profile and activity
+  goal: "LinkedIn uses less of your profile details, activity and estimated characteristics to show you ads."
+  whyItMatters: "For ads, LinkedIn uses your profile details, what you read and click, and what it estimates from that, such as age, gender, interests or whether you are looking for a job."
+  whatChanges: "You decide one by one which profile data and which activity and estimated data LinkedIn may use for ads. This applies to ads on and off LinkedIn. Changes usually take effect within 72 hours."
+  whatDoesNotChange: "You still see ads. LinkedIn still records your activity and uses it for your feed and for contact and job suggestions."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.linkedin.com/psettings/advertising-data
+  steps:
+    - "At the top of the LinkedIn homepage, click the “Me” icon."
+    - "In the drop-down menu, choose “Settings & Privacy”."
+    - "On the left, click “Advertising data”."
+    - "Go through the sections “Profile data” and “Activity and inferred data” and set any switches you do not want to “Off”."
+  affects: [li-profile, li-activity, li-searches, li-location]
+  tradeOff: "Ads are less tailored to you."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German version of the help page on viewing and managing your LinkedIn ad settings. The page says that in the EU some switches may appear as “not applicable” if LinkedIn does not use this data there anyway; not checked in the app."
+  sources: [linkedin-help-ad-settings, linkedin-eu-privacy-notice]
+- id: linkedin-profile-views-private
+  service: linkedin
+  kind: setting
+  title: View other people's profiles in private mode
+  goal: "Members whose profile you visit no longer see who you are."
+  whyItMatters: "Depending on the setting, a member finds out that you have viewed their profile – with your name and headline. This can be awkward, for example when you are looking for a job or with former colleagues."
+  whatChanges: "In private mode, others only see you as an anonymous LinkedIn member in private mode. In semi-private mode, they see characteristics such as job title, company or industry."
+  whatDoesNotChange: "LinkedIn itself still saves which profiles you view. With a free account, in private mode you yourself no longer see who has visited your profile."
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "At the top of the LinkedIn homepage, click the “Me” icon."
+    - "Choose “Settings & Privacy” and click “Visibility” on the left."
+    - "In the section “Visibility of your profile & network”, click “Profile viewing options”."
+    - "Choose “Private mode” or “Private profile characteristics”. The change is saved automatically."
+  affects: [li-activity]
+  tradeOff: "With a free account, you no longer see who has viewed your profile."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German version of the help page on browsing profiles in private and semi-private mode (partly machine-translated); not checked in the app."
+  sources: [linkedin-help-private-mode, linkedin-privacy-policy]
+- id: linkedin-remove-imported-contacts
+  service: linkedin
+  kind: setting
+  title: Delete uploaded address book contacts
+  goal: "LinkedIn deletes the contacts you have uploaded from your phone or email account."
+  whyItMatters: "When you import contacts, LinkedIn uploads your contacts' names, phone numbers and email addresses – including people who are not on LinkedIn at all – and can later upload them again regularly."
+  whatChanges: "According to LinkedIn, the contacts are deleted straight away. Suggestions in “People you may know” adjust within up to 72 hours."
+  whatDoesNotChange: "Your connections on LinkedIn stay. If others have uploaded their address book with your details, it stays saved for them. You also remove access to your contacts in your phone's settings."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "At the top of the LinkedIn homepage, click the “Me” icon and then “Settings & Privacy” (in the app: profile photo > Settings & Privacy > Account preferences)."
+    - "Under “Syncing options”, click “Sync contacts”."
+    - "Next to your contacts, click “Remove all”."
+    - "In the window that asks whether to remove all sources, confirm with “Continue”."
+  affects: [li-address-book]
+  tradeOff: "Fewer suggestions for people you already know."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German version of the help page on deleting imported address book contacts from LinkedIn (desktop and mobile, partly machine-translated); not checked in the app."
+  sources: [linkedin-help-delete-imported-contacts, linkedin-help-import-contacts]
+- id: linkedin-export
+  service: linkedin
+  kind: export
+  title: Download a copy of your LinkedIn data
+  goal: "You get a file with your profile data, messages, contacts, searches and what LinkedIn concludes about you."
+  whyItMatters: "The export also shows the data used for ads (“Ad targeting”) and the “Inferences” LinkedIn draws about you. And it backs up your content before you close your account."
+  whatChanges: "You choose individual types of data (by email after a few minutes) or the large archive (within 24 hours). The download link is valid for 72 hours."
+  whatDoesNotChange: "Nothing changes in the saved data. Data on “People you may know” and on the people who visited your profile is not included. There is a separate request form for anything missing."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "At the top of the LinkedIn homepage, click the “Me” icon."
+    - "In the drop-down list, choose “Settings & Privacy” and click “Data privacy” on the left."
+    - "In the section “How LinkedIn uses your data”, click “Get a copy of your data”."
+    - "Choose the data and click “Request archive”."
+    - "Download the data through the link in the email, ideally on your own computer."
+  affects: [li-profile, li-content, li-messages, li-network, li-address-book, li-searches, li-ai-prompts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German version of the help page on downloading your data. According to the page, this is “currently not available on mobile devices”."
+  sources: [linkedin-help-download-data, linkedin-eu-privacy-notice]
+- id: linkedin-close-account
+  service: linkedin
+  kind: deletion
+  title: Close and delete your LinkedIn account
+  goal: "Your profile, your connections and messages are deleted."
+  whyItMatters: "LinkedIn keeps your data as long as the account exists – even if you only use it every few years."
+  whatChanges: "Your profile is usually no longer visible after 24 hours. LinkedIn usually deletes the data within 30 days. You can usually reopen the account within 14 days, but you lose, for example, recommendations and group memberships."
+  whatDoesNotChange: "What you sent to others or posted in groups stays visible to them. Search engines may still show your profile for a while. LinkedIn keeps some things longer for legal obligations and fraud protection. What has already gone into AI training stays there."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web, android, ios]
+  steps:
+    - "First download your data if you want to keep it. Cancel any Premium subscription and hand over any group responsibilities."
+    - "At the top of the LinkedIn homepage, click the “Me” icon and choose “Settings & Privacy” (in the app: profile picture > Settings > Account preferences)."
+    - "Under “Account preferences”, in the section “Account management”, click “Change” next to “Close account”."
+    - "Choose a reason and click “Next”."
+    - "Enter your password and click “Close account”."
+  affects: [li-account, li-profile, li-content, li-messages, li-network, li-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German version of the help page on closing and deleting your LinkedIn account (desktop, iOS, Android); time limits from section 4.3 of the privacy policy."
+  sources: [linkedin-help-close-account, linkedin-privacy-policy]

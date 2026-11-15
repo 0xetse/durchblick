@@ -1,0 +1,177 @@
+- id: google-ads-personalisation
+  service: google
+  kind: setting
+  title: Personalisierte Werbung ausschalten
+  goal: "Google wählt Werbung nicht mehr danach aus, was du tust und was Google über dich weiß."
+  whyItMatters: "Für personalisierte Werbung nutzt Google deine Suchen, angesehenen Videos und installierten Apps. Dazu kommen Angaben wie Alter und Geschlecht – auch geschätzte."
+  whatChanges: "Auf allen Geräten, auf denen du angemeldet bist, richtet sich Werbung in Google-Diensten nicht mehr nach dem, was Google über dich weiß."
+  whatDoesNotChange: "Du siehst weiterhin Werbung. Sie richtet sich dann nach dem Umfeld, etwa Tageszeit, Thema der Seite oder aktuellem Standort. Deine Aktivitäten bleiben gespeichert, bis du sie löschst."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://myadcenter.google.com/
+  steps:
+    - "Öffne Mein Anzeigen-Center (myadcenter.google.com) und melde dich an."
+    - "Wähle neben „Personalisierte Werbung“ die Option „Aus“."
+    - "Bestätige deine Auswahl."
+  affects: [google-ad-interactions, google-search-queries, google-partner-site-activity, google-account-data]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der offiziellen Hilfeseite zu Mein Anzeigen-Center (de) abgeglichen."
+  sources: [google-help-my-ad-center]
+- id: google-activity-controls
+  service: google
+  kind: setting
+  title: Web- & App-Aktivitäten pausieren oder automatisch löschen
+  goal: "Google speichert deine Suchen und Aktivitäten nicht mehr dauerhaft in deinem Konto."
+  whyItMatters: "Über die Web- & App-Aktivitäten sammelt Google in deinem Konto deine Suchen, Standortdaten und angeklickte Werbung. Wenn du es erlaubst, auch Chrome-Verlauf und Sprachaufnahmen."
+  whatChanges: "Pausiert: Neue Aktivitäten landen nicht mehr im Konto. Ergebnisse und Vorschläge passen dann weniger genau zu dir. Mit automatischem Löschen verschwinden ältere Einträge nach 3, 18 oder 36 Monaten."
+  whatDoesNotChange: "Beim Pausieren bleibt Gespeichertes erhalten – außer du wählst „Deaktivieren und Aktivitäten löschen“. Technische Protokolle und andere Speicherorte sind nicht betroffen. Manche Daten bewahrt Google für bestimmte Zwecke länger auf."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/activitycontrols
+  steps:
+    - "Rufe am Computer die Seite Aktivitätseinstellungen auf."
+    - "Schalte Web- & App-Aktivitäten aus und wähle „Deaktivieren“ oder „Deaktivieren und Aktivitäten löschen“."
+    - "Möchtest du die Einstellung behalten: Entferne bei Bedarf nur die Häkchen für Chrome-Verlauf/Aktivitäten auf Websites und für Sprach- und Audioaktivitäten."
+    - "Für automatisches Löschen: Öffne dein Google-Konto, klicke links auf „Daten und Datenschutz“ und unter „Einstellungen für den Verlauf“ auf die Aktivität."
+    - "Klicke auf „Automatisch löschen“, wähle die Dauer, dann „Weiter“ und „Bestätigen“."
+  affects: [google-search-queries, google-chrome-history, google-voice, google-ad-interactions, google-partner-site-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit den Hilfeseiten „Web- & App-Aktivitäten“ und „Aktivitäten löschen“ (de) abgeglichen."
+  sources: [google-help-web-app-activity, google-help-delete-activity]
+- id: google-partner-activity
+  service: google
+  kind: setting
+  title: Daten von Partner-Websites nicht im Konto speichern
+  goal: "Besuche auf fremden Websites und in Apps mit Google-Diensten landen nicht mehr in deinem Google-Konto. Dort siehst du auch keine Werbung mehr, die auf dich zugeschnitten ist."
+  whyItMatters: "Viele Websites nutzen Google-Werbung oder Googles Besucherstatistik Google Analytics. Dabei gehen die Adresse der Seite und deine IP-Adresse – die Internet-Adresse deines Anschlusses – an Google."
+  whatChanges: "Was du auf Partner-Websites und in Partner-Apps tust, landet nicht mehr in deinem Konto. Auf Partner-Websites siehst du keine personalisierte Werbung mehr."
+  whatDoesNotChange: "Die Websites schicken weiterhin Daten an Google, etwa für Statistiken und gegen Betrug. Google Analytics kannst du zusätzlich mit einer offiziellen Browser-Erweiterung von Google begrenzen."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://adssettings.google.com/partnerads
+  steps:
+    - "Öffne die Einstellungen für Partnerwerbung (adssettings.google.com/partnerads) und melde dich an."
+    - "Entferne das Häkchen bei „Auch Daten von Google-Partnerwebsites und -Apps können in meinem Google-Konto gespeichert werden“ und bestätige."
+    - "Schalte dort auch „Personalisierte Werbung anzeigen, wenn Sie Websites von Google-Partnern besuchen“ aus und bestätige."
+  affects: [google-partner-site-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte und Optionsbezeichnungen mit der Hilfeseite zu Mein Anzeigen-Center (de, Abschnitte zu Partnerwebsites) abgeglichen; die Hilfeseite verlinkt direkt auf adssettings.google.com/partnerads (Red-Team-Abruf 2026-10-07)."
+  sources: [google-help-my-ad-center, google-partner-sites]
+- id: google-location-timeline
+  service: google
+  kind: review
+  title: Standortspeicherung prüfen
+  goal: "Du weißt, ob Google deine Bewegungen speichert und wo."
+  whyItMatters: "Standortdaten verraten Wohnort, Arbeitsplatz und Gewohnheiten. Google kann sie über die Zeitachse und zusätzlich über die Web- & App-Aktivitäten speichern."
+  whatChanges: "Ist die Zeitachse aus, werden keine besuchten Orte mehr gesammelt. Gelöschte Daten der Zeitachse sind weg."
+  whatDoesNotChange: "Standortangaben in den Web- & App-Aktivitäten und der ungefähre Standort aus deiner IP-Adresse sind davon nicht betroffen. Sie haben eigene Einstellungen."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://myactivity.google.com/
+  steps:
+    - "Öffne auf deinem Smartphone die Google Maps App."
+    - "Tippe auf dein Profilbild oder deine Initiale und dann auf „Meine Zeitachse“."
+    - "Tippe auf das Dreipunkt-Menü und dann auf „Einstellungen für Standortverlauf und Datenschutz“."
+    - "Unter „Standorteinstellungen“ siehst du, ob „Zeitachse aktiviert“ oder „Zeitachse deaktiviert“ angezeigt wird."
+    - "Zum Ausschalten: Tippe auf „Zeitachse aktiviert“ und wähle im Drop-down-Menü „Deaktivieren“ oder „Deaktivieren und Aktivitäten löschen“."
+    - "Um alle gespeicherten Orte zu löschen: Tippe unter „Standorteinstellungen“ auf „Alle Zeitachsendaten löschen“ und folge der Anleitung. Gelöschte Daten lassen sich nicht wiederherstellen."
+  affects: [google-timeline, google-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Schritte mit der Hilfeseite „Google Maps-Zeitachse verwalten“ (de, Ansichten Android und iPhone/iPad) abgeglichen; die Schritte sind auf beiden Plattformen gleich."
+  sources: [google-help-timeline, google-blog-timeline-on-device]
+- id: google-linked-services
+  service: google
+  kind: setting
+  title: Verknüpfung von Google-Diensten wählen
+  goal: "Du entscheidest, ob Suche, YouTube, Werbedienste, Play, Chrome, Shopping und Maps Daten untereinander teilen."
+  whyItMatters: "Sind Dienste verknüpft, können sie Daten über dich untereinander teilen."
+  whatChanges: "Nicht verknüpfte Dienste teilen deine Daten nicht mehr miteinander, etwa um Inhalte auf dich zuzuschneiden."
+  whatDoesNotChange: "Für bestimmte Zwecke wie Schutz vor Betrug und rechtliche Pflichten teilt Google weiterhin zwischen allen Diensten. Die Weitergabe an andere Firmen regelt diese Einstellung nicht."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myaccount.google.com/data-and-privacy
+  steps:
+    - "Öffne dein Google-Konto (myaccount.google.com)."
+    - "Klicke links auf „Daten und Datenschutz“."
+    - "Klicke unter „Daten weitergeben“ auf „Verknüpfte Google-Dienste“."
+    - "Wähle die Dienste aus, die verknüpft bleiben sollen, und klicke auf „Weiter“."
+    - "Prüfe deine Auswahl und wähle „Bestätigen“ und dann „Fertig“."
+  affects: [google-search-queries, google-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Schritte mit der Hilfeseite „Verknüpfte Google-Dienste verwalten“ (de, Computer) abgeglichen."
+  sources: [google-help-manage-linked-services, google-help-linked-services]
+- id: google-takeout
+  service: google
+  kind: export
+  title: Deine Google-Daten herunterladen
+  goal: "Du bekommst eine Kopie deiner Daten aus Google-Diensten als Archiv."
+  whyItMatters: "So siehst du, was gespeichert ist, und kannst Daten zu einem anderen Anbieter mitnehmen."
+  whatChanges: "Du bekommst eine gepackte Datei (ZIP oder TGZ) – per Download-Link oder in einem Online-Speicher."
+  whatDoesNotChange: "Beim Herunterladen werden keine Daten bei Google gelöscht. Was sich ändert, während die Datei erstellt wird, fehlt eventuell."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://takeout.google.com/
+  steps:
+    - "Melde dich in deinem Google-Konto an und öffne Google Datenexport (takeout.google.com)."
+    - "Genutzte Produkte sind vorausgewählt; wähle ab, was du nicht brauchst."
+    - "Klicke auf „Nächster Schritt“ und wähle Übermittlungsart und Dateiformat."
+    - "Erstelle den Export. Google schickt dir eine E-Mail, sobald das Archiv bereitsteht – meist am selben Tag, bei großen Datenmengen auch nach einigen Tagen."
+  affects: [google-search-queries, google-content, google-account-data]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der Hilfeseite „Google-Daten herunterladen“ (de) abgeglichen."
+  sources: [google-help-takeout]
+- id: google-account-deletion
+  service: google
+  kind: deletion
+  title: Google-Konto löschen
+  goal: "Dein Google-Konto und die damit verknüpften Daten werden gelöscht."
+  whyItMatters: "Nur so entfernst du alle Daten, die an diesem Konto hängen."
+  whatChanges: "E-Mails, Dateien, Kalender, Fotos und Käufe (z. B. bei YouTube oder Google Play) gehen verloren. Nach einer gewissen Zeit lässt sich das Konto nicht mehr zurückholen."
+  whatDoesNotChange: "Daten, die Google aus rechtlichen Gründen aufbewahren muss, bleiben. Auch Daten, die Websites unabhängig vom Konto sammeln, sind nicht betroffen. Lade vorher herunter, was du behalten willst, und ändere die Gmail-Adresse bei Bank und anderen Konten."
+  impact: high
+  minutes: 15
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://myaccount.google.com/deleteaccount
+  steps:
+    - "Lade vorher mit Google Takeout herunter, was du behalten möchtest."
+    - "Öffne in deinem Google-Konto den Bereich „Daten und Datenschutz“."
+    - "Scrolle zu „Optionen für Daten und Datenschutz“."
+    - "Wähle „Weitere Optionen“ und dann „Google-Konto löschen“ und folge der Anleitung."
+  affects: [google-account-data, google-content, google-search-queries]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der Hilfeseite „Google-Konto löschen“ (de) abgeglichen."
+  sources: [google-help-delete-account, google-help-takeout]

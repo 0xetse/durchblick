@@ -1,0 +1,163 @@
+- id: netflix-privacy-statement
+  title: Datenschutzerklärung
+  publisher: Netflix
+  url: https://help.netflix.com/legal/privacy?locale=de-DE
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Zuletzt aktualisiert: 10. April 2026“. Gilt weltweit; Abschnitt F enthält ergänzende Hinweise für EWR/Vereinigtes Königreich (Rechtsgrundlagen). Verantwortliche nennt die Seite netflix.com/legal/corpinfo."
+- id: netflix-help-corpinfo
+  title: Impressum
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/legal/corpinfo?locale=de-DE
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "„Die folgenden Netflix-Unternehmen sind gemeinsam Verantwortliche: Netflix Services Germany GmbH […] Netflix International B.V.“; Betreiber des Diensts: Netflix International B.V., Amsterdam."
+- id: netflix-help-data-copy
+  title: Welche personenbezogenen Daten speichert Netflix von Ihnen und wie können Sie eine Kopie davon anfordern?
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/100624
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Folgen Sie den Anweisungen unter https://www.netflix.com/account/getmyinfo.“ – „kann es bis zu 30 Tage dauern“"
+- id: netflix-help-privacy-choices
+  title: Wie können Sie bestimmte Nutzungsarten Ihrer personenbezogenen Daten unterbinden?
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/100637
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Beschreibt die Einstellungen „Zustimmungszwecke für Nutzer*innen“, „Zwecke mit berechtigtem Interesse“, „Verhaltensgesteuerte Werbung“, „Demografisch ausgerichtete Werbung“, „Kommunikation auf der Basis von Kennungs-Matching“ und die Haushaltsfeststellung."
+- id: netflix-help-delete-retain
+  title: Löschen, Entfernen und Aufbewahren von Informationen
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/100625
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+- id: netflix-help-delete-account
+  title: Löschen Ihres Netflix-Kontos
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/126558
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Es ist unsere Standardpraxis, Netflix-Konten 24 Monate nach der Kündigung der Mitgliedschaft automatisch zu löschen.“"
+- id: netflix-help-cancel
+  title: So kündigen Sie Netflix
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/407
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Wir speichern Ihren Titelverlauf nach der Schließung Ihres Kontos für 24 Monate.“"
+- id: netflix-help-viewing-activity
+  title: Titelverlauf und Geräteaktivität anzeigen
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/101917
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-hide-history
+  title: So blenden Sie Titel aus dem Titelverlauf aus
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/22205
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-recommendations
+  title: Wie funktioniert das Empfehlungssystem von Netflix?
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/100639
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-ads
+  title: Werbung auf Netflix
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/126831
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-household
+  title: Was ist ein Netflix-Haushalt?
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/124925
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-profile-lock
+  title: Profil-PIN hinzufügen, ändern oder entfernen
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/114277
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+- id: netflix-help-plans
+  title: Abos und Preise
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/24926
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "Abgerufen mit Länderauswahl Deutschland. „Standard-Abo mit Werbung: 6,99 € pro Monat“; „Sie können Ihr Netflix-Konto nicht mit Personen außerhalb Ihres Haushalts teilen.“"
+- id: netflix-help-extra-member
+  title: Zusatzmitglieder
+  publisher: Netflix Hilfe-Center
+  url: https://help.netflix.com/de/node/123279
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Für Zusatzmitglieder mit Werbung: „Geburtsdatum und Geschlecht werden für die Werbeumgebung gesammelt“"
+- id: netflix-q4-2025-letter
+  title: Netflix Q4 2025 Shareholder Letter (Form 8-K, Exhibit 99.1)
+  publisher: Netflix, Inc. / U.S. Securities and Exchange Commission
+  url: https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Brief vom 20. Januar 2026: „For the year, we delivered $45.2B of revenue“; „Ad revenue rose more than 2.5x to over $1.5B.“"
+- id: netflix-ap-fine-2024
+  title: Boete Netflix voor niet goed informeren klanten
+  publisher: Autoriteit Persoonsgegevens (niederländische Datenschutzbehörde)
+  url: https://www.autoriteitpersoonsgegevens.nl/actueel/boete-netflix-voor-niet-goed-informeren-klanten
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: nl
+  note: "18. Dezember 2024: Bußgeld von 4,75 Mio. Euro, weil Netflix Kund*innen zwischen 2018 und 2020 nicht ausreichend informierte. „Netflix heeft bezwaar gemaakt tegen de boete.“"

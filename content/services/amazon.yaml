@@ -1,0 +1,342 @@
+id: amazon
+name: Amazon
+company: amazon
+category: shopping
+url: https://www.amazon.de
+summary: >-
+  Amazon speichert, was du suchst, ansiehst und kaufst. Das nutzt Amazon für Empfehlungen und – mit deiner Einwilligung – für personalisierte Werbung, auch außerhalb von Amazon. Bestelldaten bleiben lange gespeichert.
+surprise:
+  action: amazon-browsing-history
+  text: >-
+    Amazon erfasst nicht nur, was du kaufst, sondern auch, wie du dich durch die Website bewegst: in welcher Reihenfolge du Seiten aufrufst, wie lange sie laden, wie du scrollst und klickst und worauf du mit der Maus zeigst.
+  sources:
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Automatische Informationen' (URL-Clickstream)"
+businessModel:
+  text: >-
+    Amazon verdient vor allem am Handel, an Abos wie Prime und an Cloud-Diensten – also Rechenleistung und Speicher, die Firmen mieten. Werbung ist ein großes und wachsendes Geschäft: 2025 brachte sie rund 69 Milliarden US-Dollar ein, knapp ein Zehntel des Gesamtumsatzes.
+  sources:
+    - ref: amazon-q4-2025-results
+      note: "Segment 'Advertising services', Quartale 2025"
+dataPoints:
+  - id: account
+    category: account
+    title: Name, Adressen, Telefonnummer und Zahlungsdaten.
+    detail: >-
+      Was du im Konto angibst: Name, Liefer- und Rechnungsadressen, Telefonnummer, E-Mail-Adresse, Zahlungsdaten und, falls angegeben, Alter und Profilfoto.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Beispiele erhobener Informationen'"
+  - id: purchases
+    category: purchases
+    title: Deine komplette Bestellhistorie.
+    detail: >-
+      Jede Bestellung mit Produkt, Preis, Datum und Lieferadresse – auch digitale Käufe, Ausleihen und Rücksendungen. Amazon behält diese Übersicht, solange dein Konto besteht.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitte 'Automatische Informationen' und 'Zusätzliche Informationen zur Datenspeicherung'"
+  - id: searches
+    category: searches
+    title: Wonach du im Amazon-Shop suchst.
+    detail: >-
+      Deine Suchen nach Produkten, z. B. „Laufschuhe“ oder „Babyphone“. Laut Amazon gehört der Suchverlauf zu den Daten, die du dir als Kopie schicken lassen kannst.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Beispiele erhobener Informationen'"
+      - ref: amazon-request-data
+        note: "Suchverlauf als Beispiel"
+  - id: clickstream
+    category: activity
+    title: Welche Seiten und Produkte du dir in welcher Reihenfolge ansiehst.
+    detail: >-
+      Amazon zeichnet deinen ganzen Weg durch die Website auf: angesehene Produkte, Datum und Uhrzeit, wie lange Seiten laden, Scrollen, Klicken und worauf du mit der Maus zeigst. Daraus entsteht auch die Liste deiner zuletzt angesehenen Artikel (Browserverlauf).
+    technical: >-
+      Amazon nennt das „URL-Clickstream“: Abfolge der aufgerufenen Adressen samt Ladezeiten und Interaktionen wie Scrollen, Klicks und Mouse-over.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Automatische Informationen' (URL-Clickstream)"
+  - id: device
+    category: device
+    title: Angaben zu deinem Gerät, deinem Browser und deiner Verbindung.
+    detail: >-
+      Zum Beispiel deine IP-Adresse (die Internet-Adresse deines Anschlusses), Browser und Version, Betriebssystem, Zeitzone, feste Gerätenummern und Cookies – kleine Dateien, an denen Amazon deinen Browser wiedererkennt. Das gilt im Shop, in der App und auf Websites, auf denen Amazon Inhalte zeigt.
+    technical: >-
+      IP-Adresse, Browsertyp und -version, Betriebssystem, Zeitzone, Gerätekennungen und Cookies, auch auf Websites, auf denen Amazon Inhalte ausliefert.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitte 'Automatische Informationen' und Cookies"
+  - id: location
+    category: location
+    title: Der Standort deines Geräts.
+    detail: >-
+      Laut Amazon wird der Standort deines Geräts oder Computers automatisch erfasst. Dazu kommen die Lieferadressen aus deinen Bestellungen.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Automatische Informationen'"
+  - id: reviews-lists
+    category: content
+    title: Bewertungen, Wunschzettel und Listen.
+    detail: >-
+      Rezensionen, Fragen, Wunschzettel, Geschenk- und Babylisten sowie Angaben in „Mein Profil“.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Beispiele erhobener Informationen'"
+  - id: contacts
+    category: contacts
+    title: Dein Adressbuch, wenn du Kontakte hochlädst.
+    detail: >-
+      Lädst du Kontakte hoch, z. B. für Anrufe und Nachrichten mit Alexa, bekommt Amazon Namen, Adressen und Telefonnummern aus deinem Adressbuch.
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: nur wenn du Kontakte hochlädst
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Beispiele erhobener Informationen'"
+      - ref: amazon-alexa-privacy
+        note: "Abschnitt zu Anrufen und Nachrichten mit Alexa"
+  - id: alexa-voice
+    category: voice
+    title: Sprachaufnahmen, wenn du Alexa nutzt.
+    detail: >-
+      Nach dem Startwort nimmt Alexa deine Anfrage auf. Die Aufnahme wird auf Amazons Rechnern im Internet verarbeitet und ab Werk mit deinem Konto gespeichert. Ein kleiner Teil wird von Menschen angehört, um die Spracherkennung zu verbessern.
+    technical: >-
+      Verarbeitung in der Amazon-Cloud; Speicherung mit dem Konto ist voreingestellt; ein kleiner Teil der Aufnahmen wird manuell überprüft.
+    provenance: provided
+    mechanisms: [device]
+    evidence: stated
+    condition: nur wenn du Alexa oder Echo-Geräte nutzt
+    sources:
+      - ref: amazon-alexa-privacy
+        note: "Abschnitte zu Sprachaufzeichnungen und deren Überprüfung"
+  - id: carrier-partner-data
+    category: offplatform
+    title: Informationen von Paketdiensten, Partnern und anderen Amazon-Diensten.
+    detail: >-
+      Zum Beispiel neue Adressen von Zustellern. Oder Angaben zu Käufen und Seitenaufrufen aus Partner-Shops, für die Amazon Zahlungen oder Werbung abwickelt. Mit deiner Einwilligung auch Daten aus Prime Video, Alexa, Kindle und anderen Amazon-Diensten.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Informationen aus anderen Quellen'"
+      - amazon-cross-service-use
+  - id: credit-data
+    category: account
+    title: Auskünfte über deine Kreditwürdigkeit.
+    detail: >-
+      Amazon fragt bei Auskunfteien nach, wie du bisher mit Krediten und Zahlungen umgegangen bist. So will Amazon Betrug verhindern und Zahlungsarten wie Kauf auf Rechnung anbieten.
+    technical: >-
+      Bonitätsauskünfte von Kreditauskunfteien, laut Abschnitt „Informationen aus anderen Quellen“.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    condition: v. a. bei bestimmten Zahlungsarten und Finanzdienstleistungen
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Informationen aus anderen Quellen'"
+inferences:
+  - id: ad-audiences
+    title: Amazon ordnet dich Gruppen für Werbung zu – nach deinen Interessen.
+    detail: >-
+      Laut Amazon entsteht aus deinen Einkaufs- und Unterhaltungsinteressen ein Profil. Damit ordnet Amazon dich Zielgruppen für Werbung zu – nach festen Regeln und mit Rechenmodellen. Beispiel von Amazon: Wer Laufschuhe kauft, sieht Werbung für Sportkleidung.
+    level: documented
+    basedOn: [purchases, searches, clickstream]
+    sources:
+      - ref: amazon-interest-based-ads
+        note: "Abschnitt 'Welche Informationen verwenden wir'"
+  - id: age-gender
+    title: Altersgruppe und Geschlecht fließen in Werbeprofile ein.
+    detail: >-
+      Amazon schreibt, dass es Angaben wie Altersgruppe und Geschlecht für Werbung und Profile nutzt. Ob diese Angaben von dir stammen oder geschätzt werden, sagt Amazon nicht.
+    level: documented
+    basedOn: [account, purchases]
+    sources:
+      - ref: amazon-interest-based-ads
+        note: "Abschnitt 'Welche Informationen verwenden wir'"
+  - id: credit-risk
+    title: Amazon kann dein Kreditrisiko bewerten.
+    detail: >-
+      Laut Datenschutzerklärung berechnet Amazon gegebenenfalls einen Punktwert dafür, wie wahrscheinlich du zahlst (Scoring). Etwa bevor es dir Kauf auf Rechnung anbietet.
+    level: documented
+    basedOn: [credit-data, purchases]
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Betrugsprävention und Kreditrisiken'"
+  - id: life-events
+    title: Lebensumstände wie Schwangerschaft, Umzug oder Haustier.
+    detail: >-
+      Aus Käufen und Listen, z. B. Babyliste, Umzugskartons oder Katzenfutter, ließen sich Lebensumstände ablesen. Technisch ist das möglich. Amazon schreibt aber nicht ausdrücklich, dass es solche Schlüsse zieht.
+    level: possible
+    basedOn: [purchases, reviews-lists, searches]
+    sources:
+      - ref: amazon-privacy-notice-de
+        note: "Abschnitt 'Beispiele erhobener Informationen'"
+purposes:
+  - purpose: provide-service
+    detail: Bestellungen abwickeln, liefern, Zahlungen verarbeiten und mit dir kommunizieren.
+    sources: [amazon-privacy-notice-de]
+  - purpose: personalisation
+    detail: Produkte und Inhalte empfehlen, die dich interessieren könnten.
+    sources: [amazon-privacy-notice-de]
+  - purpose: advertising
+    detail: >-
+      Personalisierte Werbung im Shop und auf fremden Websites – laut Amazon nur mit deiner Einwilligung.
+    sources: [amazon-privacy-notice-de, amazon-interest-based-ads]
+  - purpose: safety
+    detail: Betrug und Missbrauch verhindern, Kreditrisiken bewerten.
+    sources: [amazon-privacy-notice-de]
+  - purpose: ai-training
+    detail: >-
+      Mit Alexa-Anfragen trainiert Amazon seine Software, damit sie Sprache besser erkennt und versteht (maschinelles Lernen). Das kannst du in den Alexa-Datenschutzeinstellungen steuern.
+    sources: [amazon-alexa-privacy]
+  - purpose: legal
+    detail: Gesetzliche Pflichten erfüllen, z. B. Steuer- und Buchhaltungsvorgaben.
+    sources: [amazon-privacy-notice-de]
+sharing:
+  - id: sellers-carriers
+    recipient: Marketplace-Verkäufer und Paketdienste
+    detail: >-
+      Kaufst du bei anderen Händlern auf Amazon, bekommen sie Name und Lieferadresse. Paketdienste bekommen Name, Adresse, Telefonnummer und E-Mail-Adresse.
+    sources: [amazon-third-party-recipients]
+  - id: payment-finance
+    recipient: Zahlungsdienstleister, Banken und Auskunfteien
+    detail: >-
+      Für Zahlungen, Kreditkarten mit Amazon-Partnerbanken (Co-Branding), Ratenkauf, Kreditprüfung und das Eintreiben offener Rechnungen (Inkasso) gibt Amazon Daten an Banken und Dienstleister weiter.
+    sources: [amazon-third-party-recipients]
+  - id: ad-partners
+    recipient: Werbedienstleister, soziale Netzwerke und Suchmaschinen
+    detail: >-
+      Mit deiner Einwilligung gibt Amazon Kennungen weiter, etwa Nummern aus Cookies oder Angaben zum Gerät. So können Partner dir Werbung zeigen und ihren Erfolg messen. Browser- und Kaufverlauf gibt Amazon laut eigenen Angaben nicht weiter.
+    sources: [amazon-interest-based-ads, amazon-privacy-notice-de]
+  - id: amazon-group
+    recipient: Amazon.com, Inc. und Tochtergesellschaften
+    detail: >-
+      Firmen im Amazon-Konzern können für die genannten Zwecke auf deine Daten zugreifen. Für Übermittlungen in die USA beruft sich Amazon u. a. auf das EU-US Data Privacy Framework, ein Datenschutz-Abkommen zwischen EU und USA.
+    sources: [amazon-privacy-notice-de]
+retention:
+  text: >-
+    Bestelldaten speichert Amazon, solange dein Konto besteht. Schließt du dein Konto, bleiben Kaufdaten wie Name, Produkt, Datum, Lieferadresse und Preis in der Regel 10 Jahre gespeichert. Für Werbung werden sie dann nicht mehr genutzt. Deine Zuordnung zu Werbe-Zielgruppen gilt höchstens 13 Monate.
+  sources:
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Zusätzliche Informationen zur Datenspeicherung'"
+    - ref: amazon-interest-based-ads
+      note: "Abschnitt zur Speicherdauer in Werbesystemen"
+journey:
+  - id: browse
+    title: Du suchst und stöberst
+    detail: Amazon zeichnet deine Suchen, angesehenen Produkte, Klicks und Gerätedaten auf.
+    dataPoints: [searches, clickstream, device]
+    sources: [amazon-privacy-notice-de]
+  - id: order
+    title: Du bestellst
+    detail: Bestellung, Zahlung und Adresse landen in deiner Bestellhistorie; Verkäufer und Paketdienste erhalten die nötigen Angaben.
+    dataPoints: [purchases, account]
+    sources: [amazon-privacy-notice-de, amazon-third-party-recipients]
+  - id: link-services
+    title: Verknüpfung mit anderen Amazon-Diensten
+    detail: Mit deiner Einwilligung verbindet Amazon Daten aus Shop, Alexa, Prime Video, Kindle und Geräten.
+    dataPoints: [carrier-partner-data, alexa-voice]
+    sources: [amazon-cross-service-use]
+  - id: recommendations
+    title: Empfehlungen
+    detail: Aus Käufen und angesehenen Produkten berechnet Amazon Empfehlungen für dich.
+    dataPoints: [purchases, clickstream]
+    sources: [amazon-privacy-notice-de]
+  - id: audiences
+    title: Werbe-Zielgruppen
+    detail: Mit deiner Einwilligung ordnet Amazon dich Zielgruppen zu, z. B. „hat Laufschuhe gekauft“ – unter einer Nummer statt unter deinem Namen.
+    dataPoints: [purchases, searches]
+    sources: [amazon-interest-based-ads]
+  - id: partners
+    title: Werbung auf und außerhalb von Amazon
+    detail: Anzeigen erscheinen im Shop und auf fremden Websites. Partner bekommen Kennungen, etwa aus Cookies, aber nicht deine Kaufhistorie.
+    dataPoints: [device]
+    sources: [amazon-interest-based-ads]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      Amazon erfasst Daten zu Konto, Käufen, Suchen, Klicks, Gerät und Standort. Dazu kommen Daten von Paketdiensten, Partner-Shops und Auskunfteien.
+    confidence: high
+    sources: [amazon-privacy-notice-de]
+  sensitivity:
+    level: 3
+    rationale: >-
+      Käufe und Suchanfragen sind regelmäßig privat, etwa Medikamente oder Babyartikel. Sprachaufnahmen kommen nur
+      hinzu, wenn du Alexa nutzt.
+    confidence: medium
+    sources: [amazon-privacy-notice-de, amazon-alexa-privacy]
+  observation:
+    level: 4
+    rationale: >-
+      Amazon zeichnet deinen ganzen Weg durch die Website auf – bis hin zum Scrollen und dazu, worauf du mit der Maus zeigst. Das nutzt Amazon für Empfehlungen.
+    confidence: medium
+    sources: [amazon-privacy-notice-de]
+  linkability:
+    level: 4
+    rationale: >-
+      Mit deiner Einwilligung werden Shop, Alexa, Prime Video und Geräte verknüpft. Außerdem bekommt Amazon Daten von Partner-Shops und fremden Websites.
+    confidence: high
+    sources: [amazon-cross-service-use, amazon-privacy-notice-de, amazon-interest-based-ads]
+  adUse:
+    level: 3
+    rationale: >-
+      Werbung bringt rund ein Zehntel des Umsatzes und ist ein wichtiges Geschäft, der Kern bleibt aber der Handel.
+    confidence: high
+    sources: [amazon-q4-2025-results]
+  sharing:
+    level: 3
+    rationale: >-
+      Verkäufer und Paketdienste bekommen Liefer- und Kontaktdaten, Werbepartner mit deiner Einwilligung Kennungen. Kauf- und Browserverlauf gibt Amazon laut eigenen Angaben nicht an Werbepartner weiter.
+    confidence: high
+    sources: [amazon-third-party-recipients, amazon-interest-based-ads]
+  defaults:
+    level: 2
+    rationale: >-
+      Personalisierte Werbung und das Verknüpfen von Daten aus verschiedenen Amazon-Diensten brauchen deine Einwilligung. Browserverlauf und unbegrenzte Bestellhistorie sind aber ab Werk an.
+    confidence: medium
+    sources: [amazon-interest-based-ads, amazon-cross-service-use, amazon-privacy-notice-de]
+  controls:
+    level: 3
+    rationale: >-
+      Du kannst Werbe-Einwilligung, Werbeinteressen, das Verknüpfen der Amazon-Dienste, Browserverlauf und Alexa-Aufnahmen getrennt steuern. Die Bestellhistorie selbst bleibt.
+    confidence: high
+    sources: [amazon-interest-based-ads, amazon-cross-service-use, amazon-browsing-history-help, amazon-alexa-privacy]
+  deletion:
+    level: 3
+    rationale: >-
+      Eine Kopie deiner Daten anfordern und das Konto schließen kannst du selbst. Kaufdaten bleiben nach der Schließung aber in der Regel 10 Jahre gespeichert.
+    confidence: high
+    sources: [amazon-request-data, amazon-close-account, amazon-privacy-notice-de]
+  reachability:
+    level: 3
+    rationale: >-
+      Die Datenschutzerklärung verlinkt direkt auf Werbeeinstellungen, Datenauskunft und Löschung; die Optionen sind
+      aber auf mehrere Seiten verteilt.
+    confidence: medium
+    sources: [amazon-privacy-notice-de]
+linkedWith: []
+region: EU
+reviewedAt: "2026-10-07"

@@ -1,0 +1,391 @@
+id: spotify
+name: Spotify
+company: spotify
+category: music
+url: https://www.spotify.com/de/
+summary: "Spotify stores every song and every podcast episode you listen to – down to the second. It uses this to make recommendations and to estimate your interests. In the free version, it also uses this to choose ads, together with data from advertising partners."
+surprise:
+  action: spotify-download-data
+  text: "Spotify keeps everything you have ever listened to with your account – with the time, the device and your internet connection's address. It even records whether you skipped a song and why it ended. What you listened to in a “Private session” is included too, just marked as such. You can download the list yourself."
+  sources:
+    - ref: spotify-help-understanding-data
+      note: "Erweiterter Streamingverlauf: „Eine Liste von Elementen …, die du jemals mit deinem Konto angesehen oder -gehört hast“, u. a. „Zum Streamen verwendete IP-Adresse“, „Grund für das Ende der Wiedergabe“, „Ob der*die Nutzer*in zum nächsten Song gesprungen ist“, „Ob der Titel in einer privaten Session abgespielt wurde“"
+    - ref: spotify-privacy-policy
+      note: "Abschnitt 6: „Wir speichern auch den Streamingverlauf …“ (Daten, die bis zur Löschung deines Spotify Kontos aufbewahrt werden)"
+businessModel:
+  text: "Spotify makes almost all of its money from subscriptions. In the second quarter of 2026, about €4.3 billion came from Premium subscriptions and about €450 million from advertising. You hear and see ads mainly in the free version. In podcasts, they can also appear with Premium."
+  sources:
+    - ref: spotify-q2-2026-update
+      note: "Premium-Umsatz 4.331 Mio. €, werbefinanzierter Umsatz 446 Mio. €, Gesamtumsatz 4.777 Mio. €"
+    - ref: spotify-privacy-policy
+      note: "„… in unserem kostenlosen und gegebenenfalls auch in unserem kostenpflichtigen Dienst (z. B. Werbung in Podcasts)“"
+dataPoints:
+  - id: sp-account
+    category: account
+    title: "To create an account, you give your email address, date of birth, gender and country."
+    detail: "On top of that come your display name, password and, depending on your plan, your phone number or address, for example for the Family plan. For Premium Student, Spotify records your university."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, Kategorie „Daten zu dir als Nutzer*in“ und „Adressdaten“"
+  - id: sp-payment
+    category: purchases
+    title: "When you pay, Spotify stores your payment method and purchase history."
+    detail: "For cards, this means the card type, expiry date and some digits of the card number. According to the company, Spotify never stores the full number. If Spotify sends you on to a ticket or merch shop, it gets data about your purchase from there."
+    provenance: provided
+    mechanisms: [provided, partners]
+    evidence: stated
+    condition: "only with Premium, a free trial or purchases"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Zahlungs- und Kaufdaten“: „Aus Sicherheitsgründen speichert Spotify niemals deine vollständige Kartennummer.“; Tabelle „Zahlungspartner und Händler“: „deine Interessen besser verstehen“"
+  - id: sp-streaming-history
+    category: activity
+    title: "Spotify records every stream: what, when, for how long and where."
+    detail: "For every song, video and podcast episode, Spotify stores the date and time, the milliseconds played, the device, the country and the IP address. It also stores whether you skipped ahead, why a track started and ended, and whether you listened offline. The history stays until you delete your account."
+    technical: "The “Extended streaming history” data package contains, among other things, fields for platform, IP address, user agent, start and end reason, “skipped” and offline timestamp."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: spotify-help-understanding-data
+        note: "Abschnitt „Erweiterter Streamingverlauf“"
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Nutzungsdaten“ („Streamingverlauf“, „Navigationsverlauf“, „Interaktionen mit Ads“); Abschnitt 6 zur Aufbewahrung bis zur Kontolöschung"
+  - id: sp-searches
+    category: searches
+    title: "Spotify stores what you search for – for 90 days."
+    detail: "This includes the date, time, device, the search term and which results you tapped. According to the privacy policy, Spotify deletes the search queries you typed after 90 days."
+    provenance: provided
+    mechanisms: [provided, usage]
+    evidence: stated
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 6: „… personenbezogene Daten, die du im Rahmen von Suchanfragen eingibst, nach 90 Tagen gelöscht.“"
+      - ref: spotify-help-understanding-data
+        note: "Suchanfragen: „Search Query“, „Search interaction URIs“"
+  - id: sp-library
+    category: content
+    title: "Your playlists, your library and your profile are stored with Spotify."
+    detail: "What you save, follow and create as a playlist. Other users can also see your profile name, profile picture, public playlists and how many followers you have."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Nutzungsdaten“; Abschnitt 5, „Informationen, die anderen Spotify Nutzer*innen zur Verfügung stehen“"
+  - id: sp-social
+    category: contacts
+    title: "Spotify knows who you follow and who follows you – and shows your listening habits to others."
+    detail: "You are not the only one who sees your recently played artists: according to Spotify's help pages, by default they are visible to anyone who opens your profile. Depending on your settings, followers can also see what you are listening to right now."
+    provenance: observed
+    mechanisms: [usage, other-users]
+    evidence: stated
+    sources:
+      - ref: spotify-help-recently-played
+        note: "„Standardmäßig kann jede*r Nutzer*in, der*die dein Profil aufruft, die Künstler*innen sehen, die du kürzlich gehört hast.“"
+      - ref: spotify-help-privacy-social
+        note: "Schalter „Höraktivität“, „Kürzlich gehörte Künstler*innen“, „Follower*innen und Personen, denen du folgst“"
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 5, Empfänger „Andere Spotify Nutzer*innen“"
+  - id: sp-messages
+    category: communications
+    title: "Spotify processes the messages you send to others in Spotify."
+    detail: "Spotify has its own chat feature for sharing music and podcasts. The messages also appear in your data package. The privacy policy does not say whether they are encrypted in a way that stops Spotify from reading them."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only if you use the “Messages” feature"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Nachrichtendaten“: „Textnachrichten oder andere Inhalte …, die du direkt an eine*n andere*n Nutzer*in sendest“"
+      - spotify-help-messages
+      - ref: spotify-help-understanding-data
+        note: "„… eine Kopie deiner Nachrichtendaten, einschließlich der Nachrichten, die du über den Nachrichtendienst von Spotify gesendet und erhalten hast.“"
+  - id: sp-device
+    category: device
+    title: "Spotify collects data about your devices and your connection."
+    detail: "Device identifiers (fixed numbers by which a device is recognised), operating system, app version, browser, language, network (Wi-Fi, mobile, Bluetooth) and provider. Plus cookies – small files by which Spotify recognises your browser. Spotify also detects speakers on your Wi-Fi and checks whether partner apps are installed on your device. For some features, it uses your device's motion sensors."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Deine technischen Daten“: „Spotify Partneranwendungen, um festzustellen, ob die Anwendung auf deinem Gerät installiert ist“; „Sensordaten deines Geräts“"
+  - id: sp-approx-location
+    category: location
+    title: "From your IP address, language setting and payment currency, Spotify works out your country, region or city."
+    detail: "This always happens, even without location permission. Spotify needs it for licences in your country and uses it for suitable content, ads and recommendations."
+    provenance: derived
+    mechanisms: [derived, partners]
+    evidence: stated
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Dein ungefährer (nicht präziser) Standort“; Tabelle „Technische Dienstleistungspartner“: „Zuordnung von IP-Adressen zu ungenauen Standortdaten“"
+  - id: sp-precise-location
+    category: location
+    title: "Spotify uses your precise location only with your permission."
+    detail: "Spotify uses it, for example, to recommend concerts near you. Spotify can use what you listen to in a place to suggest similar things to other people nearby. The most recently recorded coordinates appear in your data package."
+    provenance: observed
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "only if you allow Spotify to access your precise location"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Genaue Standortdaten“; Abschnitt 4: „Die Erkenntnisse aus deinen Streams an einem Standort können wir nutzen, um anderen Nutzer*innen in der Nähe ähnliche Inhalte vorzuschlagen.“"
+      - ref: spotify-help-understanding-data
+        note: "„… die zuletzt erfassten Breiten- und Längenkoordinaten …“"
+  - id: sp-voice
+    category: voice
+    title: "If you use voice features, Spotify records your voice."
+    detail: "For example, when you tell the AI DJ what you would like to hear. Spotify stores voice commands with the date, time and a written-down version (transcript)."
+    provenance: provided
+    mechanisms: [permissions, provided]
+    evidence: stated
+    condition: "only if you use voice features and they are available in your country"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Sprachdaten“: „Damit sind Audioaufnahmen deiner Stimme gemeint.“"
+      - ref: spotify-help-understanding-data
+        note: "„Eine Liste von Sprachbefehlen (wo verfügbar)“ mit „Transkribierte Version des Sprachbefehls“"
+  - id: sp-ai-prompts
+    category: prompts
+    title: "Spotify stores what you type or say to AI features such as the DJ."
+    detail: "Spotify explicitly lists “prompts in AI features” as usage data. According to the privacy policy, it also uses usage and voice data to develop features such as AI DJ and AI Playlist."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only if you use AI features such as DJ or AI Playlist"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Prompts in KI-Features“, „Transkripte“; Abschnitt 4: „Entwicklung und Bereitstellung von Features wie KI-DJ und KI-Playlist“"
+      - ref: spotify-help-understanding-data
+        note: "„Wenn du über bestimmte Features Prompts oder andere Eingaben an Spotify gesendet hast …“"
+  - id: sp-partner-data
+    category: offplatform
+    title: "Advertising and marketing partners send Spotify data about you."
+    detail: "This includes device identifiers, email addresses and phone numbers in a form that has been made unreadable but can still be matched. On top of that comes what the partners believe they know about your interests. According to Spotify, this applies as long as you do not turn off “Tailored ads”."
+    technical: "The privacy policy speaks of “hashed contact information”; the page on Article 15 GDPR speaks of “linked email addresses and phone numbers”."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    condition: "as long as “Tailored ads” is turned on"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Tabelle „Werbe- und Marketingpartner“: „… einschließlich Gerätekennungen wie gehashte Kontaktinformationen. Außerdem liefern sie uns Rückschlüsse …“"
+      - ref: spotify-gdpr-article-15
+        note: "„Sofern du individuelle Werbeinhalte nicht deaktiviert hast, erhalten wir Daten über dich von bestimmten Werbe- oder Marketingpartnern …“"
+  - id: sp-linked-services
+    category: account
+    title: "If you log in with Facebook, Google or Apple or connect apps, Spotify gets data from them."
+    detail: "With Facebook, this is for example your email address, date of birth and gender, plus your name, profile picture and friends. Connected speakers, cars, smartwatches or voice assistants also send data to Spotify. You can turn off the Facebook friends list in the privacy settings."
+    provenance: provided
+    mechanisms: [partners]
+    evidence: stated
+    condition: "only if you log in through another service or connect apps and devices"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Tabelle „Drittanbieterquellen“: „Authentifizierungspartner“ und „Anwendungen, Dienste und Geräte von Drittanbietern, die du mit deinem Spotify Konto verbindest“"
+      - ref: spotify-help-data-rights
+        note: "„Dein auf Facebook angezeigter Name, dein Profilbild und die Freund*innen, die Facebook mit uns teilt.“; zur Anmeldung nötig: „die E-Mail-Adresse, das Geburtsdatum und das Geschlecht“"
+  - id: sp-age-check
+    category: account
+    title: "For some features, another company checks your age – using a photo of your ID or your face."
+    detail: "Spotify stores the result, meaning your estimated or confirmed age, in your account. According to the company, Spotify deletes the photos themselves immediately after the check."
+    provenance: provided
+    mechanisms: [provided, partners]
+    evidence: stated
+    condition: "only for features with an age check or for managed accounts for children"
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3, „Altersprüfungsdaten“: „Alle Altersprüfungsdaten werden sofort nach der Altersprüfung gelöscht.“; „Geschätztes oder bestätigtes Alter aus einer Altersprüfung über einen Drittanbieter“"
+inferences:
+  - id: sp-inf-segments
+    title: "Spotify estimates your age and your interests and puts you into advertising target groups."
+    detail: "Spotify explicitly calls such conclusions “inferences (i.e. our understanding)”. They are based on your listening, plus data from advertisers and advertising partners. Your data package contains a list of the “market segments” you are currently placed in. With “Tailored ads” on, they are used for advertising."
+    level: documented
+    basedOn: [sp-streaming-history, sp-searches, sp-partner-data, sp-account]
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 3: „Rückschlüsse (d. h. unser Verständnis) auf dein Alter, deine Interessen und Präferenzen basierend auf deiner Nutzung des Spotify Dienstes“"
+      - ref: spotify-help-understanding-data
+        note: "„Dazu gehört eine Liste von Marktsegmenten, denen du derzeit zugeordnet bist. Abhängig von deinen Einstellungen können diese Daten verwendet werden, um dir … interessenbezogene Werbung bereitzustellen.“"
+      - ref: spotify-gdpr-article-15
+        note: "Datei „Inferences.json“"
+  - id: sp-inf-moment
+    title: "From the playlist, time of day and device, Spotify works out what you are doing right now – for advertising."
+    detail: "Spotify tells advertisers that it can tell from what someone is listening to whether they are exercising, cooking, commuting or relaxing. Spotify reads a study playlist, for example, as a sign of concentration. Ads can then fit that moment."
+    level: documented
+    basedOn: [sp-streaming-history, sp-device]
+    sources:
+      - ref: spotify-ads-contextual
+        note: "„playlist, genre, time of day, device type, and session behavior“; „identify what a listener is doing (e.g. working out, cooking, commuting, relaxing)“; „A lo-fi study mix signals focus and concentration.“"
+      - ref: spotify-ads-audience-targeting
+        note: "„Das Hörverhalten der Nutzer*innen ermöglicht dir ein noch genaueres Zielgruppen-Targeting als demografische Daten …“"
+  - id: sp-inf-taste
+    title: "From your listening, Spotify builds a “taste profile”."
+    detail: "It drives recommendations such as “Discover Weekly”, the home page and Wrapped. You can exclude individual playlists or songs from it."
+    level: documented
+    basedOn: [sp-streaming-history, sp-library]
+    sources:
+      - ref: spotify-help-taste-profile
+        note: "„Mit dem Geschmacksprofil analysiert Spotify deinen Geschmack basierend darauf, was du auf welche Weise hörst.“"
+  - id: sp-inf-sensitive-possible
+    title: "What you listen to can give hints about your health, beliefs, politics or mood."
+    detail: "Podcasts about pregnancy, weight loss or politics, or religious music, technically allow such conclusions. Spotify does not say that it derives such traits about you from them. But Spotify does let you hear fewer ads on topics such as pregnancy, weight loss and politics."
+    level: possible
+    basedOn: [sp-streaming-history, sp-searches]
+    sources:
+      - ref: spotify-help-ad-preferences
+        note: "Verwaltbare Kategorien u. a. „Schwangerschaft und Erziehung“, „Gewichtsverlust“, „Gesellschaftliche Themen, Politik oder Regierung“"
+  - id: sp-inf-voice-possible
+    title: "Your voice could be used to estimate your mood, age or gender – Spotify says it does not do this."
+    detail: "In 2021, Spotify was granted a patent for such a technique. After protests, Spotify stated that it had not used it in any product and had no plans to do so. So this is a technical possibility, not a proven practice."
+    level: possible
+    basedOn: [sp-voice]
+    sources:
+      - ref: spotify-accessnow-patent-2021
+        note: "Patent zu „emotional state, gender, age, or accent“; Antwort von Spotify: „never implemented the technology described in the patent in any of our products and we have no plans to do so“"
+purposes:
+  - purpose: provide-service
+    detail: "Creating your account, playing music and podcasts, connecting devices and following licence rules in each country."
+    sources: [spotify-privacy-policy]
+  - purpose: personalisation
+    detail: "Tailoring recommendations, the home page and mixes to you – based on your contract with Spotify. With location permission, also concerts near you."
+    sources: [spotify-privacy-policy, spotify-help-taste-profile]
+  - purpose: advertising
+    detail: "Matching ads to your interests. For this, Spotify relies on its “legitimate interest”, a legal basis that does not need your consent. You can object. For cookies and marketing emails, Spotify asks for your consent."
+    sources: [spotify-privacy-policy, spotify-cookie-policy]
+  - purpose: measurement
+    detail: "Measuring how well ads work – also through measurement companies in the Spotify group and through advertising partners."
+    sources: [spotify-privacy-policy]
+  - purpose: product-development
+    detail: "Testing new features and training computer models that learn from data (machine learning), for example for recommendations, AI DJ and AI Playlist."
+    sources: [spotify-privacy-policy]
+  - purpose: safety
+    detail: "Detecting fraud and rule breaches, protecting accounts, making sure the service is suitable for your age."
+    sources: [spotify-privacy-policy]
+  - purpose: legal
+    detail: "Meeting legal obligations, answering requests from courts and authorities, handling legal disputes."
+    sources: [spotify-privacy-policy]
+sharing:
+  - id: sp-share-advertisers
+    recipient: "Advertising partners"
+    detail: "They get account and usage data to tailor ads to you and to measure how well they work. According to the cookie policy, Spotify stops passing your data to external advertisers if you turn off “Tailored ads”."
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 5, Empfänger „Werbepartner“"
+      - ref: spotify-cookie-policy
+        note: "„Wenn du die Option „Individuelle Werbeinhalte“ deaktivierst, wird Spotify deine Daten nicht mehr an externe Werbetreibende weitergeben.“"
+  - id: sp-share-marketing
+    recipient: "Marketing partners"
+    detail: "For example, mobile network operators with Spotify offers, or apps and websites where Spotify buys advertising. According to Spotify, they can combine the data with what they already know about you."
+    sources:
+      - ref: spotify-privacy-policy
+        note: "„Unsere Partner können die personenbezogenen Daten, die wir an sie weitergeben, auch mit anderen Daten kombinieren, die sie über dich sammeln …“"
+  - id: sp-share-podcast-hosts
+    recipient: "Companies that host podcasts"
+    detail: "When you play a podcast, the company that hosts it gets your IP address, among other things. That does not have to be Spotify. Their own privacy policy covers how they handle data."
+    sources:
+      - ref: spotify-privacy-policy
+        note: "Abschnitt 5, „Hosting-Plattformen für Podcasts“: „… geben wir bestimmte Daten, wie deine IP-Adresse, an die Hostingplattform weiter.“"
+  - id: sp-share-group
+    recipient: "Companies in the Spotify group"
+    detail: "For example, measurement companies that check how ad campaigns perform, and podcast companies that analyse listening trends."
+    sources: [spotify-privacy-policy]
+  - id: sp-share-rightsholders
+    recipient: "Rights holders, researchers and service providers"
+    detail: "Rights holders such as record labels, and researchers, get listening data under a number instead of your name (pseudonymised). Service providers help with support, computing and security, for example reCAPTCHA from Google."
+    sources: [spotify-privacy-policy]
+  - id: sp-share-users-apps
+    recipient: "Other users and connected apps"
+    detail: "Others see your profile, public playlists and, depending on your settings, your listening activity. Apps and devices you connect get account and usage data."
+    sources: [spotify-privacy-policy, spotify-help-privacy-social]
+retention:
+  text: "Spotify keeps your streaming history, your name and your profile until you delete your account. Spotify deletes search queries after 90 days and photos for the age check immediately. After closing your account, you have 7 days to change your mind. After that, deletion begins. Some data is kept longer, for example because of legal obligations."
+  sources:
+    - ref: spotify-privacy-policy
+      note: "Abschnitt 6 „Aufbewahrung von Daten“"
+    - ref: spotify-help-close-account
+      note: "„Nach diesen 7 Tagen kann dein Konto nicht mehr reaktiviert werden und die Löschung deiner Daten wird eingeleitet.“"
+journey:
+  - id: sp-journey-signup
+    title: "You create an account"
+    detail: "Your email, date of birth, gender and country go to Spotify. If you log in through Facebook, Google or Apple, data from there is added."
+    dataPoints: [sp-account, sp-linked-services]
+    sources: [spotify-privacy-policy, spotify-help-data-rights]
+  - id: sp-journey-listening
+    title: "You listen to music and podcasts"
+    detail: "Every stream is stored with the time, duration, device and IP address. Search queries and device data are added. From your IP address, Spotify works out roughly where you are."
+    dataPoints: [sp-streaming-history, sp-searches, sp-device, sp-approx-location]
+    sources: [spotify-privacy-policy, spotify-help-understanding-data]
+  - id: sp-journey-profile
+    title: "Spotify builds a picture of you"
+    detail: "Your listening produces a taste profile for recommendations and conclusions about your age and interests. Advertising partners supply more data about your interests."
+    dataPoints: [sp-streaming-history, sp-partner-data]
+    sources: [spotify-privacy-policy, spotify-help-taste-profile, spotify-help-understanding-data]
+  - id: sp-journey-ads
+    title: "Ads are chosen"
+    detail: "In the free version and in some podcasts, Spotify chooses ads based on your interests and what you are listening to right now. Advertising partners help deliver and measure them."
+    dataPoints: [sp-streaming-history, sp-partner-data, sp-approx-location]
+    sources: [spotify-privacy-policy, spotify-cookie-policy, spotify-ads-contextual]
+  - id: sp-journey-others
+    title: "Others can see too"
+    detail: "Depending on your settings, followers see what you listen to. Podcast providers get your IP address, and connected apps get your account and usage data."
+    dataPoints: [sp-social, sp-library, sp-streaming-history]
+    sources: [spotify-privacy-policy, spotify-help-privacy-social]
+assessment:
+  breadth:
+    level: 3
+    rationale: "Besides your account, payments and devices, Spotify records every stream, search queries, playlists and your approximate location. If you choose, your voice, messages and precise location are added. Advertising partners supply more data. The policy does not mention your address book or your photos."
+    confidence: high
+    sources: [spotify-privacy-policy]
+  sensitivity:
+    level: 2
+    rationale: "Music and podcasts mainly reveal tastes and moods. Podcasts about health, beliefs or politics can reveal more. Very personal data such as voice recordings or messages only comes up if you use those features."
+    confidence: medium
+    sources: [spotify-privacy-policy, spotify-help-ad-preferences]
+  observation:
+    level: 4
+    rationale: "Spotify records every stream to the millisecond, with device, IP address, skips and the reason for start and end. This data is the basis for recommendations and the taste profile."
+    confidence: high
+    sources: [spotify-help-understanding-data, spotify-help-taste-profile]
+  linkability:
+    level: 4
+    rationale: "Spotify links your account across all devices. By default, it also receives data from advertising and marketing partners, such as contact details and their conclusions about your interests. On top of that comes data from login services such as Facebook and from connected apps."
+    confidence: medium
+    sources: [spotify-privacy-policy, spotify-gdpr-article-15]
+  adUse:
+    level: 2
+    rationale: "Advertising brings Spotify less than a tenth of its revenue. Most of it comes from subscriptions. In the free version, though, personalised ads are part of everyday use."
+    confidence: high
+    sources: [spotify-q2-2026-update, spotify-privacy-policy]
+  sharing:
+    level: 3
+    rationale: "Besides service providers and companies in the Spotify group, advertising and marketing partners get account and usage data. Podcast providers receive your IP address. Rights holders and researchers only get listening data under a number instead of your name."
+    confidence: medium
+    sources: [spotify-privacy-policy, spotify-cookie-policy]
+  defaults:
+    level: 2
+    rationale: "Personalised ads and data from advertising partners are on until you object. According to Spotify's help pages, recently played artists are public. Two help pages describe differently whether your listening activity is shared by default. On the protective side: Spotify deletes search queries after 90 days, and precise location is only used with permission."
+    confidence: medium
+    sources: [spotify-privacy-policy, spotify-gdpr-article-15, spotify-help-recently-played, spotify-help-privacy-social, spotify-help-listening-activity]
+  controls:
+    level: 3
+    rationale: "You can control interest-based ads, Facebook data, visibility to others, connected apps and location access. Individual playlists can be removed from the taste profile. You cannot turn off the fact that Spotify stores every stream – not even with a “Private session”."
+    confidence: medium
+    sources: [spotify-help-data-rights, spotify-help-privacy-social, spotify-help-taste-profile, spotify-help-understanding-data]
+  deletion:
+    level: 3
+    rationale: "You can request data packages and delete your account yourself. But you cannot delete your streaming history on its own, only together with the whole account. In 2023, the Swedish data protection authority imposed a fine of 58 million kronor because Spotify did not explain clearly enough, when answering access requests, how it uses the data. A court confirmed this in 2025."
+    confidence: medium
+    sources: [spotify-help-data-rights, spotify-help-close-account, spotify-privacy-policy, spotify-imy-fine-2023, spotify-tv4-court-2025]
+  reachability:
+    level: 3
+    rationale: "You find ads, Facebook data and the data package in one place, on the “Account privacy” page in your browser. You set visibility to others and Private session in the app. You manage connected apps on a separate page."
+    confidence: medium
+    sources: [spotify-help-data-rights, spotify-help-privacy-social, spotify-help-connected-apps]
+region: EU
+reviewedAt: "2026-10-08"

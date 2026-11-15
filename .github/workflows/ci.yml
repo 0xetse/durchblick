@@ -1,0 +1,63 @@
+# Checks every push and pull request: lint, types, unit/content tests, build
+# and the browser tests (mobile + desktop, accessibility, no third-party requests),
+# plus the user flows in Firefox and WebKit.
+name: CI
+
+# Pushes to main and every pull request, including pull requests from forks.
+# Fork pull requests run with a read-only token and without secrets; in the
+# public repository they additionally need approval by a maintainer
+# (Settings → Actions → "Require approval for all external contributors").
+# Never use pull_request_target here: it would run fork code with secrets.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One run per pull request (or branch); a new push cancels the older PR run.
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Fails on known vulnerabilities in what is shipped or used to build it.
+      - run: npm run audit:deps
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:e2e
+
+  # User flows and state handling in Firefox and WebKit (Safari engine, desktop
+  # and iPhone emulation). Separate job, so a Chromium failure stays readable.
+  engines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox webkit
+      - run: npm run build
+      - run: npm run test:e2e:engines

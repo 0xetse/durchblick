@@ -1,0 +1,66 @@
+# Companies behind the services. Descriptions short and neutral.
+- id: google
+  name: Google
+  legalEntityEU: Google Ireland Limited
+  headquarters: Mountain View, USA (parent company Alphabet Inc.)
+  description: Runs Google Search, YouTube, Android, Gmail and Maps, among others – usually with one shared Google account. Most of its revenue comes from advertising.
+  sources: [google-privacy-policy, alphabet-q4-2025-results]
+- id: meta
+  name: Meta
+  legalEntityEU: Meta Platforms Ireland Limited
+  headquarters: Menlo Park, USA
+  description: Runs Facebook, Instagram, WhatsApp and Messenger. Accounts can be linked in Accounts Center. Funded almost entirely by advertising.
+  sources: [meta-privacy-policy, meta-help-accounts-center, meta-sec-10q-2026-q2]
+- id: bytedance
+  name: TikTok (ByteDance)
+  legalEntityEU: TikTok Technology Limited (Ireland)
+  headquarters: Singapore/Los Angeles (TikTok); parent company ByteDance Ltd.
+  description: Runs TikTok. For users in the EEA (the EU plus Iceland, Liechtenstein and Norway), an Irish company is responsible. According to its privacy policy, data may also be processed outside the EEA.
+  sources: [tiktok-privacy-policy-eea, tiktok-transferee-countries]
+- id: amazon
+  name: Amazon
+  legalEntityEU: Amazon Europe Core S.à r.l. and other Amazon companies in Luxembourg
+  headquarters: Seattle, USA
+  description: Runs the Amazon online shop, Prime Video, Alexa and its own advertising business. Most of its revenue comes from retail and cloud; advertising is a growing part.
+  sources: [amazon-privacy-notice-de, amazon-controllers, amazon-q4-2025-results]
+- id: openai
+  name: OpenAI
+  legalEntityEU: OpenAI Ireland Limited
+  headquarters: San Francisco, USA
+  description: Develops ChatGPT and the AI models behind it. Funded by subscriptions, business customers and – in parts of ChatGPT – advertising.
+  sources: [openai-eu-privacy-policy, chatgpt-help-ads]
+- id: spotify
+  name: Spotify
+  legalEntityEU: Spotify AB (Sweden)
+  headquarters: Stockholm, Sweden
+  description: Runs the music and podcast service Spotify. Funded by subscriptions (Premium) and ads in the free version.
+  sources: [spotify-privacy-policy]
+- id: microsoft
+  name: Microsoft
+  legalEntityEU: LinkedIn Ireland Unlimited Company (for LinkedIn)
+  headquarters: "Redmond, USA (LinkedIn: Sunnyvale, USA)"
+  description: Runs Windows, Office and Bing, among others, and – through its subsidiary LinkedIn – the career network of the same name. LinkedIn earns money from advertising, recruiting solutions, tools for sales teams and Premium subscriptions.
+  sources: [linkedin-privacy-policy, linkedin-msft-10k-fy2026]
+- id: telegram
+  name: Telegram
+  headquarters: "Dubai, United Arab Emirates (development team); contracting party Telegram Messenger Inc., British Virgin Islands"
+  description: Runs the messenger Telegram. Has no company in the EU, only a representative under Art. 27 GDPR. Funded by the Telegram Premium subscription and by ads in large public channels, bots and search.
+  sources: [telegram-privacy-policy, telegram-faq]
+- id: snap
+  name: Snap
+  legalEntityEU: "Snap Inc. (USA); EEA representative: Snap B.V. (Netherlands)"
+  headquarters: Santa Monica, USA
+  description: Runs Snapchat and the Specs glasses. Funded mainly by advertising, plus the Snapchat+ subscription.
+  sources: [snap-privacy-policy, snap-eea-privacy-notice]
+- id: paypal
+  name: PayPal
+  legalEntityEU: PayPal (Europe) S.à r.l. et Cie, S.C.A. (Luxembourg)
+  headquarters: San Jose, USA
+  description: Runs the payment service PayPal. Earns money mainly from fees on payments; is also building an advertising business using purchase data.
+  sources: [paypal-privacy-statement]
+- id: netflix
+  name: Netflix
+  legalEntityEU: "Netflix International B.V. (Netherlands); for Germany, jointly responsible with Netflix Services Germany GmbH (Berlin)"
+  headquarters: Los Gatos, USA
+  description: Runs the streaming service Netflix. Funded by subscriptions; the cheapest plan includes ads.
+  sources: [netflix-privacy-statement]

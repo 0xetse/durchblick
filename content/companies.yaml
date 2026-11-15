@@ -1,0 +1,66 @@
+# Unternehmen hinter den Diensten. Beschreibungen kurz und neutral.
+- id: google
+  name: Google
+  legalEntityEU: Google Ireland Limited
+  headquarters: Mountain View, USA (Muttergesellschaft Alphabet Inc.)
+  description: Betreibt u. a. die Google-Suche, YouTube, Android, Gmail und Maps – meist mit einem gemeinsamen Google-Konto. Der größte Teil des Umsatzes stammt aus Werbung.
+  sources: [google-privacy-policy, alphabet-q4-2025-results]
+- id: meta
+  name: Meta
+  legalEntityEU: Meta Platforms Ireland Limited
+  headquarters: Menlo Park, USA
+  description: Betreibt Facebook, Instagram, WhatsApp und Messenger. Konten lassen sich in der Kontenübersicht (Accounts Center) verknüpfen. Finanziert sich fast vollständig über Werbung.
+  sources: [meta-privacy-policy, meta-help-accounts-center, meta-sec-10q-2026-q2]
+- id: bytedance
+  name: TikTok (ByteDance)
+  legalEntityEU: TikTok Technology Limited (Irland)
+  headquarters: Singapur/Los Angeles (TikTok); Muttergesellschaft ByteDance Ltd.
+  description: Betreibt TikTok. Für Nutzer im EWR (EU plus Island, Liechtenstein und Norwegen) ist eine irische Firma verantwortlich. Laut Datenschutzerklärung können Daten auch außerhalb des EWR verarbeitet werden.
+  sources: [tiktok-privacy-policy-eea, tiktok-transferee-countries]
+- id: amazon
+  name: Amazon
+  legalEntityEU: Amazon Europe Core S.à r.l. und weitere Amazon-Gesellschaften in Luxemburg
+  headquarters: Seattle, USA
+  description: Betreibt den Amazon-Onlineshop, Prime Video, Alexa und ein eigenes Werbegeschäft. Der Großteil des Umsatzes kommt aus Handel und Cloud; Werbung ist ein wachsender Teil.
+  sources: [amazon-privacy-notice-de, amazon-controllers, amazon-q4-2025-results]
+- id: openai
+  name: OpenAI
+  legalEntityEU: OpenAI Ireland Limited
+  headquarters: San Francisco, USA
+  description: Entwickelt ChatGPT und die zugrunde liegenden KI-Modelle. Finanziert sich über Abonnements, Unternehmenskunden und – in Teilen von ChatGPT – über Werbung.
+  sources: [openai-eu-privacy-policy, chatgpt-help-ads]
+- id: spotify
+  name: Spotify
+  legalEntityEU: Spotify AB (Schweden)
+  headquarters: Stockholm, Schweden
+  description: Betreibt den Musik- und Podcast-Dienst Spotify. Finanziert sich über Abos (Premium) und Werbung in der kostenlosen Version.
+  sources: [spotify-privacy-policy]
+- id: microsoft
+  name: Microsoft
+  legalEntityEU: LinkedIn Ireland Unlimited Company (für LinkedIn)
+  headquarters: "Redmond, USA (LinkedIn: Sunnyvale, USA)"
+  description: Betreibt u. a. Windows, Office, Bing und – über die Tochter LinkedIn – das gleichnamige Karrierenetzwerk. LinkedIn verdient mit Werbung, Recruiting-Lösungen, Werkzeugen für Vertriebsteams und Premium-Abos.
+  sources: [linkedin-privacy-policy, linkedin-msft-10k-fy2026]
+- id: telegram
+  name: Telegram
+  headquarters: "Dubai, Vereinigte Arabische Emirate (Entwicklungsteam); Vertragspartner Telegram Messenger Inc., Britische Jungferninseln"
+  description: Betreibt den Messenger Telegram. Hat keine Gesellschaft in der EU, nur einen Vertreter nach Art. 27 DSGVO. Finanziert sich über das Abo Telegram Premium und Werbung in großen öffentlichen Kanälen, Bots und der Suche.
+  sources: [telegram-privacy-policy, telegram-faq]
+- id: snap
+  name: Snap
+  legalEntityEU: "Snap Inc. (USA); EWR-Vertreter: Snap B.V. (Niederlande)"
+  headquarters: Santa Monica, USA
+  description: Betreibt Snapchat und die Brille Specs. Finanziert sich überwiegend über Werbung; dazu kommt das Abo Snapchat+.
+  sources: [snap-privacy-policy, snap-eea-privacy-notice]
+- id: paypal
+  name: PayPal
+  legalEntityEU: PayPal (Europe) S.à r.l. et Cie, S.C.A. (Luxemburg)
+  headquarters: San Jose, USA
+  description: Betreibt den Bezahldienst PayPal. Verdient vor allem an Gebühren bei Zahlungen; baut daneben ein Werbegeschäft mit Kaufdaten auf.
+  sources: [paypal-privacy-statement]
+- id: netflix
+  name: Netflix
+  legalEntityEU: "Netflix International B.V. (Niederlande); für Deutschland gemeinsam verantwortlich mit Netflix Services Germany GmbH (Berlin)"
+  headquarters: Los Gatos, USA
+  description: Betreibt den Streamingdienst Netflix. Finanziert sich über Abos; das günstigste Abo enthält Werbung.
+  sources: [netflix-privacy-statement]

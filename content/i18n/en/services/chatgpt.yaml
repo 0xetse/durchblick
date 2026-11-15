@@ -1,0 +1,387 @@
+id: chatgpt
+name: ChatGPT
+company: openai
+category: ai-assistant
+url: https://chatgpt.com
+summary: >-
+  ChatGPT stores your conversations, uploaded files and, if you want, memories about you. Unless you object,
+  OpenAI trains its AI with them, according to the company. Since August 2026 there have been ads in the Free and
+  Go plans.
+surprise:
+  action: chatgpt-training-opt-out
+  text: >-
+    According to OpenAI, it may use what you write to ChatGPT to train future AI models. This applies until you
+    switch off the setting “Improve the model for everyone”. OpenAI does not use temporary chats for
+    training.
+  sources:
+    - ref: chatgpt-help-model-improvement
+      note: "Abschnitt zu Diensten für Privatpersonen (ChatGPT)"
+    - ref: chatgpt-help-data-controls
+      note: "Einstellung „Improve the model for everyone“ (deutsch: „Das Modell für alle verbessern“)"
+businessModel:
+  text: >-
+    OpenAI makes money from subscriptions such as Plus and Pro, from offers for businesses and from access for developers.
+    Since 24 August 2026, ChatGPT has also shown ads in Germany, but only in the Free and Go plans.
+  sources:
+    - ref: chatgpt-ads-europe-announcement
+      note: "Start in 31 europäischen Märkten"
+    - ref: chatgpt-help-ads
+      note: "Welche Tarife Werbung sehen"
+dataPoints:
+  - id: account
+    category: account
+    title: Your account details, such as name, contact details, date of birth and payment details.
+    detail: >-
+      OpenAI lists name, contact details, login details, date of birth, payment details and your past payments.
+      For some services, a profile picture and username are added.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Account Information'"
+  - id: prompts
+    category: prompts
+    title: Everything you write, say or upload to ChatGPT.
+    detail: >-
+      Your questions and instructions, uploaded files, images, audio and video recordings. Many people also discuss
+      very personal things with ChatGPT, such as health, relationships or work.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Content' / Nutzerinhalte"
+  - id: chat-history
+    category: prompts
+    title: Your saved chat history, including the answers.
+    detail: >-
+      Normal chats stay in your history until you delete them. Temporary chats do not appear in the history.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: chatgpt-help-retention
+        note: "Aufbewahrung von Chats"
+      - chatgpt-help-temporary-chat
+  - id: memories
+    category: content
+    title: Memories that ChatGPT stores about you.
+    detail: >-
+      Saved memories are details that ChatGPT is meant to remember, e.g. that you are vegetarian or a
+      teacher. ChatGPT can also refer back to earlier chats. According to OpenAI, this is switched off by default in the EEA.
+    provenance: derived
+    mechanisms: [usage, derived]
+    evidence: stated
+    condition: only if the memory feature is on
+    sources:
+      - ref: chatgpt-help-memory
+        note: "Abschnitte zu gespeicherten Erinnerungen und Chatverlauf"
+  - id: connected-apps
+    category: content
+    title: Data from services you connect to ChatGPT.
+    detail: >-
+      If you connect, for example, an online storage service or other apps to ChatGPT, OpenAI processes the data that
+      ChatGPT retrieves from them.
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: only if you connect services
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt zu Inhalten aus verbundenen Diensten"
+  - id: log-data
+    category: device
+    title: Your internet address, your browser and the time of every request.
+    detail: >-
+      Your browser or device automatically sends along: your internet connection's address (IP address), which
+      browser you use and how it is set up, plus the date and time.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Log data'"
+  - id: device
+    category: device
+    title: Information about your device.
+    detail: For example device name, operating system, browser and numbers that can be used to recognise your device.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Device information'"
+  - id: usage
+    category: activity
+    title: How you use ChatGPT.
+    detail: >-
+      Which features you use, which actions you take, when you give feedback on answers, your
+      time zone, your country and the date and time of use.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Usage data'"
+  - id: location
+    category: location
+    title: Your approximate region and, if you want, your precise location.
+    detail: >-
+      OpenAI estimates your approximate region from your internet address, e.g. to detect unusual logins.
+      With some features you can also share your precise location, for example via GPS.
+    provenance: derived
+    mechanisms: [device, permissions]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Location information'"
+  - id: ad-interactions
+    category: activity
+    title: How you interact with ads in ChatGPT.
+    detail: >-
+      ChatGPT shows ads in the Free and Go plans. OpenAI stores which ads you view or click.
+      Which ad you see depends on the current conversation, your approximate location and the time of day.
+      Personalised ads also use earlier chats and memories. According to OpenAI, they are initially not
+      available in the EEA and would need your consent here.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: only in the Free and Go plans
+    sources:
+      - ref: chatgpt-help-ads
+        note: "„Personalized ads are not initially available in the European Economic Area (EEA) or Switzerland“"
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 9, Rechtsgrundlagen: Einwilligung für personalisierte, berechtigtes Interesse für generische Werbung"
+  - id: advertiser-data
+    category: offplatform
+    title: Details that advertisers send to OpenAI about you.
+    detail: >-
+      According to its privacy policy, OpenAI receives information from advertisers and other data partners, for
+      example about purchases you make. OpenAI uses it to measure whether ads work and to show Free and
+      Go users more relevant ads. According to OpenAI, personalised ads are not available in the EEA and Switzerland
+      for now.
+    condition: Mainly affects the free plans with ads (Free, Go).
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 1, „Informationen, die wir aus anderen Quellen erhalten“"
+      - ref: chatgpt-help-ads
+        note: "personalisierte Anzeigen im EWR und in der Schweiz zunächst nicht verfügbar"
+inferences:
+  - id: memory-profile
+    title: ChatGPT remembers preferences and details about you.
+    detail: >-
+      If the memory feature is on, ChatGPT draws conclusions about you from your conversations, e.g. your job,
+      your preferences or ongoing projects. It uses this in later answers.
+    level: documented
+    basedOn: [prompts, chat-history, memories]
+    sources:
+      - ref: chatgpt-help-memory
+        note: "Abschnitt zu Erkenntnissen aus dem Chatverlauf"
+  - id: ad-topics
+    title: For ads, ChatGPT assigns topics to you.
+    detail: >-
+      According to OpenAI, ChatGPT records your ad history and your interests in Free and Go. For personalised
+      ads it also uses “topics” that it assigns to you. According to OpenAI, personalised ads are initially
+      not available in the EEA and would need your consent.
+    level: documented
+    basedOn: [ad-interactions, chat-history, memories]
+    sources:
+      - ref: chatgpt-help-ads
+        note: "Abschnitte zu Ad controls („History and Topics“) und zur Verfügbarkeit im EWR"
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 1, Nutzungsdaten: „Werbeverlauf und Ihre Interessen“"
+  - id: sensitive-topics
+    title: Health, relationships, finances or beliefs.
+    detail: >-
+      If you talk to ChatGPT about symptoms, worries or questions of faith, you reveal this directly. It is not
+      documented that OpenAI deliberately infers sensitive characteristics about you from this. It would be technically possible.
+    level: possible
+    basedOn: [prompts, chat-history]
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Content' / Nutzerinhalte"
+  - id: location-routine
+    title: Where and when you typically work.
+    detail: >-
+      Your approximate region, your time zone and the times you use the service could give a rough picture of your
+      daily life. This is possible, but OpenAI does not describe it as something it does.
+    level: possible
+    basedOn: [location, usage, log-data]
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitte 'Usage data' und 'Location information'"
+purposes:
+  - purpose: provide-service
+    detail: Writing answers, keeping chat history and memories available, managing your account.
+    sources: [openai-eu-privacy-policy]
+  - purpose: personalisation
+    detail: Tailoring answers to you using memories and earlier chats.
+    sources: [chatgpt-help-memory]
+  - purpose: ai-training
+    detail: >-
+      OpenAI may use your content to train and improve its AI models. For this it relies
+      on a “legitimate interest”. This is a legal basis where the company weighs its interests against
+      yours. You can object.
+    sources: [openai-eu-privacy-policy, chatgpt-help-model-improvement]
+  - purpose: advertising
+    detail: >-
+      Ads in the Free and Go plans. They are based on the current conversation, your approximate location and
+      the time of day. Personalised ads need your consent and, according to OpenAI, are initially not available
+      in the EEA.
+    sources: [chatgpt-help-ads, openai-eu-privacy-policy]
+  - purpose: safety
+    detail: Detecting abuse and fraud, protecting accounts, e.g. in the case of unusual logins.
+    sources: [openai-eu-privacy-policy]
+  - purpose: legal
+    detail: Meeting legal obligations and orders from authorities or courts.
+    sources: [openai-eu-privacy-policy]
+sharing:
+  - id: vendors
+    recipient: OpenAI's service providers
+    detail: >-
+      Companies that work for OpenAI: e.g. data centre providers, customer service, security services,
+      payment services, and search and shopping providers.
+    sources: [openai-eu-privacy-policy]
+  - id: affiliates
+    recipient: OpenAI group companies, including in the USA
+    detail: >-
+      Your data is also processed outside the EEA, mainly in the USA. For this, OpenAI relies on
+      EU model contracts (standard contractual clauses) or on EU decisions that there is enough data protection there.
+    sources: [openai-eu-privacy-policy]
+  - id: workspace-admins
+    recipient: Administrators of Business or Enterprise accounts
+    detail: If you use ChatGPT through your employer, administrators can access your account and your content.
+    sources: [openai-eu-privacy-policy]
+  - id: authorities-courts
+    recipient: Authorities and courts
+    detail: >-
+      When a law requires it. In a US copyright dispute with the New York Times, OpenAI had to temporarily
+      keep deleted chats as well in 2025.
+    sources: [openai-eu-privacy-policy, chatgpt-engadget-preservation-order]
+  - id: advertisers
+    recipient: Advertisers
+    detail: >-
+      According to OpenAI, advertisers do not receive conversations or personal details, only summarised figures
+      such as views and clicks. OpenAI says it does not sell user data.
+    sources: [chatgpt-help-ads, chatgpt-ads-europe-announcement]
+retention:
+  text: >-
+    Normal chats stay stored until you delete them. OpenAI removes deleted chats, memories and accounts
+    within 30 days, unless it has to keep them longer for security or legal reasons. OpenAI may keep a copy of temporary
+    chats for up to 30 days. Because of a US court order, deleted chats were also temporarily kept in 2025.
+    This obligation ended on 26 September 2025, with exceptions.
+  sources:
+    - chatgpt-help-retention
+    - chatgpt-help-temporary-chat
+    - chatgpt-help-delete-account
+    - ref: chatgpt-engadget-preservation-order
+      note: "Ende der allgemeinen Aufbewahrungspflicht"
+journey:
+  - id: you-write
+    title: You write or upload something
+    detail: Your input goes to OpenAI, together with your internet address, details about your device and the time.
+    dataPoints: [prompts, log-data, device]
+    sources: [openai-eu-privacy-policy]
+  - id: processing
+    title: Processing in OpenAI's data centres
+    detail: The AI writes the answer. This also happens outside the EEA, mainly in the USA.
+    dataPoints: [prompts]
+    sources: [openai-eu-privacy-policy]
+  - id: account-storage
+    title: Chat history and memories in your account
+    detail: Conversations stay in your history. If the memory feature is on, ChatGPT remembers details about you.
+    dataPoints: [chat-history, memories]
+    sources: [chatgpt-help-retention, chatgpt-help-memory]
+  - id: training
+    title: Training the AI
+    detail: If “Improve the model for everyone” is on, OpenAI may use your content to train future AI models.
+    dataPoints: [prompts, chat-history, memories]
+    sources: [chatgpt-help-model-improvement]
+  - id: ads
+    title: Ad system (Free and Go)
+    detail: >-
+      Ads are based on the current conversation, your approximate location and the time of day. Personalised
+      ads are initially not available in the EEA. Advertisers do not see conversations.
+    dataPoints: [ad-interactions, prompts, location]
+    sources: [chatgpt-help-ads, openai-eu-privacy-policy]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      ChatGPT collects account data, content, usage, device and location and, if you want, data from connected
+      services. According to the privacy policy, details from advertisers are added, for example about your purchases.
+    confidence: medium
+    sources: [openai-eu-privacy-policy]
+  sensitivity:
+    level: 4
+    rationale: >-
+      Conversations with an AI often contain very personal things, such as health questions, worries or internal
+      matters from work. OpenAI stores them word for word.
+    confidence: high
+    sources: [openai-eu-privacy-policy]
+  observation:
+    level: 3
+    rationale: >-
+      OpenAI stores the entire chat history with times and the features you use. Ongoing
+      measurement of how long you look at something is not described.
+    confidence: medium
+    sources: [openai-eu-privacy-policy, chatgpt-help-retention]
+  linkability:
+    level: 4
+    rationale: >-
+      Your data is linked to your account across all devices and, if you want, to connected services. According to
+      the privacy policy, OpenAI also receives details from advertisers and other data partners, for example about
+      your purchases.
+    confidence: medium
+    sources: [openai-eu-privacy-policy]
+  adUse:
+    level: 2
+    rationale: >-
+      Ads have only existed since August 2026 and only in the Free and Go plans. In the EEA, for now they are based only
+      on the current chat, the approximate location and the time of day. Most of the money comes from subscriptions and business customers.
+    confidence: medium
+    sources: [chatgpt-ads-europe-announcement, chatgpt-help-ads, openai-eu-privacy-policy]
+  sharing:
+    level: 2
+    rationale: >-
+      OpenAI passes data to service providers and its own group companies. According to OpenAI, advertisers do not receive
+      conversations, only summarised figures.
+    confidence: medium
+    sources: [openai-eu-privacy-policy, chatgpt-help-ads]
+  defaults:
+    level: 2
+    rationale: >-
+      Training with your content is on until you object. Chats are stored with no time limit. In the EEA,
+      the memory feature does not refer back to earlier chats by default. Personalised ads need your
+      consent.
+    confidence: medium
+    sources: [chatgpt-help-model-improvement, chatgpt-help-memory, openai-eu-privacy-policy]
+  controls:
+    level: 3
+    rationale: >-
+      Training, memories, ad data and temporary chats can be controlled in the settings. Normal chats
+      stay stored until you delete them.
+    confidence: medium
+    sources: [chatgpt-help-data-controls, chatgpt-help-memory, chatgpt-help-ads, chatgpt-help-temporary-chat]
+  deletion:
+    level: 3
+    rationale: >-
+      You can export your data and delete your account yourself. Deleted data usually disappears within 30 days.
+      In 2025, a US court order temporarily suspended this time limit.
+    confidence: medium
+    sources: [chatgpt-help-export, chatgpt-help-delete-account, chatgpt-engadget-preservation-order]
+  reachability:
+    level: 3
+    rationale: >-
+      The most important options are grouped together in the settings under “Data controls”, “Personalization” and
+      “Ad settings”. OpenAI's help pages describe the steps one by one.
+    confidence: medium
+    sources: [chatgpt-help-data-controls, chatgpt-help-memory, chatgpt-help-ads]
+alternatives: ai-assistant
+linkedWith: []
+region: EU
+reviewedAt: "2026-10-07"

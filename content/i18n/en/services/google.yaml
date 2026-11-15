@@ -1,0 +1,339 @@
+id: google
+name: Google Account & Google Search
+shortName: Google
+company: google
+category: search
+url: https://www.google.com/
+summary: "Google stores your searches and activity in your Google Account and uses them for search and ads. Many other websites also send data to Google. You can view, pause or delete almost all of it."
+surprise:
+  action: google-partner-activity
+  text: "Even when you are not on google.com at all, Google often learns which pages you visit. Many websites have built in ads or visitor statistics from Google (Google Analytics). When you open such a page, your browser automatically tells Google which page it is – and your internet connection's address."
+  sources:
+    - ref: google-partner-sites
+      note: "„sendet Ihr Webbrowser automatisch bestimmte Informationen an Google. Hierzu gehören auch die URL der besuchten Seite und Ihre IP-Adresse“"
+businessModel:
+  text: "Google pays for Search and your account mainly through advertising. In the fourth quarter of 2025, around 72% of the revenue of its parent company Alphabet came from Google advertising: 82.3 of US$113.8 billion. Most of this came from ads in Search."
+  sources:
+    - ref: alphabet-q4-2025-results
+      note: "Umsatztabelle Q4 2025: Google Search & other 63.073, Google advertising 82.284, Total revenues 113.828 (Mio. USD)"
+dataPoints:
+  - id: google-account-data
+    category: account
+    title: "When you create an account, you give Google your name and a password."
+    detail: "You can also add things such as a phone number or payment details if you choose to – for example for purchases in the Play Store."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Absatz zur Kontoerstellung: „Ihren Namen und ein Passwort“, optional Telefonnummer und Zahlungsinformationen"
+  - id: google-search-queries
+    category: searches
+    title: "Google records what you search for."
+    detail: "Google records every search – from a recipe to a question about a symptom. If the “Web & App Activity” setting is on, Google also saves your searches in your account. You can see them there under “My Activity”."
+    technical: "The privacy policy names “terms you search for” as activity data; saving them in your account is controlled by the Web & App Activity setting."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Abschnitt „Ihre Aktivitäten“"
+      - ref: google-help-web-app-activity
+        note: "„Suchanfragen und Aktivitäten in Google-Produkten und -Diensten wie der Google Suche und Google Maps“"
+  - id: google-server-logs
+    category: device
+    title: "Every time you visit, Google notes technical details."
+    detail: "These include the request itself, your IP address (your internet connection's address), your browser type, and the date and time. On top of this come identifiers from cookies – small files by which Google recognises your browser. This also happens when you are not signed in."
+    technical: "Server logs with the web request, IP address, browser type, date and time, and cookie identifiers. Such logs are technically standard for running a web service; Google names them explicitly in its privacy policy."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„Serverprotokolle“ – Webanfrage, IP-Adresse, Browsertyp"
+  - id: google-device-identifiers
+    category: device
+    title: "Google recognises your devices and browsers."
+    detail: "Google collects fixed numbers by which your browser, your apps and your devices can be uniquely recognised. It also collects your device settings. An Android device with Google apps regularly contacts Google. In doing so, it sends things like which apps are installed."
+    technical: "According to the privacy policy, “unique identifiers tied to the browsers, apps or devices you use”, as well as device settings; Android devices with Google apps regularly send information to Google."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„eindeutige Kennungen, die mit den von Ihnen verwendeten Browsern, Apps oder Geräten verknüpft sind“; Absatz zu Android-Geräten"
+  - id: google-location
+    category: location
+    title: "Google can work out your location in different ways."
+    detail: "Google names GPS and other sensors in your device, your IP address, your activity in Google services and things nearby such as Wi-Fi networks. How precise the location is depends on your settings on the device and in your account."
+    technical: "According to the privacy policy: GPS and other sensor data, IP address, activity in Google services and information about things nearby such as Wi-Fi access points."
+    provenance: observed
+    mechanisms: [device, permissions, usage]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Abschnitt zu Standortinformationen: „GPS- und andere Sensordaten von Ihrem Gerät, IP-Adresse, Aktivitäten in Google-Diensten …“"
+  - id: google-approx-location
+    category: location
+    title: "From your IP address, Google works out roughly where you are."
+    detail: "The IP address is your internet connection's address. Even without GPS, it usually shows roughly which city or region you are in. That is enough for things like local search results or ads from your area."
+    technical: "Approximate location from the IP address (IP geolocation)."
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    sources:
+      - ref: google-partner-sites
+        note: "IP-Adresse wird zur ungefähren Standortbestimmung genutzt"
+      - ref: google-privacy-policy
+  - id: google-timeline
+    category: location
+    title: "Maps Timeline saves places you have visited – only if you turn it on."
+    detail: "According to Google, Timeline is off to begin with. Since a change, the data is stored on your device. Only if you turn on a backup does Google keep an encrypted copy on its servers."
+    technical: "Since the change, Timeline data is stored on the device; an optional backup puts an encrypted copy on Google's servers."
+    provenance: observed
+    mechanisms: [device, permissions]
+    evidence: stated
+    condition: "only if you turn on Timeline"
+    sources:
+      - ref: google-help-timeline
+        note: "„Die Zeitachse ist für Ihr Google-Konto standardmäßig deaktiviert“; „verschlüsselte Kopie Ihrer Daten auf den Google-Servern“"
+      - ref: google-blog-timeline-on-device
+  - id: google-ad-interactions
+    category: activity
+    title: "Google keeps track of which ads you see and click on."
+    detail: "Google records which ads you view or click on. If Web & App Activity is on, it also records what you then buy on the advertiser's website."
+    provenance: observed
+    mechanisms: [usage, partners]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„Inhalte und Werbeanzeigen, die Sie sich ansehen und mit denen Sie interagieren“"
+      - ref: google-help-web-app-activity
+        note: "„Werbung, auf die Sie klicken, oder Artikel, die Sie auf der Website eines Werbetreibenden kaufen“"
+  - id: google-partner-site-activity
+    category: offplatform
+    title: "Many other websites and apps report your visit to Google."
+    detail: "If a page uses Google ads or the visitor statistics tool Google Analytics, the page's address, your IP address and identifiers from cookies go to Google. This only ends up in your account if the box for sites and apps is ticked under Web & App Activity."
+    technical: "Embedded Google services (e.g. Google Analytics, Google ads) send the URL, IP address and cookie identifiers to Google."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: google-partner-sites
+      - ref: google-privacy-policy
+        note: "„Websites und Apps, bei denen Google-Dienste wie Werbung und Analysen integriert sind, geben Daten an uns weiter.“"
+      - ref: google-help-web-app-activity
+        note: "Option „Auch den Chrome-Verlauf sowie Aktivitäten auf Websites, in Apps und auf Geräten berücksichtigen“"
+  - id: google-chrome-history
+    category: activity
+    title: "Your Chrome history can end up in your Google Account."
+    detail: "This affects you if you are signed in to Chrome and use sync. The matching box under Web & App Activity must also be ticked."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: "only with Chrome sync and the box ticked under Web & App Activity"
+    sources:
+      - ref: google-help-web-app-activity
+  - id: google-voice
+    category: voice
+    title: "Voice commands to Google are recorded."
+    detail: "If you say a hotword such as “Hey Google”, Google records your voice and the surrounding audio. Whether the recordings stay in your account is controlled by a separate option under Web & App Activity."
+    technical: "After an activation command is recognised, voice and audio information is recorded; saving it in your account is controlled by the option “Include voice and audio activity”."
+    provenance: observed
+    mechanisms: [device, permissions]
+    evidence: stated
+    condition: "only if you use voice control"
+    sources:
+      - ref: google-privacy-policy
+        note: "Absatz zu Sprach- und Audioinformationen"
+      - ref: google-help-web-app-activity
+        note: "Option „Sprach- und Audioaktivitäten einschließen“"
+  - id: google-content
+    category: content
+    title: "What you keep in Gmail, Drive or Photos is stored with Google."
+    detail: "Google names emails you write and receive, photos and videos you save, and documents and spreadsheets. This affects you if you use these services with your account."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "if you use Gmail, Drive, Photos or Docs"
+    sources:
+      - ref: google-privacy-policy
+        note: "„E-Mails, die Sie verfassen und empfangen, Fotos und Videos, die Sie speichern, Dokumente und Tabellen, die Sie erstellen“"
+inferences:
+  - id: google-ad-interests
+    title: "Google works out interests for ads from your activity."
+    detail: "Depending on your settings, Google shows you ads that match your interests and activity. In “My Ad Center” you can see and change the topics and brands that are used for this."
+    level: documented
+    basedOn: [google-search-queries, google-ad-interactions, google-partner-site-activity]
+    sources:
+      - ref: google-privacy-policy
+        note: "„auf Ihre Interessen und Aktivitäten … bezogene personalisierte Werbung“"
+      - ref: google-help-my-ad-center
+  - id: google-age-gender
+    title: "Google can estimate your age and gender if you do not give them."
+    detail: "For ads, Google uses details such as age and gender. Either you have entered them in your account, or Google has estimated them itself (“inferred”). My Ad Center shows which details are used."
+    level: documented
+    basedOn: [google-account-data, google-search-queries]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "„Angaben, z. B. zu Ihrem Alter und Geschlecht, die Sie in Ihrem Google-Konto gemacht haben oder die Google abgeleitet hat“"
+  - id: google-life-situation
+    title: "Search histories can reveal life situations."
+    detail: "If you search for flats, baby names or a job change, you indirectly reveal something about a move, family planning or a career change. Technically, such a conclusion is possible. We have not found evidence in Google's documents that Google infers exactly these life situations about you."
+    level: possible
+    basedOn: [google-search-queries, google-partner-site-activity]
+    sources:
+      - google-privacy-policy
+  - id: google-sensitive-topics
+    title: "Searches can touch on health, faith or sexuality."
+    detail: "If you search for symptoms or religious topics, you leave very private traces. Whether Google draws conclusions from this internally is not documented. Google says it does not show personalised ads on sensitive topics such as ethnic origin, religion, sexual orientation or health."
+    level: possible
+    basedOn: [google-search-queries]
+    sources:
+      - ref: google-privacy-policy
+        note: "„Wir zeigen Ihnen keine personalisierte Werbung, die auf sensiblen Kategorien … basiert“"
+  - id: google-frequent-places
+    title: "Home and workplace can be worked out from location data."
+    detail: "Where a device regularly is at night and during the day usually reveals home and workplace. This is technically possible. We have not found evidence that Google draws this conclusion."
+    level: possible
+    basedOn: [google-location, google-timeline]
+    sources:
+      - google-privacy-policy
+purposes:
+  - purpose: provide-service
+    detail: "Delivering search results, running your account and storing content such as emails or photos."
+    sources: [google-privacy-policy]
+  - purpose: personalisation
+    detail: "Adapting search results, recommendations and suggestions to what you have done before – for example through Web & App Activity."
+    sources: [google-privacy-policy, google-help-web-app-activity]
+  - purpose: advertising
+    detail: "Depending on your settings, ads that suit you – in Google services and on partner websites. Otherwise, ads are based on the context: the topic of the page, the time of day or your current location."
+    sources: [google-privacy-policy, google-help-my-ad-center]
+  - purpose: measurement
+    detail: "Measuring how services are used and how well ads work – including on websites that embed Google services."
+    sources: [google-privacy-policy, google-partner-sites]
+  - purpose: safety
+    detail: "Detecting fraud, spam and abuse and protecting accounts."
+    sources: [google-privacy-policy, google-partner-sites]
+  - purpose: ai-training
+    detail: "According to the company, Google trains its AI models with data that is available online or in other public sources. Google also uses the data it collects to develop new services."
+    sources:
+      - ref: google-privacy-policy
+        note: "„erheben wir Daten, die online oder in anderen öffentlichen Quellen verfügbar sind, um die KI-Modelle von Google zu trainieren“"
+sharing:
+  - id: google-sharing-processors
+    recipient: "Service providers working for Google"
+    detail: "Google shares data with companies that work with it on Google's behalf – only following Google's instructions."
+    sources: [google-privacy-policy]
+  - id: google-sharing-cross-service
+    recipient: "Other Google services"
+    detail: "Google can use data across its services and your devices. In the EEA, since the Digital Markets Act, Google asks whether Search, YouTube, ad services, Play, Chrome, Shopping and Maps should be linked."
+    sources: [google-privacy-policy, google-help-linked-services]
+  - id: google-sharing-advertisers
+    recipient: "Advertisers, website owners and other partners"
+    detail: "According to Google, they only receive information that does not point to you as a person – such as combined figures on usage or on how well ads work."
+    sources:
+      - ref: google-privacy-policy
+        note: "„nicht personenbezogene Daten an die Öffentlichkeit und unsere Partner, beispielsweise an Publisher, Werbetreibende, Entwickler“"
+  - id: google-sharing-legal
+    recipient: "Authorities and courts"
+    detail: "When laws, legal proceedings or requests from authorities require it, Google hands over data."
+    sources: [google-privacy-policy]
+  - id: google-sharing-consent
+    recipient: "Third parties with your consent"
+    detail: "For example, when you connect another app to your Google Account. With school or work accounts, the person who manages the accounts there can also access them."
+    sources: [google-privacy-policy]
+retention:
+  text: "A lot is kept until you delete it. For new accounts, since 2020 Google has automatically deleted Web & App Activity after 18 months. If you turn on Timeline for the first time, it starts at 3 months. Google deletes some data itself after a set period or removes the link to you (anonymises it), e.g. advertising data in technical logs. It keeps other data longer for legal reasons."
+  sources:
+    - ref: google-privacy-policy
+      note: "Abschnitt „Aufbewahrung Ihrer Informationen“"
+    - ref: google-blog-auto-delete-2020
+    - ref: google-blog-timeline-on-device
+    - ref: google-help-delete-activity
+journey:
+  - id: google-journey-use
+    title: "You search or use a Google service"
+    detail: "Your request goes to Google with your IP address, browser and device data. Depending on what you allow, your device's location is added."
+    dataPoints: [google-search-queries, google-server-logs, google-device-identifiers, google-location]
+    sources: [google-privacy-policy]
+  - id: google-journey-partner-sites
+    title: "Other websites report in too"
+    detail: "Pages with Google ads or Google Analytics send the page's address, your IP address and identifiers from cookies to Google."
+    dataPoints: [google-partner-site-activity]
+    sources: [google-partner-sites]
+  - id: google-journey-account
+    title: "Saved in your Google Account"
+    detail: "If Web & App Activity is on, searches, location and other activity end up in your account. You can view and delete them under “My Activity”. In the EEA, services are only linked if you choose this."
+    dataPoints: [google-search-queries, google-ad-interactions, google-chrome-history, google-voice]
+    sources: [google-help-web-app-activity, google-help-linked-services]
+  - id: google-journey-personalisation
+    title: "Tailored to you"
+    detail: "Google adapts search results and suggestions to what is saved in your account."
+    dataPoints: [google-search-queries, google-approx-location]
+    sources: [google-privacy-policy]
+  - id: google-journey-ads
+    title: "Choosing the ads"
+    detail: "From your activity and account details, Google estimates interests and characteristics such as your age group. If personalised ads are off, ads are based only on the context."
+    dataPoints: [google-ad-interactions, google-account-data, google-partner-site-activity]
+    sources: [google-help-my-ad-center, google-privacy-policy]
+  - id: google-journey-measurement
+    title: "Figures for advertisers"
+    detail: "According to Google, advertisers and website owners receive combined figures that are not linked to individual people, for example on how well ads work."
+    dataPoints: [google-ad-interactions]
+    sources: [google-privacy-policy]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Very broad: searches, location, devices, content from Gmail/Drive/Photos, plus data from other websites and apps that embed Google services."
+    confidence: high
+    sources: [google-privacy-policy, google-partner-sites]
+  sensitivity:
+    level: 3
+    rationale: "Searches and location data are regularly private and often touch on health or personal circumstances. If you use Gmail or Photos, you also keep very personal content with Google."
+    confidence: medium
+    sources: [google-privacy-policy]
+  observation:
+    level: 3
+    rationale: "As long as the activity settings are on, Google stores detailed histories: what you searched for and clicked on, when, and where you were."
+    confidence: high
+    sources: [google-help-web-app-activity, google-privacy-policy]
+  linkability:
+    level: 4
+    rationale: "Google uses data across services and devices and adds data from partner websites and apps. In the EEA you can refuse the linking of major services."
+    confidence: high
+    sources: [google-privacy-policy, google-partner-sites, google-help-linked-services]
+  adUse:
+    level: 4
+    rationale: "Advertising is the core business: in the fourth quarter of 2025, around 72% of Alphabet's revenue came from Google advertising."
+    confidence: high
+    sources: [alphabet-q4-2025-results]
+  sharing:
+    level: 3
+    rationale: "Data goes to service providers and stays within the group. According to Google, advertisers and website owners only receive combined figures that are not linked to individuals. Google only shares data about you as a person with your consent or for legal reasons."
+    confidence: medium
+    sources: [google-privacy-policy]
+  defaults:
+    level: 3
+    rationale: "New accounts automatically delete Web & App Activity after 18 months, Timeline is off, and in the EEA you are asked about linking services. But a lot of activity is stored for a long time by default."
+    confidence: medium
+    sources: [google-blog-auto-delete-2020, google-help-timeline, google-help-linked-services]
+  controls:
+    level: 3
+    rationale: "Personalised ads, saving activity, data from partners and the linking of services can each be switched off. Technical logs and ads based on context remain."
+    confidence: high
+    sources: [google-help-my-ad-center, google-help-web-app-activity, google-help-linked-services]
+  deletion:
+    level: 4
+    rationale: "You can delete activity yourself or have it deleted automatically after 3, 18 or 36 months; Google Takeout exports your data, and you can delete the account yourself."
+    confidence: high
+    sources: [google-help-delete-activity, google-help-takeout, google-help-delete-account]
+  reachability:
+    level: 4
+    rationale: "The settings are in one place in your Google Account under “Data & privacy”, along with the guided Privacy Checkup and My Ad Center."
+    confidence: medium
+    sources: [google-help-account-settings, google-help-my-ad-center]
+alternatives: search
+linkedWith: [youtube]
+region: EU
+reviewedAt: "2026-10-07"

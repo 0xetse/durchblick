@@ -1,0 +1,117 @@
+- id: whatsapp-request-account-info
+  service: whatsapp
+  kind: export
+  title: Request a report on your WhatsApp account data
+  goal: "You get a report with the account information and settings that WhatsApp has stored about you."
+  whyItMatters: "The report shows you what WhatsApp knows about you outside your encrypted chats – for example your profile, groups and settings."
+  whatChanges: "WhatsApp creates a report. You can download or export it later."
+  whatDoesNotChange: "Messages are not included. Once delivered, they are stored only on your devices and possibly in your backup. There are separate reports for channels and ads. To back up chats, use the “Export chat” feature."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "In WhatsApp, open Settings and tap “Account”."
+    - "Tap “Request account info” and then “Request report”. The app shows when the report will be ready."
+    - "As soon as it is available, open “Request account info” again and tap “Download report” or “Export report”."
+  affects: [wa-account, wa-unencrypted-info, wa-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the WhatsApp help article “Request account information” (German version) and the section “How you exercise your rights” of the EEA privacy policy."
+  sources: [whatsapp-help-request-account-info, whatsapp-privacy-policy-eea]
+- id: whatsapp-delete-account
+  service: whatsapp
+  kind: deletion
+  title: Delete your WhatsApp account
+  goal: "Your account, your chat history and your group memberships are deleted."
+  whyItMatters: "Just deleting the app is not enough. Then the stored information stays with WhatsApp until the account is deleted for inactivity – usually after 120 days."
+  whatChanges: "You lose access and are removed from groups. Your backup in your Google account is deleted. At WhatsApp, deletion takes up to 90 days."
+  whatDoesNotChange: "Messages you sent to others stay with them. Copies may remain in backups for a while. Anonymised log data is kept."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Back up important chats first, because deleted accounts cannot be restored."
+    - "Open WhatsApp, then “Settings” > “Account” > “Delete my account”."
+    - "Enter your phone number in full international format and tap “Delete account”."
+    - "Choose a reason and confirm with “Delete account”."
+  affects: [wa-account, wa-unencrypted-info, wa-contacts, wa-usage]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the WhatsApp help article “Delete account” (German version); time limits from the EEA privacy policy."
+  sources: [whatsapp-help-delete-account, whatsapp-privacy-policy-eea]
+- id: whatsapp-live-location
+  service: whatsapp
+  kind: permission
+  title: Stop live location and limit location access
+  goal: "You no longer share your location in any chat. WhatsApp can only access it when you want it to."
+  whyItMatters: "A forgotten live location keeps showing others where you are. The content is encrypted, but the people you are chatting with can see it until it expires."
+  whatChanges: "Ongoing live locations end in all chats. Without location permission, the app can no longer get your exact location."
+  whatDoesNotChange: "WhatsApp still works out your approximate location (country or region) from your internet connection's address (IP address) and your dialling code. People who have already seen your location still see the last preview image."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "In WhatsApp, open “Settings” > “Privacy” > “Live location”."
+    - "Tap “Stop sharing” and confirm with “Stop”."
+    - "Android: open your phone's settings > “Apps” > “WhatsApp” > “Permissions” > “Location” and choose “Ask every time” or “Don't allow”."
+  affects: [wa-precise-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the WhatsApp help article “Use live location” (German version, Android view). We did not check the iPhone path for the permission separately."
+  sources: [whatsapp-help-live-location, whatsapp-privacy-policy-eea]
+- id: whatsapp-contact-access
+  service: whatsapp
+  kind: permission
+  title: Check WhatsApp's access to your contacts
+  tradeOff: "Without access to your contacts, WhatsApp shows numbers instead of names in chats."
+  goal: "WhatsApp no longer regularly uploads the numbers from your address book."
+  whyItMatters: "With access to your contacts, WhatsApp usually reads your address book every day. This includes numbers of people who do not use WhatsApp. WhatsApp stores these as a hash – a kind of encrypted fingerprint of the number."
+  whatChanges: "Without permission, WhatsApp can no longer match your address book. You can still receive messages and add contacts directly in WhatsApp."
+  whatDoesNotChange: "Contacts stored in your WhatsApp account stay there until you delete them yourself. Other people can still pass on your number through their address book."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Android: open your phone's settings and tap “Apps” > “WhatsApp” > “Permissions” > “Contacts” (on some phones “Contacts and accounts”). There you decide whether WhatsApp may access your contacts. If you cannot find this item, search the settings for “Permissions”."
+    - "iPhone: open Settings > “Apps” > “WhatsApp” > “Contacts”. There you can deny access, or use “Limited Access” to share only selected contacts."
+    - "To delete contacts stored in your WhatsApp account, go to “Settings” > “Privacy” > “Contacts” in WhatsApp."
+  affects: [wa-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-11-11"
+    method: "Checked again on 2026-11-11 against the WhatsApp help article “Contact names missing” (de_DE, Android and iPhone view): on Android the item is now called “Kontakte und Konten” (contacts and accounts); the iPhone path “Settings > Apps > WhatsApp > Contacts” with limited or full access is correct. Before that, checked on 2026-10-07 in the rendered browser (de-DE) against the WhatsApp help article “Contact names missing”, in both the Android and the iOS view (path to the contacts permission, consequences of denying it). Deleting stored contacts comes from the help article “About uploading contacts”. The help describes the path for allowing access; it does not give the exact label of the option for denying it, and this can differ by manufacturer."
+  sources: [whatsapp-help-contact-names, whatsapp-help-contact-upload]
+- id: whatsapp-accounts-center
+  service: whatsapp
+  kind: setting
+  title: Remove WhatsApp from Meta's Accounts Center
+  goal: "WhatsApp no longer shares data with Meta Platforms Ireland so that Meta can tailor content and ads to you."
+  whyItMatters: "If WhatsApp is in Accounts Center, your phone number, profile picture and usage information, among other things, go to Meta. Ads in Status and Channels then use information from all linked accounts."
+  whatChanges: "The link ends. According to WhatsApp Help, sharing stops within 24 hours and the links are removed within up to seven days. According to the EEA policy, WhatsApp deletes the information used for this within 90 days, unless an exception applies."
+  whatDoesNotChange: "Meta companies still process data as service providers for WhatsApp. Ads may still appear in the “Updates” tab."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "In WhatsApp, open “Settings” and tap “Meta Account” > “Manage account”. Depending on the rollout, it may still be called “Accounts Center”."
+    - "Next to “WhatsApp”, tap “Manage” and then “Move out of this Meta Account”."
+    - "Confirm with “Yes, continue” > “Continue” > “Yes, finish moving”."
+  affects: [wa-account, wa-updates-tab]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Steps checked on 2026-10-21 in the rendered browser against the WhatsApp help article “How to manage WhatsApp in your Meta Account” (German and English versions; Android and iOS views, where the removal section is the same). The article describes the way in from WhatsApp and the menu names, and notes that Accounts Center is gradually being renamed to Meta Account. The EEA policy on Accounts Center and the help article on managing your WhatsApp data in Accounts Center also confirm that you can remove WhatsApp at any time in the WhatsApp settings. The article is not region-specific; retrieved from a non-EU network."
+  sources: [whatsapp-help-meta-account, whatsapp-help-accounts-center-data, whatsapp-accounts-center-policy-eea, meta-help-accounts-center-manage]

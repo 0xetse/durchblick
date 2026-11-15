@@ -1,0 +1,88 @@
+---
+import Base from '~/layouts/Base.astro';
+import Einstieg from '~/islands/Einstieg';
+import { guideCards, serviceCards } from '~/domain/projections';
+import { getContent } from '~/domain/content';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const services = serviceCards(locale);
+const guides = guideCards(locale);
+const { examples } = getContent(locale);
+// Teasers: the three cases closest to everyday life.
+const cases = ['databroker-files', 'facebook-phone-leak', 'meta-pixel-hospitals']
+  .map((id) => examples.find((e) => e.id === id))
+  .filter((e) => e !== undefined);
+
+const TXT_DE = {
+  title: 'Was erfahren deine Apps über dich?',
+  lead: 'In vier kurzen Schritten siehst du, was deine Apps über dich erfahren können – und was du in wenigen Minuten dagegen tun kannst.',
+  trustNoAccount: 'Ohne Anmeldung und ohne Cookies',
+  trustBrowser: 'Deine Auswahl bleibt in deinem Browser',
+  trustSource: 'Jede Aussage mit Quelle –',
+  trustCheck: 'nachprüfen',
+  noscript: 'Ohne JavaScript kannst du jede App einzeln ansehen:',
+  noscriptLink: 'Alle Apps',
+  more: 'Zum Weiterlesen',
+  whyTitle: 'Warum das wichtig ist',
+  whyLead: 'Einzelne Angaben wirken harmlos. Drei echte Fälle zeigen, was passieren kann:',
+  allExamples: 'Alle Beispiele ansehen →',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'What do your apps find out about you?',
+  lead: 'In four short steps you can see what your apps can find out about you – and what you can do about it in a few minutes.',
+  trustNoAccount: 'No sign-up and no cookies',
+  trustBrowser: 'Your selection stays in your browser',
+  trustSource: 'Every statement has a source –',
+  trustCheck: 'check for yourself',
+  noscript: 'Without JavaScript you can look at each app on its own:',
+  noscriptLink: 'All apps',
+  more: 'Further reading',
+  whyTitle: t.nav.why,
+  whyLead: 'Single pieces of information seem harmless. Three real cases show what can happen:',
+  allExamples: 'See all examples →',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+---
+<Base ownsSelection title={t.site.name}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-intro">
+        <h1>{s.title}</h1>
+        <p class="lead">{s.lead}</p>
+        <ul class="hero-trust small">
+          <li><span>{s.trustNoAccount}</span></li>
+          <li><span>{s.trustBrowser}</span></li>
+          <li><span>{s.trustSource} <a href={href(locale, 'transparency')}>{s.trustCheck}</a></span></li>
+        </ul>
+      </div>
+      <div class="hero-tool">
+        <Einstieg client:load services={services} guides={guides} locale={locale} />
+        <noscript>
+          <p class="panel">{s.noscript} <a href={href(locale, 'apps')}>{s.noscriptLink}</a>.</p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-more" aria-labelledby="why-title">
+    <div class="wrap narrow">
+      <p class="meta home-more-label">{s.more}</p>
+      <h2 id="why-title">{s.whyTitle}</h2>
+      <p>{s.whyLead}</p>
+      <ul class="rows home-cases">
+        {cases.map((e) => (
+          <li>
+            <a href={`${href(locale, 'why')}#${e.id}`}>
+              <span class="meta">{e.year} · {t.areas[e.area].title}</span>
+              <span class="home-case-title">{e.title} <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p><a href={href(locale, 'why')}>{s.allExamples}</a></p>
+    </div>
+  </section>
+
+</Base>

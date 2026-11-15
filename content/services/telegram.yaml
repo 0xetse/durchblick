@@ -1,0 +1,353 @@
+id: telegram
+name: Telegram
+company: telegram
+category: messaging
+url: https://telegram.org/
+summary: "Telegram speichert deine normalen Chats, Gruppen und Kanäle verschlüsselt auf eigenen Rechnern – die Schlüssel hat Telegram. Ende-zu-Ende-verschlüsselt sind nur „Geheime Chats“ zu zweit und Anrufe. Werbung gibt es nur in großen öffentlichen Kanälen, Bots und der Suche."
+surprise:
+  action: telegram-secret-chat
+  text: "Bei normalen Telegram-Chats hat Telegram selbst Zugriff auf die Schlüssel, mit denen sie verschlüsselt sind. Nur bei „Geheimen Chats“ können ausschließlich du und dein Gegenüber mitlesen. Die musst du für jedes Gespräch selbst starten – und für Gruppen gibt es sie gar nicht."
+  sources:
+    - ref: telegram-faq
+      note: "„Server-client encryption is used in Cloud Chats (private and group chats), Secret Chats use an additional layer of client-client encryption.“"
+    - ref: telegram-durov-e2e-default
+      note: "„in cloud chats our servers do have access to the encryption key“"
+    - ref: telegram-faq-de
+      note: "„Bei iOS und Android im Cloud Chat auf das Profilbild tippen → ‚…‘ → ‚Geheimen Chat starten‘.“"
+    - ref: telegram-green-encryption
+      note: "„it does not end-to-end encrypt conversations by default“; „never for group chats with more than two people in them“"
+businessModel:
+  text: "Telegram verdient laut eigener Aussage an zwei Dingen: gesponserten Nachrichten (Werbung) in öffentlichen Kanälen seit 2021 und dem Abo Telegram Premium seit 2022. Wer Premium zahlt, sieht keine Werbung. Daten zur Werbeauswahl gibt Telegram nach eigener Aussage nicht an Werbekunden weiter."
+  sources:
+    - ref: telegram-faq
+      note: "„In 2021, Telegram launched Sponsored Messages …“; „In 2022, Telegram launched a Premium subscription …“"
+    - ref: telegram-privacy-policy
+      note: "Abschnitte 5.6 und 5.6.1: „Nutzer von Telegram Premium sehen keine Werbung …“; „Diese Daten dürfen nicht an Dritte weitergegeben werden, auch nicht an Werbetreibende.“"
+dataPoints:
+  - id: tg-account
+    category: account
+    title: "Für ein Konto brauchst du deine Handynummer und einen Anzeigenamen."
+    detail: "Freiwillig kommen Profilbild, Benutzername, Geburtstag und eine E-Mail-Adresse für Anmeldecodes oder die Passwort-Wiederherstellung dazu. Anzeigename, öffentliche Profilbilder und Benutzername sind immer öffentlich. Einen echten Namen verlangt Telegram nicht."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 3.1, 3.1.1 und 3.2: „… sind der von dir gewählte Anzeigename, deine öffentlichen Profilbilder und dein Benutzername (falls du einen festlegen möchtest) auf Telegram immer öffentlich.“"
+  - id: tg-cloud-chats
+    category: communications
+    title: "Deine normalen Chats speichert Telegram auf eigenen Rechnern – und kann sie technisch entschlüsseln."
+    detail: "Das gilt für Einzelchats, alle Gruppen und Kanäle, mit Fotos, Videos und Dateien („Cloud Chats“). So kannst du von jedem Gerät darauf zugreifen. Telegram speichert sie verschlüsselt. Die Schlüssel liegen aber bei Telegram, nicht nur auf deinen Geräten. Laut Telegram nutzt es Chat-Inhalte nicht für Werbung."
+    technical: "Cloud Chats nutzen Client-Server-Verschlüsselung (Protokoll MTProto). Laut Datenschutzerklärung liegen die Schlüssel in anderen Rechenzentren als die Daten. Telegram-CEO Pavel Durov: „in cloud chats our servers do have access to the encryption key“."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 3.3.1: „Wir speichern Nachrichten, Fotos, Videos und Dokumente aus deinen Cloud Chats auf unseren Servern …“; Abschnitt 3.3.4: „Alle öffentlichen Chats sind Cloud Chats“"
+      - ref: telegram-faq
+        note: "„Server-client encryption is used in Cloud Chats (private and group chats)“"
+      - ref: telegram-durov-e2e-default
+        note: "„in cloud chats our servers do have access to the encryption key“"
+  - id: tg-secret-chats
+    category: communications
+    title: "Nur „Geheime Chats“ und Anrufe sind Ende-zu-Ende-verschlüsselt."
+    detail: "Geheime Chats gibt es nur zu zweit. Du musst sie für jede Person selbst starten. Sie liegen nicht bei Telegram und nur auf dem Gerät, auf dem du sie gestartet hast. Meldest du dich ab, sind sie weg. Anrufe und Gruppenanrufe sind laut Telegram ebenfalls Ende-zu-Ende-verschlüsselt."
+    technical: "Schlüsselaustausch per Diffie-Hellman; der Schlüssel lässt sich über ein Bild mit dem Gegenüber vergleichen. Laut Datenschutzerklärung führt Telegram für Geheime Chats keine Protokolle darüber, an wen oder wann du Nachrichten sendest."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du einen Geheimen Chat startest"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 3.3.2 und 4.2: „Wir speichern deine Geheimen Chats nicht auf unseren Servern.“; Inhalt von Anrufen nur auf deinem Gerät und dem des Empfängers verarbeitet"
+      - ref: telegram-faq
+        note: "„All secret chats in Telegram are device-specific and are not part of the Telegram cloud.“; Anrufe und Gruppenanrufe „protected by end-to-end encryption“"
+      - ref: telegram-green-encryption
+        note: "Ende-zu-Ende-Verschlüsselung „never for group chats with more than two people in them“"
+  - id: tg-contacts
+    category: contacts
+    title: "Mit deiner Einwilligung speichert Telegram dein Adressbuch."
+    detail: "Telegram speichert Nummer und Namen deiner aktuellen Kontakte. So meldet es dir, wenn sich jemand neu anmeldet. Aus unkenntlich gemachten Nummernlisten schätzt Telegram außerdem, wie viele Kontakte Menschen ohne Telegram haben – für das Menü „Freunde einladen“."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "nur wenn du der Synchronisierung deiner Kontakte zustimmst"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 3.4: „Wir bitten um deine Einwilligung, bevor deine Kontakte synchronisiert werden.“; „Wir benötigen nur die Nummer und den Namen …“; „… anonymisierte Reihen von Telefonnummern …, um die ungefähre Anzahl potenzieller Kontakte zu berechnen, die eine nicht auf Telegram registrierte Telefonnummer haben kann.“"
+  - id: tg-contacts-by-others
+    category: contacts
+    title: "Andere geben deine Nummer an Telegram weiter."
+    detail: "Wer dich im Adressbuch hat und Kontakte abgleicht, übermittelt deine Nummer und den Namen, unter dem er dich gespeichert hat. Meldest du dich neu an, benachrichtigt Telegram diese Personen."
+    provenance: provided
+    mechanisms: [other-users]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 3.4: Kontakte werden gespeichert, „um dich benachrichtigen zu können, sobald sich einer deiner Kontakte bei Telegram anmeldet“"
+      - ref: telegram-faq
+        note: "„People, who have your phone number in their contacts, will be notified.“"
+  - id: tg-metadata
+    category: device
+    title: "Telegram kann deine Internet-Adresse, Geräte und Apps bis zu 12 Monate speichern."
+    detail: "Zur Sicherheit und gegen Spam kann Telegram erfassen: die Internet-Adresse deines Anschlusses (IP-Adresse), welche Geräte und Telegram-Apps du nutzt und wie oft du deinen Benutzernamen geändert hast."
+    provenance: observed
+    mechanisms: [device, usage]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.2: „… können wir Metadaten wie deine IP-Adresse, Geräte und Telegram Apps, die du verwendet hast, den Verlauf der Änderungen von Nutzernamen usw. erheben und verarbeiten. Diese Metadaten können wir, sofern wir sie erheben, für maximal 12 Monate … speichern.“"
+  - id: tg-usage-aggregates
+    category: activity
+    title: "Telegram wertet aus, mit wem du oft schreibst und welche Bots du nutzt."
+    detail: "Daraus berechnet Telegram einen Wert für jede Person und jeden Bot. Oben in der Suche zeigt es dann, wen du wahrscheinlich anschreiben willst. Du kannst das abschalten – dann löscht Telegram die Daten."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.5: „Zu diesem Zweck berechnen wir eine Bewertung, die anzeigt, welche Personen du häufig anschreibst.“; Abschalten über „Häufige Kontakte vorschlagen“"
+  - id: tg-reported-messages
+    category: communications
+    title: "Meldet dich jemand, können Moderator*innen die gemeldeten Nachrichten lesen."
+    detail: "Wer eine Nachricht von dir meldet, schickt sie an Telegram. Bestätigt Telegram Spam, kannst du Fremde womöglich nicht mehr anschreiben. Zusätzlich können automatische Verfahren normale Chats nach Spam und Betrugsversuchen durchsuchen."
+    provenance: provided
+    mechanisms: [other-users, derived]
+    evidence: stated
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.3: „… können unsere Moderatoren Nachrichten überprüfen, die ihnen von den Empfängern gemeldet und zugesendet wurden.“; „Wir können auch automatisierte Algorithmen verwenden, um Cloud Chats zu analysieren, um Spam und Phishing zu verhindern.“"
+  - id: tg-approx-location
+    category: location
+    title: "Für Werbung schätzt Telegram dein Land und deine Stadt."
+    detail: "Dazu nutzt es die Vorwahl deiner Handynummer oder die Internet-Adresse deines Anschlusses. Einen genauen Standort verfolgt Telegram dafür laut eigener Aussage nicht. Mit Premium entfällt das."
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    condition: "nicht bei Telegram Premium"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.6.1: „… wobei der ungefähre Standort anhand des Landes und der Vorwahl der Telefonnummer eines Nutzers oder anhand seiner IP-Adresse bestimmt wird. Diese Daten werden niemals an Werbetreibende weitergegeben.“"
+  - id: tg-shared-location
+    category: location
+    title: "Deinen genauen Standort bekommt Telegram nur, wenn du ihn teilst."
+    detail: "Teilst du einen Standort im Chat, behandelt Telegram ihn wie eine Nachricht – im normalen Chat liegt er also bei Telegram. Beim Live-Standort und bei „Leute in der Nähe“ verarbeitet Telegram ihn laufend, auch wenn die App geschlossen ist."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "nur wenn du Standortfunktionen nutzt"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 3.5: „… werden diese Standortdaten wie andere Nachrichten in Cloud Chats bzw. Geheimen Chats behandelt.“; Live-Standort und „Mich sichtbar machen“ „auch, wenn die App geschlossen ist“"
+  - id: tg-channels-ads
+    category: activity
+    title: "Welche großen öffentlichen Kanäle du abonniert hast, kann Telegram für Werbung nutzen."
+    detail: "Werbung erscheint in Kanälen ab 1.000 Abonnent*innen, in Bots, Storys und der Suche. Standardmäßig richtet sie sich nach dem Thema des Kanals oder deinem Suchbegriff. Folgst du genug Kanälen eines Themas, kann dir Telegram auch anderswo passende Werbung zeigen. Private Chats und Kontaktlisten wertet Telegram dafür laut eigener Aussage nicht aus."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: "nicht bei Telegram Premium"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 5.6 und 5.6.1: „Nutzern kann außerdem Werbung auf Grundlage der von ihnen abonnierten Kanäle angezeigt werden.“; „Inhalte privater Chats oder Kontaktlisten werden weder ausgewertet noch analysiert …“"
+  - id: tg-bots
+    category: communications
+    title: "Bots und Mini-Apps gehören fremden Entwickler*innen – sie bekommen Daten von dir."
+    detail: "Ein Bot sieht deinen Anzeigenamen, Benutzernamen, Profilbilder und alles, was du ihm schreibst. Klickst du auf seine Links, kann er deine IP-Adresse erfahren. In Gruppen sehen manche Bots alle Nachrichten. Telegram schreibt, Bots seien „völlig unabhängig“ von Telegram."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du Bots oder Mini-Apps nutzt oder in Gruppen mit Bots bist"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 6.3 und 6.4: „Bots erhalten offensichtlich deine Nachricht, wenn du ihnen eine Nachricht sendest.“; „Wenn der Bot Zugriff auf Nachrichten hat, kann er alles sehen, was in der Gruppe passiert.“; „Sie sind völlig unabhängig von uns.“"
+      - ref: telegram-faq
+        note: "„Mini apps are full applications that run inside Telegram, built by outside developers …“"
+  - id: tg-payments
+    category: purchases
+    title: "Bezahlst du über Bots, gehen Kartendaten direkt an Zahlungsanbieter."
+    detail: "Kartendaten erreichen Telegram laut eigener Aussage nie. Eine Lieferadresse geht an den Händler-Bot. Auf Wunsch speichert Telegram sie und einen Zahlungs-Code für spätere Käufe."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du über Bots bezahlst"
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 7.1–7.4: „Deine Zahlungsdaten erreichen nie die Server von Telegram.“; Versandinformationen „senden wir … direkt an den Entwickler des Händlerbots“"
+inferences:
+  - id: tg-frequent-contacts
+    title: "Telegram berechnet, wen du häufig anschreibst."
+    detail: "Das beschreibt Telegram selbst: Aus deiner Nutzung entsteht eine Bewertung, welche Personen und Bots dir wichtig sind. Telegram nutzt sie für Vorschläge in der Suche. Abschalten kannst du sie in den Datenschutz-Einstellungen."
+    level: documented
+    basedOn: [tg-usage-aggregates]
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.5"
+  - id: tg-ad-interests
+    title: "Aus deinen Kanal-Abos schließt Telegram auf Themen, die dich interessieren."
+    detail: "Folgst du genug großen Kanälen etwa zu Finanzen oder Humor, ordnet Telegram dich dieser Werbe-Kategorie zu. Dazu kommen Land und Stadt aus Vorwahl oder IP-Adresse. Werbekunden bekommen diese Daten laut Telegram nicht."
+    level: documented
+    basedOn: [tg-channels-ads, tg-approx-location]
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 5.6.1: „Nutzer, die einer ausreichenden Anzahl großer öffentlicher Kanäle … folgen (z. B. Finanzen, Wirtschaft & Unternehmertum oder Humor & Memes), können auch in anderen großen öffentlichen Kanälen oder anderen Bots Werbung aus der entsprechenden Kategorie sehen.“"
+  - id: tg-chat-content-possible
+    title: "Aus normalen Chats ließe sich technisch sehr viel über dich ablesen."
+    detail: "Weil Telegram die Schlüssel für normale Chats und Gruppen hat, könnte es Inhalte technisch auswerten – etwa Gesundheit, Beziehungen oder politische Ansichten. Das ist eine technische Möglichkeit, keine von Telegram beschriebene Praxis. Telegram schreibt, Chat-Inhalte nicht für Werbung zu nutzen. Automatisch geprüft werden sie laut Telegram auf Spam und Betrug."
+    level: possible
+    basedOn: [tg-cloud-chats, tg-reported-messages]
+    sources:
+      - ref: telegram-durov-e2e-default
+        note: "„in cloud chats our servers do have access to the encryption key“"
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 1.1, 5.3 und 5.6"
+  - id: tg-social-graph-possible
+    title: "Adressbuch und Gruppen zeigen, wen du kennst."
+    detail: "Aus gespeicherten Kontakten, gemeinsamen Gruppen und der Häufigkeit deiner Chats ließe sich dein Umfeld ablesen. Das ist eine Möglichkeit, keine beschriebene Auswertung. Telegram schreibt, Kontaktlisten nicht für Werbung oder andere kommerzielle Zwecke zu nutzen."
+    level: possible
+    basedOn: [tg-contacts, tg-contacts-by-others, tg-usage-aggregates]
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 3.4, 5.5 und 5.6: „… verwenden wir weder die Inhalte Ihrer privaten Chats noch Ihre Kontaktlisten für zielgerichtete Werbung oder sonstige kommerzielle Zwecke.“"
+purposes:
+  - purpose: provide-service
+    detail: "Chats, Gruppen und Kanäle auf all deinen Geräten bereitstellen, ohne dass du ein eigenes Backup brauchst."
+    sources: [telegram-privacy-policy]
+  - purpose: safety
+    detail: "Spam, Betrug und Verstöße gegen die Regeln erkennen – mit gemeldeten Nachrichten, automatischen Prüfungen normaler Chats und Metadaten wie der IP-Adresse."
+    sources: [telegram-privacy-policy]
+  - purpose: advertising
+    detail: "Gesponserte Nachrichten in großen öffentlichen Kanälen, Bots, Storys und der Suche. Grundlage sind Thema, Sprache, ungefährer Ort und abonnierte Kanäle – nicht private Chats. Nicht bei Premium."
+    sources: [telegram-privacy-policy, telegram-faq]
+  - purpose: personalisation
+    detail: "Häufige Kontakte und Bots vorschlagen."
+    sources: [telegram-privacy-policy]
+  - purpose: legal
+    detail: "Auf gültige gerichtliche Anordnung kann Telegram IP-Adresse und Telefonnummer von Verdächtigen an Behörden geben."
+    sources: [telegram-privacy-policy]
+sharing:
+  - id: tg-share-authorities
+    recipient: "Strafverfolgungsbehörden (auf gerichtliche Anordnung)"
+    detail: "Bist du in einem Strafverfahren verdächtig und liegt eine gültige Anordnung vor, kann Telegram deine IP-Adresse und Telefonnummer herausgeben. Das steht seit September 2024 so in der Datenschutzerklärung. Telegram nennt die Fälle in einem Transparenzbericht. Für 2024 meldete es etwa 900 erfüllte Anfragen aus den USA zu 2.253 Nutzer*innen."
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 8.3: „… können deine IP-Adresse und Telefonnummer an die zuständigen Behörden weitergeben.“; Änderungsprotokoll: „23. September 2024 – 8.3 aktualisiert“"
+      - telegram-engadget-law-enforcement
+      - telegram-techcrunch-transparency
+  - id: tg-share-group
+    recipient: "Firmen der Telegram-Gruppe"
+    detail: "Die Muttergesellschaft Telegram Group Inc. und Telegraph Inc. (beide Britische Jungferninseln) sowie Telegram FZ-LLC in Dubai können deine Daten bekommen, um den Dienst zu betreiben."
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitt 8.2"
+  - id: tg-share-bots
+    recipient: "Entwickler*innen von Bots und Mini-Apps"
+    detail: "Sie bekommen dein öffentliches Profil und alles, was du ihnen schreibst oder in Gruppen mit Zugriff schreibst. Mit Telegram Business können verbundene Bots auch private Chats verwalten, die du ihnen zuweist."
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 6.3–6.5"
+  - id: tg-share-payment
+    recipient: "Zahlungsanbieter und Händler-Bots"
+    detail: "Zahlungsanbieter bekommen deine Kartendaten, Händler deine Lieferadresse."
+    sources: [telegram-privacy-policy]
+  - id: tg-share-google
+    recipient: "Google (Übersetzung und Umwandlung von Sprachnachrichten)"
+    detail: "Laut Datenschutzerklärung kann Telegram Text zum Übersetzen und Sprachnachrichten zum Umwandeln in Text an Google schicken. Google darf sie nicht anders nutzen. Die FAQ schreibt dagegen, Übersetzung und andere KI-Funktionen liefen auf Telegrams eigener Plattform Cocoon ohne Dritte. Welche Angabe heute gilt, ist unklar."
+    sources:
+      - ref: telegram-privacy-policy
+        note: "Abschnitte 8.4 und 8.5"
+      - ref: telegram-faq
+        note: "„Telegram's AI features including translation … run on Cocoon and never send any data to third parties.“"
+  - id: tg-share-public
+    recipient: "Alle Nutzer*innen (öffentliche Angaben)"
+    detail: "Anzeigename, öffentliche Profilbilder und Benutzername sind öffentlich. Was du in öffentlichen Gruppen oder Kanälen schreibst, kann jede*r lesen."
+    sources: [telegram-privacy-policy]
+retention:
+  text: "Normale Chats bleiben bei Telegram, bis du sie löschst. Einzelchats kannst du jederzeit für beide Seiten löschen. Löschst du nur bei dir, bleibt die Kopie deines Gegenübers bei Telegram. In Supergruppen hält Telegram gelöschte Nachrichten noch 48 Stunden fürs Admin-Protokoll. Metadaten wie die IP-Adresse höchstens 12 Monate. Bist du 18 Monate inaktiv, löscht Telegram dein Konto mit allen Daten – die Frist kannst du ändern."
+  sources:
+    - ref: telegram-privacy-policy
+      note: "Abschnitte 5.2, 10.2 und 10.4"
+    - ref: telegram-faq
+      note: "„If you stop using Telegram and don't come online for at least 18 months, your account will be deleted …“"
+journey:
+  - id: tg-journey-device
+    title: "Du schreibst eine Nachricht"
+    detail: "Im normalen Chat wird sie auf dem Weg zu Telegram verschlüsselt. Im Geheimen Chat wird sie so verschlüsselt, dass nur dein Gegenüber sie öffnen kann."
+    dataPoints: [tg-cloud-chats, tg-secret-chats]
+    sources: [telegram-faq, telegram-privacy-policy]
+  - id: tg-journey-cloud
+    title: "Telegram speichert normale Chats"
+    detail: "Normale Chats, Gruppen und Kanäle liegen verschlüsselt bei Telegram. Für Nutzer*innen aus dem EWR in Rechenzentren in den Niederlanden. Die Schlüssel hat Telegram. Geheime Chats speichert Telegram nicht."
+    dataPoints: [tg-cloud-chats, tg-secret-chats]
+    sources: [telegram-privacy-policy, telegram-durov-e2e-default]
+  - id: tg-journey-account
+    title: "Konto, Adressbuch und Metadaten"
+    detail: "Deine Nummer, dein Profil und – mit deiner Einwilligung – dein Adressbuch gehören zu deinem Konto. Dazu kommen IP-Adresse und Geräte für bis zu 12 Monate."
+    dataPoints: [tg-account, tg-contacts, tg-contacts-by-others, tg-metadata]
+    sources: [telegram-privacy-policy]
+  - id: tg-journey-ads
+    title: "Werbung in öffentlichen Kanälen"
+    detail: "Telegram wählt Werbung nach Kanal-Thema, Sprache, ungefährem Ort und deinen Kanal-Abos. Private Chats nutzt es laut eigener Aussage dafür nicht."
+    dataPoints: [tg-channels-ads, tg-approx-location]
+    sources: [telegram-privacy-policy]
+  - id: tg-journey-outside
+    title: "Bots, Behörden und andere Empfänger"
+    detail: "Bots bekommen, was du ihnen schreibst. Auf gerichtliche Anordnung kann Telegram IP-Adresse und Telefonnummer an Behörden geben."
+    dataPoints: [tg-bots, tg-metadata, tg-account]
+    sources: [telegram-privacy-policy, telegram-techcrunch-transparency]
+assessment:
+  breadth:
+    level: 3
+    rationale: "Telefonnummer, Adressbuch, alle normalen Chats mit Medien, IP-Adresse und Geräte, ungefährer Ort und Kanal-Abos. Daten von fremden Websites nennt die Datenschutzerklärung nicht."
+    confidence: high
+    sources: [telegram-privacy-policy]
+  sensitivity:
+    level: 4
+    rationale: "Private Gespräche sind die Kernfunktion. Normale Chats und alle Gruppen sind nicht Ende-zu-Ende-verschlüsselt. Telegram kann sie also technisch lesen. Laut Telegram nutzt es sie nicht für Werbung. Nur Geheime Chats und Anrufe sind geschützt."
+    confidence: medium
+    sources: [telegram-privacy-policy, telegram-durov-e2e-default, telegram-faq]
+  observation:
+    level: 2
+    rationale: "Telegram nennt wenige Nutzungsdaten: IP-Adresse, Geräte und Apps für die Sicherheit, eine Rangliste häufiger Kontakte und deine Kanal-Abos für Werbung. Eine feine Aufzeichnung deines Verhaltens beschreibt es nicht."
+    confidence: medium
+    sources: [telegram-privacy-policy]
+  linkability:
+    level: 2
+    rationale: "Dein Konto gilt auf allen Geräten. Daten gehen an andere Firmen der Telegram-Gruppe, um den Dienst zu betreiben. Andere Produkte, mit denen Telegram Daten verknüpft, nennt die Datenschutzerklärung nicht."
+    confidence: medium
+    sources: [telegram-privacy-policy]
+  adUse:
+    level: 2
+    rationale: "Werbung gibt es nur in großen öffentlichen Kanälen, Bots, Storys und der Suche. Sie richtet sich vor allem nach Thema und Ort, zusätzlich nach Kanal-Abos. Mit Premium gibt es keine Werbung. Daneben verdient Telegram an Abos."
+    confidence: medium
+    sources: [telegram-privacy-policy, telegram-faq]
+  sharing:
+    level: 3
+    rationale: "Bots und Mini-Apps fremder Entwickler*innen bekommen Daten, sobald du sie nutzt. Behörden bekommen auf gerichtliche Anordnung IP-Adresse und Telefonnummer. Werbekunden bekommen laut Telegram keine Daten."
+    confidence: medium
+    sources: [telegram-privacy-policy, telegram-techcrunch-transparency]
+  defaults:
+    level: 2
+    rationale: "Normale Chats sind ab Werk nicht Ende-zu-Ende-verschlüsselt, Gruppen nie. Schützend voreingestellt: Deine Nummer sehen nur deine Kontakte, das Adressbuch braucht deine Einwilligung, und inaktive Konten löscht Telegram nach 18 Monaten."
+    confidence: medium
+    sources: [telegram-faq, telegram-faq-de, telegram-privacy-policy]
+  controls:
+    level: 3
+    rationale: "Du kannst steuern, wer deine Nummer und „Zuletzt gesehen“ sieht, Kontakte löschen, Vorschläge abschalten und Geheime Chats nutzen. Dass Gruppen bei Telegram lesbar gespeichert werden, kannst du nicht ändern."
+    confidence: medium
+    sources: [telegram-faq, telegram-faq-de, telegram-privacy-policy]
+  deletion:
+    level: 4
+    rationale: "Nachrichten löschst du jederzeit für beide Seiten. Es gibt Selbstzerstörungs-Timer und automatisches Löschen inaktiver Konten. Das Konto löschst du über eine Website. Den Export bietet Telegram nur in der Desktop-App an."
+    confidence: medium
+    sources: [telegram-privacy-policy, telegram-faq, telegram-blog-export, telegram-delete-page]
+  reachability:
+    level: 3
+    rationale: "Die meisten Optionen liegen unter „Einstellungen → Privatsphäre und Sicherheit“, auf dem iPhone teils unter „Dateneinstellungen“. Kontolöschung und Export liegen aber auf einer Website bzw. in der Desktop-App. In der App haben wir das nicht geprüft."
+    confidence: low
+    sources: [telegram-faq-de, telegram-privacy-policy, telegram-delete-page]
+alternatives: messaging
+linkedWith: []
+region: EU
+reviewedAt: "2026-10-08"

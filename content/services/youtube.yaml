@@ -1,0 +1,270 @@
+id: youtube
+name: YouTube
+company: google
+category: video
+url: https://www.youtube.com/
+summary: "YouTube merkt sich, was du ansiehst, suchst und likest. Das nutzt YouTube für Empfehlungen und Werbung – auch in anderen Google-Diensten. Verlauf und Werbung kannst du pausieren, löschen oder begrenzen."
+surprise:
+  action: youtube-watch-history-pause
+  text: "Pausierst du den Wiedergabeverlauf und gibt es kaum einen alten Verlauf, zeigt YouTube auf der Startseite gar keine Empfehlungen mehr. Die Empfehlungen hängen also direkt an deinem Verlauf."
+  sources:
+    - ref: youtube-help-watch-history
+      note: "„werden YouTube-Funktionen wie Empfehlungen auf der YouTube-Startseite entfernt“"
+businessModel:
+  text: "YouTube finanziert sich über Werbung und Abos. Im vierten Quartal 2025 brachte YouTube-Werbung 11,4 Mrd. US-Dollar ein. Im ganzen Jahr 2025 lag der YouTube-Umsatz aus Werbung und Abos bei über 60 Mrd. US-Dollar."
+  sources:
+    - ref: alphabet-q4-2025-results
+      note: "„YouTube ads 11,383“ (Q4 2025, Mio. USD); „YouTube revenue across ads and subscriptions exceeded $60 billion for the full year 2025“"
+dataPoints:
+  - id: youtube-account
+    category: account
+    title: "YouTube läuft über dein Google-Konto."
+    detail: "YouTube kennt deinen Namen, deine Kontoangaben sowie Alter und Geschlecht aus dem Google-Konto. Google nutzt Alter und Geschlecht zum Beispiel, um Werbung auszuwählen – auch auf YouTube."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Für personalisierte Werbung auf Google, auch auf YouTube, zählen u. a. Angaben zu Alter und Geschlecht aus dem Google-Konto oder von Google abgeleitet."
+      - google-privacy-policy
+  - id: youtube-watch-history
+    category: activity
+    title: "YouTube speichert, welche Videos du ansiehst."
+    detail: "Der Wiedergabeverlauf zeigt jedes angesehene Video und Short. Ist er aktiviert, nutzt YouTube ihn für Empfehlungen."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: "im Konto gespeichert, solange der YouTube-Verlauf aktiviert ist"
+    sources:
+      - ref: youtube-help-watch-history
+        note: "„Wenn er aktiviert ist, können wir dir relevante Videoempfehlungen geben“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-search-history
+    category: searches
+    title: "YouTube speichert, wonach du suchst."
+    detail: "Deine Suchen auf YouTube landen im Suchverlauf und beeinflussen die Empfehlungen. Gelöschte Suchen wirken sich nicht mehr darauf aus."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: youtube-help-search-history
+        note: "„Gelöschte Suchanfragen wirken sich nicht mehr auf Empfehlungen aus.“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-interactions
+    category: activity
+    title: "YouTube wertet deine Likes, Abos und Rückmeldungen aus."
+    detail: "Dazu gehört, was du likest oder nicht magst, welche Kanäle du abonnierst und was du in kurzen Umfragen zur Zufriedenheit antwortest."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: youtube-how-recommendations
+        note: "„viewing behavior, likes, dislikes, subscriptions, and feedback, including from satisfaction surveys“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-uploads-comments
+    category: content
+    title: "Kommentare, Videos und Playlists, die du erstellst, liegen bei YouTube."
+    detail: "Was du hochlädst oder schreibst, ist je nach Einstellung öffentlich. Löschst du deinen Kanal, werden Videos, Kommentare, Nachrichten und Playlists endgültig entfernt."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "wenn du Inhalte hochlädst oder kommentierst"
+    sources:
+      - ref: youtube-help-privacy-basics
+        note: "Absatz zum Schließen oder Löschen des Kanals"
+  - id: youtube-device
+    category: device
+    title: "YouTube erfasst Angaben zu deinem Gerät."
+    detail: "Dazu gehören Angaben zum Gerät. Auf dem Handy kann Google Werbung über die Werbe-ID personalisieren – eine Nummer, die nicht deinen Namen enthält."
+    technical: "Laut Hilfe zu Mein Anzeigen-Center kann Werbung auf Mobilgeräten anhand der Werbe-ID personalisiert werden (Android: Werbe-ID von Google, iPhone: Werbe-ID von Apple)."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - youtube-help-privacy-basics
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Werbung auf Mobilgeräten kann anhand der Werbe-ID personalisiert werden (Android: Werbe-ID von Google, iPhone: von Apple)."
+  - id: youtube-location
+    category: location
+    title: "YouTube schätzt, wo du gerade bist."
+    detail: "Dafür nutzt YouTube den Standort deines Geräts, die Privat- oder Arbeitsadresse aus deinem Google-Konto und deine IP-Adresse – die Internet-Adresse deines Anschlusses."
+    provenance: derived
+    mechanisms: [device, derived]
+    evidence: stated
+    sources:
+      - ref: youtube-help-privacy-basics
+        note: "„YouTube schätzt deinen aktuellen Standort anhand des Gerätestandorts, der in deinem Google-Konto gespeicherten Privat- oder Arbeitsadresse und deiner IP‑Adresse“"
+  - id: youtube-ad-interactions
+    category: activity
+    title: "YouTube merkt sich, wie du auf Werbung reagierst."
+    detail: "Mit welchen Anzeigen und Inhalten du interagiert hast, kann beeinflussen, welche Werbung du später siehst – auch auf YouTube."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Zu den Faktoren gehören im Google-Konto gespeicherte Interaktionen mit Anzeigen oder Inhalten."
+  - id: youtube-offplatform
+    category: offplatform
+    title: "Für Werbung auf YouTube können auch Websites und Apps außerhalb von YouTube zählen."
+    detail: "Bist du angemeldet, kann Google für Werbung in seinen Diensten, auch auf YouTube, deine Aktivitäten auf Websites und in Apps von Google-Partnern nutzen, wenn sie in deinem Google-Konto gespeichert werden. Bei Android zählen auch die installierten Apps."
+    provenance: observed
+    mechanisms: [partners, device]
+    evidence: stated
+    condition: "wenn du angemeldet bist, personalisierte Werbung aktiviert ist und Partner-Aktivitäten in deinem Google-Konto gespeichert werden"
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Faktoren sind u. a. im Google-Konto gespeicherte Aktivitäten auf Websites von Google-Partnern und auf Android installierte Apps; ob Partnerdaten gespeichert werden, ist eine eigene Einstellung."
+      - google-partner-sites
+inferences:
+  - id: youtube-interests
+    title: "YouTube leitet aus deinen Videos Interessen ab."
+    detail: "Welche Arten von Videos du ansiehst, bestimmt die Empfehlungen. Ist personalisierte Werbung an, bestimmt es auch die Anzeigen. In Mein Anzeigen-Center siehst du die Themen, die dafür genutzt werden."
+    level: documented
+    basedOn: [youtube-watch-history, youtube-search-history, youtube-interactions]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Zu den Faktoren gehören auf YouTube angesehene Videos; bevorzugte Themen und Marken lassen sich in Mein Anzeigen-Center einstellen."
+      - youtube-how-recommendations
+  - id: youtube-age-gender
+    title: "Google kann Alter und Geschlecht schätzen, auch für YouTube-Werbung."
+    detail: "Altersgruppe und Geschlecht zählen bei der Auswahl von Werbung auf YouTube. Laut Google stammen diese Angaben aus deinem Konto oder Google hat sie selbst geschätzt."
+    level: documented
+    basedOn: [youtube-account, youtube-watch-history]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "„die Sie in Ihrem Google-Konto gemacht haben oder die Google abgeleitet hat“"
+  - id: youtube-life-situation
+    title: "Dein Verlauf kann Lebensumstände andeuten."
+    detail: "Viele Videos zu Schwangerschaft, Hausbau oder Bewerbungen lassen Schlüsse auf deine Lage zu. Technisch ist das möglich. Dass YouTube das tut, ist nicht dokumentiert."
+    level: possible
+    basedOn: [youtube-watch-history, youtube-search-history]
+    sources:
+      - youtube-help-privacy-basics
+  - id: youtube-sensitive-topics
+    title: "Videos zu Gesundheit, Glauben oder Politik sind sensible Spuren."
+    detail: "Was du dir zu solchen Themen ansiehst, könnte theoretisch Schlüsse über dich erlauben. Für YouTube ist das nicht dokumentiert. Google schreibt, es zeige keine personalisierte Werbung zu heiklen Themen wie Religion, sexueller Orientierung oder Gesundheit."
+    level: possible
+    basedOn: [youtube-watch-history]
+    sources:
+      - google-privacy-policy
+purposes:
+  - purpose: provide-service
+    detail: "Videos abspielen, Abos und Playlists verwalten, Kommentare anzeigen."
+    sources: [youtube-help-privacy-basics]
+  - purpose: personalisation
+    detail: "Empfehlungen und Suchergebnisse auf Basis von Wiedergabe- und Suchverlauf, Likes, Abos und Feedback."
+    sources: [youtube-help-watch-history, youtube-how-recommendations, youtube-help-privacy-basics]
+  - purpose: advertising
+    detail: "Personalisierte Werbung auf YouTube und in anderen Google-Diensten. Ist sie aus oder bist du nicht angemeldet, richtet sich die Werbung nach den Videos, die du gerade ansiehst."
+    sources: [youtube-help-privacy-basics, youtube-help-ads, google-help-my-ad-center]
+  - purpose: product-development
+    detail: "Dienste verbessern, unter anderem mit zusammengefassten Auswertungen, die keinen Bezug zu dir als Person mehr haben (anonymisiert)."
+    sources: [youtube-help-privacy-basics]
+  - purpose: safety
+    detail: "Missbrauch und Betrug verhindern, wie in der Google-Datenschutzerklärung beschrieben."
+    sources: [google-privacy-policy]
+sharing:
+  - id: youtube-sharing-google
+    recipient: "Andere Google-Dienste"
+    detail: "Deine YouTube-Aktivität kann Werbung in anderen Google-Diensten beeinflussen. Im EWR kannst du wählen, ob YouTube mit Suche, Werbediensten und anderen Diensten verknüpft ist."
+    sources: [youtube-help-privacy-basics, google-help-linked-services]
+  - id: youtube-sharing-public
+    recipient: "Öffentlichkeit"
+    detail: "Öffentliche Videos, Kommentare und Playlists sehen alle; die Sichtbarkeit von Videos kannst du einstellen."
+    sources: [youtube-help-privacy-basics]
+  - id: youtube-sharing-advertisers
+    recipient: "Werbende"
+    detail: "Laut Google bekommen Werbende nur zusammengefasste Angaben, die nicht auf dich als Person verweisen. YouTube schreibt, es verkaufe deine personenbezogenen Daten nicht."
+    sources:
+      - google-privacy-policy
+      - ref: youtube-help-privacy-basics
+        note: "„YouTube verkauft deine personenbezogenen Daten nicht.“"
+retention:
+  text: "Wiedergabe- und Suchverlauf bleiben gespeichert, bis du sie löschst. Nutzt du YouTube neu oder schaltest du den Verlauf zum ersten Mal ein, ist seit 2020 automatisches Löschen nach 36 Monaten voreingestellt. Du kannst kürzere Fristen wählen."
+  sources:
+    - ref: google-blog-auto-delete-2020
+      note: "„das Zeitfenster für das automatische Löschen der Daten auf 36 Monate gesetzt wird“"
+    - youtube-help-watch-history
+    - google-help-delete-activity
+journey:
+  - id: youtube-journey-watch
+    title: "Du schaust, suchst und likest"
+    detail: "YouTube erfasst jedes angesehene Video, jede Suche, jedes Like und Abo. Dazu kommen Angaben zum Gerät und ein geschätzter Standort."
+    dataPoints: [youtube-watch-history, youtube-search-history, youtube-interactions, youtube-device, youtube-location]
+    sources: [youtube-help-privacy-basics]
+  - id: youtube-journey-history
+    title: "Speicherung im YouTube-Verlauf"
+    detail: "Alles wird in deinem Google-Konto gesammelt. Unter „Meine Daten auf YouTube“ kannst du es ansehen, pausieren oder löschen."
+    dataPoints: [youtube-watch-history, youtube-search-history]
+    sources: [youtube-help-watch-history, youtube-help-privacy-basics]
+  - id: youtube-journey-recommendations
+    title: "So entstehen Empfehlungen"
+    detail: "Aus dem, was du ansiehst, likest und abonnierst, und aus deinen Umfrageantworten berechnet YouTube, was es dir als Nächstes vorschlägt."
+    dataPoints: [youtube-watch-history, youtube-interactions, youtube-search-history]
+    sources: [youtube-how-recommendations]
+  - id: youtube-journey-ads
+    title: "Auswahl der Werbung"
+    detail: "Welche Anzeigen du siehst, kann abhängen von: Art der angesehenen Videos, Alter, Geschlecht, ungefährem Standort, gespeicherten Aktivitäten auf Partner-Websites und Anzeigen, mit denen du interagiert hast."
+    dataPoints: [youtube-watch-history, youtube-account, youtube-location, youtube-offplatform, youtube-ad-interactions]
+    sources: [google-help-my-ad-center, youtube-help-ads]
+  - id: youtube-journey-google
+    title: "Andere Google-Dienste"
+    detail: "Deine YouTube-Aktivität kann auch Werbung in anderen Google-Diensten beeinflussen – im EWR abhängig davon, ob du die Dienste verknüpft hast."
+    dataPoints: [youtube-watch-history]
+    sources: [youtube-help-privacy-basics, google-help-linked-services]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Neben Seh- und Suchverhalten und Interaktionen kann Google für Werbung, auch auf YouTube, Alter, Geschlecht, die Werbe-ID des Handys und gespeicherte Aktivitäten auf Partner-Websites nutzen, bei Android auch installierte Apps."
+    confidence: medium
+    sources: [youtube-help-privacy-basics, youtube-help-ads, google-help-my-ad-center]
+  sensitivity:
+    level: 3
+    rationale: "Seh- und Suchverläufe sind privat und berühren oft Gesundheit, Politik oder Lebensumstände. Sehr persönliche Nachrichten fallen in der Regel nicht an."
+    confidence: medium
+    sources: [youtube-help-privacy-basics]
+  observation:
+    level: 4
+    rationale: "YouTube wertet laufend aus, was du ansiehst, likest, abonnierst und in Umfragen antwortest. Das ist das Herzstück der Empfehlungen."
+    confidence: high
+    sources: [youtube-how-recommendations, youtube-help-watch-history]
+  linkability:
+    level: 4
+    rationale: "YouTube nutzt dasselbe Google-Konto. Deine Aktivität wirkt auch in anderen Google-Diensten, und für Werbung können gespeicherte Aktivitäten auf Websites und in Apps von Partnern zählen. Im EWR kannst du die Verknüpfung abwählen."
+    confidence: high
+    sources: [youtube-help-privacy-basics, google-help-my-ad-center, google-help-linked-services]
+  adUse:
+    level: 4
+    rationale: "Werbung ist die Haupteinnahmequelle; YouTube-Werbung brachte im vierten Quartal 2025 rund 11,4 Mrd. US-Dollar."
+    confidence: high
+    sources: [alphabet-q4-2025-results]
+  sharing:
+    level: 3
+    rationale: "Daten bleiben laut Google im Konzern und bei Dienstleistern. Werbende bekommen zusammengefasste Angaben. Öffentliche Inhalte sind für alle sichtbar."
+    confidence: medium
+    sources: [google-privacy-policy, youtube-help-privacy-basics]
+  defaults:
+    level: 2
+    rationale: "Für neue Nutzer ist automatisches Löschen voreingestellt, aber erst nach 36 Monaten – das zählt nach unserer Methodik nicht als schützende Voreinstellung. Im EWR fragt Google nach der Verknüpfung von Diensten; Wiedergabe- und Suchverlauf sind aber standardmäßig aktiv."
+    confidence: medium
+    sources: [google-blog-auto-delete-2020, youtube-help-watch-history, google-help-linked-services]
+  controls:
+    level: 3
+    rationale: "Wiedergabe- und Suchverlauf sowie personalisierte Werbung lassen sich getrennt abschalten. Ohne Verlauf entfallen allerdings die Empfehlungen auf der Startseite."
+    confidence: high
+    sources: [youtube-help-watch-history, youtube-help-search-history, google-help-my-ad-center]
+  deletion:
+    level: 4
+    rationale: "Verlauf einzeln oder komplett löschen, automatisches Löschen einstellen, Export über Google Takeout; der Kanal lässt sich löschen."
+    confidence: high
+    sources: [youtube-help-watch-history, google-help-takeout, youtube-help-privacy-basics]
+  reachability:
+    level: 3
+    rationale: "Verlaufs- und Werbeeinstellungen sind in der App unter Einstellungen und zentral in „Meine Aktivitäten“ zu finden."
+    confidence: medium
+    sources: [youtube-help-privacy-basics, youtube-help-watch-history]
+alternatives: video
+linkedWith: [google]
+region: EU
+reviewedAt: "2026-10-07"

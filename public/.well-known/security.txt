@@ -1,0 +1,8 @@
+# Durchblick – Sicherheitskontakt / security contact
+# Meldungen bitte vertraulich über GitHub (Private Vulnerability Reporting).
+# Please report privately via GitHub. Policy: SECURITY.md
+Contact: https://github.com/0xetse/durchblick/security/advisories/new
+Contact: mailto:etse@posteo.de
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: de, en
+Policy: https://github.com/0xetse/durchblick/blob/main/SECURITY.md

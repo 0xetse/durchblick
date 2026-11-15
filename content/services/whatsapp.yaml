@@ -1,0 +1,313 @@
+id: whatsapp
+name: WhatsApp
+company: meta
+category: messaging
+url: https://www.whatsapp.com/
+summary: "Deine Chats und Anrufe sind Ende-zu-Ende-verschlüsselt. Laut WhatsApp kann es sie nicht lesen. Erfasst werden aber Telefonnummer, Adressbuch sowie Daten zu Gerät und Nutzung. Werbung gibt es nur im Tab „Aktuelles“ (Status und Kanäle)."
+surprise:
+  action: whatsapp-contact-access
+  text: "Auch die Nummern von Menschen, die WhatsApp gar nicht nutzen, landen bei WhatsApp – sobald jemand sie im Adressbuch hat und WhatsApp Zugriff auf die Kontakte gibt. WhatsApp speichert die Nummer nicht im Klartext, sondern als eine Art Fingerabdruck, und merkt sich, wer sie im Adressbuch hat. Meldet sich die Person später an, kann WhatsApp sie sofort mit diesen Menschen verbinden."
+  sources:
+    - ref: whatsapp-help-contact-upload
+      note: "„Dazu erstellen wir einen kryptografischen Hashwert ihrer Telefonnummer und löschen dann die Nummer. Jeder kryptografische Hashwert wird auf den Servern von WhatsApp gespeichert und mit den WhatsApp-Benutzer*innen verknüpft …“"
+businessModel:
+  text: "WhatsApp verdient vor allem an Unternehmen, die dafür bezahlen, ihrer Kundschaft Nachrichten zu schicken. Dazu kommen Abos. Meta hat im März 2026 angekündigt, Werbung in Status und Kanälen auch in der EU einzuführen. Die EWR-Datenschutzrichtlinie sieht solche Anzeigen vor. Metas EU-Abo ohne Werbung gilt auch für WhatsApp-Konten in derselben Kontenübersicht."
+  sources:
+    - ref: meta-sec-10q-2026-q2
+      note: "„FoA Other revenue, which consists of revenue from paid messaging from WhatsApp, subscriptions …“"
+    - ref: meta-help-ads-subscription
+      note: "Abo gilt für „Facebook-, Instagram-, Threads- oder WhatsApp-Konten“ in derselben Kontenübersicht"
+    - ref: whatsapp-ppcland-dma-report-2026
+      note: "Metas DMA-Bericht vom 6. März 2026: Start der Werbung in Status und Kanälen in der EU „in the coming weeks“"
+    - ref: whatsapp-privacy-policy-eea
+      note: "„… es kann sein, dass du andere Arten von Anzeigen in Status und Kanälen siehst.“"
+dataPoints:
+  - id: wa-account
+    category: account
+    title: "Für ein Konto brauchst du deine Handynummer und einen Profilnamen."
+    detail: "Freiwillig kommen Profilbild, Benutzername und „Info“ dazu. WhatsApp erfasst außerdem Angaben zu deinem Alter, etwa wenn du es angibst oder WhatsApp zur Meta-Kontenübersicht hinzufügst."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Deine Konto-Informationen“"
+  - id: wa-message-content
+    category: communications
+    title: "Deine Chats und Anrufe kann WhatsApp laut eigener Aussage nicht lesen oder anhören."
+    detail: "Nachrichten, Fotos, Videos, Sprachnachrichten, Dokumente, Anrufe und dein Status sind Ende-zu-Ende-verschlüsselt. Nicht zustellbare Nachrichten und gesendete Medien liegen bis zu 30 Tage verschlüsselt bei WhatsApp. Lesen kann WhatsApp sie auch dort nicht. Ausnahme: Meldest du jemanden, bekommt WhatsApp nach eigenen Angaben bis zu fünf der letzten Nachrichten, die diese Person oder Gruppe dir geschickt hat."
+    technical: "WhatsApp nutzt das Signal-Protokoll; die Schlüssel zum Entschlüsseln liegen nur auf den Geräten der Gesprächspartner. Zwischengespeicherte Nachrichten und Medien liegen verschlüsselt auf WhatsApp-Servern."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Benutzerinhalte“: Speicherung bis zu 30 Tage in verschlüsselter Form"
+      - ref: whatsapp-help-e2ee
+        note: "„Niemand außerhalb des Chats kann sie lesen, anhören oder teilen, nicht einmal WhatsApp.“ / Signal-Protokoll"
+      - ref: whatsapp-help-block-report
+        note: "Abschnitt „Wenn du jemanden meldest“: bis zu fünf der letzten Nachrichten"
+  - id: wa-unencrypted-info
+    category: content
+    title: "Profilbild, Info sowie Gruppennamen und -beschreibungen sind nicht verschlüsselt."
+    detail: "Diese Angaben kann WhatsApp sehen. WhatsApp weiß auch, wer in einer Gruppe ist und wann eine Gruppe angelegt oder geändert wurde."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "„Außerdem kannst du Inhalte bereitstellen, die nicht verschlüsselt werden. Das heißt, wir können sie sehen.“; Abschnitt „Deine Community- und Gruppeninformationen“"
+  - id: wa-contacts
+    category: contacts
+    title: "Mit deiner Erlaubnis lädt WhatsApp regelmäßig die Nummern aus deinem Adressbuch hoch."
+    detail: "Meist täglich – auch Nummern von Menschen ohne WhatsApp. Diese speichert WhatsApp nach eigener Aussage nur als Hashwert – eine Art verschlüsselter Fingerabdruck der Nummer. Deine Kontaktliste gibt WhatsApp laut eigener Aussage nicht an andere Meta-Apps weiter."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "nur wenn du WhatsApp Zugriff auf deine Kontakte gibst"
+    sources:
+      - ref: whatsapp-help-contact-upload
+        note: "„WhatsApp greift üblicherweise täglich auf Telefonnummern in deinem Adressbuch zu und lädt sie hoch“; „Wir teilen deine Kontaktlisten nicht mit anderen Apps von Meta.“"
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Dein Netzwerk“"
+  - id: wa-contacts-by-others
+    category: contacts
+    title: "Andere geben deine Nummer an WhatsApp weiter."
+    detail: "Wer dich im Adressbuch hat und Kontakte hochlädt, übermittelt auch deine Nummer – selbst wenn du nichts tust. WhatsApp erfasst außerdem, wer dich kontaktiert, wen du blockierst und wer dich blockiert."
+    provenance: provided
+    mechanisms: [other-users]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitte „Von anderen über dich bereitgestellte Informationen“ und „Dein Netzwerk“"
+  - id: wa-usage
+    category: activity
+    title: "WhatsApp hält fest, wann und wie du die App nutzt."
+    detail: "Welche Funktionen du nutzt, ob du online bist und wann du zuletzt online warst. Wann du Nachrichten und Anrufe sendest oder bekommst und wie lange Anrufe dauern. Was du schreibst, erfasst WhatsApp nicht."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Nutzungsinformationen“; Abschnitt „Nachrichten“ unter Aufbewahrung (Telefonnummer, Datum und Uhrzeit, Dauer)"
+  - id: wa-device
+    category: device
+    title: "WhatsApp erfasst genaue Daten über dein Gerät und deine Verbindung."
+    detail: "Gerätemodell, Betriebssystem, Akkustand, Signalstärke, App-Version, Mobilfunk- oder Internetanbieter und die Internet-Adresse deines Anschlusses (IP-Adresse). Dazu Nummern, die dein Gerät erkennbar machen – auch solche für andere Meta-Apps auf demselben Gerät."
+    technical: "Die Richtlinie nennt u. a. „individuelle IDs für Produkte von Meta-Unternehmen, die mit demselben Gerät oder Konto verknüpft sind“."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Geräte- und Verbindungsdaten“: „individueller IDs für Produkte von Meta-Unternehmen, die mit demselben Gerät oder Konto verknüpft sind“"
+  - id: wa-approx-location
+    category: location
+    title: "Aus Internet-Adresse und Vorwahl schließt WhatsApp auf dein Land oder deine Region."
+    detail: "Das passiert auch, wenn du keine Standortfunktionen nutzt."
+    technical: "Laut Richtlinie werden dafür IP-Adressen und Telefonvorwahlen verwendet."
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Allgemeine Standortinformationen“"
+  - id: wa-precise-location
+    category: location
+    title: "Deinen genauen Standort teilst du nur, wenn du es willst – verschlüsselt."
+    detail: "Etwa wenn du deinen aktuellen Standort oder deinen Live-Standort in einem Chat sendest. Diese Standortdaten sind Ende-zu-Ende-verschlüsselt. WhatsApp kann sie nicht sehen."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "nur wenn du Standortfunktionen nutzt und die Berechtigung erteilst"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Genaue Standortinformationen“"
+      - whatsapp-help-live-location
+  - id: wa-business-chats
+    category: communications
+    title: "Chats mit Unternehmen folgen den Regeln des Unternehmens."
+    detail: "Nachrichten an ein Unternehmen können dort mehrere Mitarbeitende lesen. Unternehmen dürfen Chats für ihr eigenes Marketing nutzen, auch für Werbung auf Meta. Sie können außerdem Meta als Dienstleister oder als KI-Assistenten einsetzen."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur bei Chats mit Unternehmenskonten"
+    sources:
+      - ref: whatsapp-help-e2ee
+        note: "„… kann es die Chats, die es empfängt, für seine eigenen Marketingzwecke verwenden, einschließlich für Werbung auf Meta.“"
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Unternehmen auf WhatsApp“"
+  - id: wa-updates-tab
+    category: activity
+    title: "Im Tab „Aktuelles“ erfasst WhatsApp, welchen Kanälen du folgst und wie du auf Werbung reagierst."
+    detail: "Status und Kanäle sind freiwillig. Nutzt du sie, setzt WhatsApp für Werbung kleine Dateien und ähnliche Technik ein (Cookies). Persönliche Chats, Anrufe und Gruppen nutzt WhatsApp nach eigener Aussage nicht für Werbung."
+    provenance: observed
+    mechanisms: [usage, device]
+    evidence: stated
+    condition: "nur wenn du Status oder Kanäle nutzt"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Cookies“: „Wenn du optionale Funktionen wie Status oder Kanäle nutzt, erheben wir auch Informationen mithilfe ähnlicher Technologien für Werbeanzeigen.“"
+      - ref: whatsapp-status-channels-policy
+        note: "Fassung für Nutzer außerhalb der EU: „channels followed and ad interaction information“; keine Nutzung persönlicher Nachrichten für Werbung"
+  - id: wa-meta-ai
+    category: prompts
+    title: "Was du mit Meta AI in WhatsApp austauschst, kann Meta auswerten."
+    detail: "Nutzt du Meta AI, bekommt Meta dazu Region, Sprache, Nummern, die dein Gerät erkennbar machen, und Nutzungsdaten. Meta nutzt Gespräche mit Meta AI nach eigener Angabe, um seine KI zu trainieren. Das gilt auch für Nachrichten, die du oder andere im Chat bewusst mit der KI teilen."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du Meta AI in WhatsApp nutzt"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Wenn Meta optionale Erfahrungen über WhatsApp anbietet“"
+      - ref: meta-newsroom-ai-training-eu-2025
+        note: "Update vom 27. März 2026 zu Nachrichten, die mit KI-Funktionen geteilt werden"
+inferences:
+  - id: wa-ad-personalisation
+    title: "Für Werbung in „Aktuelles“ zieht WhatsApp Schlüsse aus deinen Kanälen – mit verknüpften Konten auch aus Facebook und Instagram."
+    detail: "Hast du WhatsApp zur Kontenübersicht hinzugefügt, nutzt WhatsApp laut eigener Aussage „die Infos aus allen Konten in deiner Kontenübersicht“. Damit passt es Anzeigen in Status und Kanälen an. Ohne Verknüpfung nennt WhatsApp in der Fassung außerhalb der EU: Land, Sprache, ungefährer Standort, gefolgte Kanäle und Reaktionen auf Werbung."
+    level: documented
+    basedOn: [wa-updates-tab, wa-account, wa-approx-location]
+    sources:
+      - ref: whatsapp-accounts-center-policy-eea
+        note: "„Wenn du zum Beispiel Anzeigen basierend auf deinen Einstellungen unter ‚Status und Kanäle‘ siehst, werden die Infos aus allen Konten in deiner Kontenübersicht genutzt …“"
+      - ref: whatsapp-status-channels-policy
+        note: "„we use this information to make inferences and personalize the ads we show you“"
+  - id: wa-social-graph-possible
+    title: "Wer wann mit wem schreibt, verrät Beziehungen – auch ohne Inhalte."
+    detail: "Aus Kontaktliste, Gruppen und Zeitpunkten ließe sich ablesen, wer dir nahesteht. Das ist eine technische Möglichkeit, keine von WhatsApp beschriebene Praxis. WhatsApp schreibt, solche Verbindungsdaten und deine Kontaktliste nicht an Meta weiterzugeben – auch nicht bei verknüpfter Kontenübersicht."
+    level: possible
+    basedOn: [wa-contacts, wa-contacts-by-others, wa-usage, wa-unencrypted-info]
+    sources:
+      - ref: whatsapp-accounts-center-policy-eea
+        note: "„… mit wem du kommunizierst, die Uhrzeit und das Datum …, sowie für deine Kontaktliste“ werden nicht an Meta weitergegeben"
+  - id: wa-routine-possible
+    title: "Online-Zeiten können deinen Tagesrhythmus zeigen."
+    detail: "„Zuletzt online“ und Nutzungszeiten zeigen, wann du wach und aktiv bist. Das ist eine Möglichkeit, keine beschriebene Auswertung von WhatsApp. Wer deine Online-Angaben sehen darf, legst du in den Datenschutz-Einstellungen fest."
+    level: possible
+    basedOn: [wa-usage]
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitte „Nutzungsinformationen“ und „Benutzeroptionen“"
+purposes:
+  - purpose: provide-service
+    detail: "Nachrichten und Anrufe zustellen sowie Gruppen, Status und Kanäle bereitstellen."
+    sources: [whatsapp-privacy-policy-eea]
+  - purpose: safety
+    detail: "Spam, Betrug und Missbrauch erkennen – unter anderem mit Meldungen von Nutzer*innen und Hinweisen von anderen Meta-Firmen."
+    sources: [whatsapp-privacy-policy-eea]
+  - purpose: advertising
+    detail: "Anzeigen und hervorgehobene Kanäle im Tab „Aktuelles“ zeigen. Nicht in Chats, Anrufen oder Gruppen."
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea, whatsapp-status-channels-policy]
+  - purpose: personalisation
+    detail: "Kanäle und Inhalte vorschlagen. Mit verknüpfter Kontenübersicht auch passend zu deinen anderen Meta-Konten."
+    sources: [whatsapp-accounts-center-policy-eea]
+  - purpose: product-development
+    detail: "Fehler beheben, Leistung messen und neue Funktionen testen – auch mit Meta-Firmen als Dienstleistern."
+    sources: [whatsapp-privacy-policy-eea]
+sharing:
+  - id: wa-share-meta-service
+    recipient: "Meta-Unternehmen als Dienstleister"
+    detail: "Meta-Firmen betreiben für WhatsApp Rechenzentren, Auswertungen, Support und Sicherheit. Dafür bekommen sie unter anderem deine Telefonnummer, Gerätenummern, App-Version, den Zeitpunkt deiner letzten Nutzung und deine Einstellungen. Sie handeln im Auftrag von WhatsApp, nicht für eigene Werbung."
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „So arbeiten wir mit anderen Meta-Unternehmen zusammen“"
+  - id: wa-share-accounts-center
+    recipient: "Meta Platforms Ireland (nur mit Kontenübersicht)"
+    detail: "Fügst du WhatsApp freiwillig zur Kontenübersicht hinzu, gehen unter anderem Telefonnummer, Profilbild, Altersangaben und Nutzungsinfos an Meta – auch für Werbung. Nachrichten, Anrufdaten und Kontaktliste bleiben laut WhatsApp außen vor."
+    sources: [whatsapp-accounts-center-policy-eea]
+  - id: wa-share-businesses
+    recipient: "Unternehmen, mit denen du chattest"
+    detail: "Sie erhalten deine Nachrichten und können sie nach eigenen Regeln nutzen, auch für Werbung auf Meta."
+    sources: [whatsapp-help-e2ee, whatsapp-privacy-policy-eea]
+  - id: wa-share-providers
+    recipient: "Externe Dienstleister und Backup-Anbieter"
+    detail: "Anbieter für SMS und Anrufe, mit denen du deine Nummer bestätigst. Dienste, die Inhalte prüfen oder dein Alter schätzen. Sicherst du deine Chats bei iCloud oder Google, bekommen diese Anbieter die Chats – je nach deiner Backup-Einstellung."
+    sources: [whatsapp-privacy-policy-eea]
+retention:
+  text: "Zugestellte Nachrichten löscht WhatsApp von seinen Rechnern, nicht zustellbare nach 30 Tagen. Kontodaten bleiben, solange das Konto besteht. Nach einer Kontolöschung dauert das Löschen bis zu 90 Tage. Inaktive Konten löscht WhatsApp in der Regel nach 120 Tagen – ohne Vorwarnung."
+  sources:
+    - ref: whatsapp-privacy-policy-eea
+      note: "Abschnitte „Aufbewahrung deiner Informationen“, „Löschen deiner Informationen“, „Verwaltung deiner Informationen“"
+journey:
+  - id: wa-journey-device
+    title: "Auf deinem Handy wird verschlüsselt"
+    detail: "Bevor eine Nachricht dein Gerät verlässt, wird sie verschlüsselt. WhatsApp sieht, von wem an wen und wann sie geht – aber nicht den Inhalt."
+    dataPoints: [wa-message-content, wa-usage]
+    sources: [whatsapp-help-e2ee, whatsapp-privacy-policy-eea]
+  - id: wa-journey-servers
+    title: "WhatsApp stellt zu"
+    detail: "WhatsApp leitet die verschlüsselte Nachricht weiter und löscht sie nach der Zustellung. Dabei fallen Daten zu Gerät, Verbindung und Nutzung an."
+    dataPoints: [wa-device, wa-usage, wa-approx-location]
+    sources: [whatsapp-privacy-policy-eea]
+  - id: wa-journey-account
+    title: "Konto und Adressbuch"
+    detail: "Telefonnummer, Profil, Gruppen und – mit deiner Erlaubnis – die Nummern aus deinem Adressbuch werden deinem Konto zugeordnet."
+    dataPoints: [wa-account, wa-contacts, wa-contacts-by-others, wa-unencrypted-info]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload]
+  - id: wa-journey-meta
+    title: "Meta-Firmen als Dienstleister"
+    detail: "Meta betreibt für WhatsApp Rechenzentren, Auswertungen und Support. Nur wenn du die Kontenübersicht nutzt, fließen Daten auch in Metas eigene, auf dich zugeschnittene Angebote."
+    dataPoints: [wa-account, wa-device, wa-usage]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+  - id: wa-journey-updates
+    title: "Werbung im Tab „Aktuelles“"
+    detail: "Was du in Status und Kanälen ansiehst und wie du auf Anzeigen reagierst, nutzt WhatsApp für Werbung – nicht den Inhalt deiner Chats."
+    dataPoints: [wa-updates-tab, wa-approx-location]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+assessment:
+  breadth:
+    level: 3
+    rationale: "Viele Arten von Daten: Telefonnummer, Adressbuch, Gruppen, Geräte- und Nutzungsdaten, ungefährer Standort. Daten von fremden Websites gehören laut Richtlinie nicht dazu. Nachrichteninhalte sind verschlüsselt."
+    confidence: high
+    sources: [whatsapp-privacy-policy-eea]
+  sensitivity:
+    level: 2
+    rationale: "Das Privateste – Chats, Anrufe, Status, geteilter Standort – kann WhatsApp nicht lesen. Übrig bleiben Kontakte und Verbindungsdaten. Sie verraten Beziehungen, aber keine Inhalte."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-e2ee]
+  observation:
+    level: 3
+    rationale: "WhatsApp hält fest, wann du online bist, wann du Nachrichten und Anrufe sendest, welche Funktionen du nutzt und wie lange. Was du schreibst, erfasst es nicht."
+    confidence: high
+    sources: [whatsapp-privacy-policy-eea]
+  linkability:
+    level: 3
+    rationale: "Meta-Firmen verarbeiten Daten im Auftrag von WhatsApp. WhatsApp erfasst auch Gerätenummern für andere Meta-Apps. Für Metas eigene, auf dich zugeschnittene Angebote verknüpft Meta die Daten nur, wenn du WhatsApp zur Kontenübersicht hinzufügst."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+  adUse:
+    level: 2
+    rationale: "Werbung gibt es nur im Tab „Aktuelles“, in der EU erst ab 2026. Das meiste Geld kommt von Unternehmen, die für Nachrichten bezahlen."
+    confidence: medium
+    sources: [meta-sec-10q-2026-q2, whatsapp-privacy-policy-eea, whatsapp-ppcland-dma-report-2026]
+  sharing:
+    level: 2
+    rationale: "Daten gehen vor allem an Dienstleister und an Meta-Firmen, die im Auftrag von WhatsApp arbeiten. Werbekunden bekommen keine Chats. Unternehmen bekommen nur, was du ihnen schreibst."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea]
+  defaults:
+    level: 3
+    rationale: "Die Ende-zu-Ende-Verschlüsselung ist immer an. Die Kontenübersicht ist freiwillig, Status und Kanäle sind optional. Das Hochladen von Kontakten braucht deine Erlaubnis auf dem Gerät. Hast du sie gegeben, läuft es meist täglich."
+    confidence: medium
+    sources: [whatsapp-help-e2ee, whatsapp-accounts-center-policy-eea, whatsapp-help-contact-upload]
+  controls:
+    level: 3
+    rationale: "Du kannst steuern, wer Profil und „Zuletzt online“ sieht. Auch Kontaktzugriff, Standortfreigabe, Kontenübersicht und Werbung (per Abo) kannst du steuern. Dass WhatsApp Verbindungen und Nutzung festhält, kannst du nicht abschalten."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload, meta-help-ads-subscription]
+  deletion:
+    level: 4
+    rationale: "Konto-Bericht und Kontolöschung gehen direkt in der App. Nach der Zustellung liegen Nachrichten nicht mehr bei WhatsApp. Inaktive Konten werden automatisch gelöscht."
+    confidence: medium
+    sources: [whatsapp-help-request-account-info, whatsapp-help-delete-account, whatsapp-privacy-policy-eea]
+  reachability:
+    level: 3
+    rationale: "Die wichtigsten Optionen findest du in der App unter Einstellungen > Datenschutz oder Konto. Kontaktzugriff und Werbe-Abo steuerst du aber woanders: in den Geräteeinstellungen und in der Kontenübersicht."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload]
+alternatives: messaging
+linkedWith: [facebook, instagram]
+region: EU
+reviewedAt: "2026-10-07"

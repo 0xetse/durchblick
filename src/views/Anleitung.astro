@@ -1,0 +1,53 @@
+---
+import { dict, href, localeOf } from '~/i18n';
+import Base from '~/layouts/Base.astro';
+import GuideItem from '~/components/GuideItem.astro';
+import SourceList from '~/components/SourceList.astro';
+import { getContent, refId } from '~/domain/content';
+import type { Guide, Service } from '~/domain/schema';
+
+interface Props { id: string }
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  description: (goal: string) => `${goal} Was sich ändert, was nicht – mit offiziellem Link und Prüfdatum.`,
+  crumb: 'Anleitung',
+  allActions: (name: string) => `Alle Maßnahmen für ${name}`,
+  toPlan: 'In meinen Plan',
+  sources: 'Quellen',
+};
+const TXT_EN: typeof TXT_DE = {
+  description: (goal) => `${goal} What changes and what does not – with the official link and the date it was checked.`,
+  crumb: 'Guide',
+  allActions: (name) => `All steps for ${name}`,
+  toPlan: 'Add to my plan',
+  sources: 'Sources',
+};
+const txt = locale === 'en' ? TXT_EN : TXT_DE;
+const { guides, services } = getContent(locale);
+const guide: Guide = guides.find((g) => g.id === Astro.props.id)!;
+const service: Service = services.find((s) => s.id === guide.service)!;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: guide.title,
+  description: guide.goal,
+  inLanguage: locale,
+  totalTime: `PT${guide.minutes}M`,
+  dateModified: guide.verification.checkedAt,
+  ...(guide.steps.length && guide.verification.status === 'verified'
+    ? { step: guide.steps.map((text, i) => ({ '@type': 'HowToStep', position: i + 1, text })) }
+    : {}),
+};
+---
+<Base title={`${guide.title} – ${service.name}`} description={txt.description(guide.goal)} path={href(locale, 'guide', guide.id)} jsonLd={jsonLd} crumbs={[{ label: t.nav.settings, href: href(locale, 'settings') }, { label: service.shortName ?? service.name, href: `${href(locale, 'settings')}#${service.id}` }, { label: txt.crumb }]}>
+  <section>
+    <div class="wrap narrow">
+      <h1>{guide.title}</h1>
+      <GuideItem guide={guide} open showLink={false} />
+      <p><a href={`${href(locale, 'app', service.id)}#tun`}>{txt.allActions(service.name)}</a> · <a href={href(locale, 'plan')} data-add-app={service.id}>{txt.toPlan}</a></p>
+      <h2>{txt.sources}</h2>
+      <SourceList ids={guide.sources.map(refId)} />
+    </div>
+  </section>
+</Base>

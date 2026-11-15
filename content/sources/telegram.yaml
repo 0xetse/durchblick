@@ -1,0 +1,101 @@
+# Telegram-specific sources.
+- id: telegram-privacy-policy
+  title: Telegram Datenschutzerklärung
+  publisher: Telegram Messenger Inc.
+  url: https://telegram.org/privacy/de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Deutsche Fassung, letzte Änderung laut Änderungsprotokoll (Abschnitt 11) am 21. August 2026. Gilt weltweit; Abschnitt 1.4 regelt den EWR (Verantwortlicher Telegram Messenger Inc., Britische Jungferninseln; EWR-Vertreter EDPO in Brüssel). Auch unter https://telegram.org/privacy wurde uns beim Abruf die deutsche Fassung ausgeliefert."
+- id: telegram-faq
+  title: Telegram FAQ
+  publisher: Telegram
+  url: https://telegram.org/faq
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Englische Fassung. Genutzt u. a. für „Q: So how do you encrypt data?“, „Q: Why not just make all chats 'secret'?“, „Q: How are you going to make money out of this?“, „Q: Do Telegram's AI features upload data to third parties?“ und „Q: Do you process data requests?“."
+- id: telegram-faq-de
+  title: Telegram – Fragen und Antworten
+  publisher: Telegram
+  url: https://telegram.org/faq/de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Deutsche Fassung der FAQ mit deutschen Menünamen, u. a. „Einstellungen → Privatsphäre und Sicherheit → Telefonnummer“, „Geheimen Chat starten“, „Synchronisierte Kontakte löschen“, „Vorschläge für häufige Kontakte“. Abweichung zur englischen Fassung: Unter „Reagiert ihr auf Datenanfragen?“ steht „0 Byte Nutzerdaten“, englisch „0 bytes of user messages“."
+- id: telegram-durov-e2e-default
+  title: "Why Isn't Telegram End-to-End Encrypted by Default?"
+  publisher: Pavel Durov (Gründer und CEO von Telegram) auf Telegraph
+  url: https://telegra.ph/Why-Isnt-Telegram-End-to-End-Encrypted-by-Default-08-14
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Beitrag vom 14. August 2017, verlinkt aus der offiziellen Telegram-FAQ („See also: Why Telegram isn't End-to-End Encrypted ‚by Default‘“). „in cloud chats our servers do have access to the encryption key“."
+- id: telegram-blog-export
+  title: Chat Export Tool, Better Notifications and More
+  publisher: Telegram-Blog
+  url: https://telegram.org/blog/export-and-more
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Beitrag vom 27. August 2018: „make sure you have the latest version of Telegram Desktop installed on your computer, then click Settings > Export Telegram data“. Export als JSON oder HTML. Der Menüpfad ist acht Jahre alt und nicht neu geprüft."
+- id: telegram-core-export
+  title: Telegram Data Export Schema
+  publisher: Telegram
+  url: https://core.telegram.org/import-export
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-21"
+  region: global
+  language: en
+  note: "Offizielle Telegram-Dokumentation ohne Datum. „make sure you have Telegram Desktop installed on your computer, then click Settings > Advanced > Export Telegram data“. Export „in JSON or in human-readable HTML“; Startdatei „export_results.html“, beim Export eines einzelnen Chats „messages.html“."
+- id: telegram-delete-page
+  title: Delete Account or Manage Apps
+  publisher: Telegram
+  url: https://my.telegram.org/auth?to=delete
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Ziel der Weiterleitung von https://telegram.org/deactivate. „Enter your number and we will send you a confirmation code via Telegram (not SMS).“ Eingabe der Nummer „in international format“."
+- id: telegram-green-encryption
+  title: Is Telegram really an encrypted messaging app?
+  publisher: Matthew Green (Kryptograf, Johns Hopkins University), Blog „A Few Thoughts on Cryptographic Engineering“
+  url: https://blog.cryptographyengineering.com/2024/08/25/telegram-is-not-really-an-encrypted-messaging-app/
+  tier: 2
+  type: research
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "25. August 2024. „it does not end-to-end encrypt conversations by default“; Ende-zu-Ende-Verschlüsselung „never for group chats with more than two people in them“."
+- id: telegram-engadget-law-enforcement
+  title: Telegram will now provide IP addresses and phone numbers in response to legal requests
+  publisher: Engadget
+  url: https://www.engadget.com/apps/telegram-will-now-provide-ip-addresses-and-phone-numbers-in-response-to-legal-requests-170300911.html
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Jeremy Gan, 23. September 2024. Sinngemäß: Laut Pavel Durov gibt Telegram künftig IP-Adressen und Telefonnummern von Nutzer*innen heraus, wenn rechtliche Anfragen dies verlangen (der Artikel stützt sich auf einen Bloomberg-Bericht); Kontext: Festnahme von Pavel Durov in Frankreich im August 2024."
+- id: telegram-techcrunch-transparency
+  title: Telegram reports spike in sharing user data with law enforcement
+  publisher: TechCrunch
+  url: https://techcrunch.com/2025/01/07/telegram-reports-spike-in-sharing-user-data-with-law-enforcement/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Zack Whittaker, 7. Januar 2025. Zahlen für 2024 aus Telegrams Transparenzbericht: USA 900 Fälle (2.253 Nutzer*innen), Indien 14.641 Fälle (23.535), Vereinigtes Königreich 142 Fälle (293). Sinngemäß: Der Bericht lässt sich nur mit einem Telegram-Konto abrufen und zeigt nur Zahlen für die Region, in der man sich befindet."

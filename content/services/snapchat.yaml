@@ -1,0 +1,471 @@
+id: snapchat
+name: Snapchat
+company: snap
+category: social
+url: https://www.snapchat.com
+summary: >-
+  Snaps und Chats mit Freund*innen löscht Snapchat standardmäßig nach dem Ansehen von seinen Rechnern. Was du ansiehst, welche Linsen du nutzt und was du My AI schreibst, wertet Snap aber für Empfehlungen und Werbung aus.
+surprise:
+  text: "Fragst du den Chatbot My AI zum Beispiel nach der besten E-Gitarre, kann Snapchat deine Frage an Werbefirmen weitergeben – zusammen mit deiner Altersgruppe, deinem Land, deinem Handy-System (etwa iOS oder Android) und der Adresse deines Internet-Anschlusses. Und anders als Chats mit Freund*innen verschwinden Gespräche mit My AI nicht von selbst: Sie bleiben gespeichert, bis du sie löschst."
+  sources:
+    - ref: snap-ads-privacy
+      note: "Abschnitt „Anzeigen in My AI“: „Unsere Werbepartner erhalten deine Anfragen (wenn wir eine kommerzielle Absicht feststellen) und zusätzlichen Kontext …“"
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Abschnitt „Snaps und Chats mit My AI“: gespeichert, „bis du sie löschst“"
+    - ref: snap-privacy-by-product
+      note: "Abschnitt My AI: Inhalte werden genutzt, um „deine Erfahrung, einschließlich Anzeigen, zu personalisieren“"
+  action: snapchat-my-ai-data
+businessModel:
+  text: >-
+    Snapchat ist kostenlos und lebt fast ganz von Werbung: 2025 kamen rund 87 Prozent des Umsatzes von Snap aus Anzeigen. Der Rest stammt vor allem aus Abos wie Snapchat+. Personalisierte Werbung nennt Snap ein „Kernelement“ des Dienstes. In der EU stützt Snap sie auf ein „berechtigtes Interesse“. Das ist eine Rechtsgrundlage, für die Snap keine Einwilligung braucht. Du kannst aber widersprechen.
+  sources:
+    - ref: snap-10k-2025
+      note: "Umsatz nach Quelle 2025: Werbung 5,19 Mrd. von 5,93 Mrd. USD"
+    - ref: snap-ads-privacy
+      note: "„Personalisierte Werbung ist ein Kernelement unseres Dienstes …“"
+    - ref: snap-eea-privacy-notice
+      note: "Abschnitt „Berechtigtes Interesse“ und „Dein Widerspruchsrecht“"
+dataPoints:
+  - id: account
+    category: account
+    title: Deine Kontodaten wie Name, Benutzername, Geburtsdatum, E-Mail-Adresse und Telefonnummer.
+    detail: >-
+      Bei der Anmeldung gibst du z. B. Name, Benutzername, Geburtsdatum, Telefonnummer und E-Mail-Adresse an. Im Profil kommen dein Bitmoji und dein Profilbild dazu. Über deine Telefonnummer und E-Mail-Adresse können andere dich ab Werk finden.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: snap-privacy-policy
+        note: "Abschnitte „Daten, die du zur Verfügung stellst“ und „Deine Berechtigungen ändern“: „standardmäßig für andere über deine Telefonnummer und/oder E-Mail-Adresse auffindbar“"
+  - id: content
+    category: content
+    title: Deine Snaps, Storys, Spotlight-Videos und Memorys.
+    detail: >-
+      Alles, was du aufnimmst, verschickst oder speicherst. Manches ist privat, z. B. Snaps an Freund*innen oder Inhalte im „Privaten Bereich“. Anderes ist öffentlich, z. B. Spotlight, Snaps auf der Snap Map oder „Meine Story“ mit der Einstellung „Jeder“. Öffentliche Snaps können auch außerhalb von Snapchat auftauchen.
+    technical: >-
+      Dazu kommen Metadaten der Inhalte, z. B. wann sie gepostet wurden und wer sie angesehen hat. Inhalte im „Privaten Bereich“ sind mit einem eigenen Passwort verschlüsselt, das Snap laut eigener Aussage nicht kennt.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Daten, die du zur Verfügung stellst“: private, Freundes- und öffentliche Inhalte"
+      - ref: snap-privacy-by-product
+        note: "Abschnitte Storys, Spotlight und Memorys („Privater Bereich“)"
+  - id: private-messages
+    category: communications
+    title: Deine Snaps und Chats mit Freund*innen, inklusive Sprach- und Videoanrufen.
+    detail: >-
+      Snapchat stellt deine Nachrichten zu. Laut Snap werden sie danach standardmäßig gelöscht. Snap sagt, es schaut nicht hinein, um Werbung oder Empfehlungen auszuwählen. Ausnahmen gibt es z. B., wenn jemand einen Inhalt meldet oder wenn du Sprachnachrichten in Text umwandeln lässt. Wichtig: Wer deine Nachrichten bekommt, kann sie speichern oder einen Screenshot machen.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: nur wenn du Snaps oder Chats verschickst
+    sources:
+      - ref: snap-privacy-by-product
+        note: "Abschnitt Snaps und Chats: „… außer in begrenzten, sicherheitsbezogenen Umständen …“"
+      - ref: snap-privacy-policy
+        note: "„Denke daran, dass Snapchatter, die deine Snaps, Chats und andere Inhalte ansehen, diese Inhalte jederzeit außerhalb der Snapchat App aufnehmen, speichern oder kopieren können.“"
+  - id: message-metadata
+    category: communications
+    title: Wer wann mit wem schreibt.
+    detail: >-
+      Auch wenn der Inhalt gelöscht ist: Snap hält fest, wann du wem einen Snap oder Chat schickst. Daraus entstehen z. B. „beste Freunde“ und Flammen. Laut Snap werden die meisten dieser Angaben nach 30 Tagen gelöscht.
+    technical: >-
+      Metadaten wie Datum, Uhrzeit, Sender und Empfänger. Snap analysiert sie auch, um Funktionen wie Gruppenchats weiterzuentwickeln.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: snapchat-help-metadata
+        note: "Zweck und Speicherdauer der Metadaten"
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Analysen“: Metadaten zur Nutzung von Gruppenchats"
+  - id: my-ai-chats
+    category: prompts
+    title: Alles, was du My AI schreibst oder schickst.
+    detail: >-
+      My AI ist der Chatbot in Snapchat. Texte, Bilder, Snaps und Sprachnachrichten an My AI speichert Snap, bis du sie löschst. Snap nutzt sie, um My AI zu verbessern und um Inhalte und Werbung auf dich zuzuschneiden. Snap rät selbst, My AI keine vertraulichen oder sensiblen Informationen zu geben.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: nur wenn du mit My AI chattest oder ihn in Chats erwähnst
+    sources:
+      - ref: snap-privacy-by-product
+        note: "Abschnitt My AI: Aufbewahrung bis zum Löschen; Nutzung für Produktverbesserung und Anzeigen"
+      - ref: snapchat-help-snaps-chats-deletion
+        note: "Abschnitt „Snaps und Chats mit My AI“"
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Daten, die du zur Verfügung stellst“: Inputs an KI-Funktionen inkl. genauer Standort"
+  - id: content-analysis
+    category: content
+    title: Snap erkennt, was auf deinen gespeicherten Snaps zu sehen ist.
+    detail: >-
+      Snap versieht Snaps in deinen Memorys automatisch mit Stichwörtern, z. B. „Hund“. Das hilft dir beim Suchen. Laut Snap kann es dir dann aber auch Hundevideos und Werbung für Hundefutter zeigen. Hast du die Gesichtsgruppierung eingeschaltet, sortiert Snap Memorys nach erkannten Gesichtern.
+    technical: >-
+      Automatische Bilderkennung auf Memorys und, mit deiner Erlaubnis, auf der Kamerarolle. Linsen erkennen laut Snap, wo im Bild ein Gesicht ist, aber nicht, wessen Gesicht es ist. Tiefendaten der TrueDepth-Kamera am iPhone nutzt Snap nur in Echtzeit und speichert sie nicht.
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    condition: Stichwörter für Memorys und Kamerarolle; Gesichtsgruppierung nur, wenn du sie einschaltest
+    sources:
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Dein Erlebnis personalisieren“: Beispiel Hund in Memorys; Gesichtsgruppierung; TrueDepth-Kamera"
+      - ref: snap-privacy-by-product
+        note: "Abschnitte Memorys und Linsen („Objekterkennung“)"
+  - id: usage
+    category: activity
+    title: Welche Storys, Spotlight-Videos und Linsen du ansiehst und nutzt.
+    detail: >-
+      Snap zeichnet auf, welche Storys und Spotlight-Videos du ansiehst, welche Linsen du ausprobierst und wie oft du mit wem schreibst. Auch was du überspringst, zählt: Siehst du viel Sport und überspringst Schminktipps, zeigt Snap mehr Sport.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Informationen, die wir aufgrund deiner Nutzung unserer Dienste erfassen“ und Beispiel zu Sport und Make-up-Tipps"
+      - ref: snapchat-help-personalisation
+        note: "Spotlight, Entdecken und Lenses werden nach Interessen gereiht"
+  - id: searches
+    category: searches
+    title: Wonach du in Snapchat suchst.
+    detail: >-
+      Snap speichert deinen Suchverlauf. Er gehört zu den Daten, die du dir in deiner Datenkopie ansehen kannst.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: snapchat-help-download-data
+        note: "Kategorie „Suchverlauf“ in „Meine Daten“"
+  - id: device
+    category: device
+    title: Informationen über dein Handy und deine Verbindung.
+    detail: >-
+      Zum Beispiel Gerätemodell, Betriebssystem, Speicher, installierte Apps, ob Kopfhörer angeschlossen sind und dein WLAN oder Mobilfunk. Dazu kommen Daten der Sensoren, die messen, wie sich dein Handy bewegt. Außerdem die Werbe-Nummer deines Handys, an der es wiedererkannt werden kann.
+    technical: >-
+      Laut Datenschutzbestimmungen u. a. Werbekennungen, Informationen von Bewegungssensoren, Kompass und Mikrofon, Protokolldaten (Zugriffszeiten, IP-Adresse) und Kennungen aus Cookies, Pixeln und Webspeicher.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: snap-privacy-policy
+        note: "Aufzählung „Geräteinformationen“ und „Protokolldaten“"
+  - id: approximate-location
+    category: location
+    title: Dein ungefährer Standort, z. B. Land oder Stadt.
+    detail: >-
+      Snap schätzt aus deiner IP-Adresse – der Internet-Adresse deines Anschlusses –, wo du ungefähr bist. Das klappt auch, wenn du Snapchat den Standort nicht freigibst.
+    provenance: derived
+    mechanisms: [device, derived]
+    evidence: stated
+    sources:
+      - ref: snap-privacy-policy
+        note: "„Standortinformationen auf der Grundlage der IP-Adresse“"
+      - ref: snap-privacy-by-product
+        note: "Abschnitt Standort: „… einen ungefähren Standort wie ein Land oder eine Stadt auf Grundlage einer IP-Adresse …“"
+  - id: precise-location
+    category: location
+    title: Dein genauer Standort per GPS, wenn du es erlaubst.
+    detail: >-
+      Ab Werk ist das aus. Gibst du den Standort frei, nutzt Snap ihn für die Snap Map, Filter, Ortstipps und Werbung. Snap speichert GPS-Standorte für eine gewisse Zeit. Dazu gehören auch Orte, an denen du oft bist. Im Geistmodus sehen deine Freund*innen dich nicht mehr. Snap bekommt deinen Standort aber weiter.
+    provenance: observed
+    mechanisms: [permissions]
+    evidence: stated
+    condition: nur wenn du Snapchat die Standortberechtigung gibst
+    sources:
+      - ref: snap-privacy-by-product
+        note: "Abschnitt Standort: „standardmäßig deaktiviert“; „Wir speichern GPS-Standorte für eine gewisse Zeit …“"
+      - ref: snapchat-help-ghost-mode
+        note: "„… wird dein Standort weiterhin mit Snap geteilt …“"
+      - ref: snap-ads-privacy
+        note: "Orte, „die du häufig besuchst“, für Werbung"
+  - id: contacts
+    category: contacts
+    title: Dein Adressbuch, wenn du es hochlädst.
+    detail: >-
+      Erlaubst du den Zugriff auf deine Kontakte, speichert Snap Namen, Telefonnummern und E-Mail-Adressen daraus. Also auch Angaben über Menschen, die Snapchat gar nicht nutzen. Die Liste bleibt gespeichert, bis du sie in der App löschst. Laden andere ihr Adressbuch hoch, in dem du stehst, kann Snap das mit deinem Konto verbinden.
+    technical: >-
+      Telefonnummern und E-Mail-Adressen werden als Hashwert gespeichert, also in einer unlesbar gemachten Form, die sich trotzdem abgleichen lässt. Dazu u. a. Kontakttyp und ob ein Kontakt ein Foto oder einen gespeicherten Geburtstag hat.
+    provenance: provided
+    mechanisms: [permissions, other-users]
+    evidence: stated
+    condition: nur wenn du deine Kontakte freigibst – oder wenn andere ihr Adressbuch hochladen
+    sources:
+      - ref: snapchat-help-add-friends
+        note: "Liste der gespeicherten Kontaktangaben"
+      - ref: snap-privacy-policy
+        note: "„Kontaktinformationen von anderen Snapchattern oder Dritten“ und Speicherdauer der geteilten Kontaktliste"
+  - id: advertiser-data
+    category: offplatform
+    title: Werbekunden melden Snap, was du auf ihren Websites und in ihren Apps tust.
+    detail: >-
+      Viele Websites und Apps haben ein kleines, unsichtbares Code-Stück von Snap eingebaut, das sogenannte Snap Pixel. Darüber melden sie z. B., wonach du suchst oder was du kaufst. Werbekunden können auch Kundenlisten hochladen. Snap gleicht sie mit Telefonnummern und E-Mail-Adressen ab. Laut Snap wiegen diese Daten bei der Auswahl der Werbung schwer.
+    technical: >-
+      Wege sind das Snap Pixel und die Conversion API (eine Schnittstelle, über die Firmen Daten direkt an Snap senden). Kundenlisten werden meist über gehashte Telefonnummern oder E-Mail-Adressen abgeglichen. In EU, Vereinigtem Königreich, Norwegen und der Schweiz nutzt Snap diese Daten nicht für Werbung an 13- bis 17-Jährige.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: snap-ads-privacy
+        note: "Abschnitt „Informationen, die wir von unseren Werbetreibenden und Partnern erhalten“"
+      - ref: snap-privacy-policy
+        note: "„Daten von Werbetreibenden“"
+  - id: purchases
+    category: purchases
+    title: Käufe und Abos in Snapchat.
+    detail: >-
+      Kaufst du etwas über Snapchat oder schließt ein Abo wie Snapchat+ ab, speichert Snap Zahlungsangaben, Lieferadresse und deinen Kaufverlauf. Angaben zu Käufen bewahrt Snap auch nach dem Löschen deines Kontos auf.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: nur wenn du etwas kaufst oder ein Abo abschließt
+    sources:
+      - ref: snap-privacy-policy
+        note: "„Zahlungs- und damit verbundene Informationen“; Nutzungsinformationen inkl. Premium-Abonnements"
+      - ref: snapchat-help-delete-account
+        note: "Käufe werden nach Kontolöschung aufbewahrt"
+inferences:
+  - id: age
+    title: Snap schätzt dein Alter.
+    detail: >-
+      Du gibst bei der Anmeldung dein Geburtsdatum an. Snap schätzt dein Alter zusätzlich aus deinem Verhalten in der App. Laut Snap hilft das, jüngere Nutzer*innen zu schützen. Es dient aber auch der Werbung für bestimmte Altersgruppen.
+    level: documented
+    basedOn: [account, usage]
+    sources:
+      - ref: snap-ads-privacy
+        note: "„… schließen wir auch basierend auf deiner Aktivität auf Snapchat auf dein Alter …“"
+  - id: gender
+    title: Snap schätzt dein Geschlecht.
+    detail: >-
+      Laut Snap schließt es auf dein Geschlecht – z. B. aus deinem Bitmoji, deinem Benutzernamen, Angaben über deine Freund*innen und deinem Verhalten. Werbekunden nutzen das, um Anzeigen an bestimmte Gruppen zu richten.
+    level: documented
+    basedOn: [account, usage]
+    sources:
+      - ref: snap-ads-privacy
+        note: "„Wir schließen auch basierend auf einer Reihe von Signalen auf deine Geschlechtszugehörigkeit …“"
+  - id: interests
+    title: Snap ordnet dich Interessen-Gruppen zu.
+    detail: >-
+      Aus dem, was du ansiehst, erstellst und anklickst, schließt Snap auf Interessen. Ein Beispiel von Snap: Wer Rennfahrern folgt, gilt als „Automobil-Enthusiast“. Snap nennt das „Lifestyle-Kategorien“. Du kannst sie in den Einstellungen ansehen und ändern. Laut Snap fließen auch My-AI-Gespräche und Stichwörter aus deinen Memorys ein.
+    level: documented
+    basedOn: [usage, content-analysis, my-ai-chats, advertiser-data]
+    sources:
+      - ref: snap-ads-privacy
+        note: "„Lifestyle-Kategorien“"
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Dein Erlebnis personalisieren“: Beispiel Kaffee in Spotlight, My AI und Memorys"
+  - id: close-friends
+    title: Wer deine engsten Freund*innen sind.
+    detail: >-
+      Aus den Angaben, wer wem wie oft schreibt, erkennt Snap deine „besten Freunde“. Snap nutzt auch, wofür sich deine Freund*innen interessieren, um dir Inhalte und Werbung zu zeigen.
+    level: documented
+    basedOn: [message-metadata, usage]
+    sources:
+      - ref: snapchat-help-metadata
+        note: "Metadaten für „beste Freunde“ und Flammen"
+      - ref: snap-ads-privacy
+        note: "Abschnitt „Deine Freunde und Snapchatter in deinem Haushalt“"
+  - id: frequent-places
+    title: Orte, an denen du oft bist.
+    detail: >-
+      Snap schreibt, dass es einige Orte speichern kann, die du am häufigsten besuchst. Diese können auch für Werbung genutzt werden, z. B. für ein Café in deiner Nähe.
+    level: documented
+    basedOn: [precise-location]
+    sources:
+      - ref: snap-privacy-by-product
+        note: "Abschnitt Standort"
+      - ref: snap-ads-privacy
+        note: "„… Orte verwenden, in deren Nähe du dich aufhältst oder die du häufig besuchst …“"
+  - id: home-and-school
+    title: Wo du wohnst oder zur Schule gehst.
+    detail: >-
+      Aus dem genauen Standort zu verschiedenen Tageszeiten ließe sich ablesen, wo du wohnst, zur Schule gehst oder arbeitest. Technisch ist das möglich. Snap schreibt aber nicht, dass es so etwas schätzt.
+    level: possible
+    basedOn: [precise-location, usage]
+    sources:
+      - ref: snap-privacy-by-product
+        note: "Speicherung von GPS-Standorten und häufig besuchten Orten"
+purposes:
+  - purpose: provide-service
+    detail: Snaps und Chats zustellen, die Snap Map anzeigen, dein Konto verwalten.
+    sources: [snap-privacy-policy]
+  - purpose: personalisation
+    detail: Spotlight, Entdecken, Linsen und Freundesvorschläge an deine Interessen und Kontakte anpassen.
+    sources:
+      - snap-privacy-policy
+      - snapchat-help-personalisation
+  - purpose: advertising
+    detail: >-
+      Werbung nach deinen Interessen, deinem geschätzten Alter und Geschlecht, deinem Standort und Daten von Werbekunden auswählen. Private Nachrichten an Freund*innen nutzt Snap dafür laut eigener Aussage nicht.
+    sources:
+      - ref: snap-ads-privacy
+        note: "Datenquellen und Gewichtung"
+      - ref: snap-privacy-policy
+        note: "Abschnitt „Relevante Werbung anzeigen“"
+  - purpose: measurement
+    detail: Werbekunden bestätigen, welche Anzeigen du gesehen und angeklickt hast.
+    sources:
+      - ref: snap-ads-privacy
+        note: "Abschnitt „Informationen, die wir Werbetreibenden und Messpartnern zur Verfügung stellen“"
+  - purpose: safety
+    detail: Konten schützen, Alter prüfen, gefährliche Links erkennen, Regelverstöße finden.
+    sources: [snap-privacy-policy]
+  - purpose: product-development
+    detail: Funktionen verbessern und Trends auswerten, z. B. wie Gruppenchats genutzt werden.
+    sources: [snap-privacy-policy]
+  - purpose: ai-training
+    detail: >-
+      Snap entwickelt Modelle für maschinelles Lernen und KI-Funktionen weiter. Gespräche mit My AI fließen laut Snap ein, um die Antworten von My AI zu verbessern.
+    sources:
+      - ref: snap-privacy-policy
+        note: "„… berücksichtigen zum Beispiel die Unterhaltungen, die Snapchatter mit My AI führen …“"
+      - ref: snap-privacy-by-product
+        note: "Abschnitt Generative KI: automatisierte und menschliche Überprüfung"
+  - purpose: legal
+    detail: Gesetze einhalten und Anfragen von Behörden beantworten.
+    sources: [snap-privacy-policy]
+sharing:
+  - id: friends-and-public
+    recipient: Freund*innen und Öffentlichkeit
+    detail: >-
+      Freund*innen sehen z. B. deine Storys und – wenn du es erlaubst – deinen Standort. Spotlight, Snaps auf der Snap Map und öffentliche Profile sind für alle sichtbar, auch außerhalb von Snapchat. Benutzername und Bitmoji sind immer öffentlich.
+    sources: [snap-privacy-policy, snap-privacy-by-product]
+  - id: family-center
+    recipient: Eltern im Family Center
+    detail: >-
+      Ist das Family Center eingerichtet, sehen Eltern z. B., mit wem ein Teenager befreundet ist und mit wem er seinen Standort teilt. Inhalte von Nachrichten sehen sie laut Snap nicht.
+    sources: [snap-privacy-policy]
+  - id: advertisers
+    recipient: Werbekunden und Firmen, die Werbung messen
+    detail: >-
+      Werbekunden erfahren, welche ihrer Anzeigen du angesehen oder angeklickt hast. Name, Telefonnummer oder E-Mail-Adresse gibt Snap laut eigener Aussage nicht weiter.
+    sources: [snap-ads-privacy]
+  - id: ad-partners
+    recipient: Werbepartner für My AI und fremde Werbenetzwerke
+    detail: >-
+      Bei Werbung in My AI bekommen Werbepartner deine Frage, wenn Snap Kaufinteresse erkennt. Dazu kommen Altersgruppe, Land, Sprache, Betriebssystem und IP-Adresse. Fremde Werbenetzwerke bekommen z. B. deine IP-Adresse und die Werbe-Nummer deines Handys.
+    sources:
+      - ref: snap-ads-privacy
+        note: "Abschnitt „Anzeigen in My AI“"
+      - ref: snapchat-help-ads
+        note: "Abschnitt „Werbenetzwerke von Drittanbietern“"
+  - id: partners
+    recipient: Dienstleister und eingebundene Partner
+    detail: >-
+      Dienstleister arbeiten in Snaps Auftrag, z. B. für Zahlungen oder Werbemessung. Partner, deren Angebote in Linsen, Karte oder Apps eingebaut sind, können über diese Einbindung Daten bekommen. Partner gegen Betrug erhalten z. B. Geräte- und Nutzungsdaten.
+    sources: [snap-privacy-policy]
+  - id: snap-group-and-us
+    recipient: Firmen der Snap-Gruppe, Speicherung in den USA
+    detail: >-
+      Auch für Nutzer*innen in der EU ist Snap Inc. in den USA verantwortlich. Daten werden in die USA und andere Länder übermittelt und dort gespeichert.
+    sources: [snap-eea-privacy-notice, snap-privacy-policy]
+  - id: authorities
+    recipient: Behörden
+    detail: Bei rechtlichen Anfragen, z. B. von der Polizei, gibt Snap Daten heraus, wenn es dazu verpflichtet ist.
+    sources: [snap-privacy-policy]
+retention:
+  text: >-
+    Snaps und Chats mit Freund*innen löscht Snap standardmäßig, nachdem alle sie gesehen haben, spätestens nach 31 Tagen. Chats bleiben 24 Stunden nach dem Ansehen, außer jemand speichert sie oder ihr ändert die Einstellung. Angaben, wer wann mit wem schreibt, löscht Snap meist nach 30 Tagen. Gespräche mit My AI, Memorys, Spotlight-Beiträge und hochgeladene Kontakte bleiben, bis du sie löschst. Für Standortdaten nennt Snap keine feste Frist. Nach einer Kontolöschung sind die Daten laut Snap nach 60 Tagen gelöscht, außer z. B. Angaben zu Käufen.
+  sources:
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Fristen für Snaps, Chats, My AI, Storys und Memorys"
+    - ref: snapchat-help-metadata
+      note: "Metadaten meist nach 30 Tagen gelöscht"
+    - ref: snap-privacy-policy
+      note: "Abschnitt „So lange behalten wir persönliche Daten“"
+    - ref: snapchat-help-delete-account
+      note: "Deaktivierung 30 Tage, Daten nach 60 Tagen gelöscht"
+journey:
+  - id: use-app
+    title: Du snappst, schaust und chattest
+    detail: Snap hält fest, was du ansiehst, welche Linsen du nutzt und mit wem du wie oft schreibst – samt Gerät und ungefährem Ort.
+    dataPoints: [usage, message-metadata, device, approximate-location]
+    sources: [snap-privacy-policy]
+  - id: delivery
+    title: Snaps werden zugestellt und gelöscht
+    detail: Private Snaps und Chats löscht Snap nach dem Ansehen von seinen Rechnern. Wer sie bekommt, kann sie aber speichern oder abfotografieren.
+    dataPoints: [private-messages]
+    sources: [snapchat-help-snaps-chats-deletion]
+  - id: my-ai
+    title: Gespräche mit My AI bleiben
+    detail: Was du My AI schreibst, bleibt gespeichert, bis du es löschst. Es fließt in die Verbesserung von My AI und in deine Werbung.
+    dataPoints: [my-ai-chats]
+    sources: [snap-privacy-by-product, snapchat-help-snaps-chats-deletion]
+  - id: partners-in
+    title: Werbekunden melden Aktivitäten von außerhalb
+    detail: Über das Snap Pixel oder Kundenlisten erfährt Snap, was du auf anderen Websites und in Apps tust.
+    dataPoints: [advertiser-data]
+    sources: [snap-ads-privacy]
+  - id: profile
+    title: Profil mit geschätzten Eigenschaften
+    detail: Snap schätzt Alter, Geschlecht und Interessen („Lifestyle-Kategorien“) und merkt sich Orte, an denen du oft bist.
+    dataPoints: [account, usage, content-analysis, precise-location]
+    sources: [snap-ads-privacy, snap-privacy-by-product]
+  - id: ads
+    title: Werbung und Erfolgsmessung
+    detail: Snap wählt Anzeigen nach diesem Profil aus. Werbekunden erfahren, welche Anzeigen du gesehen und angeklickt hast.
+    dataPoints: [advertiser-data, usage, my-ai-chats]
+    sources: [snap-ads-privacy]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      Snap erfasst Konto, Inhalte, Nachrichten, KI-Chats, Geräte- und Standortdaten und dein Adressbuch. Dazu kommen Daten von Werbekunden über dein Verhalten außerhalb der App.
+    confidence: high
+    sources: [snap-privacy-policy, snap-ads-privacy]
+  sensitivity:
+    level: 4
+    rationale: >-
+      Private Nachrichten sind der Kern von Snapchat. Snap kann sie in bestimmten Fällen einsehen, z. B. wenn jemand sie meldet. Dazu kommen Gespräche mit My AI, die gespeichert bleiben, und – wenn du es erlaubst – dein genauer Standort.
+    confidence: medium
+    sources: [snap-privacy-by-product, snapchat-help-snaps-chats-deletion]
+  observation:
+    level: 3
+    rationale: >-
+      Snap zeichnet genau auf, welche Storys, Spotlight-Videos und Linsen du ansiehst und was du überspringst. Anders als bei TikTok steht aber kein Empfehlungs-Feed im Mittelpunkt der App, sondern Nachrichten an Freund*innen.
+    confidence: medium
+    sources: [snap-privacy-policy, snapchat-help-personalisation]
+  linkability:
+    level: 4
+    rationale: >-
+      Werbekunden schicken Daten darüber, was du auf ihren Websites und in Apps tust, z. B. über das Snap Pixel, ein unsichtbares Code-Stück. Sie können auch Kundenlisten mit deiner Telefonnummer oder E-Mail-Adresse abgleichen lassen.
+    confidence: high
+    sources: [snap-ads-privacy]
+  adUse:
+    level: 4
+    rationale: >-
+      Rund 87 Prozent des Umsatzes kommen aus Werbung, personalisierte Werbung nennt Snap ein „Kernelement“. Für 13- bis 17-Jährige in der EU ist die Personalisierung stark eingeschränkt.
+    confidence: high
+    sources: [snap-10k-2025, snap-ads-privacy]
+  sharing:
+    level: 3
+    rationale: >-
+      Werbekunden bekommen vor allem Angaben dazu, ob ihre Anzeigen gesehen wurden. Werbepartner in My AI und fremde Werbenetzwerke erhalten aber Fragen an My AI, IP-Adresse oder die Werbe-Nummer deines Handys. Dazu kommen Dienstleister und eingebundene Partner.
+    confidence: medium
+    sources: [snap-ads-privacy, snapchat-help-ads, snap-privacy-policy]
+  defaults:
+    level: 3
+    rationale: >-
+      Mehrere Voreinstellungen schützen: Chats werden automatisch gelöscht, der genaue Standort und das Teilen auf der Snap Map sind ab Werk aus, nur Freund*innen dürfen dich kontaktieren. Personalisierte Werbung ist aber an. Andere finden dich ab Werk über Telefonnummer und E-Mail-Adresse. Die EU-Kommission prüft seit März 2026, ob die Voreinstellungen für Kinder und Jugendliche ausreichen.
+    confidence: medium
+    sources: [snapchat-help-snaps-chats-deletion, snap-privacy-by-product, snapchat-help-privacy-settings, snap-privacy-policy, snapchat-ec-dsa-proceedings-2026, snapchat-engadget-dsa-2026]
+  controls:
+    level: 3
+    rationale: >-
+      Du kannst Werbung nach Daten von Werbekunden abschalten, Lifestyle-Kategorien ändern, den Geistmodus nutzen und My-AI-Daten löschen. In der EU kannst du der Personalisierung widersprechen, dann gibt es nur noch Werbung passend zum Umfeld. Dass Snap aufzeichnet, was du in der App tust, lässt sich nicht abschalten.
+    confidence: medium
+    sources: [snapchat-help-ads, snap-ads-privacy, snapchat-help-ghost-mode, snapchat-help-my-ai-delete]
+  deletion:
+    level: 4
+    rationale: >-
+      Datenkopie und Kontolöschung gehen in Selbstbedienung. Nachrichten löscht Snap ab Werk nach kurzer Zeit. Ausnahmen: Gespräche mit My AI, Memorys und hochgeladene Kontakte bleiben, bis du sie selbst löschst.
+    confidence: medium
+    sources: [snapchat-help-download-data, snapchat-help-delete-account, snapchat-help-snaps-chats-deletion]
+  reachability:
+    level: 2
+    rationale: >-
+      Die Einstellungen liegen in mehreren Menüs: Anzeigen unter „Mein Account“, Löschen unter „Datenschutzeinstellungen“, der Geistmodus in der Karte. Die Wege unterscheiden sich zwischen iPhone und Android. Die Hilfeseiten erklären sie aber verständlich.
+    confidence: medium
+    sources: [snapchat-help-ads, snapchat-help-my-ai-delete, snapchat-help-ghost-mode]
+region: EU
+reviewedAt: "2026-10-08"

@@ -1,0 +1,300 @@
+# Simulator „Was verraten fünf harmlose Spuren?“
+# Schema: simulatorSchema in src/domain/schema.ts. Recherche: docs/research/simulator-research.md
+# Stufen: derived = fast zwingend aus den Daten ableitbar; documented = Plattformen dokumentieren
+# offiziell, dass sie solche Merkmale schätzen; possible = plausibel, aber nicht als Praxis dokumentiert.
+
+intro: >-
+  Wähle ein paar Dinge aus, die du im Alltag online tust – jedes für sich ganz harmlos.
+  Der Simulator zeigt dir, welche Einschätzungen über dich entstehen können, wenn mehrere
+  dieser Spuren zusammenkommen.
+
+signals:
+  - id: fussballvereine
+    label: Folgt Fußballvereinen
+    observedAs: Abos und Follows von Vereinskonten, angesehene Spielberichte
+    provenance: observed
+    theme: sport
+  - id: laufschuhe
+    label: Kauft Laufschuhe online
+    observedAs: Bestellung oder Bestellbestätigung, angeklickte Produktseiten
+    provenance: observed
+    theme: sport
+  - id: fitnessstudio-likes
+    label: Liked Beiträge eines Fitnessstudios in der Nähe
+    observedAs: Likes auf Beiträge eines lokalen Studio-Kontos
+    provenance: observed
+    theme: sport
+  - id: baby-videos
+    label: Schaut Videos zur Babyausstattung
+    observedAs: Wiedergabeverlauf mit Videos zu Kinderwagen, Babybett und Erstausstattung
+    provenance: observed
+    theme: family
+  - id: wohnungssuche-andere-stadt
+    label: Sucht nach Wohnungen in einer anderen Stadt
+    observedAs: Suchanfragen und besuchte Immobilienseiten mit einem anderen Ort als deinem üblichen
+    provenance: observed
+    theme: home
+  - id: umzugskartons
+    label: Bestellt Umzugskartons
+    observedAs: Kauf oder Suche nach Kartons, Klebeband und Transportern
+    provenance: observed
+    theme: home
+  - id: geldanlage-podcasts
+    label: Hört Podcasts über Geldanlage
+    observedAs: Hörverlauf und Abos von Finanz-Podcasts
+    provenance: observed
+    theme: money
+  - id: finanz-creator
+    label: Folgt Finanz-Creatorn
+    observedAs: Follows und lange angesehene Videos zu ETFs, Aktien und Sparplänen
+    provenance: observed
+    theme: money
+  - id: ratenzahlung
+    label: Wählt beim Online-Kauf oft Ratenzahlung
+    observedAs: Gewählte Zahlungsart beim Bezahlvorgang
+    provenance: observed
+    theme: money
+  - id: morgens-selber-ort
+    label: Ist werktags um 7:40 Uhr immer am selben Ort
+    observedAs: Wiederkehrende Standortpunkte vom Handy zur gleichen Uhrzeit
+    provenance: observed
+    theme: routine
+  - id: abends-selbes-wlan
+    label: Ist abends immer im selben WLAN
+    observedAs: Jeden Abend dieselbe IP-Adresse, also dieselbe Internet-Adresse deines Anschlusses – daraus lässt sich die ungefähre Region ablesen
+    provenance: derived
+    theme: routine
+  - id: einschlafhilfen-nachts
+    label: Sucht nachts nach Einschlafhilfen
+    observedAs: Suchanfragen wie „schneller einschlafen“ mit einer Uhrzeit nach Mitternacht
+    provenance: observed
+    theme: health
+
+inferences:
+  - id: fester-tagesablauf
+    action: google-location-timeline
+    title: Hat werktags einen festen Tagesablauf
+    explanation: >-
+      Wer an Werktagen immer zur gleichen Zeit am gleichen Ort ist, hinterlässt ein regelmäßiges Muster. Das lässt sich aus den Standortdaten fast direkt ablesen. Forschung zeigt: Schon wenige solcher Angaben „wann wo“ machen einen Menschen von sehr vielen anderen unterscheidbar. Was du dort tust, verrät das Muster allein aber nicht.
+    requires: [morgens-selber-ort]
+    level: derived
+    sources:
+      - ref: sim-de-montjoye-2013
+        note: Vier Orts-Zeit-Punkte genügten, um 95 % der Personen eindeutig zu identifizieren.
+
+  - id: wohn-und-arbeitsort
+    action: google-location-timeline
+    title: Ungefährer Wohn- und Arbeitsort
+    explanation: >-
+      Der Ort, an dem du werktags morgens bist, und das WLAN, in dem du jeden Abend bist, ergeben zusammen sehr wahrscheinlich Arbeitsplatz und Zuhause. Forschende konnten aus Standortdaten mit einfachen Mitteln Wohnorte bestimmen. Unsicher bleibt es trotzdem:
+      Der Morgenort kann auch die Kita, die Schule oder die Bushaltestelle sein, und eine
+      IP-Adresse verrät meist nur die grobe Region.
+    requires: [morgens-selber-ort, abends-selbes-wlan]
+    level: derived
+    sources:
+      - ref: sim-krumm-2007
+        note: Wohnorte ließen sich aus GPS-Spuren bestimmen.
+      - sim-de-montjoye-2013
+
+  - id: wiedererkennbar
+    action: google-location-timeline
+    title: Aus wenigen Spuren gut wiedererkennbar
+    explanation: >-
+      Morgenort, Abend-WLAN und das Fitnessstudio in der Nähe bilden zusammen ein Muster, das
+      nur auf sehr wenige Menschen passt – auch ganz ohne deinen Namen. Die Forschung zeigt,
+      dass selbst grobe Standortdaten wenig Anonymität bieten. Ob jemand dieses Muster
+      tatsächlich mit dir als Person verknüpft, hängt davon ab, welche weiteren Daten vorliegen.
+    requires: [morgens-selber-ort, abends-selbes-wlan, fitnessstudio-likes]
+    level: derived
+    sources:
+      - ref: sim-de-montjoye-2013
+        note: Auch grobe Mobilitätsdaten bieten wenig Anonymität.
+      - sim-krumm-2007
+
+  - id: fussballfan
+    action: google-ads-personalisation
+    title: Wahrscheinlich Fußballfan
+    explanation: >-
+      Wer mehreren Vereinen folgt, interessiert sich sehr wahrscheinlich für Fußball. Google führt dafür eine Zielgruppe für Werbung: „Soccer Fans“. Sie gehört zu Googles Gruppen nach Interessen und Gewohnheiten (Affinitätssegmente). Es kann aber auch berufliches Interesse sein,
+      etwa bei Sportjournalistinnen, oder du folgst nur dem Verein deiner Kinder.
+    requires: [fussballvereine]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinitätssegment „/Sports & Fitness/Sports Fans/Soccer Fans“.
+
+  - id: sportlich-aktiv
+    action: google-ads-personalisation
+    title: Treibt wahrscheinlich regelmäßig Sport
+    explanation: >-
+      Laufschuhe kaufen und gleichzeitig ein Fitnessstudio in der Nähe liken – zusammen spricht
+      das deutlich mehr für einen sportlichen Alltag als jedes Signal allein. Google führt Zielgruppen wie „Running Enthusiasts“ und „Health & Fitness Buffs“. Dazu kommen Gruppen für Menschen, die gerade „Athletic Shoes“ oder „Gyms & Athletic Clubs“ suchen. Vielleicht waren die Schuhe aber ein
+      Geschenk, und das Like galt einem Gewinnspiel.
+    requires: [laufschuhe, fitnessstudio-likes]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinity „Running Enthusiasts“, „Health & Fitness Buffs“; In-Market „Athletic Shoes“, „Gyms & Athletic Clubs“.
+
+  - id: interesse-babyausstattung
+    action: google-ads-personalisation
+    title: Interessiert sich gerade für Babyausstattung
+    explanation: >-
+      Wer Videos zu Kinderwagen und Erstausstattung schaut, recherchiert vermutlich gerade dazu.
+      Google führt eine Zielgruppe „Baby & Children's Products“ für Menschen, die solche Produkte gerade kaufen wollen (In-Market-Segment). Genauso gut kann es um ein Geschenk für
+      Freunde, Enkel oder Patenkinder gehen.
+    requires: [baby-videos]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: In-Market-Segment „/Baby & Children's Products“.
+
+  - id: bald-eltern
+    action: google-ads-personalisation
+    title: Wahrscheinlich bald Eltern oder gerade Eltern geworden
+    explanation: >-
+      Babyausstattung plus Wohnungssuche passt gut zu einer Familie, die Nachwuchs erwartet und
+      mehr Platz braucht. Google führt Zielgruppen nach Elternstatus bis hin zu „Parents of Infants (0-1 years)“. Ob jemand Eltern ist, schätzt Google auch aus dem, was die Person online tut. Eine Schwangerschaft selbst wäre allerdings eine Gesundheitsangabe. In der EU dürfen Plattformen Werbung nicht nach einem Profil auswählen, das auf solchen besonders geschützten Daten beruht (DSA Art. 26 Abs. 3). Technisch möglich bleibt der Schluss trotzdem. Und vielleicht ziehst du einfach um und
+      verschenkst einen Kinderwagen.
+    requires: [baby-videos, wohnungssuche-andere-stadt]
+    level: documented
+    sensitive: true
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Detailed Demographics „Parental Status“, u. a. „Parents of Infants (0-1 years)“; „new parents“.
+      - ref: sim-google-ads-demographics
+        note: Google schätzt Demografie wie Elternstatus auch anhand von Aktivität.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+      - ref: law-gdpr
+        note: Art. 9 Abs. 1 (Gesundheitsdaten)
+
+  - id: bald-umzug
+    action: google-ads-personalisation
+    title: Zieht wahrscheinlich bald um
+    explanation: >-
+      Wohnungen in einer anderen Stadt suchen und Umzugskartons bestellen – zusammen ist das ein
+      deutliches Zeichen für einen bevorstehenden Umzug. Google nennt „moving homes“ ausdrücklich als Lebensereignis, nach dem Werbende ihre Zielgruppe wählen können. Dazu gibt es eine Zielgruppe „Moving & Relocation“ für Menschen, die gerade danach suchen. Es könnte aber auch jemand anderem beim Umzug
+      helfen.
+    requires: [wohnungssuche-andere-stadt, umzugskartons]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Life Events („moving homes“) und In-Market „/Real Estate/Moving & Relocation“.
+
+  - id: jobwechsel
+    action: google-location-timeline
+    title: Vielleicht neuer Job in einer anderen Stadt
+    explanation: >-
+      Ein fester Arbeitsweg plus Wohnungssuche anderswo kann auf einen Jobwechsel hindeuten.
+      Forschung zeigt: Aus Online-Spuren und Texten lassen sich persönliche Merkmale wie Wohnort oder Lebenslage erstaunlich gut schätzen. Dass Plattformen genau diese Schlussfolgerung
+      ziehen, ist nicht dokumentiert – und es kann ebenso um Studium, Partnerschaft oder Familie gehen.
+    requires: [morgens-selber-ort, wohnungssuche-andere-stadt]
+    level: possible
+    sources:
+      - ref: sim-staab-2024
+        note: Sprachmodelle schätzen u. a. Ort und Einkommen aus Texten.
+      - sim-kosinski-2013
+
+  - id: interesse-geldanlage
+    action: google-ads-personalisation
+    title: Interessiert sich für Geldanlage
+    explanation: >-
+      Finanz-Podcasts und Finanz-Creator zusammen zeigen ein stabiles Interesse am Thema Geld.
+      Google führt dafür die Zielgruppen „Avid Investors“ (Interesse) und „Investment Services“ (gerade auf der Suche). Interesse heißt aber nicht, dass du tatsächlich Geld anlegst – viele
+      hören aus Neugier zu oder wollen erst einmal verstehen, worum es geht.
+    requires: [geldanlage-podcasts, finanz-creator]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinity „/Banking & Finance/Avid Investors“; In-Market „/Financial Services/Investment Services“.
+
+  - id: einkommen
+    action: google-ads-personalisation
+    title: Vermutlich berufstätig mit Spielraum zum Sparen
+    explanation: >-
+      Ein fester Arbeitsweg plus Interesse an Geldanlage legt nahe, dass du ein regelmäßiges
+      Einkommen hast. Google schreibt, dass es in manchen Ländern das Haushaltseinkommen schätzt – auch aus dem, was du online tust. Google betont aber, dass es Angaben wie Alter, Geschlecht oder Einkommen nicht bei allen Menschen kennt oder schätzen kann. Gerade Menschen mit wenig Geld informieren sich oft
+      besonders gründlich über Finanzen.
+    requires: [morgens-selber-ort, geldanlage-podcasts, finanz-creator]
+    level: documented
+    sources:
+      - ref: sim-google-ads-demographics
+        note: Demografie-Kategorie „Household income“ (regional begrenzt); Schätzung anhand von Aktivität.
+
+  - id: finanzielle-sorgen
+    action: google-ads-personalisation
+    title: Hat möglicherweise finanzielle Sorgen
+    explanation: >-
+      Häufige Ratenzahlung und nächtliche Suchen nach Einschlafhilfen könnten zusammen auf Geldsorgen hindeuten. In der Forschung gilt so ein Schluss als grundsätzlich machbar. Als Praxis einer Plattform ist er aber nicht dokumentiert. Ratenzahlung kann schlicht bequem sein,
+      und schlecht schlafen kann viele Gründe haben. Google zählt einen „negativen finanziellen Status“ zu den heiklen Themen, bei denen gezielte Werbung eingeschränkt ist. Zu den besonders geschützten Daten nach DSGVO Art. 9 gehört er nicht.
+    requires: [ratenzahlung, einschlafhilfen-nachts]
+    level: possible
+    sensitive: true
+    sources:
+      - ref: sim-staab-2024
+        note: Einkommen gehört zu den Merkmalen, die Sprachmodelle aus Texten schätzen können.
+      - sim-kosinski-2013
+      - ref: sim-google-ads-personalized-policy
+        note: Sensitive interest category „Negative financial status“.
+
+  - id: schlafprobleme
+    action: google-location-timeline
+    title: Schläft möglicherweise schlecht
+    explanation: >-
+      Wer nachts nach Einschlafhilfen sucht und trotzdem werktags früh unterwegs ist, hat
+      vielleicht zu wenig Schlaf. Forschung zeigt, dass Suchverläufe Hinweise auf die Gesundheit geben können. Gesundheitsdaten sind in der EU besonders geschützt. Plattformen dürfen Werbung nicht nach einem Profil auswählen, das auf solchen Daten beruht (DSA Art. 26 Abs. 3). Technisch möglich bleibt der Schluss trotzdem. Vielleicht hattest du aber nur eine
+      unruhige Woche oder suchst für jemand anderen.
+    requires: [einschlafhilfen-nachts, morgens-selber-ort]
+    level: possible
+    sensitive: true
+    sources:
+      - ref: sim-paparrizos-2016
+        note: Online-Aktivitäten können Hinweise auf Gesundheitszustände liefern.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+      - ref: law-gdpr
+        note: Art. 9 Abs. 1 (Gesundheitsdaten)
+
+  - id: gesundheitsbewusst
+    action: google-ads-personalisation
+    title: Kümmert sich gerade bewusst um die eigene Gesundheit
+    explanation: >-
+      Sport, ein Fitnessstudio und nächtliche Suchen nach besserem Schlaf ergeben zusammen das Bild
+      von jemandem, der an seiner Gesundheit arbeitet – oder mit ihr kämpft. Solche Schlüsse sind laut Forschung möglich. Google schreibt, es nutze Gesundheit nicht, um Werbung zuzuschneiden. Meta hat 2022 die Möglichkeit entfernt, Werbung gezielt nach Gesundheitsthemen auszurichten. In der EU dürfen Online-Plattformen Werbung ohnehin nicht nach einem Profil mit Gesundheitsdaten auswählen (DSA Art. 26 Abs. 3).
+    requires: [laufschuhe, fitnessstudio-likes, einschlafhilfen-nachts]
+    level: possible
+    sensitive: true
+    sources:
+      - sim-paparrizos-2016
+      - sim-kosinski-2013
+      - ref: sim-google-ads-audience-segments
+        note: „Google will never use sensitive information like health, race, religion, or sexual orientation to tailor ads to users.“
+      - ref: sim-meta-sensitive-targeting-2021
+        note: Seit 19.1.2022 keine Detailed-Targeting-Optionen mehr zu u. a. Gesundheit.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+
+takeaways:
+  - text: >-
+      Eine einzelne Spur sagt wenig. Erst zusammen werden Einschätzungen über dich deutlich genauer. Forschung zeigt: Schon wenige Angaben „wann wo“ oder eine Reihe von Likes reichen für erstaunlich genaue Vorhersagen.
+    sources:
+      - sim-de-montjoye-2013
+      - sim-kosinski-2013
+  - text: >-
+      Du kannst nachsehen, was Plattformen über dich schätzen: Google zeigt in „Mein Anzeigen-Center“
+      geschätzte Angaben wie Alter und Interessen, bei Meta erklärt „Warum sehe ich diese
+      Werbung?“, welche Interessen zu einer Anzeige geführt haben. Dort kannst du Angaben auch
+      ändern oder personalisierte Werbung einschränken.
+    sources:
+      - sim-google-my-ad-center
+      - sim-meta-why-ads-2019
+  - text: >-
+      Der Simulator ist bewusst vereinfacht: Er zeigt, was grundsätzlich ableitbar ist, nicht, was
+      ein bestimmtes Unternehmen tatsächlich über dich weiß. Echte Systeme arbeiten mit Wahrscheinlichkeiten und liegen auch daneben. In der EU dürfen Online-Plattformen keine Werbung zeigen, die nach einem Profil mit besonders geschützten Daten ausgewählt ist. Minderjährigen dürfen sie gar keine profilbasierte Werbung zeigen.
+    sources:
+      - sim-google-ads-demographics
+      - ref: law-dsa
+        note: Art. 26 Abs. 3 und Art. 28 Abs. 2
+
+reviewedAt: 2026-10-07

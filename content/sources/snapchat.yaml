@@ -1,0 +1,240 @@
+- id: snap-privacy-policy
+  title: "Datenschutzbestimmungen"
+  publisher: Snap Inc.
+  url: https://values.snap.com/de-DE/privacy/privacy-policy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Inkrafttreten laut Seite: 21. September 2026. Gilt für Snapchat, Bitmoji, SPECS sowie Werbe- und Handelsangebote. „Die privaten Inhalte und Mitteilungen, die du an deine Freunde sendest, verwenden wir nicht, um deine Erfahrung zu personalisieren, Empfehlungen zu geben oder dir Werbung zu zeigen.“"
+- id: snap-eea-privacy-notice
+  title: "Datenschutzerklärung für EWR und UK"
+  publisher: Snap Inc.
+  url: https://values.snap.com/de-DE/privacy/privacy-policy/eea-uk-privacy-notice
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Inkrafttreten: 21. September 2026. „Wenn du ein Nutzer im EWR oder in UK bist, solltest du wissen, dass Snap Inc. der Datenverantwortliche für deine personenbezogenen Daten ist.“ Snap B.V., Keizersgracht 165, Amsterdam, ist EWR-Vertreter. Werbung nach Interessen stützt Snap auf „berechtigtes Interesse“. Übermittlung in die USA über Standardvertragsklauseln oder das EU-U.S. Data Privacy Framework."
+- id: snap-ads-privacy
+  title: "Snap und Anzeigen (Werbung, Datenschutz und Transparenz)"
+  publisher: Snap Inc.
+  url: https://values.snap.com/de-DE/privacy/ads-privacy
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Beschreibt Datenquellen für Werbung mit Gewichtung, geschätztes Alter und Geschlecht, Lifestyle-Kategorien, Snap Pixel und Conversion API, Kundenlisten, Werbung in My AI („Unsere Werbepartner erhalten deine Anfragen (wenn wir eine kommerzielle Absicht feststellen) …“), Einschränkungen für 13- bis 17-Jährige in EU/UK/NO/CH und die „Personalisierungskontrolle“ im Abschnitt „Kontrollen der EU“."
+- id: snap-privacy-by-product
+  title: "Datenschutz nach Produkt"
+  publisher: Snap Inc.
+  url: https://values.snap.com/de-DE/privacy/privacy-by-product
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Abschnitte zu Snaps und Chats, My AI („wir bewahren die Inhalte auf, die du an My AI sendest und von ihr erhältst … bis du die Inhalte in der App löschst“), Memorys, Linsen, Snap Map und Standort („Die Freigabe deines genauen Standorts … ist standardmäßig deaktiviert“; „Wir speichern GPS-Standorte für eine gewisse Zeit“)."
+- id: snapchat-help-snaps-chats-deletion
+  title: "Wann löscht Snapchat Snaps und Chats?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012334940948
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Chats standardmäßig 24 Stunden nach dem Ansehen oder nach 31 Tagen gelöscht; ungeöffnete Snaps nach 31 Tagen. „… werden alle Inhalte, die mit My AI geteilt werden … gespeichert, bis du sie löschst.“ Themen-Chats 5 Jahre. Empfänger können jederzeit Screenshots machen."
+- id: snapchat-help-metadata
+  title: "Metadaten von Snaps und Chats"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012318664852
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Metadaten sind „Datum, Uhrzeit, Sender und Empfänger“; genutzt u. a. für beste Freunde und Flammen. „… werden die meisten Metadaten nach 30 Tagen gelöscht.“"
+- id: snapchat-help-ghost-mode
+  title: "Wie aktiviere ich den Geistmodus?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012322854932
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Wenn du den Geistmodus aktivierst, wird dein Standort weiterhin mit Snap geteilt, aber er ist für niemanden sonst auf der Karte sichtbar.“ Schritte: Map öffnen, Zahnradsymbol, „Geistmodus“ einschalten, Timer (3 Stunden, 24 Stunden oder bis zum Ausschalten)."
+- id: snapchat-help-map-safety
+  title: "Snap Map Datenschutz- und Sicherheitshinweise"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/24547077410580
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Die Standortfreigabe auf der Snap Map ist standardmäßig deaktiviert.“ Unterscheidet „Nur bei Nutzung“ und „Immer“ (Hintergrundstandort); Hintergrundstandort in den Geräteeinstellungen auf „Nur bei Nutzung“ stellen."
+- id: snapchat-help-my-ai-location
+  title: "So nutzt My AI Standortdaten"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/15051407058068
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Im Geistmodus ist dein Standort für deine Freunde auf SnapMap unsichtbar. Aber My AI hat möglicherweise immer noch Zugriff auf deinen Standort …“"
+- id: snapchat-help-my-ai-delete
+  title: "Wie lösche ich meine Daten mit My AI?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/18937378754324
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Snapchat speichert deine Gespräche mit My AI …“ Schritte für iOS (Datenschutzeinstellungen > Daten löschen > My AI-Daten löschen) und Android (Account-Aktionen > My AI-Daten löschen). „Es kann bis zu 30 Tage dauern, bis die relevanten Daten von My AI von den Snapchat Servern gelöscht werden.“ Team-Snapchat-Chats werden getrennt gelöscht."
+- id: snapchat-help-ads
+  title: "Anzeigen auf Snapchat verstehen"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012345515796
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte für „Zielgruppenspezifisch“, „Aktivitätsbasiert“ und „Werbenetzwerke von Drittanbietern“ unter Einstellungen > Mein Account > Meinen Account verwalten > Anzeigenpräferenzen (Android: zuerst „Anzeigen“). Werbenetzwerke bekommen u. a. „deine IP-Adresse, deine mobile Werbe-ID“. „Du wirst auf Snapchat weiterhin Anzeigen sehen, wenn du diese Funktionen deaktivierst.“"
+- id: snapchat-help-personalisation
+  title: "Personalisierung auf Snapchat"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/17338132910484
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Auf Spotlight und „Entdecken“ im Storys-Tab verwenden wir Algorithmen, um Inhalte zu personalisieren und zu ranken.“ Auch Lenses werden nach Interessen gereiht."
+- id: snapchat-help-add-friends
+  title: "Freunde auf Snapchat hinzufügen"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012328615828
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Beim Hochladen der Kontakte speichert Snap u. a. „Namen von Kontakten, Hash-Telefonnummern und Email-Adressen“. Entfernen über „Datenschutzeinstellungen“ > „Daten löschen“ > „Kontaktdaten löschen“; Ändern der Geräteberechtigung entfernt geteilte Kontakte „nicht in allen Fällen“. „Freunde finden“ beruht u. a. auf Alter, Standort und bestehenden Freunden."
+- id: snapchat-help-permissions-ios
+  title: "Wie kann ich meine Snapchat Berechtigungen auf iOS ändern?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012349781652
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Berechtigungen u. a. Standort, Kamera, Mikrofon, Fotos, Kontakte, Zwischenablage. Mit ausgeschaltetem „Genauer Standort“ erhält Snap „weiterhin deine Standortdaten …, diese jedoch weniger genau“."
+- id: snapchat-help-download-data
+  title: "Wie lade ich meine Daten aus Snapchat herunter?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012305371156
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte über accounts.snapchat.com oder Einstellungen > „Meine Daten“; Kategorien u. a. Snap-Verlauf, gespeicherter Chat-Verlauf, Freunde, Standort, Suchverlauf. „Wir bemühen uns, die Daten innerhalb von 7 Tagen bereitzustellen …“"
+- id: snapchat-help-delete-account
+  title: "Wie deaktiviere oder lösche ich meinen Snapchat Account?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012328360596
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Account zuerst 30 Tage deaktiviert, danach dauerhaft gelöscht; Daten „nach 60 Tagen dauerhaft gelöscht“. Einige Daten werden „aus rechtlichen, sicherheitsrelevanten und geschäftlichen Gründen aufbewahrt“, z. B. Käufe."
+- id: snap-newsroom-dsa-2023
+  title: "Erfüllung unserer DSA-Verpflichtungen (Digital Services Act)"
+  publisher: Snap Newsroom
+  url: https://newsroom.snap.com/digital-services-act-snap
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "23. August 2023: Snapchatter in der EU können „sich gegen personalisierte Entdecken- und Spotlight-Inhalte … entscheiden“; Werbung für 13- bis 17-Jährige in EU und UK nur noch nach Grundangaben wie Sprache, Alter und Standort."
+- id: snap-10k-2025
+  title: "Form 10-K, Geschäftsjahr 2025"
+  publisher: Snap Inc. (bei der US-Börsenaufsicht SEC eingereicht)
+  url: https://www.sec.gov/Archives/edgar/data/1564408/000156440826000013/snap-20251231.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: US
+  language: en
+  note: "Umsatz 2025: Werbung 5.186.077 Tsd. USD von insgesamt 5.931.447 Tsd. USD (rund 87 %). „Other revenue primarily consists of revenue from subscriptions“ (Snapchat+, Lens+, Snapchat Platinum). Sitz: 3000 31st Street, Santa Monica, Kalifornien."
+- id: snapchat-ec-dsa-proceedings-2026
+  title: "Commission investigates Snapchat's compliance with child protection rules under the Digital Services Act"
+  publisher: Europäische Kommission
+  url: https://digital-strategy.ec.europa.eu/en/news/commission-investigates-snapchats-compliance-child-protection-rules-under-digital-services-act
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: en
+  note: "26. März 2026: förmliches Verfahren, ob Snapchat „a high level of safety, privacy and security for children“ sicherstellt. Noch keine Entscheidung."
+- id: snapchat-engadget-dsa-2026
+  title: "The EU is investigating Snapchat over possible child protection breaches"
+  publisher: Engadget
+  url: https://engadget.com/social-media/the-eu-is-investigating-snapchat-over-possible-child-protection-breaches-174722759.html
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: en
+  note: "26. März 2026: Die Kommission prüft u. a., dass Konten von Kindern und Jugendlichen über „Find Friends“ anderen Nutzern empfohlen werden, und ob die Altersangabe per Selbstauskunft ausreicht."
+- id: snapchat-ico-my-ai-2024
+  title: "We warn organisations must not ignore data protection risks as we conclude Snap ‘My AI’ chatbot investigation"
+  publisher: Information Commissioner's Office (Vereinigtes Königreich)
+  url: https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/05/ico-warns-organisations-must-not-ignore-data-protection-risks-as-it-concludes-snap-my-ai-chatbot-investigation/
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Mai 2024: Untersuchung seit Juni 2023, vorläufige Vollstreckungsmitteilung am 6. Oktober 2023; abgeschlossen, nachdem Snap eine rechtskonforme Risikobewertung für My AI nachgeholt hatte."
+- id: snapchat-help-privacy-settings
+  title: "Wie ändere ich meine Datenschutzeinstellungen auf Snapchat?"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/7012343074580
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„Standardmäßig können dich nur Freunde, die du auf Snapchat hinzugefügt hast, direkt kontaktieren oder deine Story anschauen.“ Einstellungen unter „App & Datenschutz“, u. a. „Wer mich in „Freunde finden“ sehen kann“ (Änderung wirkt nach bis zu 72 Stunden)."
+- id: snapchat-help-rank-discover
+  title: "So bewerten wir Content in Entdecken"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/8961631424020
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: EU
+  language: de
+  note: "Für EWR, UK und Schweiz: „In Entdecken und Spotlight kannst du personalisierte Inhalte deaktivieren“ über „…“ und „Warum sehe ich diesen Inhalt?“; „Oder du gehst direkt zu den Einstellungen und wählst dort die Option ‚Personalisierungskontrollen‘.“ Danach Empfehlungen nur nach Sprache, Alter und Land. „Es kann zu Verzögerungen kommen, bevor sich die Inhalte ändern.“"
+- id: snapchat-help-rank-spotlight
+  title: "So ranken wir Inhalte in Spotlight"
+  publisher: Snapchat Support
+  url: https://help.snapchat.com/hc/de/articles/8961653169940
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: EU
+  language: de
+  note: "Gleicher Weg wie für Entdecken: „…“ → „Warum sehe ich diesen Inhalt?“ oder Einstellungen → „Personalisierungskontrollen“. Wieder einschalten über das Favorit-Symbol oder „Einstellungen für personalisierte Inhalte“."

@@ -1,0 +1,117 @@
+---
+import Base from '~/layouts/Base.astro';
+import SourceList from '~/components/SourceList.astro';
+import { getContent, refId } from '~/domain/content';
+import type { AlternativeProduct } from '~/domain/schema';
+import { dict, formatDate, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  title: 'Alternativen mit ehrlichen Abwägungen',
+  description:
+    'Datenschutzfreundlichere Alternativen zu Google-Suche, Chrome, Gmail, Google Maps, WhatsApp, Cloud-Speicher, ChatGPT und YouTube – neutral verglichen.',
+  h1: 'Wechseln? Vielleicht. Erst ehrlich abwägen.',
+  lead: 'Keine Alternative ist in allem besser. Oft bringt eine Einstellung beim gewohnten Dienst schon viel. Wir nennen Stärken und Nachteile – und verdienen an keinem Link.',
+  hint: 'Lesehilfe: „Ende-zu-Ende-verschlüsselt“ heißt, nur Absender und Empfänger können mitlesen – auch der Anbieter nicht.',
+  categories: 'Kategorien',
+  withoutSwitching: 'Ohne Wechsel:',
+  incumbent: 'Verbreitet',
+  alternative: 'Alternative',
+  external: ' (externe Seite)',
+  strengths: 'Stärken',
+  tradeOffs: 'Abwägungen',
+  unverified: 'Einzelne Angaben noch nicht verifiziert',
+  asOf: 'Stand:',
+  sources: 'Quellen',
+  effort: { low: 'gering', medium: 'mittel', high: 'hoch' } as Record<'low' | 'medium' | 'high', string>,
+  os: { yes: 'ja', partial: 'teilweise', no: 'nein' } as Record<'yes' | 'partial' | 'no', string>,
+  rows: {
+    provider: 'Anbieter & Sitz',
+    businessModel: 'Geschäftsmodell',
+    price: 'Preis',
+    openSource: 'Open Source',
+    encryption: 'Verschlüsselung',
+    dataCollection: 'Datenerfassung',
+    switching: 'Wechselaufwand',
+  },
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'Alternatives with honest trade-offs',
+  description:
+    'More privacy-friendly alternatives to Google Search, Chrome, Gmail, Google Maps, WhatsApp, cloud storage, ChatGPT and YouTube – compared neutrally.',
+  h1: 'Switch? Maybe. Weigh it up honestly first.',
+  lead: 'No alternative is better at everything. Often one setting in the service you already use makes a big difference. We name strengths and drawbacks – and we earn nothing from any link.',
+  hint: 'Reading tip: “end-to-end encrypted” means only the sender and the recipient can read along – not even the provider can.',
+  categories: 'Categories',
+  withoutSwitching: 'Without switching:',
+  incumbent: 'Widely used',
+  alternative: 'Alternative',
+  external: ' (external site)',
+  strengths: 'Strengths',
+  tradeOffs: 'Trade-offs',
+  unverified: 'Some details not yet verified',
+  asOf: 'As of',
+  sources: 'Sources',
+  effort: { low: 'low', medium: 'medium', high: 'high' },
+  os: { yes: 'yes', partial: 'partly', no: 'no' },
+  rows: {
+    provider: 'Provider & location',
+    businessModel: 'Business model',
+    price: 'Price',
+    openSource: 'Open source',
+    encryption: 'Encryption',
+    dataCollection: 'Data collection',
+    switching: 'Effort to switch',
+  },
+};
+const txt = locale === 'en' ? TXT_EN : TXT_DE;
+const { alternatives } = getContent(locale);
+const allIds = alternatives.flatMap((a) => [a.incumbent, ...a.alternatives]).flatMap((p) => p.sources.map(refId));
+const rows: [string, (p: AlternativeProduct) => string][] = [
+  [txt.rows.provider, (p) => `${p.provider} · ${p.jurisdiction}`],
+  [txt.rows.businessModel, (p) => p.businessModel],
+  [txt.rows.price, (p) => p.price],
+  [txt.rows.openSource, (p) => txt.os[p.openSource]],
+  [txt.rows.encryption, (p) => p.encryption],
+  [txt.rows.dataCollection, (p) => p.dataCollection],
+  [txt.rows.switching, (p) => `${txt.effort[p.switchingEffort]} – ${p.switchingNote}`],
+];
+---
+<Base title={txt.title} description={txt.description} path={href(locale, 'alternatives')} crumbs={[{ label: t.nav.services, href: href(locale, 'apps') }, { label: t.nav.alternatives }]}>
+  <section>
+    <div class="wrap">
+      <h1>{txt.h1}</h1>
+      <p class="lead">{txt.lead}</p>
+      <p class="small muted">{txt.hint}</p>
+      <nav aria-label={txt.categories} class="cat-nav"><ul class="cluster">{alternatives.map((a) => <li><a class="tag" href={`#${a.id}`}>{a.title}</a></li>)}</ul></nav>
+    </div>
+  </section>
+  {alternatives.map((cat) => (
+    <section id={cat.id} aria-labelledby={`h-${cat.id}`}>
+      <div class="wrap">
+        <h2 id={`h-${cat.id}`}>{cat.title}</h2>
+        <p>{cat.einordnung}</p>
+        <div class="without"><strong>{txt.withoutSwitching}</strong> {cat.withoutSwitching}</div>
+        <div class="alt-cards">
+          {[cat.incumbent, ...cat.alternatives].map((p, i) => (
+            <article class={`alt-card ${i === 0 ? 'is-incumbent' : ''}`} aria-labelledby={`p-${cat.id}-${p.id}`}>
+              <p class="eyebrow">{i === 0 ? txt.incumbent : txt.alternative}</p>
+              <h3 id={`p-${cat.id}-${p.id}`}><a href={p.url} rel="noopener noreferrer" target="_blank">{p.name}<span class="visually-hidden">{txt.external}</span></a></h3>
+              <div class="pc">
+                <div><p class="pc-h">{txt.strengths}</p><ul>{p.strengths.map((x) => <li>{x}</li>)}</ul></div>
+                <div><p class="pc-h">{txt.tradeOffs}</p><ul>{p.tradeOffs.map((x) => <li>{x}</li>)}</ul></div>
+              </div>
+              <dl class="facts small">{rows.map(([k, f]) => (<><dt>{k}</dt><dd>{f(p)}</dd></>))}</dl>
+              {p.needsVerification && <p class="small tag tag-warn">{txt.unverified}</p>}
+            </article>
+          ))}
+        </div>
+        <p class="small muted">{txt.asOf} {formatDate(cat.reviewedAt, locale)}</p>
+      </div>
+    </section>
+  ))}
+  <section aria-labelledby="alt-sources">
+    <div class="wrap"><h2 id="alt-sources">{txt.sources}</h2><SourceList ids={allIds} /></div>
+  </section>
+</Base>

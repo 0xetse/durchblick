@@ -1,0 +1,88 @@
+# Real-world cases for /warum/ – "Warum es wichtig ist, auf seine Daten zu achten".
+# Rules: only facts the sources state; "meaning" stays calm and practical;
+# no single private individuals by name.
+- id: databroker-files
+  title: Standortdaten aus Apps wurden verkauft – darin waren echte Menschen zu erkennen
+  year: 2024
+  area: places
+  happened: >-
+    Journalist*innen von netzpolitik.org und dem Bayerischen Rundfunk bekamen von einem Datenhändler kostenlos eine Probe:
+    rund 3,6 Milliarden Standortpunkte aus Deutschland, verteilt auf etwa 11 Millionen Handy-Kennungen. Darin
+    konnten sie einzelne Menschen erkennen – etwa einen hohen Beamten eines Bundesministeriums und eine Person,
+    die für einen deutschen Geheimdienst arbeitet.
+  meaning: >-
+    Wo du dich regelmäßig aufhältst, verrät, wer du bist: Wohnung, Arbeit, Arztpraxis. Gib den Standort nur Apps,
+    die ihn wirklich brauchen – und am besten nur, während du sie benutzt.
+  sources:
+    - netzpolitik-databroker-files
+- id: facebook-phone-leak
+  title: Telefonnummern von rund 6 Millionen Facebook-Nutzer*innen aus Deutschland landeten im Netz
+  year: 2021
+  area: identity
+  happened: >-
+    Im April 2021 tauchte ein Datensatz mit Angaben zu mehr als 530 Millionen Facebook-Nutzer*innen auf, rund
+    6 Millionen davon aus Deutschland – mit Telefonnummern. Gesammelt wurden die Daten laut Facebook schon vor
+    September 2019 über eine Funktion, mit der man Kontakte findet. Die irische Datenschutzbehörde verhängte
+    dafür 2022 ein Bußgeld von 265 Millionen Euro gegen Meta.
+  meaning: >-
+    Eine Telefonnummer wirkt harmlos. Zusammen mit Name und Profil verrät sie, wer hinter der Nummer steckt – und
+    was einmal im Netz kursiert, lässt sich nicht zurückholen.
+  sources:
+    - computerbase-facebook-530-mio
+    - meta-facts-data-2021
+    - dpc-facebook-scraping-2022
+- id: cambridge-analytica
+  title: 65 Menschen machten ein Quiz – betroffen waren bis zu 310.000 in Deutschland
+  year: 2018
+  area: people
+  happened: >-
+    Über eine Quiz-App auf Facebook wurden Informationen von bis zu 87 Millionen Menschen unzulässig an die Firma
+    Cambridge Analytica weitergegeben, die meisten in den USA. In Deutschland hatten nur 65 Menschen die App
+    genutzt. Betroffen waren laut Facebook trotzdem bis zu 310.000 – vor allem ihre Freund*innen.
+  meaning: >-
+    Was andere in ihren Apps erlauben, kann auch dich betreffen – selbst wenn du nie etwas angeklickt hast.
+  sources:
+    - facebook-restricting-data-access-2018
+    - tagesspiegel-cambridge-analytica-de
+- id: meta-pixel-hospitals
+  title: Krankenhaus-Websites schickten Facebook, wer einen Termin buchen wollte
+  year: 2022
+  area: elsewhere
+  happened: >-
+    Die Redaktion The Markup prüfte die Websites der 100 bekanntesten Krankenhäuser in den USA. Bei 33 schickte
+    ein eingebauter Baustein von Facebook (das Meta-Pixel) Daten an Facebook, sobald jemand einen Termin buchen
+    wollte. Aus einigen Patientenportalen gingen sogar Namen von Medikamenten und Details zu Terminen an Facebook.
+  meaning: >-
+    Solche Bausteine stecken in sehr vielen Websites. Du kannst Meta verbieten, diese Informationen für Werbung zu
+    nutzen – gesendet werden sie trotzdem.
+  action: facebook-activity-other-businesses
+  sources:
+    - markup-pixel-hospitals-2022
+- id: flo-health
+  title: Eine Zyklus-App gab Gesundheitsdaten an Facebook und Google weiter
+  year: 2021
+  area: elsewhere
+  happened: >-
+    Die Zyklus-App Flo versprach, Gesundheitsdaten privat zu halten. Laut der US-Verbraucherschutzbehörde FTC gab
+    sie trotzdem sensible Gesundheitsdaten von Millionen Nutzer*innen an Marketing- und Analysefirmen weiter,
+    darunter Facebook und Google. Seit 2021 muss Flo vorher um Zustimmung fragen.
+  meaning: >-
+    Apps für Gesundheit, Zyklus oder Fitness wissen besonders Persönliches. Schau vor der Anmeldung nach, ob sie
+    Daten für Werbung weitergeben.
+  action: google-partner-activity
+  sources:
+    - ftc-flo-order-2021
+- id: clearview-faces
+  title: Milliarden Fotos aus dem Netz landeten in einer Gesichtserkennung
+  year: 2024
+  area: shared
+  happened: >-
+    Die Firma Clearview AI hat eine Datenbank mit Milliarden Fotos von Gesichtern aufgebaut, eingesammelt aus
+    sozialen Netzwerken und dem übrigen Internet. Die niederländische Datenschutzbehörde nannte die Datenbank
+    illegal und verhängte 2024 ein Bußgeld von 30,5 Millionen Euro.
+  meaning: >-
+    Was du öffentlich postest, kann jeder einsammeln – auch Firmen, die damit Gesichter erkennen. Überleg dir,
+    welche Fotos wirklich öffentlich sein müssen.
+  sources:
+    - edpb-clearview-nl-2024
+    - ap-clearview-nl-2024

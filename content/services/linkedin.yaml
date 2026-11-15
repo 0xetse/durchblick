@@ -1,0 +1,421 @@
+id: linkedin
+name: LinkedIn
+company: microsoft
+category: social
+url: https://www.linkedin.com/
+summary: "LinkedIn speichert deinen Lebenslauf, dein Netzwerk und was du auf der Plattform liest, suchst und anklickst. Daraus schätzt LinkedIn Interessen, Alter und Karrierestufe – für Vorschläge, Werbung und Recruiting. Seit November 2025 trainiert LinkedIn damit auch seine KI."
+surprise:
+  action: linkedin-ai-training
+  text: "Seit dem 3. November 2025 nutzt LinkedIn in der EU dein Profil, deine Beiträge und Kommentare, um eigene KI zu trainieren, die Texte schreibt. Die Einstellung dafür ist ab Werk eingeschaltet. Schaltest du sie später aus, gilt das nur für künftiges Training – was schon eingeflossen ist, bleibt drin."
+  sources:
+    - ref: linkedin-eu-privacy-notice
+      note: "„Am 3. November 2025 haben wir diesen Hinweis aktualisiert, um Informationen über unsere Berufung auf berechtigte Interessen als Rechtsgrundlage für die Schulung von KI-Modellen zur Generierung von Inhalten … bereitzustellen.“"
+    - ref: linkedin-ap-ai-warning-2025
+      note: "„De instelling ‚Gegevens voor verbetering van generatieve AI‘ staat standaard aan.“"
+    - ref: linkedin-help-genai-faq
+      note: "„Der Widerspruch greift jedoch nicht rückwirkend für ein Training, das vor diesem Zeitpunkt stattgefunden hat.“"
+businessModel:
+  text: "LinkedIn gehört zu Microsoft. Im Geschäftsjahr bis Juni 2026 machte LinkedIn rund 19,8 Milliarden US-Dollar Umsatz. Das Geld kommt aus vier Bereichen: Recruiting-Werkzeuge für Firmen (Talent Solutions), Werbung (Marketing Solutions), Premium-Abos und Vertriebswerkzeuge (Sales Solutions). Die Grundmitgliedschaft ist kostenlos."
+  sources:
+    - ref: linkedin-msft-10k-fy2026
+      note: "Umsatztabelle: „LinkedIn 19,817“ (Mio. USD, Geschäftsjahr bis 30. Juni 2026); „Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions“"
+    - ref: linkedin-eu-privacy-notice
+      note: "„So kann LinkedIn seine Services Mitgliedern kostenlos anbieten …“"
+dataPoints:
+  - id: li-account
+    category: account
+    title: "Für das Konto gibst du Name, E-Mail oder Handynummer und deinen Wohnort an."
+    detail: "Dazu kommen ein Passwort und, für die Anmeldung in zwei Schritten, eine Telefonnummer. Wer ein Premium-Abo bucht, gibt Zahlungsdaten wie die Kreditkarte an. Neue Mitglieder müssen seit August 2026 angeben, ob sie volljährig sind; Minderjährige zusätzlich ihr Geburtsdatum."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.1 „Anmeldung“: „Daten wie Ihren Namen, Ihre E-Mail-Adresse und/oder Handynummer, Ihren allgemeinen Standort (z. B. eine Stadt) und ein Passwort“"
+      - ref: linkedin-help-policy-updates
+        note: "„Neue Mitglieder müssen fortan bestätigen, ob sie das Alter der Volljährigkeit in ihrer jeweiligen Region bereits erreicht oder noch nicht erreicht haben.“"
+  - id: li-profile
+    category: account
+    title: "Dein Profil ist ein ausführlicher Lebenslauf."
+    detail: "Ausbildung, Berufserfahrung, Kenntnisse, Profilbild, Stadt, Bestätigungen und Empfehlungen von anderen. Das meiste ist freiwillig. LinkedIn weist selbst darauf hin: Was im Profil steht, ist für alle Mitglieder sichtbar und je nach Einstellung auch außerhalb von LinkedIn, etwa in Suchmaschinen."
+    provenance: provided
+    mechanisms: [provided, other-users]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.1 „Profil“; Abschnitt 3.1: „Ihr Profil ist für alle Mitglieder und Kunden unserer Services vollständig sichtbar.“; „Bitte fügen Sie keine personenbezogenen Daten in Ihrem Profil hinzu, die Sie nicht öffentlich zugänglich machen möchten.“"
+  - id: li-verification
+    category: account
+    title: "Wenn du dich verifizieren lässt, prüft LinkedIn deinen Ausweis oder Arbeitsplatz."
+    detail: "Für das Verifizierungs-Abzeichen nutzt LinkedIn etwa die E-Mail-Adresse deines Arbeitgebers oder einen amtlichen Ausweis. Den Ausweis prüft ein anderer Anbieter (CLEAR). LinkedIn speichert dabei unter anderem Angaben zum Ausweis, etwa das Ausstellungsland."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du eine Verifizierung startest oder dein Konto wiederherstellen musst"
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "Abschnitt „Einwilligung“: „Verifizierungsdaten (E-Mail-Adresse des Arbeitgebers oder der Bildungseinrichtung, … Ausstellungsland amtlicher Ausweisdokumente …)“"
+      - ref: linkedin-help-download-data
+        note: "Kategorie „Überprüfungen“: „LinkedIn arbeitet mit CLEAR zusammen, einem Drittanbieter für Serviceleistungen zur Identitätsbestätigung.“"
+  - id: li-demographics
+    category: account
+    title: "Freiwillig kannst du LinkedIn sehr persönliche Angaben machen."
+    detail: "Zum Beispiel Geschlecht, ethnische Zugehörigkeit oder eine Behinderung. LinkedIn zeigt sie nicht im Profil. Es nutzt sie für Forschung und Statistiken, etwa zu Gehältern. Werbung nach ethnischer Zugehörigkeit oder Behinderung erlaubt LinkedIn laut eigener Aussage nicht."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du diese Angaben selbst machst"
+    sources:
+      - ref: linkedin-help-demographics
+        note: "„Ihre persönlichen demografischen Informationen werden nicht in Ihrem Profil angezeigt …“; „Wir erlauben kein Anzeigen-Targeting auf der Grundlage von ethnischer Zugehörigkeit, Behinderungen oder anderen sensiblen Merkmalen.“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„Von Mitgliedern bereitgestellte demografische Daten (z. B. über eine Behinderung oder ihr Geschlecht)“"
+  - id: li-content
+    category: content
+    title: "LinkedIn speichert, was du postest und kommentierst."
+    detail: "Beiträge, Artikel, Kommentare, Umfragen, Fotos, Videos und Beiträge in Gruppen. Auch andere können über dich schreiben oder dich erwähnen. Öffentliche Beiträge können alle sehen und weiterverbreiten – mit deinem Namen und Foto."
+    provenance: provided
+    mechanisms: [provided, other-users]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.2: „Sie und Dritte können Inhalte, die Informationen über Sie … enthalten, in unseren Services veröffentlichen.“; Abschnitt 3.1 zu öffentlich geteilten Beiträgen"
+  - id: li-jobs
+    category: content
+    title: "Bei der Jobsuche gibst du LinkedIn Lebenslauf und Wünsche."
+    detail: "Hochgeladene Lebensläufe, Antworten auf Bewerbungsfragen, Bewerbungen, gespeicherte Jobs und deine Jobwünsche, etwa Ort, Branche, Gehalt oder „Offen für Jobangebote“. LinkedIn schreibt, es zeige deinem Arbeitgeber weder deine Jobsuchen noch deine persönlichen Nachrichten."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du die Jobfunktionen nutzt"
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "„Filter für die Jobsuche (z. B. Branche, Berufserfahrung, Art der Beschäftigung, Remote-Status, Gehalt …)“; „Jobeinstellungen …, einschließlich „Offen für Jobangebote““; „Hochgeladene Lebensläufe“"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 3.1: „Wir zeigen Ihrem Arbeitgeber weder Ihre Jobsuchen noch Ihre persönlichen Nachrichten.“"
+  - id: li-messages
+    category: communications
+    title: "LinkedIn verarbeitet deine Nachrichten."
+    detail: "LinkedIn erfasst, mit wem du wann schreibst. Automatische Systeme werten Nachrichten aus, um Antworten vorzuschlagen und Regelverstöße zu finden. Bilder und Videos in Nachrichten prüft LinkedIn auf Darstellungen sexuellen Kindesmissbrauchs. Für das Training seiner Text-KI nutzt LinkedIn private Nachrichten laut eigener Aussage nicht."
+    technical: "Nachrichten sind laut Datenschutzrichtlinie für automatisierte Systeme zugänglich; eine Ende-zu-Ende-Verschlüsselung beschreibt LinkedIn nicht. „Sofern Ihre Einstellungen dies zulassen, scannen wir Nachrichten, um „Bots“ … bereitzustellen“."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.6: „Dazu können Informationen gehören, die angeben, mit wem Sie wann kommunizieren.“; „… um Ihnen mögliche Antworten auf Nachrichten vorzuschlagen und Inhalte zu verwalten oder zu blockieren …“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„… analysiert LinkedIn Bilder und Videos, die über Nachrichten auf unserer Plattform versendet werden.“"
+      - ref: linkedin-help-genai-faq
+        note: "Nicht für das Training genutzt: „Private Nachrichten (einschließlich Ihrer InMail- und Inbox-Nachrichten)“"
+  - id: li-activity
+    category: activity
+    title: "LinkedIn protokolliert, was du dir ansiehst und anklickst."
+    detail: "Welche Beiträge du liest, welche Videos du ansiehst, welche Profile und Unternehmensseiten du besuchst, worauf du reagierst, an welchen Events du teilnimmst und welche Anzeigen du anklickst. Je nach Einstellung erfährt ein Mitglied auch, dass du sein Profil angesehen hast."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.3: „Wir protokollieren Ihre Aufrufe und Nutzung unserer Services“; Abschnitt 3.1: „Entsprechend Ihrer Einstellungen benachrichtigen wir gegebenenfalls ein Mitglied, wenn Sie sich dessen Profil ansehen.“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„Ihre Aktivitätsdaten: … Feed, Inhalte, die Sie lesen, Inhalte, die Sie teilen, … Seitenaufrufe, angesehene Videos, Interaktionen mit Anzeigen (Aufrufe und Klicks) und Jobsuchen“"
+  - id: li-searches
+    category: searches
+    title: "LinkedIn speichert, wonach du suchst."
+    detail: "Jede Suche in der Suchleiste, etwa nach Personen, Firmen oder Jobs, landet mit Datum in deinem Suchverlauf. LinkedIn nutzt den Suchverlauf auch für Werbung. Den Verlauf kannst du löschen."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.4: „Daten zu Ihrer Nutzung unserer Services (beispielsweise Suchverlauf, …)“"
+      - ref: linkedin-help-download-data
+        note: "Kategorie „Suchanfragen“: „Enthält das Wort oder den Satz und das Datum einer Suche in der Suchleiste von LinkedIn.“"
+      - ref: linkedin-help-delete-data
+        note: "„Suchverlauf: Der Verlauf Ihrer bisherigen Suchen …“"
+  - id: li-network
+    category: contacts
+    title: "LinkedIn kennt dein berufliches Netzwerk."
+    detail: "Mit wem du vernetzt bist, wem du folgst, wer dir folgt und in welchen Gruppen du bist. Deine Gruppenmitgliedschaften sind standardmäßig öffentlich und Teil deines Profils."
+    provenance: provided
+    mechanisms: [provided, other-users]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 3.1: „Ihre Mitgliedschaft in Gruppen ist öffentlich und Teil Ihres Profils, jedoch können Sie die Sichtbarkeit in Ihren Einstellungen ändern.“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„Ihre Kontakte und Gruppenmitgliedschaften“"
+  - id: li-address-book
+    category: contacts
+    title: "Wenn du es erlaubst, lädt LinkedIn dein Adressbuch hoch – und andere laden deines hoch."
+    detail: "Beim Import lädt LinkedIn deine Handy-Kontakte mit Nummern und E-Mail-Adressen hoch. Danach kann es regelmäßig neue Details nachladen. Auch andere Mitglieder können ihr Adressbuch, ihren Kalender oder gescannte Visitenkarten hochladen. So bekommt LinkedIn deine Kontaktdaten, selbst wenn du nicht dort bist."
+    provenance: provided
+    mechanisms: [permissions, other-users]
+    evidence: stated
+    condition: "dein eigenes Adressbuch nur, wenn du den Import erlaubst"
+    sources:
+      - ref: linkedin-help-import-contacts
+        note: "„… lädt LinkedIn Ihre Adressbuchkontakte und deren genaue Kontaktinformationen einmalig hoch. Danach können wir in regelmäßigen Abständen Details über Ihre Kontakte importieren und speichern …“"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.2: „Wir erhalten personenbezogene Daten (einschließlich Kontaktdaten) von Ihnen, wenn Dritte ihre Kalenderdaten … synchronisieren, ihre Kontakte mit Mitgliedsprofilen verknüpfen, Visitenkarten scannen und hochladen …“"
+  - id: li-device
+    category: device
+    title: "LinkedIn erfasst technische Daten deiner Geräte."
+    detail: "Die Internet-Adresse deines Anschlusses (IP-Adresse), Gerätenummern, Betriebssystem, Browser und Add-ons, deinen Internet- oder Mobilfunkanbieter. Dazu kommen kleine Dateien im Browser (Cookies), an denen LinkedIn dich wiedererkennt – auch geräteübergreifend und ohne Anmeldung."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.5: „Ihre IP-Adresse, Ihren Proxy-Server, Ihr Betriebssystem, Ihren Webbrowser und Ihre Add-ons, Ihre Gerätekennung …, Ihre Cookie-IDs und/oder Ihren Internetanbieter“; Abschnitt 1.4: „… unabhängig davon, ob Sie sich angemeldet haben oder nicht, und welche Services und Geräte Sie nutzen“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„IP-Adresse, Geräte-ID, User Agent, Standortdaten, Browsertyp und -version, Betriebssystem und Plattform …“"
+  - id: li-location
+    category: location
+    title: "LinkedIn schätzt deinen Ort aus der IP-Adresse."
+    detail: "Aus der Internet-Adresse leitet LinkedIn Stadt, Land und Kontinent ab und nutzt das auch für Werbung. Den genauen Standort per GPS nutzt LinkedIn nur mit deiner Zustimmung, etwa um Mitglieder in deiner Nähe vorzuschlagen."
+    provenance: derived
+    mechanisms: [device, permissions]
+    evidence: stated
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "„Abgeleiteter Standort – Stadt, Land, Kontinent – (basierend auf Ihrer IP-Adresse)“ (Abschnitt personalisierte Anzeigen)"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.5: „Wir bitten Sie um Ihre Zustimmung, bevor wir GPS oder andere Tools verwenden, um Ihren genauen Standort zu ermitteln.“"
+  - id: li-offplatform
+    category: offplatform
+    title: "Fremde Websites und Firmen melden LinkedIn, was du dort tust."
+    detail: "Viele Firmen bauen ein kleines Code-Stück von LinkedIn auf ihrer Website ein, das „Insight Tag“. Es meldet Besuche von LinkedIn-Mitgliedern. Firmen können LinkedIn auch Kundenlisten mit E-Mail-Adressen schicken, in unlesbar gemachter Form, die sich trotzdem abgleichen lässt. Auch Arbeitgeber, Bewerbungssysteme und Microsoft liefern LinkedIn Daten über dich."
+    technical: "Das Insight Tag ist JavaScript auf Websites von Werbekunden. Kontaktlisten und die Conversions-API liefern gehashte E-Mail-Adressen. Anzeigenbörsen liefern Gebotsdaten (IP, Gerät, Cookie- oder Werbe-ID). Microsofts UET-Tag nutzt LinkedIn laut Hilfeseite nur außerhalb der EU, des EWR, der Schweiz und Großbritanniens."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: linkedin-help-third-party-ad-data
+        note: "„Das Insight Tag ist ein JavaScript-Code, der Besuche von LinkedIn Mitgliedern auf externen Websites, auf denen das Tag aktiviert ist, verfolgt.“; Kontakt-Targeting mit „gehashte[n] Kontaktdaten“"
+      - ref: linkedin-help-third-party-data-use
+        note: "Tabelle „Daten von Werbetreibenden (Retargeting und Conversion Tracking)“ und Anzeigenbörsen"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 1.2 „Partnerunternehmen“ (Arbeitgeber, Bewerbermanagementsysteme) und „Verbundene Unternehmen und weitere Services“ (Microsoft); Abschnitt 1.8"
+  - id: li-ai-prompts
+    category: prompts
+    title: "Was du LinkedIns KI-Funktionen eingibst, wird gespeichert."
+    detail: "Fragen, Suchtexte und Chats mit KI-Funktionen, etwa Schreibhilfen für Profil und Beiträge oder Hilfen bei der Jobsuche, dazu die Antworten und dein Feedback. LinkedIn speichert sie, bis du sie löschst, und kann sie zum Training seiner KI nutzen."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "nur wenn du KI-Funktionen nutzt"
+    sources:
+      - ref: linkedin-help-genai-faq
+        note: "„… werden die von Ihnen bereitgestellten Informationen und die als Reaktion darauf generierten Inhalte von LinkedIn gespeichert, bis Sie sie löschen.“; Trainingsdaten: „Inhalte, die Mitglieder in unsere GAI-Funktionen eingeben (z. B. Prompts, Suchtext, Fragen)“"
+      - ref: linkedin-eu-privacy-notice
+        note: "„Unterhaltungsdaten, die User:innen in unsere generativen KI-Funktionen eingeben (Prompts, Suchtext, Anfragen, Chats, Antworten und andere Input- und Outputdaten)“"
+inferences:
+  - id: li-inferred-interests
+    title: "LinkedIn schätzt deine Interessen – und ob du einen neuen Job suchst."
+    detail: "Aus Profil und Aktivitäten leitet LinkedIn Interessen ab, etwa an Elektroautos oder künstlicher Intelligenz. Dazu Merkmale wie „lebt im Ausland“, „reist viel“ oder „sucht einen Job“. Danach richten sich Feed, Jobvorschläge und Werbung. Deine wichtigsten geschätzten Interessen kannst du in den Einstellungen sehen."
+    level: documented
+    basedOn: [li-profile, li-activity, li-searches, li-content]
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "„Abgeleitete Interessen … und Merkmale (z. B. dass Sie im Ausland leben, viel reisen oder auf Jobsuche sind) basierend auf Ihrem LinkedIn Profil und Ihren Aktivitäten auf LinkedIn“"
+      - ref: linkedin-help-inferences
+        note: "„… auf Ihr Interesse an einer bestimmten Branche oder einem bestimmten Thema schließen, wie z. B. Ihr Interesse an Elektrofahrzeugen oder künstlicher Intelligenz.“"
+  - id: li-inferred-age-gender
+    title: "LinkedIn schätzt dein Alter und Geschlecht."
+    detail: "Das Alter schätzt LinkedIn zum Beispiel aus den Jahreszahlen deiner Ausbildung. Das Geschlecht aus Vorname oder Pronomen, und zwar nur als männlich oder weiblich. Beides nutzt LinkedIn für Werbung. Dein Profilfoto nutzt LinkedIn dafür laut eigener Aussage nicht."
+    level: documented
+    basedOn: [li-profile, li-account]
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.4: „Verwendung von Daten zu Ausbildungsabschlüssen, um Schlussfolgerungen in Bezug auf das Alter oder die Verwendung von Vornamen oder Pronomen sowie das Geschlecht zu ziehen“"
+      - ref: linkedin-help-demographics
+        note: "„LinkedIn verwendet Alters- und Geschlechterkategorien (nur männlich oder weiblich), die wir ableiten oder die Sie uns bereitstellen, um Ihnen relevantere Werbung anzuzeigen.“"
+      - ref: linkedin-help-inferences
+        note: "„Ihr Profilfoto wird nicht verwendet, um Schlussfolgerungen über Sie zu ziehen.“"
+  - id: li-inferred-career
+    title: "LinkedIn schätzt Branche, Karrierestufe und Gehaltsgruppe."
+    detail: "Aus deiner Jobbezeichnung leitet LinkedIn ab, in welcher Branche du arbeitest, wie weit oben du stehst und in welcher Vergütungsgruppe du ungefähr liegst. Werbekunden können so gezielt bestimmte Berufsgruppen ansprechen."
+    level: documented
+    basedOn: [li-profile]
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.4: „Verwendung von Berufsbezeichnungen in einem Profil, um Branche, Karrierestufe und Vergütungsgruppe abzuleiten“"
+      - ref: linkedin-help-download-data
+        note: "Kategorie „Anzeigen-Targeting“: „Ihre Jobbezeichnung könnte uns beispielsweise einen Hinweis auf Ihre Karrierestufe geben.“"
+  - id: li-people-you-may-know
+    title: "LinkedIn vermutet, wen du kennst."
+    detail: "„Personen, die Sie vielleicht kennen“ beruht auf Gemeinsamkeiten wie gemeinsamen Kontakten, Arbeitgebern oder Schulen und auf importierten Adressbüchern. Auch hochgeladene Adressbücher anderer können dazu führen, dass du ihnen vorgeschlagen wirst. Nachrichteninhalte nutzt LinkedIn dafür laut eigener Aussage nicht."
+    level: documented
+    basedOn: [li-network, li-address-book, li-profile]
+    sources:
+      - ref: linkedin-help-pymk
+        note: "„Diese Empfehlungen basieren auf Gemeinsamkeiten … sowie auf Kontakten, die Sie aus Ihren E-Mail- und mobilen Adressbüchern importiert haben.“; „Wir scannen den Inhalt Ihrer Nachrichten nicht …“"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.1: „Daten, die durch das Hochladen von Adressbüchern oder Partnerintegrationen bereitgestellt wurden“"
+  - id: li-sensitive-possible
+    title: "Aus Gruppen und gefolgten Seiten ließen sich sensible Themen ablesen."
+    detail: "Wer Gruppen zu einer Krankheit, einer Gewerkschaft oder einer Religion beitritt oder solchen Seiten folgt, verrät indirekt viel. Das ist eine technische Möglichkeit, keine von LinkedIn beschriebene Praxis. LinkedIn schreibt, es erlaube keine Werbung nach sensiblen Merkmalen, und filtert für das KI-Training nach Angaben der irischen Datenschutzbehörde manche sensiblen Gruppen heraus."
+    level: possible
+    basedOn: [li-network, li-activity, li-content]
+    sources:
+      - ref: linkedin-help-demographics
+        note: "„Wir erlauben kein Anzeigen-Targeting auf der Grundlage von ethnischer Zugehörigkeit, Behinderungen oder anderen sensiblen Merkmalen.“"
+      - ref: linkedin-dpc-ai-statement-2025
+        note: "„… filters to avoid the collection of potentially sensitive information shared on certain LinkedIn Pages and Groups, including trade union-related content“"
+purposes:
+  - purpose: provide-service
+    detail: "Konto, Profil, Netzwerk, Feed, Nachrichten, Jobsuche und Bewerbungen bereitstellen."
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  - purpose: personalisation
+    detail: "Feed, Kontaktvorschläge, Gruppen, Themen und Jobs auf dich zuschneiden. LinkedIn nennt dafür ausdrücklich „Profiling-Methoden“."
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "Abschnitt „Personalisierung Ihrer User Experience“: „LinkedIn setzt möglicherweise Profiling-Methoden ein, um dies zu erreichen.“"
+  - purpose: advertising
+    detail: "Werbung auf und außerhalb von LinkedIn auswählen. In der EU stützt LinkedIn Werbung nach Aktivitäten, geschätzten Interessen und Daten anderer Firmen auf deine Einwilligung. Werbung nach Profilangaben stützt es auf sein „legitimes Interesse“, also ohne Einwilligung. Recruiter*innen und Vertriebsleute suchen außerdem gezielt nach Mitgliedern."
+    sources: [linkedin-eu-privacy-notice, linkedin-privacy-policy, linkedin-help-ad-settings]
+  - purpose: measurement
+    detail: "Werbekunden in zusammengefassten Berichten zeigen, wie ihre Anzeigen wirken und welche Berufsgruppen sie erreichen."
+    sources: [linkedin-eu-privacy-notice, linkedin-help-third-party-ad-data]
+  - purpose: safety
+    detail: "Gefälschte Konten, Betrug, Scraping und schädliche Inhalte erkennen, auch mit KI. Dafür teilt LinkedIn Daten auch mit Microsoft."
+    sources: [linkedin-eu-privacy-notice, linkedin-privacy-policy]
+  - purpose: product-development
+    detail: "Dienste verbessern und Arbeitsmarkt-Trends erforschen, etwa zu gefragten Kenntnissen. Ergebnisse veröffentlicht LinkedIn zusammengefasst, nicht über einzelne Personen."
+    sources: [linkedin-privacy-policy]
+  - purpose: ai-training
+    detail: "Seit 3. November 2025 trainiert LinkedIn in der EU eigene KI, die Texte erzeugt, mit Profilen, Beiträgen, Kommentaren, Gruppennachrichten, gespeicherten Lebensläufen und KI-Eingaben. Du kannst widersprechen. KI für Feed-Empfehlungen und Sicherheit trainiert LinkedIn ebenfalls; dagegen hilft nur ein Widerspruchsformular."
+    sources: [linkedin-eu-privacy-notice, linkedin-help-genai-faq, linkedin-dpc-ai-statement-2025]
+  - purpose: legal
+    detail: "Gesetzliche Pflichten erfüllen, etwa Anordnungen von Gerichten und Behörden."
+    sources: [linkedin-eu-privacy-notice]
+sharing:
+  - id: li-share-members-customers
+    recipient: "Andere Mitglieder, Recruiter*innen und zahlende Kund*innen"
+    detail: "Dein Profil ist für alle Mitglieder sichtbar. Firmen mit Premium-Werkzeugen für Recruiting und Vertrieb können Name, Profil-Slogan, Arbeitgeber, Jobbezeichnung und groben Ort exportieren, wenn du das nicht ablehnst. Kontaktdaten geben sie laut LinkedIn nur mit deiner Zustimmung."
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.2: „Unsere Kundschaft kann in begrenztem Umfang Informationen aus Ihrem Profil exportieren … sofern Sie dies nicht ablehnen.“"
+  - id: li-share-advertisers
+    recipient: "Werbekunden und Werbepartner"
+    detail: "Werbekunden bekommen zusammengefasste Berichte. Personenbezogene Daten gibt LinkedIn laut eigener Aussage nur in unlesbar gemachter Form (gehasht), mit deiner Genehmigung – etwa wenn du ein Formular in einer Anzeige ausfüllst – oder wenn sie ohnehin öffentlich sind."
+    sources:
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 2.4 „Informationen für Werbetreibende“: Ausnahmen „(i) gehashte IDs oder Gerätekennungen …; (ii) mit Ihrer separaten Genehmigung …; (iii) Daten, die bereits allen User:innen der Dienste zugänglich sind“"
+  - id: li-share-microsoft
+    recipient: "Microsoft und andere Konzernfirmen"
+    detail: "LinkedIn teilt Daten mit Microsoft für Sicherheit, als Dienstleister und für den Betrieb in Rechenzentren in den USA. Öffentliche Beiträge kann Microsoft für eigene Dienste nutzen. Für das KI-Training von Microsoft gibt LinkedIn Daten aus der EU laut eigener Aussage nur nach vorheriger Ankündigung weiter. Die Weitergabe an Microsoft für Werbung beschreibt LinkedIn nur für Länder außerhalb Europas."
+    sources:
+      - ref: linkedin-eu-privacy-notice
+        note: "Abschnitte „Unsere Muttergesellschaft“, „Drittanbieter“ und „LinkedIn Unternehmen“"
+      - ref: linkedin-privacy-policy
+        note: "Abschnitt 3.4: „(1) öffentlich geteilte Inhalte … zur Bereitstellung oder Weiterentwicklung ihrer Serviceleistungen“"
+      - ref: linkedin-help-genai-faq
+        note: "„… werden Ihre personenbezogenen Daten verbundenen Unternehmen von LinkedIn (wie Microsoft) nur mit Ankündigung für das Training generativer KI-Modelle bereitgestellt.“"
+      - ref: linkedin-help-microsoft-ads-sharing
+        note: "„… außerhalb der EU, des EWR, der Schweiz und des Vereinigten Königreichs …“"
+  - id: li-share-employer
+    recipient: "Dein Arbeitgeber"
+    detail: "Wenn dein Arbeitgeber dir LinkedIn-Werkzeuge bezahlt, etwa für Recruiting oder Weiterbildung, sieht er, wie du sie nutzt. Deine Jobsuche und persönliche Nachrichten zeigt LinkedIn ihm laut eigener Aussage nicht."
+    sources: [linkedin-privacy-policy]
+  - id: li-share-third-party-services
+    recipient: "Suchmaschinen, verknüpfte Apps und Entwickler*innen"
+    detail: "Je nach Einstellung erscheint dein Profil in Suchmaschinen. Apps, mit denen du dein Konto verknüpfst, bekommen etwa Name, Jobbezeichnung und Firma. Teilnehmende an LinkedIns Entwicklerprogrammen können über Schnittstellen auf bestimmte Mitgliederdaten zugreifen."
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  - id: li-share-legal
+    recipient: "Behörden und Gerichte"
+    detail: "Wenn das Gesetz, eine Vorladung oder eine Anordnung es verlangt. LinkedIn will Mitglieder darüber informieren, soweit das erlaubt ist."
+    sources: [linkedin-privacy-policy]
+retention:
+  text: "LinkedIn speichert die meisten Daten, solange dein Konto besteht – auch wenn du es nur alle paar Jahre nutzt. Schließt du das Konto, ist dein Profil meist nach 24 Stunden nicht mehr sichtbar, und LinkedIn löscht die Daten in der Regel innerhalb von 30 Tagen. Ausnahmen gelten etwa für rechtliche Pflichten und Betrugsschutz. Daten vom Insight Tag auf fremden Websites werden nach 7 Tagen von deinem Namen getrennt und nach 180 Tagen gelöscht."
+  sources:
+    - ref: linkedin-privacy-policy
+      note: "Abschnitt 4.1: „Selbst wenn Sie unsere Services nur alle paar Jahre … nutzen, speichern wir Ihre Daten …“; Abschnitt 4.3: „innerhalb von 24 Stunden“, „innerhalb von 30 Tagen“"
+    - ref: linkedin-help-third-party-ad-data
+      note: "„… innerhalb von sieben Tagen durch LinkedIn entfernt …“; „… innerhalb von 180 Tagen gelöscht.“"
+journey:
+  - id: li-journey-profile
+    title: "Du legst dein Profil an"
+    detail: "Name, Werdegang, Kenntnisse und Foto bilden einen öffentlichen Lebenslauf. Importierst du dein Adressbuch, kommen auch die Kontaktdaten anderer Menschen dazu."
+    dataPoints: [li-account, li-profile, li-network, li-address-book]
+    sources: [linkedin-privacy-policy, linkedin-help-import-contacts]
+  - id: li-journey-use
+    title: "Du nutzt LinkedIn"
+    detail: "Was du liest, suchst, likest und anklickst, wird protokolliert – zusammen mit Gerät, IP-Adresse und grobem Ort."
+    dataPoints: [li-activity, li-searches, li-content, li-messages, li-device, li-location]
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  - id: li-journey-offplatform
+    title: "Andere Websites und Firmen melden sich"
+    detail: "Websites mit dem Insight Tag melden Besuche. Werbekunden laden Kundenlisten hoch. Arbeitgeber und Bewerbungssysteme liefern Daten."
+    dataPoints: [li-offplatform]
+    sources: [linkedin-help-third-party-ad-data, linkedin-help-third-party-data-use]
+  - id: li-journey-inferences
+    title: "LinkedIn zieht Schlüsse"
+    detail: "Aus all dem schätzt LinkedIn Interessen, Alter, Geschlecht, Branche, Karrierestufe und ob du einen Job suchst."
+    dataPoints: [li-profile, li-activity, li-searches, li-content]
+    sources: [linkedin-eu-privacy-notice, linkedin-help-inferences]
+  - id: li-journey-use-of-profile
+    title: "Feed, Werbung und Recruiting"
+    detail: "Die Schlüsse bestimmen Feed, Kontakt- und Jobvorschläge und welche Werbung du siehst. Recruiter*innen und Vertriebsleute finden dich über Suchfilter."
+    dataPoints: [li-profile, li-activity, li-offplatform, li-jobs]
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  - id: li-journey-ai
+    title: "Training für LinkedIns KI"
+    detail: "Profil, Beiträge, Kommentare und KI-Eingaben fließen in das Training von LinkedIns Text-KI – solange du nicht widersprichst."
+    dataPoints: [li-profile, li-content, li-ai-prompts, li-jobs]
+    sources: [linkedin-eu-privacy-notice, linkedin-help-genai-faq]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Sehr breit: Lebenslauf, Inhalte, Nachrichten, Netzwerk, Suchen, Nutzungsverhalten, Gerät und Ort. Dazu kommen Daten von fremden Websites, Werbekunden, Arbeitgebern und Microsoft."
+    confidence: high
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice, linkedin-help-third-party-ad-data]
+  sensitivity:
+    level: 3
+    rationale: "Berufsweg, Lebensläufe, Gehaltswünsche und eine heimliche Jobsuche sind sehr privat. Nachrichten kann LinkedIn verarbeiten, sie sind aber nicht der Kern des Dienstes. Angaben zu Ethnie oder Behinderung sind freiwillig und laut LinkedIn nicht für Werbung freigegeben."
+    confidence: medium
+    sources: [linkedin-eu-privacy-notice, linkedin-privacy-policy, linkedin-help-demographics]
+  observation:
+    level: 3
+    rationale: "LinkedIn hält fest, was du liest, ansiehst, suchst und anklickst, und baut darauf Feed und Werbung. Eine so feine Aufzeichnung wie Verweildauer beschreibt LinkedIn nur für Anzeigen."
+    confidence: medium
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  linkability:
+    level: 4
+    rationale: "LinkedIn verbindet Daten über Geräte hinweg, mit Microsoft und mit Daten von fremden Websites (Insight Tag), Kundenlisten und Anzeigenbörsen."
+    confidence: high
+    sources: [linkedin-privacy-policy, linkedin-help-third-party-ad-data, linkedin-help-third-party-data-use]
+  adUse:
+    level: 3
+    rationale: "Werbung ist einer von vier Geschäftsbereichen, neben Recruiting, Premium-Abos und Vertrieb. Laut Microsoft hängt das Wachstum davon ab, wie aktiv die Mitglieder die Plattform nutzen."
+    confidence: medium
+    sources: [linkedin-msft-10k-fy2026]
+  sharing:
+    level: 3
+    rationale: "Microsoft und Dienstleister bekommen Daten. Recruiting- und Vertriebskund*innen können Profildaten exportieren. Werbekunden erhalten Berichte und unlesbar gemachte Kennungen. Kontaktdaten gibt LinkedIn laut eigener Aussage nur mit Zustimmung weiter."
+    confidence: medium
+    sources: [linkedin-privacy-policy, linkedin-eu-privacy-notice]
+  defaults:
+    level: 2
+    rationale: "Das KI-Training mit deinen Daten ist ab Werk eingeschaltet. Profil und Gruppenmitgliedschaften sind standardmäßig sichtbar. Für Werbung nach Aktivitäten und Daten anderer Firmen verlangt LinkedIn in der EU eine Einwilligung. 2024 hatte die irische Datenschutzbehörde LinkedIn 310 Millionen Euro Strafe auferlegt, unter anderem weil eine frühere Einwilligung dafür nicht wirksam war."
+    confidence: medium
+    sources: [linkedin-ap-ai-warning-2025, linkedin-privacy-policy, linkedin-eu-privacy-notice, linkedin-dpc-fine-2024]
+  controls:
+    level: 3
+    rationale: "Werbung nach Profil, Aktivitäten und fremden Daten, KI-Training, Profilbesuche und Adressbuch lassen sich einzeln abschalten. Dass LinkedIn dein Verhalten für Feed und Vorschläge auswertet, kannst du nicht per Schalter abstellen, nur per Widerspruchsformular."
+    confidence: medium
+    sources: [linkedin-help-ad-settings, linkedin-help-genai-faq, linkedin-eu-privacy-notice]
+  deletion:
+    level: 3
+    rationale: "Datenexport und Kontoschließung gehen selbst, der Export allerdings nur am Computer. Einzelnes wie den Suchverlauf kannst du löschen. Ein automatisches Löschen nach fester Zeit gibt es nicht."
+    confidence: high
+    sources: [linkedin-help-download-data, linkedin-help-close-account, linkedin-help-delete-data]
+  reachability:
+    level: 3
+    rationale: "Fast alles liegt zentral unter „Einstellungen & Datenschutz“. Die Hilfeseiten benennen Bereiche aber uneinheitlich (etwa „Anzeigendaten“ und „Werbedaten“), und manche Wege führen nur über Formulare."
+    confidence: medium
+    sources: [linkedin-help-ad-settings, linkedin-help-third-party-ad-data, linkedin-help-genai-faq]
+region: EU
+reviewedAt: "2026-10-08"

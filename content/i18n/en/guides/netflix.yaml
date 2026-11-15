@@ -1,0 +1,177 @@
+- id: netflix-viewing-history-hide
+  service: netflix
+  kind: setting
+  title: Hide titles from your Netflix viewing activity
+  tradeOff: "Hidden titles also disappear from “Continue Watching” and no longer shape your recommendations."
+  goal: "Single titles, or a profile's whole history, no longer show up as watched on Netflix."
+  whyItMatters: "Your viewing activity is the most important basis for recommendations. Everyone who shares your account can see it."
+  whatChanges: "Hidden titles no longer appear as watched and are no longer used to suggest similar titles – unless you watch them again."
+  whatDoesNotChange: "Netflix calls this “hiding”. The help page does not say whether the entries are also deleted from Netflix's systems. New titles are still saved, and you cannot pause the history."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Open the Account page in a web browser."
+    - "Select “Profiles” and then the profile you want."
+    - "Open “Viewing activity” for this profile."
+    - "Click the hide icon next to an episode or title. For an episode, Netflix asks whether you want to hide the whole series."
+    - "To hide your whole history, select “Hide all” at the bottom of the page and confirm."
+  affects: [netflix-viewing-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the Netflix help page “So blenden Sie Titel aus dem Titelverlauf aus” (German version). According to the help page, it can take up to 24 hours until the title has disappeared on all devices; it does not work from a kids' profile."
+  sources:
+    - ref: netflix-help-hide-history
+      note: "Ganzer Artikel"
+- id: netflix-ads-behavioural
+  service: netflix
+  kind: setting
+  title: Turn off ads based on your behaviour on Netflix
+  goal: "On the plan with ads, Netflix no longer chooses ads based on your behaviour on other websites and apps."
+  whyItMatters: "On the plan with ads, Netflix can use data from advertisers, for example about your purchases on their websites. On top of that come age, gender and your approximate location."
+  whatChanges: "Netflix no longer shows you ads chosen based on your behaviour. If you also turn off “Demographic advertising”, Netflix no longer uses your date of birth and gender to choose ads. With “Turn off partner settings” you withdraw your permission for all partner companies at once."
+  whatDoesNotChange: "You still see ads, for example matching the genre you are watching or your approximate location. The setting only applies to the selected profile. Kids' profiles get no ads based on behaviour."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Sign in in a web browser and open the “Account” section."
+    - "Select the profile you want to change."
+    - "Open the “Privacy settings” menu."
+    - "Change the setting “Behavioural advertising”."
+    - "If you like, also change “Demographic advertising”, “Consent purposes for users” and “Legitimate interest purposes”."
+  affects: [netflix-advertiser-data, netflix-ad-interactions, netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menu path and setting names checked against the Netflix help page “Wie können Sie bestimmte Nutzungsarten Ihrer personenbezogenen Daten unterbinden?” (German version). The settings only appear if you have a plan with ads or watch live events with ads. Not checked in an account ourselves."
+  sources:
+    - ref: netflix-help-privacy-choices
+      note: "Abschnitte „Opt-out für verhaltensgesteuerte Werbung“, „Verhaltensgesteuerte Werbung“, „Demografische Daten“"
+    - ref: netflix-help-ads
+      note: "Abschnitt „Auswahl von Werbung“"
+- id: netflix-id-matching
+  service: netflix
+  kind: setting
+  title: Stop Netflix ads on other platforms based on matching your contact details
+  goal: "Netflix no longer matches your email address or phone number with other platforms to show you ads for Netflix there."
+  whyItMatters: "Netflix sends contact details in a scrambled, unreadable form to other platforms, for example to The Trade Desk. If the platform finds the same address in its own records, Netflix can reach you there with ads. This affects all plans, not just the plan with ads."
+  whatChanges: "For this profile, Netflix no longer uses the matching of contact details for ads on other platforms."
+  whatDoesNotChange: "Netflix can still show you ads on other websites, for example through cookies or your phone's advertising ID. You set the advertising ID in your device's settings. Emails from Netflix are not affected."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Sign in in a web browser and open the “Account” section."
+    - "Select the profile you want to change."
+    - "Open the “Privacy settings” menu."
+    - "Change the setting “Communications based on ID matching”."
+  affects: [netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menu path and setting name checked against the Netflix help page “Wie können Sie bestimmte Nutzungsarten Ihrer personenbezogenen Daten unterbinden?” (German version) and the privacy policy. Not checked in an account ourselves."
+  sources:
+    - ref: netflix-help-privacy-choices
+      note: "Abschnitt „Kommunikation von Netflix auf der Basis von Kennungs-Matching“"
+    - ref: netflix-privacy-statement
+      note: "Abschnitt „Kommunikations- und Marketing-Einstellungen“"
+- id: netflix-profile-lock
+  service: netflix
+  kind: setting
+  title: Lock your Netflix profile with a PIN
+  goal: "Only someone who knows the PIN can open your profile – and so see your viewing activity."
+  whyItMatters: "Everyone who shares your Netflix account can open any profile, look at its history and change settings."
+  whatChanges: "When someone opens the profile or watches downloaded titles, Netflix asks for a four-digit PIN."
+  whatDoesNotChange: "Whoever manages the account can change or remove the PIN on the Account page. Netflix keeps recording your use as before. Extra member accounts have no profile lock."
+  impact: low
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Open the Account page in a browser."
+    - "Select “Profiles” and then the profile you want."
+    - "Select “Profile Lock”."
+    - "Click “Add profile lock”, enter four digits and click “Save PIN”."
+    - "In the app: “My Netflix” → your profile name at the top → “Manage Profiles” → select the profile → “Profile Lock” → “Add profile lock”, enter your password, enter four digits."
+  affects: [netflix-viewing-history, netflix-ratings-list]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the Netflix help page “Profil-PIN hinzufügen, ändern oder entfernen” (German version, web browser and Android/iOS)."
+  sources:
+    - ref: netflix-help-profile-lock
+      note: "Ganzer Artikel"
+    - ref: netflix-privacy-statement
+      note: "Abschnitt C „Zugriff auf Konten und Profile“"
+- id: netflix-export
+  service: netflix
+  kind: export
+  title: Request a copy of your Netflix data
+  goal: "You get a copy of the data Netflix has stored about you."
+  whyItMatters: "This way you can see for yourself what Netflix records – from viewing activity to devices and ad settings."
+  whatChanges: "Netflix checks your request and sends you the data. This can take up to 30 days. You can also download a profile's viewing activity straight away as a table (CSV file)."
+  whatDoesNotChange: "Downloading does not delete anything. If you only use a profile in someone else's account, the request goes by email to privacy@netflix.com – and the account owner is told about it."
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account/getmyinfo
+  steps:
+    - "Sign in, go to netflix.com/account/getmyinfo and follow the instructions."
+    - "Wait for the confirmation: after the check, it can take up to 30 days until Netflix sends you the data."
+    - "For your viewing activity straight away: Account page → “Profiles” → select the profile → “Viewing activity” → “Download all” at the bottom."
+  affects: [netflix-viewing-history, netflix-ratings-list, netflix-device-network, netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the Netflix help pages “Welche personenbezogenen Daten speichert Netflix …” and “Titelverlauf und Geräteaktivität anzeigen” (German version). The help page does not describe the getmyinfo process in detail."
+  sources:
+    - ref: netflix-help-data-copy
+      note: "„Folgen Sie den Anweisungen unter https://www.netflix.com/account/getmyinfo.“; „Bitte beachten Sie, dass der Kontoinhaber von Ihrer Anfrage in Kenntnis gesetzt wird.“"
+    - ref: netflix-help-viewing-activity
+      note: "„Mit der Option Alle herunterladen unten auf der Seite können Sie die Liste im Tabellenformat herunterladen.“"
+- id: netflix-account-delete
+  service: netflix
+  kind: deletion
+  title: Delete your Netflix account instead of just cancelling
+  goal: "Your Netflix account is deleted for good, instead of staying stored for 24 months after you cancel."
+  whyItMatters: "If you only cancel, your viewing activity, recommendations, ratings and account details stay with Netflix for 24 months."
+  whatChanges: "If your plan is active, it ends with the billing period. After that, Netflix deletes the account permanently. Until then, you can undo the deletion on the Account page."
+  whatDoesNotChange: "Netflix keeps some data for longer, for example for accounting or for legal reasons. Emails to privacy@netflix.com are kept for 6 years. If you pay through a partner, you have to cancel there."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "In a browser, go to the “Security” section of your Account page and sign in if needed."
+    - "Select “Delete account”."
+    - "Complete the security check."
+    - "Tick the checkbox and select “Delete permanently”."
+    - "In the app: “My Netflix” → your profile name at the top → “Account” → “Delete account” in the “Settings” section, then the security check and “Delete permanently”."
+    - "Already cancelled? Write to privacy@netflix.com from your account's email address and ask for deletion."
+  affects: [netflix-account, netflix-viewing-history, netflix-ratings-list, netflix-payment]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the Netflix help page “Löschen Ihres Netflix-Kontos” (German version, web browser and Netflix app)."
+  sources:
+    - ref: netflix-help-delete-account
+      note: "Ganzer Artikel"
+    - ref: netflix-help-cancel
+      note: "Abschnitt „Reaktivierung von Netflix“"

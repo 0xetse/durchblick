@@ -1,0 +1,139 @@
+- id: facebook-less-personalised-ads
+  service: facebook
+  kind: setting
+  title: Weniger stark personalisierte Werbung wählen
+  goal: "Meta nutzt für Werbung nur noch wenige Daten statt allem, was es über dein Verhalten weiß."
+  whyItMatters: "Bei personalisierter Werbung nutzt Meta deine Aktivitäten und die Inhalte, die du ansiehst. Dazu kommen Themen, die dich interessieren könnten, und Profilangaben wie Beruf und Bildung."
+  whatChanges: "Werbung richtet sich dann vor allem nach dem, was du gerade in dieser Sitzung ansiehst. Dazu kommen Alter, Geschlecht, Standort, Gerät und deine Reaktionen auf Anzeigen. Die Wahl gilt für alle Konten derselben Kontenübersicht."
+  whatDoesNotChange: "Du siehst weiter Werbung, manchmal mit kurzen Werbepausen. Meta erfasst deine Aktivitäten weiter und nutzt sie für Feed und Vorschläge. Ganz ohne Werbung geht es nur mit dem bezahlten Abo."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://accountscenter.facebook.com/
+  steps:
+    - "Klicke oben rechts auf dein Profilbild, dann auf „Einstellungen und Privatsphäre“ und „Einstellungen“."
+    - "Öffne im linken Menü die „Kontenübersicht“ und dort „Werbepräferenzen“."
+    - "Wähle im Tab „Informationen verwalten“ den Punkt „Werbeerlebnis“."
+    - "Entscheide dich für weniger stark personalisierte Werbung und klicke auf „Bestätigen“."
+  affects: [fb-activity, fb-profile, fb-offplatform, fb-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem EU-spezifischen Hilfeartikel „Verwalten, ob du mehr oder weniger stark personalisierte Werbung sehen möchtest“ (de) abgeglichen; am 2026-10-07 erneut im gerenderten Browser (de-DE) geprüft, der Artikel trägt den Hinweis „Diese Option ist nur in der Region Europa verfügbar“. Meta stellt Menüs schrittweise auf „Meta-Konto“ um; Bezeichnungen können abweichen."
+  sources: [meta-help-manage-ad-experience, meta-help-less-personalised-ads, meta-help-ads-choices-eu]
+- id: facebook-activity-other-businesses
+  service: facebook
+  kind: setting
+  title: Daten von anderen Unternehmen nicht für Werbung nutzen lassen
+  goal: "Meta nutzt nicht mehr für Werbung, was Websites und Apps über deine Aktivitäten dort melden."
+  whyItMatters: "Viele Shops und Apps melden Meta Dinge wie Seitenaufrufe oder Käufe. Das läuft über kleine Code-Bausteine von Meta (Pixel und SDKs). Diese Meldungen können bestimmen, welche Anzeigen du auf Facebook und Instagram siehst."
+  whatChanges: "Laut Meta siehst du dann keine Werbung mehr, die auf diesen Meldungen beruht. Die Einstellung gilt für alle Konten in derselben Kontenübersicht."
+  whatDoesNotChange: "Unternehmen können Meta weiter Informationen senden. Meta kann sie laut eigener Aussage anonymisieren oder nutzen, um seine Produkte zu verbessern. Werbung kann außerdem noch auf Kundenlisten von Unternehmen beruhen, wenn dein Profil dazu passt."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://accountscenter.facebook.com/
+  steps: []
+  affects: [fb-offplatform]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Am 2026-10-21 erneut im gerenderten Browser (de-DE, Nicht-EU-Netz) gelesen. Der Hilfeartikel beschreibt den Weg „Einstellungen und Privatsphäre > Einstellungen > Meta-Konto > Deine Informationen und Berechtigungen > Aktivitäten bei anderen Unternehmen“, sagt aber weiterhin: „Wenn du dich in der Region Europa oder im Vereinigten Königreich befindest, stehen dir für deine Werbepräferenzen andere Optionen zur Verfügung.“ Der verlinkte Europa-Artikel (1241090626576242) und die EU-Artikel zum Werbeerlebnis nennen die Einstellung „Aktivitäten bei anderen Unternehmen“ nicht. Eine EU-Fassung mit Menüweg haben wir nicht gefunden; deshalb weiter keine Schritte."
+  sources: [meta-help-activity-other-businesses, meta-help-off-meta-activity]
+- id: facebook-ai-training-objection
+  service: facebook
+  kind: setting
+  title: Der Nutzung deiner Daten für Metas KI widersprechen
+  goal: "Meta nutzt deine öffentlichen Beiträge und Kommentare nicht mehr, um seine KI zu trainieren."
+  whyItMatters: "Seit dem 27. Mai 2025 trainiert Meta seine KI mit öffentlichen Inhalten Erwachsener in der EU und mit Gesprächen mit Meta AI. Das passiert, solange du nicht widersprichst."
+  whatChanges: "Nach einem Widerspruch nutzt Meta deine Facebook-Informationen laut eigener Aussage nicht mehr für das Training. Meta hat angekündigt, alle Widersprüche zu beachten, auch spätere."
+  whatDoesNotChange: "Was schon trainiert wurde, wird nicht rückgängig gemacht. Inhalte, die andere öffentlich über dich posten, können weiter einfließen. Private Nachrichten nutzt Meta laut eigener Aussage nicht – außer sie werden mit Meta AI geteilt."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.facebook.com/help/contact/712876720715583
+  steps: []
+  affects: [fb-content, fb-meta-ai]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Existenz und Funktion des Widerspruchsformulars über Meta Newsroom und die irische Datenschutzbehörde bestätigt; die Formular-Adresse nennt die Hamburger Datenschutzbehörde (Stand 27.05.2025). Am 2026-10-21 im gerenderten Browser (de-DE, Nicht-EU-Netz) gefunden: der Hilfeartikel „Informationen zu Widersprüchen und wie du in Meta-Produkten Widerspruch einlegen kannst“ (facebook.com/help/2069235856423257). Er zeigt aber nur „Diese Informationen sind in deiner Region nicht verfügbar.“ Das Formular selbst braucht eine Anmeldung, und die Seite zu generativer KI im Privacy Center nennt keinen Menüweg. Deshalb weiter keine Schritte."
+  sources: [meta-newsroom-ai-training-eu-2025, meta-dpc-ai-statement-2025, meta-hmbbfdi-ai-objection-2025, meta-privacy-genai]
+- id: facebook-activity-log
+  service: facebook
+  kind: review
+  title: Deine Aktivitäten im Aktivitätenprotokoll durchsehen
+  goal: "Du siehst der Reihe nach, was Facebook über deine Aktivitäten gespeichert hat, und kannst Einträge prüfen."
+  whyItMatters: "Das Protokoll zeigt Beiträge, Likes, Freundschaften, angesehene Videos, Suchen, Standorte und Beiträge von Apps und Websites. Genau daraus entstehen Feed und Werbung."
+  whatChanges: "Du bekommst einen Überblick und kannst einzelne Einträge gezielt suchen und bearbeiten."
+  whatDoesNotChange: "Durchsehen allein löscht nichts. Technische Aufzeichnungen und Daten von Partnern stehen nicht vollständig darin."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Klicke oben rechts auf dein Profilbild und wähle „Einstellungen und Privatsphäre“, dann „Aktivitätenprotokoll“."
+    - "Klicke links auf „Aktivitätenverlauf“."
+    - "Filtere nach Datum oder nach Art der Aktivität, zum Beispiel „Protokollierte Informationen“ für Standorte und Suchverlauf."
+  affects: [fb-activity, fb-content, fb-connections, fb-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Hilfeartikel „Mithilfe des Aktivitätenprotokolls auf Facebook Inhalte finden“ (de, Computer) abgeglichen."
+  sources: [facebook-help-activity-log]
+- id: facebook-export
+  service: facebook
+  kind: export
+  title: Kopie deiner Facebook-Daten herunterladen
+  goal: "Du bekommst eine Datei mit deinen Beiträgen, Fotos, Nachrichten, Aktivitäten und den Informationen, die Meta erfasst."
+  whyItMatters: "Der Export zeigt dir genau, was gespeichert ist – auch Informationen zu Werbung. Und er sichert deine Inhalte, bevor du etwas löschst."
+  whatChanges: "Du bekommst eine ZIP-Datei im Format HTML oder JSON. Welche Bereiche, welchen Zeitraum und welche Bildqualität du willst, wählst du selbst."
+  whatDoesNotChange: "An den gespeicherten Daten ändert sich nichts. Der Download steht nur wenige Tage bereit."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Klicke oben rechts auf dein Profilbild, dann auf „Einstellungen und Privatsphäre“ und „Einstellungen“."
+    - "Wähle „Meta-Konto“ (bzw. „Kontenübersicht“) und dann „Deine Informationen und Berechtigungen“."
+    - "Klicke auf „Deine Informationen exportieren“ und „Export erstellen“."
+    - "Wähle dein Facebook-Profil und „Zu Gerät exportieren“; lege Informationen, Zeitraum und Format fest."
+    - "Klicke auf „Export starten“. Sobald der Export fertig ist, wirst du benachrichtigt und kannst ihn vier Tage lang herunterladen."
+  affects: [fb-content, fb-activity, fb-profile, fb-connections, fb-messages]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Hilfeartikel „Eine Kopie deiner Facebook-Informationen exportieren“ (de) abgeglichen."
+  sources: [facebook-help-export]
+- id: facebook-delete-account
+  service: facebook
+  kind: deletion
+  title: Facebook-Profil dauerhaft löschen
+  goal: "Dein Profil und alles, was du hinzugefügt hast, wird endgültig gelöscht."
+  whyItMatters: "Solange das Konto besteht, sammelt Meta weiter Daten und behält deine Inhalte."
+  whatChanges: "30 Tage lang kannst du die Löschung abbrechen, indem du dich anmeldest. Danach werden Konto und Inhalte gelöscht. Das dauert bis zu 90 Tage."
+  whatDoesNotChange: "Nachrichten, die du anderen geschickt hast, bleiben bei ihnen. Kopien können noch eine Zeit lang in Sicherungen (Backups) liegen. Aus rechtlichen Gründen kann Meta manches länger aufbewahren. Andere Profile in deinem Meta-Konto, etwa Instagram, bleiben bestehen."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web]
+  steps:
+    - "Exportiere vorher deine Daten, wenn du sie behalten möchtest."
+    - "Klicke oben rechts auf dein Profilbild, dann auf „Einstellungen und Privatsphäre“ und „Einstellungen“."
+    - "Wähle „Meta-Konto“, dann „Personenbezogene Angaben“ und „Kontoinhaberschaft und -steuerung“."
+    - "Klicke auf „Deaktivieren oder Löschen“, wähle das Profil und folge den Anweisungen zum Löschen."
+  affects: [fb-profile, fb-content, fb-activity, fb-connections]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem Hilfeartikel „Dein Facebook-Profil dauerhaft löschen“ (de) abgeglichen; der Artikel nennt je nach Kontoumstellung zwei Menüvarianten."
+  sources: [facebook-help-delete-account]

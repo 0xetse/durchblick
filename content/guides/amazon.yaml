@@ -1,0 +1,189 @@
+- id: amazon-ad-consent
+  service: amazon
+  kind: setting
+  title: Personalisierte Werbung bei Amazon ablehnen
+  goal: Du widerrufst deine Einwilligung, dass Amazon deine Daten für personalisierte Werbung nutzt.
+  whyItMatters: >-
+    Für personalisierte Werbung braucht Amazon deine Einwilligung. Diese Werbung zeigt Amazon im Shop und auf fremden Websites. Mit deiner Einwilligung gibt Amazon auch Kennungen an Werbepartner weiter, etwa Nummern aus Cookies – kleinen Dateien in deinem Browser.
+  whatChanges: >-
+    Nimmst du die Einwilligung zurück, nutzt Amazon deine Daten laut eigenem Hinweis nicht mehr für personalisierte Werbung. Auf der Seite „Werbeeinstellungen und Transparenz“ kannst du deine Daten zusätzlich aus Amazons Werbesystemen löschen lassen.
+  whatDoesNotChange: >-
+    Du siehst weiterhin Werbung, nur weniger passende. Empfehlungen im Shop und deine Bestellhistorie bleiben. Amazon misst weiter den Erfolg von Werbung und sucht nach Betrug. Dafür beruft es sich auf sein „berechtigtes Interesse“ – das braucht keine Einwilligung.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/privacyprefs/retail?oCT=ads
+  steps: []
+  affects: [purchases, searches, clickstream, device]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      2026-10-21 erneut geprüft: Datenschutzerklärung und Hinweis „Interessenbasierte Werbung“ (Stand 22.12.2025)
+      verlinken weiter privacyprefs und adprefs, nennen aber keine Bedienschritte. Schritte (Schalter
+      „Personalisierte Werbeanzeigen anzeigen“, „Werbedaten löschen“, „Auswahl speichern“) stehen nur auf der
+      Hilfeseite für Nutzer ohne Konto; ob sie angemeldet identisch sind, ist nicht bestätigt.
+  sources:
+    - ref: amazon-interest-based-ads
+      note: "Abschnitte 'Welche Wahlmöglichkeiten habe ich?' und 'Rechtsgrundlage'"
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Welche Wahlmöglichkeiten habe ich?'"
+- id: amazon-cross-service
+  service: amazon
+  kind: setting
+  title: Serviceübergreifende Datennutzung prüfen
+  goal: Du entscheidest, ob Amazon Daten aus Shop, Alexa, Prime Video, Kindle und Geräten miteinander verknüpft.
+  whyItMatters: >-
+    Seit März 2024 braucht Amazon in der EU deine Zustimmung, um Daten aus seinen verschiedenen Diensten zu verbinden. Das gilt auch, wenn es damit Werbung in anderen Diensten auf dich zuschneiden will.
+  whatChanges: >-
+    Ohne Zustimmung nutzt Amazon deine Daten laut eigenem Hinweis nicht mehr dienstübergreifend für Empfehlungen und Werbung – also nicht mehr Daten aus einem Dienst in einem anderen.
+  whatDoesNotChange: >-
+    Was du ausdrücklich nutzen willst, funktioniert weiter, z. B. per Alexa im Shop bestellen. Für rechtliche Pflichten, Schutz vor Betrug und Sicherheit verbindet Amazon Daten aus seinen Diensten weiterhin.
+  impact: medium
+  minutes: 3
+  difficulty: medium
+  platforms: [web]
+  steps: []
+  affects: [carrier-partner-data, alexa-voice, purchases]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      2026-10-21 erneut geprüft: Die Hilfeseite zur serviceübergreifenden Verwendung, die Datenschutzerklärung und
+      „Persönliche Informationen verwalten“ nennen weiterhin keinen Menüpfad und keinen Link zur Einstellung; die
+      Websuche fand keine offizielle Anleitung.
+  sources:
+    - ref: amazon-cross-service-use
+      note: "Ganzer Artikel"
+- id: amazon-browsing-history
+  service: amazon
+  kind: review
+  title: Browserverlauf bei Amazon löschen oder abschalten
+  tradeOff: "Empfehlungen auf Basis der Produkte, die du angesehen hast, fallen weg."
+  goal: Du entfernst kürzlich angesehene Artikel und verhinderst, dass neue gespeichert werden.
+  whyItMatters: >-
+    Der Browserverlauf zeigt, welche Artikel du dir angesehen hast, und beeinflusst die Empfehlungen. Auf geteilten Geräten sehen ihn auch andere.
+  whatChanges: >-
+    Angesehene Artikel verschwinden aus dem Verlauf. Ist er abgeschaltet, kommen keine neuen mehr dazu.
+  whatDoesNotChange: >-
+    Bestellungen bleiben in deiner Bestellhistorie. Amazon zeichnet weiterhin auf, wie du dich durch die Website klickst. Die Einstellung gilt nur für den jeweiligen Browser bzw. das jeweilige Gerät.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/gp/history
+  steps:
+    - Öffne die Seite „Browserverlauf“.
+    - Wähle oben rechts das Zahnradsymbol.
+    - Wähle „Artikel entfernen“, um den bisherigen Verlauf zu löschen.
+    - Um künftig nichts mehr zu speichern, wähle beim Zahnradsymbol „Weitere Einstellungen“ und deaktiviere den Browserverlauf.
+  affects: [clickstream]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      Schritte aus der offiziellen Hilfeseite übernommen (2026-10-21 unverändert). Diese richtet sich an Nutzer ohne
+      Konto; „Persönliche Informationen verwalten“ verlinkt den Browserverlauf auch für Konten, nennt aber keine
+      Schritte. Ob die Schritte angemeldet identisch sind, ist weiter nicht bestätigt.
+  sources:
+    - ref: amazon-browsing-history-help
+      note: "Abschnitt 'Deinen Browserverlauf anzeigen oder ändern'"
+    - ref: amazon-privacy-notice-de
+      note: "Link 'Browserverlauf hier verwalten'"
+- id: amazon-alexa-recordings
+  service: amazon
+  kind: setting
+  title: Alexa-Sprachaufnahmen löschen und automatisch löschen lassen
+  goal: Du löschst gespeicherte Sprachaufnahmen und legst fest, dass sie nicht mehr dauerhaft gespeichert werden.
+  whyItMatters: >-
+    Alexa-Aufnahmen werden auf Amazons Rechnern im Internet verarbeitet und mit deinem Konto verknüpft. Ein Teil wird von Menschen angehört, um die Spracherkennung zu verbessern.
+  whatChanges: >-
+    Gelöschte Aufnahmen und ihre Abschriften als Text werden bei Amazon entfernt. Du kannst festlegen, dass Aufnahmen nach 3 oder 18 Monaten automatisch gelöscht oder gar nicht gespeichert werden.
+  whatDoesNotChange: >-
+    Auch ohne gespeicherte Aufnahmen bewahrt Amazon die Abschriften als Text 30 Tage auf. Einträge über Aktionen wie Timer, Bestellungen oder Einkaufslisten bleiben. Die Stimm-ID funktioniert eventuell nicht mehr.
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios, web]
+  officialUrl: https://www.amazon.de/alexadatenschutzeinstellungen
+  steps:
+    - Öffne in der Alexa-App „Mehr“ > „Alexa Datenschutz“ oder im Browser die Alexa-Datenschutzeinstellungen.
+    - Unter „Sprachaufnahmen-Verlauf überprüfen“ kannst du Aufnahmen einzeln, nach Zeitraum, nach Gerät oder alle auf einmal löschen.
+    - Lege dort fest, dass Aufnahmen älter als 3 oder 18 Monate automatisch gelöscht oder gar nicht gespeichert werden.
+    - Unter „Mehr“ > „Alexa Datenschutz“ steuerst du auch, ob deine Aufnahmen zur Verbesserung der Dienste genutzt werden.
+  affects: [alexa-voice]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Menüpfade und Optionen mit der offiziellen deutschen Alexa-Datenschutz-FAQ von Amazon abgeglichen.
+  sources:
+    - ref: amazon-alexa-privacy
+      note: "FAQ 'Kann ich meine Alexa-Sprachaufzeichnungen überprüfen, verwalten und löschen?'"
+- id: amazon-request-data
+  service: amazon
+  kind: export
+  title: Deine Daten bei Amazon anfordern
+  goal: Du erhältst eine Kopie deiner persönlichen Informationen, auch solcher, die nicht in „Mein Konto“ stehen.
+  whyItMatters: >-
+    In „Mein Konto“ siehst du Bestellungen und Adressen, aber z. B. nicht deinen Suchverlauf. Die angeforderte Kopie zeigt mehr.
+  whatChanges: >-
+    Du bekommst einen Download-Link per E-Mail. Die Daten kommen in einem Format, das Computerprogramme weiterverarbeiten können.
+  whatDoesNotChange: Es wird nichts gelöscht oder geändert.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/hz/privacy-central/data-requests/preview.html
+  steps:
+    - Öffne die Seite „Deine Daten anfordern“ und melde dich an.
+    - Wähle aus, welche Informationen du erhalten möchtest.
+    - Wähle „Anfrage senden“.
+    - Bestätige die Anfrage über den Link in der Bestätigungs-E-Mail.
+    - Sobald die Daten bereit sind, lade sie über den sicheren Link aus der E-Mail herunter.
+  affects: [account, purchases, searches, clickstream, alexa-voice]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Schritte mit der offiziellen Amazon.de-Hilfeseite „Persönliche Informationen anfordern“ abgeglichen.
+  sources:
+    - ref: amazon-request-data
+      note: "Abschnitt 'So forderst du deine persönlichen Informationen an'"
+- id: amazon-close-account
+  service: amazon
+  kind: deletion
+  title: Amazon-Konto schließen und Daten löschen lassen
+  goal: Du lässt dein Amazon-Konto endgültig schließen und deine persönlichen Informationen löschen.
+  whyItMatters: >-
+    Solange das Konto besteht, speichert Amazon unter anderem alle deine Bestellungen.
+  whatChanges: >-
+    Das Konto wird weltweit auf allen Amazon-Websites geschlossen, die dieselben Anmeldedaten nutzen. Es lässt sich nicht zurückholen. Gekaufte digitale Inhalte und verknüpfte Dienste kannst du nicht mehr nutzen.
+  whatDoesNotChange: >-
+    Kaufdaten wie Name, Produkt, Datum, Lieferadresse und Preis bewahrt Amazon wegen gesetzlicher Pflichten in der Regel 10 Jahre auf. Für Werbung nutzt es sie aber nicht mehr. Weitere Konten musst du einzeln schließen.
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://www.amazon.de/privacy/data-deletion
+  steps:
+    - Öffne die Seite „Dein Amazon-Konto schließen“ und melde dich mit dem Konto an, das du schließen möchtest.
+    - Prüfe die Produkte und Dienste, die mit deinem Konto verknüpft sind.
+    - Wähle optional einen Grund aus und setze das Häkchen bei „Ja, ich möchte mein Amazon-Konto endgültig schließen und meine Daten löschen“.
+    - Wähle „Mein Konto schließen“.
+    - Bestätige die Anfrage innerhalb von fünf Tagen über die Nachricht per E-Mail oder SMS.
+  affects: [account, purchases, searches, clickstream, reviews-lists]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Schritte mit der offiziellen Amazon.de-Hilfeseite „Kontoschließung und Datenlöschung anfordern“ abgeglichen.
+  sources:
+    - ref: amazon-close-account
+      note: "Abschnitte zu Antrag und Konsequenzen"
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Zusätzliche Informationen zur Datenspeicherung'"

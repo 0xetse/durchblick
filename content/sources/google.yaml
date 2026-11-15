@@ -1,0 +1,132 @@
+- id: google-privacy-policy
+  title: Google Datenschutzerklärung
+  publisher: Google
+  url: https://policies.google.com/privacy?hl=de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Fassung 'Wirksam ab dem 1. Oktober 2026'. Verantwortlicher für Nutzer im EWR: Google Ireland Limited."
+- id: google-partner-sites
+  title: Wie Google Daten von Websites oder Apps verwendet, auf bzw. in denen unsere Dienste genutzt werden
+  publisher: Google
+  url: https://policies.google.com/technologies/partner-sites?hl=de
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: google-help-web-app-activity
+  title: Web- & App-Aktivitäten verwalten
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/54068?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: google-help-delete-activity
+  title: Aktivitäten löschen und automatisch löschen
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/465?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: google-help-timeline
+  title: Google Maps-Zeitachse verwalten
+  publisher: Google Maps-Hilfe
+  url: https://support.google.com/maps/answer/6258979?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: global
+  language: de
+  note: "Schrittlisten erscheinen in den Plattform-Ansichten Android und iPhone/iPad (Umschalter oben auf der Seite)."
+- id: google-blog-timeline-on-device
+  title: Updates to Location History and new controls coming soon to Maps
+  publisher: Google (The Keyword)
+  url: https://blog.google/products/maps/updates-to-location-history-and-new-controls-coming-soon-to-maps/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: Blogbeitrag vom 12.12.2023 zur Umstellung der Zeitachse auf Speicherung auf dem Gerät.
+- id: google-blog-auto-delete-2020
+  title: Neue Funktionen zum Schutz eurer Privatsphäre
+  publisher: Google Deutschland Blog
+  url: https://blog.google/intl/de-de/unternehmen/technologie/neue-funktionen-privatsphare
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Blogbeitrag vom 24.06.2020: automatisches Löschen nach 18 Monaten als Standard für neue Konten."
+- id: google-help-my-ad-center
+  title: Personalisierte Werbung in Mein Anzeigen-Center verwalten
+  publisher: Hilfe zu Mein Anzeigen-Center
+  url: https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-11-14"
+  region: global
+  language: de
+- id: google-help-linked-services
+  title: Informationen zum GDM und zu Ihren verknüpften Diensten
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/14202510?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: Umsetzung des Gesetzes über digitale Märkte (DMA) im EWR.
+- id: google-help-manage-linked-services
+  title: Verknüpfte Google-Dienste verwalten
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/14202892?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: EU
+  language: de
+- id: google-help-account-settings
+  title: Informationen im Google-Konto einsehen, anpassen und löschen
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/7660719?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: google-help-takeout
+  title: Google-Daten herunterladen
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/3024190?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: google-help-delete-account
+  title: Google-Konto löschen
+  publisher: Google Konto-Hilfe
+  url: https://support.google.com/accounts/answer/32046?hl=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: alphabet-q4-2025-results
+  title: Alphabet Announces Fourth Quarter and Fiscal Year 2025 Results (Exhibit 99.1, Form 8-K)
+  publisher: Alphabet Inc. / U.S. SEC
+  url: https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Q4 2025: Google advertising 82.284 Mio. USD von 113.828 Mio. USD Gesamtumsatz; YouTube ads 11.383 Mio. USD."

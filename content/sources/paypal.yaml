@@ -1,0 +1,97 @@
+- id: paypal-privacy-statement
+  title: PayPal-Datenschutzerklärung
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/legalhub/paypal/privacy-full
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "„Letzte Aktualisierung 28. September 2026“. Verantwortliche im EWR: PayPal (Europe) S.à r.l. et Cie, S.C.A., 22–24 Boulevard Royal, L-2449 Luxemburg; federführende Aufsicht: CNPD Luxemburg."
+- id: paypal-third-parties-list
+  title: Liste der Drittparteien (außer PayPal-Kunden), an die personenbezogene Daten weitergegeben werden können
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/legalhub/paypal/third-parties-list
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Letzte Aktualisierung 1. Oktober 2026“. Neun Kategorien von Empfängern; veröffentlicht wegen des Luxemburger Bankgeheimnisses. Eigene grobe Zählung: rund 225 Zeilen mit Firmennamen, viele davon mit mehreren Firmen."
+- id: paypal-help-privacy-settings
+  title: Wie verwalte ich meine Einstellungen für personenbezogene Daten und Datenschutz in meinem PayPal-Konto?
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/cshelp/article/help337
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+- id: paypal-help-data-access
+  title: Wie kann ich auf meine personenbezogenen Daten zugreifen?
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/cshelp/article/help366
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+- id: paypal-help-close-account
+  title: Wie schließe ich mein PayPal-Konto?
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/cshelp/article/help247
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "Der Cookie-Banner auf der Seite lautet: „Wenn Sie Cookies akzeptieren, verwenden wir diese, um … unseren Partnern zu ermöglichen, Ihnen personalisierte PayPal-Anzeigen zu zeigen, wenn Sie andere Websites besuchen.“ Knöpfe „Akzeptieren“ und „Ablehnen“."
+- id: paypal-help-automatic-payments
+  title: Was ist eine Zahlung im Einzugsverfahren und wie aktualisiere oder kündige ich sie?
+  publisher: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+  url: https://www.paypal.com/de/cshelp/article/help240
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+- id: paypal-q4-2025-results
+  title: PayPal Reports Fourth Quarter and Full Year 2025 Results (Exhibit 99.1)
+  publisher: PayPal Holdings, Inc. (SEC EDGAR)
+  url: https://www.sec.gov/Archives/edgar/data/1633917/000163391726000021/pypl4q-25earningsrelease.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: US
+  language: en
+  note: "„Net revenues increased 4% to $33.2 billion“ (Gesamtjahr 2025). Transaktionserlöse 2025 je Quartal: 7.016 / 7.441 / 7.522 / 7.819 Mio. USD (zusammen rund 29,8 Mrd. USD, rund 90 %). Werbeerlöse werden nicht getrennt ausgewiesen."
+- id: paypal-offsite-ads-germany
+  title: PayPal Expands Offsite Ads to Germany and the UK
+  publisher: PayPal Holdings, Inc. (Newsroom)
+  url: https://newsroom.paypal-corp.com/2025-09-17-PayPal-Expands-Offsite-Ads-to-Germany-and-the-UK
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: en
+  note: "17.09.2025. Beschreibt den „transaction graph“ als „a unique repository of real, cross-merchant purchase signals“; Werbung „across the open web through display and video advertising“."
+- id: paypal-netzpolitik-gutachten
+  title: "FinTech und Datenschutz: PayPal sammelt die sexuellen Vorlieben von Kunden"
+  publisher: netzpolitik.org
+  url: https://netzpolitik.org/2025/fintech-und-datenschutz-paypal-sammelt-die-sexuellen-vorlieben-von-kunden/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "Martin Schwarzbeck, 12.12.2025, Update 13.12.2025. Berichtet über ein Gutachten des Netzwerks Datenschutzexpertise (rechtliche Einschätzung, keine Behördenentscheidung). Sinngemäß: Die Nutzung der Kundendaten für Werbung ist in PayPal-Konten voreingestellt; die Liste möglicher Datenempfänger umfasst rund 600 Firmen aus vielen Staaten."
+- id: paypal-test-de-datenschutz
+  title: "Datenschutzverstöße bei Paypal: Paypal speichert zu viel und zu lang"
+  publisher: Stiftung Warentest (test.de)
+  url: https://www.test.de/Datenleck-bei-Paypal-Jetzt-Paypal-Passwort-aendern-6241357-0/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "Emma Bremer, 17.12.2025. Sinngemäß: Die Zustimmung zu personalisierten Angeboten und Werbung ist im Kundenkonto voreingestellt. Beschreibt den Weg „Daten und Datenschutz“ > „Personalisierte Angebote und Werbung“."

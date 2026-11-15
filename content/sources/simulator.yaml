@@ -1,0 +1,183 @@
+# Quellen für den Simulator „Was verraten fünf harmlose Spuren?“
+# Recherche-Notizen mit Zitaten: docs/research/simulator-research.md
+
+- id: sim-google-ads-audience-segments
+  title: About audience segments
+  publisher: Google Ads Help
+  url: https://support.google.com/google-ads/answer/2497941?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Beschreibt Affinity-, In-Market-, Life-Events- und Detailed-Demographics-Segmente,
+    „as estimated by Google“. Die verlinkten CSV-Listen enthalten u. a. Soccer Fans,
+    Running Enthusiasts, Health & Fitness Buffs, Avid Investors (Affinity),
+    Moving & Relocation, Apartments (For Rent), Baby & Children's Products, Athletic Shoes,
+    Gyms & Athletic Clubs, Investment Services (In-Market) sowie Parents of Infants (0-1 years)
+    und Homeowners/Renters (Detailed Demographics).
+
+- id: sim-google-ads-demographics
+  title: About demographic targeting
+  publisher: Google Ads Help
+  url: https://support.google.com/google-ads/answer/2580383?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Abschnitt „How Google determines demographic information“: Google schätzt Alter, Geschlecht,
+    Elternstatus und (regional begrenzt) Haushaltseinkommen auch anhand von Aktivität;
+    „Google Ads can't know or infer the demographics of all people“.
+
+- id: sim-google-ads-personalized-policy
+  title: Restricted targeting in Personalized advertising
+  publisher: Google Advertising Policies Help
+  url: https://support.google.com/adspolicy/answer/143465?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Liste der „Sensitive interest categories“ mit Targeting-Beschränkungen, u. a. Health,
+    Negative financial status, Relationship hardships; unter 18-Jährige erhalten keine
+    personalisierte Werbung.
+
+- id: sim-google-my-ad-center
+  title: How personalized ads work
+  publisher: Google My Ad Center Help
+  url: https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Werbung wird u. a. auf Basis von Informationen wie Alter und Geschlecht personalisiert,
+    „that you've provided in your Google Account or that Google has estimated about you“;
+    Einstellungen in „Mein Werbecenter“.
+
+- id: sim-meta-sensitive-targeting-2021
+  title: Removing Certain Ad Targeting Options and Expanding Our Ad Controls
+  publisher: Meta for Business
+  url: https://www.facebook.com/business/news/removing-certain-ad-targeting-options-and-expanding-our-ad-controls
+  tier: 1
+  type: official-docs
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Ankündigung vom 9.11.2021: Ab 19.1.2022 entfernt Meta Detailed-Targeting-Optionen zu
+    Gesundheit, ethnischer Herkunft, politischer Zugehörigkeit, Religion und sexueller
+    Orientierung; diese Optionen beruhten auf Interaktionen mit Inhalten.
+
+- id: sim-meta-why-ads-2019
+  title: Understand Why You're Seeing Certain Ads and How You Can Adjust Your Ad Experience
+  publisher: Meta Newsroom
+  url: https://about.fb.com/news/2019/07/understand-why-youre-seeing-ads/
+  tier: 1
+  type: official-docs
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    „Warum sehe ich diese Werbung?“ zeigt die Interessen oder Kategorien, die zu einer Anzeige
+    geführt haben, und woher diese Information stammt (z. B. eine gelikte Seite).
+
+- id: law-dsa
+  title: Verordnung (EU) 2022/2065 über einen Binnenmarkt für digitale Dienste (Digital Services Act)
+  publisher: Amt für Veröffentlichungen der EU (EUR-Lex)
+  url: https://eur-lex.europa.eu/eli/reg/2022/2065/oj
+  tier: 1
+  type: law
+  retrievedAt: 2026-10-07
+  region: EU
+  note: >-
+    Art. 26 Abs. 3: keine Werbung auf Basis von Profiling mit besonderen Kategorien
+    personenbezogener Daten (Art. 9 Abs. 1 DSGVO). Art. 28 Abs. 2: keine profilingbasierte
+    Werbung, wenn die Plattform mit hinreichender Sicherheit weiß, dass die Person minderjährig ist.
+
+- id: law-gdpr
+  title: Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung, DSGVO)
+  publisher: Amt für Veröffentlichungen der EU (EUR-Lex)
+  url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+  tier: 1
+  type: law
+  retrievedAt: 2026-10-07
+  region: EU
+  note: >-
+    Art. 4 Nr. 4 (Definition von Profiling, u. a. Analyse oder Vorhersage von wirtschaftlicher
+    Lage, Gesundheit, Interessen, Aufenthaltsort); Art. 9 Abs. 1 (besondere Kategorien, u. a.
+    Gesundheitsdaten, politische Meinungen, religiöse Überzeugungen, sexuelle Orientierung).
+
+- id: sim-kosinski-2013
+  title: Private traits and attributes are predictable from digital records of human behavior
+  publisher: Proceedings of the National Academy of Sciences (Kosinski, Stillwell, Graepel)
+  url: https://www.pnas.org/doi/10.1073/pnas.1218772110
+  tier: 2
+  type: research
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Aus Facebook-Likes von über 58.000 Freiwilligen ließen sich u. a. sexuelle Orientierung,
+    ethnische Herkunft, religiöse und politische Einstellungen, Alter und Geschlecht
+    statistisch vorhersagen (z. B. Demokrat/Republikaner in 85 % der Fälle korrekt unterschieden).
+
+- id: sim-de-montjoye-2013
+  title: "Unique in the Crowd: The privacy bounds of human mobility"
+  publisher: Scientific Reports (de Montjoye, Hidalgo, Verleysen, Blondel)
+  url: https://www.nature.com/articles/srep01376
+  tier: 2
+  type: research
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Mobilfunk-Standortdaten von 1,5 Mio. Menschen über 15 Monate: Vier Orts-Zeit-Punkte
+    genügen, um 95 % der Personen eindeutig zu identifizieren; auch grobe Daten bieten wenig
+    Anonymität.
+
+- id: sim-krumm-2007
+  title: Inference Attacks on Location Tracks
+  publisher: Microsoft Research (John Krumm, Pervasive 2007)
+  url: https://www.microsoft.com/en-us/research/publication/inference-attacks-location-tracks/
+  tier: 2
+  type: research
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Aus GPS-Spuren von Freiwilligen ließen sich mit einfachen Algorithmen die Wohnorte
+    bestimmen und teils die Personen identifizieren.
+
+- id: sim-staab-2024
+  title: "Beyond Memorization: Violating Privacy Via Inference with Large Language Models"
+  publisher: ICLR 2024 (Staab, Vero, Balunović, Vechev; ETH Zürich)
+  url: https://arxiv.org/abs/2310.07298
+  tier: 2
+  type: research
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Große Sprachmodelle leiten aus echten Reddit-Texten persönliche Merkmale wie Ort,
+    Einkommen und Geschlecht ab, mit bis zu 85 % Top-1-Genauigkeit, bei einem Bruchteil
+    von Kosten und Zeit menschlicher Auswertung.
+
+- id: sim-paparrizos-2016
+  title: "Screening for Pancreatic Adenocarcinoma Using Signals From Web Search Logs: Feasibility Study and Results"
+  publisher: Journal of Oncology Practice (Paparrizos, White, Horvitz)
+  url: https://doi.org/10.1200/JOP.2015.010504
+  tier: 2
+  type: research
+  retrievedAt: 2026-10-07
+  region: global
+  language: en
+  note: >-
+    Sinngemäß: Online-Aktivitäten können Hinweise auf beginnende Erkrankungen geben. Muster in
+    anonymisierten Suchanfragen sagten eine spätere Krebsdiagnose teilweise voraus (5–15 % der Fälle
+    bei sehr niedriger Falsch-positiv-Rate).

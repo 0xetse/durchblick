@@ -1,0 +1,9 @@
+---
+import View from '~/views/Dienst.astro';
+import { getContent } from '~/domain/content';
+
+export function getStaticPaths() {
+  return getContent().services.map((s) => ({ params: { id: s.id } }));
+}
+---
+<View id={Astro.params.id!} />

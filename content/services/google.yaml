@@ -1,0 +1,339 @@
+id: google
+name: Google Konto & Google Suche
+shortName: Google
+company: google
+category: search
+url: https://www.google.com/
+summary: "Google speichert deine Suchen und Aktivitäten in deinem Google-Konto und nutzt sie für Suche und Werbung. Auch viele fremde Websites schicken Daten an Google. Fast alles davon kannst du ansehen, pausieren oder löschen."
+surprise:
+  action: google-partner-activity
+  text: "Auch wenn du gar nicht auf google.com bist, erfährt Google oft, welche Seiten du besuchst. Viele Websites haben Werbung oder eine Besucherzählung von Google eingebaut (Google Analytics). Öffnest du so eine Seite, schickt dein Browser automatisch an Google, welche Seite das ist – und die Adresse deines Internet-Anschlusses."
+  sources:
+    - ref: google-partner-sites
+      note: "„sendet Ihr Webbrowser automatisch bestimmte Informationen an Google. Hierzu gehören auch die URL der besuchten Seite und Ihre IP-Adresse“"
+businessModel:
+  text: "Google finanziert Suche und Konto vor allem über Werbung. Im vierten Quartal 2025 kamen rund 72 % des Umsatzes des Mutterkonzerns Alphabet aus Google-Werbung: 82,3 von 113,8 Mrd. US-Dollar. Den größten Teil davon brachte Werbung in der Suche."
+  sources:
+    - ref: alphabet-q4-2025-results
+      note: "Umsatztabelle Q4 2025: Google Search & other 63.073, Google advertising 82.284, Total revenues 113.828 (Mio. USD)"
+dataPoints:
+  - id: google-account-data
+    category: account
+    title: "Du gibst Google beim Anlegen des Kontos Name und Passwort."
+    detail: "Freiwillig kommen etwa Telefonnummer oder Zahlungsdaten dazu, wenn du sie angibst – zum Beispiel für Käufe im Play Store."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Absatz zur Kontoerstellung: „Ihren Namen und ein Passwort“, optional Telefonnummer und Zahlungsinformationen"
+  - id: google-search-queries
+    category: searches
+    title: "Google erfasst, wonach du suchst."
+    detail: "Google erfasst jede Suche – vom Rezept bis zur Frage nach einem Symptom. Ist die Einstellung „Web- & App-Aktivitäten“ an, speichert Google deine Suchen auch in deinem Konto. Dort siehst du sie unter „Meine Aktivitäten“."
+    technical: "Die Datenschutzerklärung nennt „Begriffe, nach denen Sie suchen“ als Aktivitätsdaten; die Speicherung im Konto steuert die Einstellung Web- & App-Aktivitäten."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Abschnitt „Ihre Aktivitäten“"
+      - ref: google-help-web-app-activity
+        note: "„Suchanfragen und Aktivitäten in Google-Produkten und -Diensten wie der Google Suche und Google Maps“"
+  - id: google-server-logs
+    category: device
+    title: "Bei jedem Aufruf notiert Google technische Angaben."
+    detail: "Dazu gehören die Anfrage selbst, deine IP-Adresse (die Internet-Adresse deines Anschlusses), dein Browsertyp, Datum und Uhrzeit. Dazu kommen Kennungen aus Cookies – kleinen Dateien, an denen Google deinen Browser wiedererkennt. Das passiert auch ohne Anmeldung."
+    technical: "Serverprotokolle (Server-Logs) mit Webanfrage, IP-Adresse, Browsertyp, Datum und Uhrzeit sowie Cookie-Kennungen. Solche Protokolle sind für den Betrieb eines Webdienstes technisch üblich; Google nennt sie ausdrücklich in der Datenschutzerklärung."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„Serverprotokolle“ – Webanfrage, IP-Adresse, Browsertyp"
+  - id: google-device-identifiers
+    category: device
+    title: "Google erkennt deine Geräte und Browser wieder."
+    detail: "Google erfasst feste Nummern, an denen sich dein Browser, deine Apps und Geräte eindeutig erkennen lassen. Dazu kommen deine Geräteeinstellungen. Ein Android-Gerät mit Google-Apps meldet sich regelmäßig bei Google. Dabei schickt es zum Beispiel mit, welche Apps installiert sind."
+    technical: "Laut Datenschutzerklärung „eindeutige Kennungen, die mit den von Ihnen verwendeten Browsern, Apps oder Geräten verknüpft sind“, sowie Geräteeinstellungen; Android-Geräte mit Google-Apps übermitteln regelmäßig Informationen an Google."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„eindeutige Kennungen, die mit den von Ihnen verwendeten Browsern, Apps oder Geräten verknüpft sind“; Absatz zu Android-Geräten"
+  - id: google-location
+    category: location
+    title: "Google kann deinen Standort auf verschiedenen Wegen bestimmen."
+    detail: "Google nennt dafür GPS und andere Sensoren deines Geräts, deine IP-Adresse, deine Aktivität in Google-Diensten und Dinge in der Nähe wie WLAN-Netze. Wie genau der Standort ist, hängt von deinen Einstellungen am Gerät und im Konto ab."
+    technical: "Laut Datenschutzerklärung: GPS- und andere Sensordaten, IP-Adresse, Aktivitäten in Google-Diensten und Informationen über Objekte in der Nähe wie WLAN-Zugangspunkte."
+    provenance: observed
+    mechanisms: [device, permissions, usage]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "Abschnitt zu Standortinformationen: „GPS- und andere Sensordaten von Ihrem Gerät, IP-Adresse, Aktivitäten in Google-Diensten …“"
+  - id: google-approx-location
+    category: location
+    title: "Aus deiner IP-Adresse schließt Google, wo du ungefähr bist."
+    detail: "Die IP-Adresse ist die Internet-Adresse deines Anschlusses. Auch ohne GPS zeigt sie meist, in welcher Stadt oder Region du ungefähr bist. Das reicht etwa für lokale Suchergebnisse oder Werbung aus deiner Gegend."
+    technical: "Ungefähre Standortbestimmung aus der IP-Adresse (IP-Geolokalisierung)."
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    sources:
+      - ref: google-partner-sites
+        note: "IP-Adresse wird zur ungefähren Standortbestimmung genutzt"
+      - ref: google-privacy-policy
+  - id: google-timeline
+    category: location
+    title: "Die Maps-Zeitachse speichert besuchte Orte – nur wenn du sie einschaltest."
+    detail: "Die Zeitachse ist laut Google zunächst ausgeschaltet. Seit einer Umstellung liegen die Daten auf deinem Gerät. Nur wenn du eine Sicherung einschaltest, speichert Google eine verschlüsselte Kopie bei sich."
+    technical: "Seit der Umstellung werden Zeitachsendaten auf dem Gerät gespeichert; eine optionale Sicherung legt eine verschlüsselte Kopie auf Google-Servern ab."
+    provenance: observed
+    mechanisms: [device, permissions]
+    evidence: stated
+    condition: "nur wenn du die Zeitachse aktivierst"
+    sources:
+      - ref: google-help-timeline
+        note: "„Die Zeitachse ist für Ihr Google-Konto standardmäßig deaktiviert“; „verschlüsselte Kopie Ihrer Daten auf den Google-Servern“"
+      - ref: google-blog-timeline-on-device
+  - id: google-ad-interactions
+    category: activity
+    title: "Google merkt sich, welche Werbung du siehst und anklickst."
+    detail: "Google erfasst, welche Anzeigen du ansiehst oder anklickst. Sind die Web- & App-Aktivitäten an, auch was du danach auf der Website des Werbenden kaufst."
+    provenance: observed
+    mechanisms: [usage, partners]
+    evidence: stated
+    sources:
+      - ref: google-privacy-policy
+        note: "„Inhalte und Werbeanzeigen, die Sie sich ansehen und mit denen Sie interagieren“"
+      - ref: google-help-web-app-activity
+        note: "„Werbung, auf die Sie klicken, oder Artikel, die Sie auf der Website eines Werbetreibenden kaufen“"
+  - id: google-partner-site-activity
+    category: offplatform
+    title: "Viele fremde Websites und Apps melden deinen Besuch an Google."
+    detail: "Nutzt eine Seite Google-Werbung oder die Besucherstatistik Google Analytics, gehen die Adresse der Seite, deine IP-Adresse und Kennungen aus Cookies an Google. In deinem Konto landet das nur, wenn bei den Web- & App-Aktivitäten das Häkchen für Websites und Apps gesetzt ist."
+    technical: "Eingebundene Google-Dienste (z. B. Google Analytics, Google-Werbung) übermitteln URL, IP-Adresse und Cookie-Kennungen an Google."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: google-partner-sites
+      - ref: google-privacy-policy
+        note: "„Websites und Apps, bei denen Google-Dienste wie Werbung und Analysen integriert sind, geben Daten an uns weiter.“"
+      - ref: google-help-web-app-activity
+        note: "Option „Auch den Chrome-Verlauf sowie Aktivitäten auf Websites, in Apps und auf Geräten berücksichtigen“"
+  - id: google-chrome-history
+    category: activity
+    title: "Dein Chrome-Verlauf kann im Google-Konto landen."
+    detail: "Das betrifft dich, wenn du in Chrome angemeldet bist und die Synchronisierung nutzt. Außerdem muss bei den Web- & App-Aktivitäten das passende Häkchen gesetzt sein."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: "nur mit Chrome-Synchronisierung und gesetztem Häkchen bei Web- & App-Aktivitäten"
+    sources:
+      - ref: google-help-web-app-activity
+  - id: google-voice
+    category: voice
+    title: "Sprachbefehle an Google werden aufgezeichnet."
+    detail: "Sagst du ein Startwort wie „Hey Google“, nimmt Google deine Stimme und den Ton dazu auf. Ob die Aufnahmen in deinem Konto bleiben, regelt eine eigene Option bei den Web- & App-Aktivitäten."
+    technical: "Nach Erkennen eines Aktivierungsbefehls werden Sprach- und Audioinformationen aufgezeichnet; die Speicherung im Konto steuert die Option „Sprach- und Audioaktivitäten einschließen“."
+    provenance: observed
+    mechanisms: [device, permissions]
+    evidence: stated
+    condition: "nur wenn du die Sprachsteuerung nutzt"
+    sources:
+      - ref: google-privacy-policy
+        note: "Absatz zu Sprach- und Audioinformationen"
+      - ref: google-help-web-app-activity
+        note: "Option „Sprach- und Audioaktivitäten einschließen“"
+  - id: google-content
+    category: content
+    title: "Was du in Gmail, Drive oder Fotos ablegst, liegt bei Google."
+    detail: "Google nennt E-Mails, die du schreibst und bekommst, gespeicherte Fotos und Videos sowie Dokumente und Tabellen. Das betrifft dich, wenn du diese Dienste mit deinem Konto nutzt."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "wenn du Gmail, Drive, Fotos oder Docs nutzt"
+    sources:
+      - ref: google-privacy-policy
+        note: "„E-Mails, die Sie verfassen und empfangen, Fotos und Videos, die Sie speichern, Dokumente und Tabellen, die Sie erstellen“"
+inferences:
+  - id: google-ad-interests
+    title: "Google leitet aus deiner Aktivität Interessen für Werbung ab."
+    detail: "Je nach Einstellung zeigt Google dir Werbung, die zu deinen Interessen und Aktivitäten passt. In „Mein Anzeigen-Center“ siehst und änderst du die Themen und Marken, die dafür genutzt werden."
+    level: documented
+    basedOn: [google-search-queries, google-ad-interactions, google-partner-site-activity]
+    sources:
+      - ref: google-privacy-policy
+        note: "„auf Ihre Interessen und Aktivitäten … bezogene personalisierte Werbung“"
+      - ref: google-help-my-ad-center
+  - id: google-age-gender
+    title: "Google kann Alter und Geschlecht schätzen, wenn du sie nicht angibst."
+    detail: "Für Werbung nutzt Google Angaben wie Alter und Geschlecht. Entweder hast du sie im Konto angegeben, oder Google hat sie selbst geschätzt („abgeleitet“). Welche Angaben genutzt werden, zeigt Mein Anzeigen-Center."
+    level: documented
+    basedOn: [google-account-data, google-search-queries]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "„Angaben, z. B. zu Ihrem Alter und Geschlecht, die Sie in Ihrem Google-Konto gemacht haben oder die Google abgeleitet hat“"
+  - id: google-life-situation
+    title: "Suchverläufe können Lebenslagen verraten."
+    detail: "Wer nach Wohnungen, Babynamen oder Jobwechsel sucht, verrät indirekt etwas über Umzug, Familienplanung oder Berufswechsel. Technisch ist so ein Schluss möglich. Dass Google genau solche Lebenslagen für dich ableitet, haben wir in Googles Unterlagen nicht belegt gefunden."
+    level: possible
+    basedOn: [google-search-queries, google-partner-site-activity]
+    sources:
+      - google-privacy-policy
+  - id: google-sensitive-topics
+    title: "Suchanfragen können Gesundheit, Glauben oder Sexualität berühren."
+    detail: "Wer nach Symptomen oder religiösen Themen sucht, hinterlässt sehr private Spuren. Ob Google daraus intern Schlüsse zieht, ist nicht dokumentiert. Google schreibt, es zeige keine personalisierte Werbung zu heiklen Themen wie ethnischer Herkunft, Religion, sexueller Orientierung oder Gesundheit."
+    level: possible
+    basedOn: [google-search-queries]
+    sources:
+      - ref: google-privacy-policy
+        note: "„Wir zeigen Ihnen keine personalisierte Werbung, die auf sensiblen Kategorien … basiert“"
+  - id: google-frequent-places
+    title: "Aus Standortdaten lassen sich Wohn- und Arbeitsort erschließen."
+    detail: "Wo ein Gerät nachts und tagsüber regelmäßig ist, verrät meist Zuhause und Arbeitsplatz. Technisch ist das möglich. Dass Google diesen Schluss zieht, haben wir nicht belegt gefunden."
+    level: possible
+    basedOn: [google-location, google-timeline]
+    sources:
+      - google-privacy-policy
+purposes:
+  - purpose: provide-service
+    detail: "Suchergebnisse liefern, dein Konto betreiben und Inhalte wie E-Mails oder Fotos speichern."
+    sources: [google-privacy-policy]
+  - purpose: personalisation
+    detail: "Suchergebnisse, Empfehlungen und Vorschläge an das anpassen, was du bisher getan hast – etwa über die Web- & App-Aktivitäten."
+    sources: [google-privacy-policy, google-help-web-app-activity]
+  - purpose: advertising
+    detail: "Je nach Einstellung Werbung passend zu dir – in Google-Diensten und auf Partner-Websites. Sonst richtet sich Werbung nach dem Umfeld: Thema der Seite, Tageszeit oder aktueller Standort."
+    sources: [google-privacy-policy, google-help-my-ad-center]
+  - purpose: measurement
+    detail: "Messen, wie Dienste genutzt werden und wie gut Werbung wirkt – auch auf Websites, die Google-Dienste einbinden."
+    sources: [google-privacy-policy, google-partner-sites]
+  - purpose: safety
+    detail: "Betrug, Spam und Missbrauch erkennen und Konten schützen."
+    sources: [google-privacy-policy, google-partner-sites]
+  - purpose: ai-training
+    detail: "Google trainiert seine KI-Modelle laut eigener Aussage mit Daten, die online oder in anderen öffentlichen Quellen verfügbar sind. Außerdem nutzt Google gesammelte Daten, um neue Dienste zu entwickeln."
+    sources:
+      - ref: google-privacy-policy
+        note: "„erheben wir Daten, die online oder in anderen öffentlichen Quellen verfügbar sind, um die KI-Modelle von Google zu trainieren“"
+sharing:
+  - id: google-sharing-processors
+    recipient: "Dienstleister im Auftrag von Google"
+    detail: "Google gibt Daten an Firmen weiter, die damit im Auftrag von Google arbeiten – nur nach Googles Anweisung."
+    sources: [google-privacy-policy]
+  - id: google-sharing-cross-service
+    recipient: "Andere Google-Dienste"
+    detail: "Google kann Daten über seine Dienste und deine Geräte hinweg nutzen. Im EWR fragt Google seit dem Gesetz über digitale Märkte, ob Suche, YouTube, Werbedienste, Play, Chrome, Shopping und Maps verknüpft sein sollen."
+    sources: [google-privacy-policy, google-help-linked-services]
+  - id: google-sharing-advertisers
+    recipient: "Werbende, Website-Betreiber und andere Partner"
+    detail: "Laut Google bekommen sie nur Angaben, die nicht auf dich als Person verweisen – etwa zusammengefasste Zahlen zur Nutzung oder zur Wirkung von Werbung."
+    sources:
+      - ref: google-privacy-policy
+        note: "„nicht personenbezogene Daten an die Öffentlichkeit und unsere Partner, beispielsweise an Publisher, Werbetreibende, Entwickler“"
+  - id: google-sharing-legal
+    recipient: "Behörden und Gerichte"
+    detail: "Wenn Gesetze, Verfahren oder behördliche Anfragen es verlangen, gibt Google Daten heraus."
+    sources: [google-privacy-policy]
+  - id: google-sharing-consent
+    recipient: "Dritte mit deiner Einwilligung"
+    detail: "Zum Beispiel, wenn du eine fremde App mit deinem Google-Konto verbindest. Bei Konten von Schule oder Arbeit kann außerdem die Person zugreifen, die die Konten dort verwaltet."
+    sources: [google-privacy-policy]
+retention:
+  text: "Vieles bleibt gespeichert, bis du es löschst. Bei neuen Konten löscht Google die Web- & App-Aktivitäten seit 2020 automatisch nach 18 Monaten. Wer die Zeitachse neu einschaltet, startet mit 3 Monaten. Manche Daten löscht Google nach einer Frist selbst oder entfernt den Bezug zu dir (anonymisiert), z. B. Werbedaten in technischen Protokollen. Andere bewahrt es aus rechtlichen Gründen länger auf."
+  sources:
+    - ref: google-privacy-policy
+      note: "Abschnitt „Aufbewahrung Ihrer Informationen“"
+    - ref: google-blog-auto-delete-2020
+    - ref: google-blog-timeline-on-device
+    - ref: google-help-delete-activity
+journey:
+  - id: google-journey-use
+    title: "Du suchst oder nutzt einen Google-Dienst"
+    detail: "Deine Anfrage geht mit IP-Adresse, Browser- und Gerätedaten an Google. Je nach Freigabe kommt der Standort deines Geräts dazu."
+    dataPoints: [google-search-queries, google-server-logs, google-device-identifiers, google-location]
+    sources: [google-privacy-policy]
+  - id: google-journey-partner-sites
+    title: "Auch fremde Websites melden sich"
+    detail: "Seiten mit Google-Werbung oder Google Analytics schicken die Adresse der Seite, deine IP-Adresse und Kennungen aus Cookies an Google."
+    dataPoints: [google-partner-site-activity]
+    sources: [google-partner-sites]
+  - id: google-journey-account
+    title: "Speicherung im Google-Konto"
+    detail: "Sind die Web- & App-Aktivitäten an, landen Suchen, Standort und weitere Aktivitäten in deinem Konto. Unter „Meine Aktivitäten“ kannst du sie ansehen und löschen. Im EWR werden Dienste nur verknüpft, wenn du das wählst."
+    dataPoints: [google-search-queries, google-ad-interactions, google-chrome-history, google-voice]
+    sources: [google-help-web-app-activity, google-help-linked-services]
+  - id: google-journey-personalisation
+    title: "Auf dich zugeschnitten"
+    detail: "Google passt Suchergebnisse und Vorschläge an das an, was in deinem Konto gespeichert ist."
+    dataPoints: [google-search-queries, google-approx-location]
+    sources: [google-privacy-policy]
+  - id: google-journey-ads
+    title: "Auswahl der Werbung"
+    detail: "Aus deiner Aktivität und deinen Kontoangaben schätzt Google Interessen und Merkmale wie deine Altersgruppe. Ist personalisierte Werbung aus, richtet sich Werbung nur nach dem Umfeld."
+    dataPoints: [google-ad-interactions, google-account-data, google-partner-site-activity]
+    sources: [google-help-my-ad-center, google-privacy-policy]
+  - id: google-journey-measurement
+    title: "Zahlen für Werbende"
+    detail: "Werbende und Website-Betreiber bekommen laut Google zusammengefasste Zahlen ohne Bezug zu einzelnen Personen, etwa zur Wirkung von Anzeigen."
+    dataPoints: [google-ad-interactions]
+    sources: [google-privacy-policy]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Sehr breit: Suchen, Standort, Geräte, Inhalte aus Gmail/Drive/Fotos und zusätzlich Daten von fremden Websites und Apps, die Google-Dienste einbinden."
+    confidence: high
+    sources: [google-privacy-policy, google-partner-sites]
+  sensitivity:
+    level: 3
+    rationale: "Suchanfragen und Standortdaten sind regelmäßig privat und berühren oft auch Gesundheit oder Lebensumstände. Wer Gmail oder Fotos nutzt, legt zusätzlich sehr persönliche Inhalte bei Google ab."
+    confidence: medium
+    sources: [google-privacy-policy]
+  observation:
+    level: 3
+    rationale: "Solange die Aktivitätseinstellungen an sind, speichert Google genaue Verläufe: was du wann gesucht und angeklickt hast und wo du warst."
+    confidence: high
+    sources: [google-help-web-app-activity, google-privacy-policy]
+  linkability:
+    level: 4
+    rationale: "Google nutzt Daten über Dienste und Geräte hinweg und ergänzt sie um Daten von Partner-Websites und -Apps. Im EWR kannst du die Verknüpfung wichtiger Dienste ablehnen."
+    confidence: high
+    sources: [google-privacy-policy, google-partner-sites, google-help-linked-services]
+  adUse:
+    level: 4
+    rationale: "Werbung ist das Kerngeschäft: Im vierten Quartal 2025 kamen rund 72 % des Alphabet-Umsatzes aus Google-Werbung."
+    confidence: high
+    sources: [alphabet-q4-2025-results]
+  sharing:
+    level: 3
+    rationale: "Daten gehen an Dienstleister und bleiben im Konzern. Werbende und Website-Betreiber bekommen laut Google nur zusammengefasste Zahlen ohne Personenbezug. Daten über dich als Person gibt Google nur mit Einwilligung oder aus rechtlichen Gründen weiter."
+    confidence: medium
+    sources: [google-privacy-policy]
+  defaults:
+    level: 3
+    rationale: "Neue Konten löschen Web- & App-Aktivitäten automatisch nach 18 Monaten, die Zeitachse ist aus und im EWR wird nach der Verknüpfung von Diensten gefragt. Viel Aktivität wird aber standardmäßig über lange Zeit gespeichert."
+    confidence: medium
+    sources: [google-blog-auto-delete-2020, google-help-timeline, google-help-linked-services]
+  controls:
+    level: 3
+    rationale: "Personalisierte Werbung, das Speichern von Aktivitäten, Daten von Partnern und die Verknüpfung von Diensten lassen sich einzeln abschalten. Technische Protokolle und Werbung nach dem Umfeld bleiben."
+    confidence: high
+    sources: [google-help-my-ad-center, google-help-web-app-activity, google-help-linked-services]
+  deletion:
+    level: 4
+    rationale: "Aktivitäten lassen sich selbst löschen oder automatisch nach 3, 18 oder 36 Monaten löschen; Google Takeout exportiert die Daten, das Konto lässt sich selbst löschen."
+    confidence: high
+    sources: [google-help-delete-activity, google-help-takeout, google-help-delete-account]
+  reachability:
+    level: 4
+    rationale: "Die Einstellungen liegen zentral im Google-Konto unter „Daten und Datenschutz“, ergänzt durch den geführten Privatsphärecheck und Mein Anzeigen-Center."
+    confidence: medium
+    sources: [google-help-account-settings, google-help-my-ad-center]
+alternatives: search
+linkedWith: [youtube]
+region: EU
+reviewedAt: "2026-10-07"

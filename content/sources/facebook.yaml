@@ -1,0 +1,258 @@
+# Shared Meta sources (prefix meta-) plus Facebook-specific sources (prefix facebook-).
+# Retrieved 2026-10-07. Note: Meta pages were fetched from a US network location; Meta shows
+# region-specific variants. Pages explicitly marked "nur in der Region Europa" are EU variants.
+- id: meta-privacy-policy
+  title: Meta-Datenschutzrichtlinie
+  publisher: Meta
+  url: https://www.facebook.com/privacy/policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Fassung 'Aktualisiert am 23. Juli 2026' (gilt für Facebook, Instagram, Messenger u. a.). Abruf aus einem US-Netz: die angezeigte Fassung enthält den US-Regionalhinweis und nennt Meta Platforms, Inc. Die EU-Fassung (Meta Platforms Ireland, Rechtsgrundlagen) war auch beim zweiten Versuch am 2026-10-07 nicht abrufbar (locale=de_DE, privacycenter.instagram.com, Druckfassung, gerenderter Browser mit de-DE); die Rechtsgrundlagen-Seite meldet „Diese Seite ist an deinem Standort nicht verfügbar.“ Aussagen, die nur hierauf beruhen, gelten daher nicht als für die EU geprüft."
+- id: meta-help-region-europe
+  title: Was umfasst die Region Europa?
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/681634310058367
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Nennt Meta Platforms Ireland Limited als Anbieter und Verantwortlichen für Deutschland und die übrigen EU-Länder."
+- id: meta-help-ads-choices-eu
+  title: Mehr über Werbepräferenzen und Abo-Optionen
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/631125599118423
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Vergleicht die drei Optionen in der Region Europa: personalisierte Werbung, weniger stark personalisierte Werbung, Abo ohne Werbung."
+- id: meta-help-ads-subscription
+  title: Abo für die werbefreie Nutzung
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/262038446684066
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Preise (5,99 €/Monat Web, 7,99 €/Monat App, je weiteres Konto 4 €/5 €); Wahl gilt für alle Konten derselben Kontenübersicht inkl. WhatsApp."
+- id: meta-help-less-personalised-ads
+  title: Weniger stark personalisierte Werbung
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/825123042877166
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Listet die Daten, die bei weniger stark personalisierter Werbung noch genutzt werden."
+- id: meta-help-manage-ad-experience
+  title: Verwalten, ob du mehr oder weniger stark personalisierte Werbung sehen möchtest
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/468797095528474
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Enthält Schritte (Kontenübersicht > Werbepräferenzen > Informationen verwalten > Werbeerlebnis) und die Datenliste für personalisierte Werbung."
+- id: meta-help-ad-preferences
+  title: Deine Werbepräferenzen und wie du sie auf Facebook anpassen kannst
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/247395082112892
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Werbethemen, Werbetreibende, Einstellungen für Werbung. Weist darauf hin, dass es in der Region Europa andere Optionen gibt."
+- id: meta-help-ad-preferences-overview
+  title: Werbepräferenzen
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/109378269482053
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "„Präferenzen …, die wir basierend auf deinen Profilinformationen, auf Facebook unternommenen Handlungen sowie außerhalb von Facebook verwendeten Websites und Apps für dich erstellt haben“."
+- id: meta-help-how-ads-chosen
+  title: So entscheidet Facebook, welche Werbeanzeigen dir präsentiert werden
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/562973647153813
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: meta-help-activity-other-businesses
+  title: Anpassen, welche Facebook-Inhalte dir basierend auf deinen Aktivitäten bei anderen Unternehmen angezeigt werden
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/568137493302217
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Abgerufene Fassung (US-Netz, auch im gerenderten Browser mit de-DE am 2026-10-07) mit Hinweis, dass in der Region Europa andere Werbeoptionen gelten. Schritte daher für die EU nicht bestätigt."
+- id: meta-help-off-meta-activity
+  title: Deine Aktivitäten außerhalb von Meta-Technologien einsehen
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/2207256696182627
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Beim Abruf aus einem US-Netz zeigte die Seite nur „Diese Funktion ist in deiner Region nicht verfügbar.“ Inhalt für die EU nicht geprüft."
+- id: meta-help-accounts-center
+  title: Kontenübersicht oder Meta-Konten
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/943858526073065
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Verknüpfte Konten werden für personalisiertere Werbung und Vorschläge genutzt; Meta migriert Nutzer schrittweise zu „Meta-Konten“."
+- id: meta-pixel-docs
+  title: Meta-Pixel (Entwicklerdokumentation)
+  publisher: Meta for Developers
+  url: https://developers.facebook.com/docs/meta-pixel/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "„JavaScript-Code-Schnipsel, der es dir ermöglicht, die Aktivitäten von Besuchern auf deiner Webseite nachzuverfolgen“; Nutzung für Messung und Custom Audiences."
+- id: meta-privacy-genai
+  title: So verwendet Meta Informationen für generative KI-Modelle
+  publisher: Meta Privacy Center
+  url: https://www.facebook.com/privacy/genai/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Aus US-Netz abgerufen (auch gerendert mit de-DE am 2026-10-07); ein Link zum EU-Widerspruchsformular war in dieser Fassung nicht sichtbar."
+- id: meta-newsroom-ai-training-eu-2025
+  title: Making AI Work Harder for Europeans
+  publisher: Meta Newsroom
+  url: https://about.fb.com/news/2025/04/making-ai-work-harder-for-europeans/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Ankündigung vom 14. April 2025: Training mit öffentlichen Inhalten Erwachsener in der EU und mit Meta-AI-Interaktionen; Widerspruchsformular; Update vom 27. März 2026 zu Nachrichten, die mit KI-Funktionen geteilt werden."
+- id: meta-dpc-ai-statement-2025
+  title: DPC statement on Meta AI
+  publisher: Data Protection Commission (Irland)
+  url: https://www.dataprotection.ie/news-media/latest-news/dpc-statement-meta-ai
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "21. Mai 2025: Meta plant Trainingsbeginn am 27. Mai 2025 mit öffentlichen Inhalten Erwachsener auf Facebook und Instagram; verbessertes Widerspruchsformular."
+- id: meta-newsroom-less-personalised-ads-2024
+  title: Facebook and Instagram to Offer Subscription for No Ads in Europe (Update 12. November 2024)
+  publisher: Meta Newsroom
+  url: https://about.fb.com/news/2024/11/facebook-and-instagram-to-offer-subscription-for-no-ads-in-europe/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+- id: meta-ec-dma-decision-2025
+  title: Commission finds Apple and Meta in breach of the Digital Markets Act (IP/25/1085)
+  publisher: Europäische Kommission
+  url: https://ec.europa.eu/commission/presscorner/detail/en/ip_25_1085
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "April 2025: „Consent or Pay“-Modell nicht DMA-konform, Geldbuße 200 Mio. €."
+- id: meta-ec-dma-ads-choice-2025
+  title: Meta commits to give EU users choice on personalised ads under DMA
+  publisher: Europäische Kommission (DMA-Website)
+  url: https://digital-markets-act.ec.europa.eu/meta-commits-give-eu-users-choice-personalised-ads-under-dma-2025-12-08_en
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "8. Dezember 2025: neue Wahl zwischen voll personalisierter und weniger personalisierter Werbung ab Januar 2026."
+- id: meta-sec-10q-2026-q2
+  title: Meta Platforms, Inc. Form 10-Q für das Quartal bis 30. Juni 2026
+  publisher: Meta Platforms, Inc. / U.S. SEC
+  url: https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "„We generate substantially all of our revenue from advertising.“ Werbeumsatz Q2 2026: 59.363 Mio. USD. Berufung gegen DMA-Entscheidung am 4. Juli 2025; irische DPC prüft das Abo-Modell weiter."
+- id: facebook-help-delete-account
+  title: Dein Facebook-Profil dauerhaft löschen
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/224562897555674
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: facebook-help-export
+  title: Eine Kopie deiner Facebook-Informationen exportieren
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/212802592074644
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: facebook-help-contact-upload
+  title: Das Hochladen von Kontakten von deinem Mobilgerät mit der Facebook-App verwalten
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/355489824655936
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Verweist auf die Seite „Deine hochgeladenen Kontakte verwalten“ (https://www.facebook.com/mobile/facebook/contacts/?tab=contacts)."
+- id: facebook-help-activity-log
+  title: Mithilfe des Aktivitätenprotokolls auf Facebook Inhalte finden
+  publisher: Facebook-Hilfebereich
+  url: https://www.facebook.com/help/170480839698876
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: meta-hmbbfdi-ai-objection-2025
+  title: Meta starts AI training with personal data
+  publisher: Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (HmbBfDI)
+  url: https://datenschutz-hamburg.de/news/meta-starts-ai-training-with-personal-data
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: DE
+  language: en
+  note: "Stand 27.05.2025 (als PDF-Ausdruck gelesen). Nennt die Widerspruchsformulare https://www.facebook.com/help/contact/712876720715583 (Facebook) und https://help.instagram.com/contact/767264225370182 (Instagram); Widerspruch auch in den Apps möglich; Begründung freiwillig; Bestätigung per Pop-up oder E-Mail; wirkt nur für künftiges Training; bei Konten in derselben Kontenübersicht genügt ein Widerspruch."
+- id: meta-help-accounts-center-manage
+  title: How to manage which accounts are in your Accounts Center
+  publisher: Meta Help Center
+  url: https://www.meta.com/help/accounts-center/589288436078759/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Englische, nicht regionsspezifische Fassung (gerendert aus US-Netz). Schritte „Navigate to Accounts Center > Accounts or Manage accounts > Remove“; „Threads and WhatsApp in Accounts Center is not available everywhere.“ Deutsche Menübezeichnungen nicht bestätigt."

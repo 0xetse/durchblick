@@ -1,0 +1,103 @@
+---
+import Base from '~/layouts/Base.astro';
+import Spuren from '~/islands/Spuren';
+import SourceList from '~/components/SourceList.astro';
+import { getContent, refId } from '~/domain/content';
+import { simulatorProps } from '~/domain/projections';
+import { dict, formatDate, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const sim = simulatorProps(locale);
+const { simulator, sources } = getContent(locale);
+const sourceIds = [
+  ...simulator.inferences.flatMap((i) => i.sources.map(refId)),
+  ...simulator.takeaways.flatMap((t) => t.sources.map(refId)),
+];
+// Language per source URL, so the island can mark German sources for English readers.
+const sourceLanguages = Object.fromEntries(
+  sourceIds.flatMap((id) => {
+    const s = sources.get(id);
+    return s?.language === 'de' ? [[s.url, s.language]] : [];
+  }),
+);
+const signalLabel = (id: string) => simulator.signals.find((s) => s.id === id)?.label ?? id;
+
+const TXT_DE = {
+  title: 'Was verraten fünf harmlose Spuren?',
+  description:
+    'Interaktiv: Wie aus harmlosen Alltagsspuren Einschätzungen über dich entstehen können – mit Angabe, wie sicher die Einschätzung ist, und mit Belegen.',
+  crumbWhy: 'Warum wichtig?',
+  crumb: 'Experiment: Spuren',
+  noscript: 'Ohne JavaScript siehst du unten alle Regeln des Experiments als Liste.',
+  howTitle: 'Wie du das lesen solltest',
+  documentedExtra: 'Das heißt nicht, dass ein bestimmter Anbieter genau das über dich weiß.',
+  caveat:
+    'Das Experiment ist eine vereinfachte Lernhilfe. Echte Systeme arbeiten mit Wahrscheinlichkeiten und sehr viel mehr Spuren – sie liegen auch oft daneben. Genau das ist ein Teil des Problems: Einschätzungen über dich können falsch sein und trotzdem verwendet werden.',
+  rulesTitle: 'Alle Regeln des Experiments',
+  showList: (n: number) => `Liste anzeigen (${n} Regeln)`,
+  from: 'aus:',
+  sources: 'Quellen',
+  asOf: 'Stand:',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'What do five harmless traces give away?',
+  description:
+    'Interactive: how harmless everyday traces can turn into conclusions about you – with how certain each conclusion is, and with sources.',
+  crumbWhy: t.nav.why,
+  crumb: 'Experiment: traces',
+  noscript: 'Without JavaScript, you can see all the rules of the experiment as a list below.',
+  howTitle: 'How to read this',
+  documentedExtra: 'This does not mean that a particular provider knows exactly this about you.',
+  caveat:
+    'The experiment is a simplified learning aid. Real systems work with probabilities and far more traces – and they are often wrong, too. That is exactly part of the problem: conclusions about you can be wrong and still be used.',
+  rulesTitle: 'All rules of the experiment',
+  showList: (n) => `Show list (${n} ${n === 1 ? 'rule' : 'rules'})`,
+  from: 'from:',
+  sources: 'Sources',
+  asOf: 'As of:',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+---
+<Base title={s.title} description={s.description} path={href(locale, 'traces')} crumbs={[{ label: s.crumbWhy, href: href(locale, 'why') }, { label: s.crumb }]}>
+  <section>
+    <div class="wrap">
+      <h1>{s.title}</h1>
+      <p class="lead">{simulator.intro}</p>
+      <div class="panel sim-full">
+        <Spuren client:load signals={sim.signals} rules={sim.rules} locale={locale} sourceLanguages={sourceLanguages} />
+      </div>
+      <noscript>
+        <p class="panel">{s.noscript}</p>
+      </noscript>
+    </div>
+  </section>
+  <section aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">{s.howTitle}</h2>
+      <ul class="legend-list">
+        <li><strong>{t.simLevels.derived.label}:</strong> {t.simLevels.derived.hint}</li>
+        <li><strong>{t.simLevels.documented.label}:</strong> {t.simLevels.documented.hint} {s.documentedExtra}</li>
+        <li><strong>{t.simLevels.possible.label}:</strong> {t.simLevels.possible.hint}</li>
+      </ul>
+      <p>{s.caveat}</p>
+      {simulator.takeaways.map((t) => <p>{t.text}</p>)}
+    </div>
+  </section>
+  <section aria-labelledby="rules-title">
+    <div class="wrap">
+      <h2 id="rules-title">{s.rulesTitle}</h2>
+      <details>
+        <summary>{s.showList(simulator.inferences.length)}</summary>
+        <ul class="rule-list">
+          {simulator.inferences.map((r) => (
+            <li><strong>{r.title}</strong> <span class="small muted">({t.simLevels[r.level].label})</span><br /><span class="small">{s.from} {r.requires.map(signalLabel).join(' + ')}</span><p class="small">{r.explanation}</p></li>
+          ))}
+        </ul>
+      </details>
+      <h2>{s.sources}</h2>
+      <SourceList ids={sourceIds} />
+      <p class="small muted">{s.asOf} {locale === 'en' ? formatDate(simulator.reviewedAt, locale) : simulator.reviewedAt}</p>
+    </div>
+  </section>
+</Base>

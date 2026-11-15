@@ -1,0 +1,74 @@
+---
+import type { Guide } from '~/domain/schema';
+import { freshness, todayIso } from '~/domain/freshness';
+import { dict, formatDate, href, localeOf, localizeUrl } from '~/i18n';
+import { Evidence } from './Evidence';
+import { sourceCards } from '~/domain/projections';
+
+interface Props {
+  guide: Guide;
+  open?: boolean;
+  /** link sources to the page's own source list */
+  showLink?: boolean;
+}
+const { guide: g, open = false, showLink = true } = Astro.props;
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  minutes: (n: number) => `ca. ${n} Min`,
+  why: 'Warum das wichtig ist',
+  changes: 'Was sich ändert',
+  notChanges: 'Was sich nicht ändert',
+  staleSince: (d: string) => ` – zuletzt geprüft am ${d}.`,
+  unchecked: '. Nutze den offiziellen Link; Menünamen können abweichen.',
+  official: 'Offizielle Einstellung öffnen',
+  external: ' (externe Seite)',
+  ownPage: 'Eigene Seite',
+  tradeOff: 'Abstrich:',
+  platforms: 'Plattformen:',
+};
+const TXT_EN: typeof TXT_DE = {
+  minutes: (n) => `approx. ${n} min`,
+  why: 'Why it matters',
+  changes: 'What changes',
+  notChanges: 'What does not change',
+  staleSince: (d) => ` – last checked on ${d}.`,
+  unchecked: '. Use the official link; menu names may differ.',
+  official: 'Open the official setting',
+  external: ' (external site)',
+  ownPage: 'Guide page',
+  tradeOff: 'Downside:',
+  platforms: 'Platforms:',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+const f = freshness(g.verification.status, g.verification.checkedAt, todayIso());
+const officialUrl = g.officialUrl ? localizeUrl(g.officialUrl, locale) : undefined;
+const checked = formatDate(g.verification.checkedAt, locale);
+---
+<details class="guide" open={open}>
+  <summary>
+    <span class="guide-title">{g.title}</span>
+    <span class="small muted">{t.plan.kinds[g.kind]} · {s.minutes(g.minutes)} · {t.plan.impact[g.impact]} · {t.plan.difficulty[g.difficulty]}</span>
+  </summary>
+  <div class="guide-body">
+    <p>{g.goal}</p>
+    <dl class="what">
+      <dt>{s.why}</dt><dd>{g.whyItMatters}</dd>
+      <dt>{s.changes}</dt><dd>{g.whatChanges}</dd>
+      <dt>{s.notChanges}</dt><dd>{g.whatDoesNotChange}</dd>
+    </dl>
+    {g.steps.length > 0 && <ol class="steps">{g.steps.map((st) => <li>{st}</li>)}</ol>}
+    <p class={`fresh small fresh-${f}`}>
+      {f === 'verified' && <>{t.freshness.verified} {checked}: {g.verification.method}</>}
+      {f === 'stale' && <>{t.freshness.stale}{s.staleSince(checked)}</>}
+      {f === 'needs-verification' && <>{t.freshness.needsVerification}{s.unchecked}</>}
+    </p>
+    <div class="cluster">
+      {officialUrl && <a class="btn btn-primary" href={officialUrl} target="_blank" rel="noopener noreferrer">{s.official}<span class="visually-hidden">{s.external}</span></a>}
+      {showLink && <a class="btn btn-quiet" href={href(locale, 'guide', g.id)}>{s.ownPage}</a>}
+    </div>
+    {g.tradeOff && <p class="tradeoff small"><strong>{s.tradeOff}</strong> {g.tradeOff}</p>}
+    <p class="small muted">{s.platforms} {g.platforms.join(', ')}</p>
+    <Evidence sources={sourceCards(g.sources)} checkedAt={g.verification.checkedAt} locale={locale} />
+  </div>
+</details>

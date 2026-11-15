@@ -1,0 +1,139 @@
+- id: facebook-less-personalised-ads
+  service: facebook
+  kind: setting
+  title: Choose less personalised ads
+  goal: "Meta uses only a small amount of data for ads, instead of everything it knows about your behaviour."
+  whyItMatters: "With personalised ads, Meta uses your activity and the content you look at. On top of that come topics that might interest you, and profile details such as your job and education."
+  whatChanges: "Ads are then mainly based on what you are looking at right now in this session. On top of that come age, gender, location, device and how you react to ads. Your choice applies to all accounts in the same Accounts Center."
+  whatDoesNotChange: "You still see ads, sometimes with short ad breaks. Meta keeps recording your activity and uses it for your feed and suggestions. You can only have no ads at all with the paid subscription."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://accountscenter.facebook.com/
+  steps:
+    - "Click your profile picture at the top right, then “Settings & privacy” and “Settings”."
+    - "In the menu on the left, open “Accounts Center” and there “Ad preferences”."
+    - "In the “Manage info” tab, select “Ad experience”."
+    - "Choose less personalised ads and click “Confirm”."
+  affects: [fb-activity, fb-profile, fb-offplatform, fb-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the EU-specific help article “Verwalten, ob du mehr oder weniger stark personalisierte Werbung sehen möchtest” (German version); checked again on 2026-10-07 in a rendered browser (de-DE). The article carries the note “Diese Option ist nur in der Region Europa verfügbar” (“This option is only available in the Europe region”). Meta is gradually switching its menus to “Meta account”; labels may differ."
+  sources: [meta-help-manage-ad-experience, meta-help-less-personalised-ads, meta-help-ads-choices-eu]
+- id: facebook-activity-other-businesses
+  service: facebook
+  kind: setting
+  title: Stop data from other businesses being used for ads
+  goal: "Meta no longer uses what websites and apps report about your activity there for ads."
+  whyItMatters: "Many shops and apps report things like page views or purchases to Meta. This happens through small pieces of code from Meta (pixels and SDKs). These reports can decide which ads you see on Facebook and Instagram."
+  whatChanges: "According to Meta, you then no longer see ads based on these reports. The setting applies to all accounts in the same Accounts Center."
+  whatDoesNotChange: "Businesses can still send information to Meta. According to the company, Meta can anonymise it or use it to improve its products. Ads can also still be based on businesses' customer lists if your profile matches them."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://accountscenter.facebook.com/
+  steps: []
+  affects: [fb-offplatform]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Read again on 2026-10-21 in the rendered browser (de-DE, non-EU network). The help article describes the path “Settings & privacy > Settings > Meta Account > Your information and permissions > Activity from other businesses”, but still says that people in the European region or the UK have different options for their ad preferences. The linked Europe article (1241090626576242) and the EU articles on the ad experience do not mention the “Activity from other businesses” setting. We found no EU version with a menu path, so still no steps."
+  sources: [meta-help-activity-other-businesses, meta-help-off-meta-activity]
+- id: facebook-ai-training-objection
+  service: facebook
+  kind: setting
+  title: Object to the use of your data for Meta's AI
+  goal: "Meta no longer uses your public posts and comments to train its AI."
+  whyItMatters: "Since 27 May 2025, Meta has been training its AI with public content from adults in the EU and with conversations with Meta AI. This happens as long as you do not object."
+  whatChanges: "After you object, Meta, according to the company, no longer uses your Facebook information for training. Meta has announced that it will respect all objections, including later ones."
+  whatDoesNotChange: "Training that has already happened is not undone. Content that others post publicly about you can still be included. According to the company, Meta does not use private messages – unless they are shared with Meta AI."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.facebook.com/help/contact/712876720715583
+  steps: []
+  affects: [fb-content, fb-meta-ai]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Meta Newsroom and the Irish Data Protection Commission confirm that the objection form exists and what it does; the Hamburg data protection authority names the form address (as of 27 May 2025). On 2026-10-21 we found the help article on objections in Meta products (facebook.com/help/2069235856423257) in the rendered browser (de-DE, non-EU network), but it only shows that this information is not available in our region. The form itself requires a login, and the Privacy Center page on generative AI gives no menu path. So still no steps."
+  sources: [meta-newsroom-ai-training-eu-2025, meta-dpc-ai-statement-2025, meta-hmbbfdi-ai-objection-2025, meta-privacy-genai]
+- id: facebook-activity-log
+  service: facebook
+  kind: review
+  title: Look through your activity in the activity log
+  goal: "You see, in order, what Facebook has stored about your activity, and you can check the entries."
+  whyItMatters: "The log shows posts, likes, friendships, videos you watched, searches, locations and posts from apps and websites. This is exactly what your feed and ads are built from."
+  whatChanges: "You get an overview and can search for and edit single entries."
+  whatDoesNotChange: "Just looking through it does not delete anything. Technical records and data from partners are not fully included."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Click your profile picture at the top right and select “Settings & privacy”, then “Activity log”."
+    - "Click “Activity history” on the left."
+    - "Filter by date or by type of activity, for example “Logged information” for locations and search history."
+  affects: [fb-activity, fb-content, fb-connections, fb-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help article “Mithilfe des Aktivitätenprotokolls auf Facebook Inhalte finden” (German version, computer)."
+  sources: [facebook-help-activity-log]
+- id: facebook-export
+  service: facebook
+  kind: export
+  title: Download a copy of your Facebook data
+  goal: "You get a file with your posts, photos, messages, activity and the information Meta records."
+  whyItMatters: "The export shows you exactly what is stored – including information about ads. And it saves your content before you delete anything."
+  whatChanges: "You get a ZIP file in HTML or JSON format. You choose which areas, which time period and which image quality you want."
+  whatDoesNotChange: "Nothing changes in the stored data. The download is only available for a few days."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Click your profile picture at the top right, then “Settings & privacy” and “Settings”."
+    - "Select “Meta account” (or “Accounts Center”) and then “Your information and permissions”."
+    - "Click “Export your information” and “Create export”."
+    - "Select your Facebook profile and “Export to device”; choose the information, time period and format."
+    - "Click “Start export”. As soon as the export is ready, you will be notified and can download it for four days."
+  affects: [fb-content, fb-activity, fb-profile, fb-connections, fb-messages]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help article “Eine Kopie deiner Facebook-Informationen exportieren” (German version)."
+  sources: [facebook-help-export]
+- id: facebook-delete-account
+  service: facebook
+  kind: deletion
+  title: Permanently delete your Facebook profile
+  goal: "Your profile and everything you have added is deleted for good."
+  whyItMatters: "As long as the account exists, Meta keeps collecting data and keeps your content."
+  whatChanges: "For 30 days, you can cancel the deletion by signing in. After that, the account and content are deleted. This takes up to 90 days."
+  whatDoesNotChange: "Messages you have sent to others stay with them. Copies can stay in backups for a while. Meta may keep some things for longer for legal reasons. Other profiles in your Meta account, for example Instagram, remain."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web]
+  steps:
+    - "Export your data first if you want to keep it."
+    - "Click your profile picture at the top right, then “Settings & privacy” and “Settings”."
+    - "Select “Meta account”, then “Personal details” and “Account ownership and control”."
+    - "Click “Deactivation or deletion”, select the profile and follow the instructions to delete it."
+  affects: [fb-profile, fb-content, fb-activity, fb-connections]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help article “Dein Facebook-Profil dauerhaft löschen” (German version); depending on whether the account has been switched over, the article gives two versions of the menu."
+  sources: [facebook-help-delete-account]

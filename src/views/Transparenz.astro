@@ -1,0 +1,92 @@
+---
+import Base from '~/layouts/Base.astro';
+import TransparencyLive from '~/islands/TransparencyLive';
+import { keyDescriptions } from '~/domain/storage';
+import { TAB_KEY, tabKeyDescription } from '~/domain/selection';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  title: 'Wie diese Seite mit deinen Daten umgeht',
+  description: 'Live-Ansicht: Verbindungen, Cookies und gespeicherte Daten dieser Website – plus Export und Löschen.',
+  crumb: 'Transparenz',
+  h1: 'Was weiß Durchblick über dich?',
+  lead: 'So wenig wie technisch möglich. Du musst uns das nicht glauben: Unten siehst du live, was in deinem Browser passiert.',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'How this site handles your data',
+  description: 'Live view: connections, cookies and data stored by this website – plus export and deletion.',
+  crumb: t.nav.transparency,
+  h1: 'What does Durchblick know about you?',
+  lead: 'As little as is technically possible. You do not have to take our word for it: below you can see live what is happening in your browser.',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+const privacyHref = href(locale, 'privacy');
+---
+<Base title={s.title} description={s.description} path={href(locale, 'transparency')} crumbs={[{ label: s.crumb }]}>
+  <section>
+    <div class="wrap">
+      <h1>{s.h1}</h1>
+      <p class="lead">{s.lead}</p>
+      <TransparencyLive client:load locale={locale} />
+    </div>
+  </section>
+  <section aria-labelledby="facts-title">
+    <div class="wrap prose">
+      {locale === 'en' ? (
+        <>
+          <h2 id="facts-title">The full answer</h2>
+          <h3>What we do not have</h3>
+          <ul>
+            <li>No account, no sign-in, no email address.</li>
+            <li>No cookies, no analytics tools, no advertising, no social media buttons, no embedded videos.</li>
+            <li>No fonts, scripts or images from other servers. All files come from this domain.</li>
+            <li>No database, no server code of our own. The site consists of ready-made files that are the same for everyone.</li>
+          </ul>
+          <h3>What still happens for technical reasons</h3>
+          <p>When your browser requests a page, the server that delivers the files (the company that hosts this website – “hosting”) sees, as with any website, your IP address (the internet address of your connection), the address requested and details about your browser. Whether and for how long the hosting provider logs this access data depends on the provider; this is described in the <a href={privacyHref}>privacy policy</a>.</p>
+          <p>That is why we do not say “Nothing leaves your device”, but more precisely: <strong>your selection, your answers and your progress do not leave your device.</strong> They are calculated in your browser. Your selection stays in the open tab only and is not put into the address. Only when you share a link with your selection on purpose does it appear in an address (after the #); browsers do not send that part to servers either.</p>
+          <h3>For this tab only, without consent</h3>
+          <dl><dt><code>{TAB_KEY}</code></dt><dd>{tabKeyDescription(locale)}</dd></dl>
+          <p>This is not completely traceless: browsers keep data of open tabs on disk so that they can restore them.</p>
+          <h3>What may be saved on your device – only with your consent</h3>
+        </>
+      ) : (
+        <>
+          <h2 id="facts-title">Die ganze Antwort</h2>
+          <h3>Was wir nicht haben</h3>
+          <ul>
+            <li>Kein Konto, keine Anmeldung, keine E-Mail-Adresse.</li>
+            <li>Keine Cookies, keine Analyse-Werkzeuge, keine Werbung, keine Social-Media-Knöpfe, keine eingebetteten Videos.</li>
+            <li>Keine Schriften, Skripte oder Bilder von fremden Servern. Alle Dateien kommen von dieser Domain.</li>
+            <li>Keine Datenbank, kein eigener Server-Code. Die Seite besteht aus fertigen, für alle gleichen Dateien.</li>
+          </ul>
+          <h3>Was trotzdem technisch anfällt</h3>
+          <p>Wenn dein Browser eine Seite abruft, sieht der Server, der die Dateien ausliefert (die Firma, bei der diese Website liegt – „Hosting“), wie bei jeder Website deine IP-Adresse (die Internet-Adresse deines Anschlusses), die abgerufene Adresse und Browser-Angaben. Ob und wie lange das Hosting diese Zugriffsdaten protokolliert, hängt vom Anbieter ab; das ist in der <a href={privacyHref}>Datenschutzerklärung</a> beschrieben.</p>
+          <p>Deshalb sagen wir nicht „Nichts verlässt dein Gerät“, sondern genauer: <strong>Deine Auswahl, deine Antworten und dein Fortschritt verlassen dein Gerät nicht.</strong> Sie werden in deinem Browser berechnet. Deine Auswahl bleibt nur im geöffneten Tab und kommt nicht in die Adresse. Nur wenn du bewusst einen Link mit deiner Auswahl teilst, steht sie in einer Adresse (nach dem #); diesen Teil übertragen Browser ebenfalls nicht an Server.</p>
+          <h3>Nur für diesen Tab, ohne Zustimmung</h3>
+          <dl><dt><code>{TAB_KEY}</code></dt><dd>{tabKeyDescription(locale)}</dd></dl>
+          <p>Ganz spurlos ist das nicht: Browser legen Daten offener Tabs auf der Festplatte ab, um sie wiederherstellen zu können.</p>
+          <h3>Was auf deinem Gerät gespeichert werden kann – nur mit deiner Zustimmung</h3>
+        </>
+      )}
+      <dl>
+        {Object.entries(keyDescriptions(locale)).map(([k, v]) => (<><dt><code>{k}</code></dt><dd>{v}</dd></>))}
+      </dl>
+      {locale === 'en' ? (
+        <>
+          <p>For offline use, your browser also keeps a copy of a fixed set of the site’s files in its cache (service worker) – the same for everyone, not the pages you visited. It contains no data about you.</p>
+          <h3>External links</h3>
+          <p>Links to official settings pages (e.g. from Google or Meta) open the provider’s page. From there, the provider’s rules apply. We do not tell the other site that you are coming from Durchblick (no “referrer”).</p>
+        </>
+      ) : (
+        <>
+          <p>Für die Offline-Nutzung legt dein Browser außerdem eine Kopie einer festen Auswahl von Seiten-Dateien im Zwischenspeicher ab (Service Worker) – für alle gleich, nicht die Seiten, die du besucht hast. Darin stehen keine Daten über dich.</p>
+          <h3>Externe Links</h3>
+          <p>Links zu offiziellen Einstellungsseiten (z. B. von Google oder Meta) öffnen die Seite des Anbieters. Ab dort gelten dessen Regeln. Wir verraten der anderen Seite nicht, dass du von Durchblick kommst (kein „Referrer“).</p>
+        </>
+      )}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,86 @@
+---
+/**
+ * Datenprofil: ten dimensions, each a 4-step meter + word label + "Warum?".
+ * Level is conveyed by text first; the meter is decorative reinforcement.
+ */
+import { CONTROL_DIMENSIONS, EXPOSURE_DIMENSIONS, type Rating } from '~/domain/schema';
+import { summarise } from '~/domain/assessment';
+import { dict, href, localeOf } from '~/i18n';
+import { Evidence } from './Evidence';
+import { sourceCards } from '~/domain/projections';
+
+interface Props {
+  assessment: Record<string, Rating>;
+  serviceName: string;
+}
+const { assessment, serviceName } = Astro.props;
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  exposure: 'Typische Preisgabe:',
+  control: 'Kontrolle:',
+  noScore: (name: string) => `Keine Gesamtnote: Jede Zeile ist eine eigene, begründete Einordnung für ${name}.`,
+  provisional: ' Einzelne Einordnungen sind vorläufig, weil die Dokumentation lückenhaft ist.',
+  how: 'So ordnen wir ein',
+  level: (n: number) => `(Stufe ${n} von 4) – Begründung anzeigen`,
+  confidence: (c: string) => `Einordnung: ${c}.`,
+};
+const TXT_EN: typeof TXT_DE = {
+  exposure: 'Typical exposure:',
+  control: 'Control:',
+  noScore: (name) => `No overall score: each row is a separate, reasoned assessment for ${name}.`,
+  provisional: ' Some assessments are provisional because the documentation has gaps.',
+  how: 'How we assess',
+  level: (n) => `(level ${n} of 4) – show reasons`,
+  confidence: (c) => `Assessment: ${c}.`,
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+const summary = summarise(assessment as never);
+const groups = [
+  { key: 'exposure', title: t.groups.exposure, dims: EXPOSURE_DIMENSIONS, words: t.exposureLevels },
+  { key: 'control', title: t.groups.control, dims: CONTROL_DIMENSIONS, words: t.controlLevels },
+] as const;
+---
+<div class="profile">
+  <p class="profile-summary">
+    <span>{s.exposure} <strong>{t.exposureLevels[summary.exposure - 1]}</strong></span>
+    <span>{s.control} <strong>{t.controlLevels[summary.control - 1]}</strong></span>
+  </p>
+  <p class="small muted">
+    {s.noScore(serviceName)}
+    {summary.provisional && s.provisional}{' '}
+    <a href={`${href(locale, 'methodology')}#datenprofil`}>{s.how}</a>
+  </p>
+  <div class="profile-groups">
+    {groups.map((g) => (
+      <div class={`profile-group profile-${g.key}`}>
+        <h3>{g.title}</h3>
+        <ul class="meter-list">
+          {g.dims.map((d) => {
+            const r = assessment[d] as Rating;
+            const word = g.words[r.level - 1];
+            return (
+              <li class="meter-row">
+                <details>
+                  <summary>
+                    <span class="meter-label">{t.dimensions[d].label}</span>
+                    <span class="meter" aria-hidden="true">
+                      {[1, 2, 3, 4].map((i) => <span class={i <= r.level ? 'on' : ''} />)}
+                    </span>
+                    <span class="meter-word">{word}</span>
+                    <span class="visually-hidden">{s.level(r.level)}</span>
+                  </summary>
+                  <div class="meter-why">
+                    <p class="small muted">{t.dimensions[d].question}</p>
+                    <p class="small">{r.rationale}</p>
+                    <Evidence sources={sourceCards(r.sources)} confidence={s.confidence(t.confidence[r.confidence])} locale={locale} />
+                  </div>
+                </details>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </div>
+</div>

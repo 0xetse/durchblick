@@ -1,0 +1,213 @@
+# LinkedIn sources (prefix linkedin-). Retrieved 2026-10-08 via curl with German browser headers
+# (Accept-Language de-DE). LinkedIn served the German versions incl. the European regional notice;
+# the network exit was not in the EU, but the EU notice is a separate, explicitly regional document.
+- id: linkedin-privacy-policy
+  title: LinkedIn Datenschutzrichtlinie
+  publisher: LinkedIn
+  url: https://de.linkedin.com/legal/privacy-policy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Fassung „Mit Wirkung vom 3. November 2025“. Globale Richtlinie; für die EU ergänzt durch den regionalen europäischen Datenschutzhinweis. „Wenn Sie sich in den „designierten Ländern“ befinden, wird LinkedIn Ireland Unlimited Company („LinkedIn Ireland“) zum Verantwortlichen …“"
+- id: linkedin-eu-privacy-notice
+  title: Regionaler europäischer Datenschutzhinweis von LinkedIn
+  publisher: LinkedIn
+  url: https://de.linkedin.com/legal/privacy/eu
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Fassung „Mit Wirkung vom 21. August 2026“. Verantwortlicher in EU/EWR/Schweiz: LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2. Listet je Zweck Rechtsgrundlage und Datenarten; Hinweis vom 3. November 2025 zum KI-Training auf Grundlage berechtigter Interessen."
+- id: linkedin-help-genai-faq
+  title: LinkedIn und generative KI (Gen-KI) – Häufig gestellte Fragen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a5538339?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Nennt die Einstellung „Daten zur Verbesserung generativer KI“ (Link https://www.linkedin.com/mypreferences/d/settings/data-for-ai-improvement), die Trainingsdaten (Profil, Beiträge, Kommentare, Gruppennachrichten, KI-Eingaben, gespeicherte Lebensläufe) und Ausnahmen (private Nachrichten). „Der Widerspruch greift jedoch nicht rückwirkend …“. Enthält keine Schritt-für-Schritt-Anleitung."
+- id: linkedin-help-policy-updates
+  title: Aktualisierung der LinkedIn Nutzervereinbarung und Datenschutzrichtlinie
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1341216/updates-to-user-agreement-and-privacy-policy?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Änderungen vom 21. August 2026 (Alterskontrolle, Identitätsnachweis durch Dritte) und 2025 (mehr Daten an Microsoft für Werbung „für einige Regionen“; KI-Training mit berechtigtem Interesse als Rechtsgrundlage im europäischen Hinweis)."
+- id: linkedin-help-inferences
+  title: Schlussfolgerungen über Sie
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1337820?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Beispiele: Sprachen, Alter oder Geschlecht aus dem Profil, Interesse an Branchen und Themen, „dass Sie einen Job suchen“, Wahrscheinlichkeit von Handlungen, Interesse an LinkedIn Premium. „Ihr Profilfoto wird nicht verwendet …“"
+- id: linkedin-help-third-party-ad-data
+  title: So können Unternehmen und Websites LinkedIn fremde Daten für zielgruppenorientierte Werbung durch LinkedIn nutzen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a426264?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Kontakt-Targeting mit gehashten Kontaktdaten; Insight Tag: „ein JavaScript-Code, der Besuche von LinkedIn Mitgliedern auf externen Websites, auf denen das Tag aktiviert ist, verfolgt“; Identifizierungsmerkmale nach sieben Tagen entfernt, Rest nach 180 Tagen gelöscht. Schritte: Werbedaten > Daten von anderen für Anzeigen > Aus."
+- id: linkedin-help-third-party-data-use
+  title: Wie LinkedIn Daten von Dritten für Anzeigen verwendet
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a7157083?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Acht Anzeigenbörsen (Stand September 2025, u. a. Google AdX, Microsoft Monetize); Speicherfristen: Börsen-Daten 90 Tage, Kontaktlisten 30 Tage, Conversions-API 180 Tage, CRM-Daten bis 12 Monate. Microsofts UET-Tag nur „außerhalb der designierten Länder und des Vereinigten Königreichs“."
+- id: linkedin-help-ad-settings
+  title: Ihre LinkedIn Ads-Einstellungen aufrufen und verwalten
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1342443?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte: Symbol „Sie“ > Einstellungen & Datenschutz > Anzeigendaten; Abschnitte Profildaten, Aktivitäten und abgeleitete Daten, LinkedIn fremde Daten. „Keine der Anzeigeneinstellungen sorgt dafür, dass Sie keinerlei Werbung mehr auf LinkedIn angezeigt bekommen.“ Änderungen wirken „in der Regel innerhalb von 72 Stunden“."
+- id: linkedin-help-microsoft-ads-sharing
+  title: Weitergabe von Daten an verbundene Unternehmen und Partnern für Anzeigen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1397243?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„In diesem Artikel wird die Datenverarbeitung außerhalb der EU, des EWR, der Schweiz und des Vereinigten Königreichs beschrieben.“ Dort gibt LinkedIn Profil- und Aktivitätsdaten an Microsoft für Werbung weiter. Für die EU daher nicht anwendbar."
+- id: linkedin-help-download-data
+  title: Ihre Daten herunterladen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1339364?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte über Einstellungen & Datenschutz > Datenschutz > Ihre Daten herunterladen > Archiv anfordern; Download 72 Stunden verfügbar; nicht auf Mobilgeräten. Kategorien u. a. Anzeigen-Targeting, Schlussfolgerungen, Suchanfragen, Nachrichten, importierte Kontakte, KI-gestützte Unterhaltungen; Identitätsprüfung mit dem Drittanbieter CLEAR."
+- id: linkedin-help-close-account
+  title: Ihr LinkedIn Konto schließen und löschen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/63?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte für Desktop, iOS, Android und mobilen Browser; Wiedereröffnung meist möglich, „wenn es weniger als 14 Tage lang geschlossen war“; Premium-Mitgliedschaft und Gruppen-Verantwortung müssen vorher aufgelöst werden."
+- id: linkedin-help-delete-data
+  title: Löschen Ihrer Daten auf LinkedIn
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1342613?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Übersicht, was sich einzeln löschen lässt (u. a. Suchverlauf, Nachrichten, Lebenslauf, Unterhaltungsdaten aus KI-Profileinrichtung); für anderes gibt es ein Formular zur Löschung."
+- id: linkedin-help-pymk
+  title: Personen, die Sie vielleicht kennen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a544682?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Vorschläge „basieren auf Gemeinsamkeiten … sowie auf Kontakten, die Sie aus Ihren E-Mail- und mobilen Adressbüchern importiert haben“. „Wir scannen den Inhalt Ihrer Nachrichten nicht, um Ergebnisse für diese Funktion vorzuschlagen.“ Artikel laut Seite vor 5 Jahren aktualisiert, teils maschinell übersetzt."
+- id: linkedin-help-import-contacts
+  title: Ihre Kontakte importieren
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/4214?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "„… lädt LinkedIn Ihre Adressbuchkontakte und deren genaue Kontaktinformationen einmalig hoch. Danach können wir in regelmäßigen Abständen Details über Ihre Kontakte importieren und speichern …“; „Wir verwenden die Importdaten Ihrer Kontakte nicht für das Training allgemeiner KI-Modelle.“"
+- id: linkedin-help-delete-imported-contacts
+  title: Importierte Adressbuchkontakte von LinkedIn löschen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a563126?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Schritte Desktop und Mobilgerät über Einstellungen & Datenschutz > Synchronisierungsoptionen > Kontakte synchronisieren > Alle entfernen. „Deine Kontakte werden sofort gelöscht. Aktualisierungen von Vorschlägen können bis zu 72 Stunden dauern.“ Teils maschinell übersetzt."
+- id: linkedin-help-private-mode
+  title: Profile im privaten und halbprivaten Modus durchsuchen
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a567226?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Drei Modi: Name und Profil-Slogan, Private Profileigenschaften, Privatmodus. Schritte über Einstellungen & Datenschutz > Sichtbarkeit. Premium sieht Profilbesucher der letzten 90 Tage, aber keine Namen von Besucher*innen im Privatmodus."
+- id: linkedin-help-demographics
+  title: Wie LinkedIn Ihre persönlichen demografischen Daten verwendet
+  publisher: LinkedIn Hilfe
+  url: https://www.linkedin.com/help/linkedin/answer/a1336543?lang=de
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: global
+  language: de
+  note: "Freiwillige Angaben zu u. a. Geschlecht, ethnischer Zugehörigkeit; „Wir erlauben kein Anzeigen-Targeting auf der Grundlage von ethnischer Zugehörigkeit, Behinderungen oder anderen sensiblen Merkmalen.“ Alter und Geschlecht (abgeleitet oder angegeben) werden für Werbung genutzt."
+- id: linkedin-dpc-fine-2024
+  title: Irish Data Protection Commission fines LinkedIn Ireland €310 million
+  publisher: Data Protection Commission (Irland)
+  url: https://www.dataprotection.ie/en/news-media/press-releases/irish-data-protection-commission-fines-linkedin-ireland-eu310-million
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: en
+  note: "24. Oktober 2024: Verwarnung, Anordnung und Geldbußen von insgesamt 310 Mio. € wegen Verarbeitung für „behavioural analysis and targeted advertising“; Einwilligung für Daten von Dritten „not freely given, sufficiently informed or specific, or unambiguous“; Verstöße gegen Art. 5, 6, 13, 14 DSGVO."
+- id: linkedin-dpc-ai-statement-2025
+  title: DPC statement on LinkedIn AI Training
+  publisher: Data Protection Commission (Irland)
+  url: https://dataprotection.ie/en/news-media/latest-news/dpc-statement-linkedin-ai-training
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: en
+  note: "7. November 2025: LinkedIn verringerte nach Empfehlungen der DPC den Umfang der Trainingsdaten, auch beim Zeitraum; Widerspruch per Schalter in den Einstellungen oder per Formular. „The DPC has not approved, or found compliant, LinkedIn’s use of users’ personal data for generative AI model training.“"
+- id: linkedin-ap-ai-warning-2025
+  title: AP bezorgd over AI-training LinkedIn en roept gebruikers op om instellingen aan te passen
+  publisher: Autoriteit Persoonsgegevens (Niederlande)
+  url: https://www.autoriteitpersoonsgegevens.nl/actueel/ap-bezorgd-over-ai-training-linkedin-en-roept-gebruikers-op-om-instellingen-aan-te-passen
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: nl
+  note: "24. September 2025: „De instelling ‚Gegevens voor verbetering van generatieve AI‘ staat standaard aan.“ Daten, die einmal im Modell sind, seien „er niet zomaar meer uit te halen“. Nennt den Weg ‚Instellingen & Privacy → Gegevensprivacy → Gegevens voor verbetering van generatieve AI‘ (niederländische Oberfläche)."
+- id: linkedin-msft-10k-fy2026
+  title: Microsoft Corporation Form 10-K für das Geschäftsjahr bis 30. Juni 2026
+  publisher: Microsoft Corporation / U.S. SEC
+  url: https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Eingereicht am 29. Juli 2026. LinkedIn-Umsatz 19.817 Mio. USD (Vorjahr 17.812); „LinkedIn revenue increased $2.0 billion or 11% with growth across all lines of business.“ Geschäftsbereiche: Talent Solutions, Marketing Solutions, Premium Subscriptions, Sales Solutions. „Growth will depend on our ability to increase LinkedIn member engagement on the platform …“"

@@ -1,0 +1,1177 @@
+# Quellen für die Alternativen-Seite (content/alternatives.yaml). Abgerufen am 2026-10-07.
+- id: alt-windowsreport-privacy-sandbox
+  title: Google is scrapping Privacy Sandbox APIs as Chrome keeps third-party cookies
+  publisher: Windows Report
+  url: https://windowsreport.com/google-is-scrapping-privacy-sandbox-apis-as-chrome-keeps-third-party-cookies-after-all/
+  tier: 2
+  type: journalism
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-engadget-privacy-sandbox
+  title: Google has killed Privacy Sandbox
+  publisher: Engadget
+  url: https://engadget.com/cybersecurity/google-has-killed-privacy-sandbox-130029899.html
+  tier: 2
+  type: journalism
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-chromium-source
+  title: Chromium source
+  publisher: The Chromium Projects
+  url: https://chromium.googlesource.com/chromium/src
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-mozilla-firefox-privacy
+  title: Firefox Privacy Notice
+  publisher: Mozilla
+  url: https://www.mozilla.org/en-US/privacy/firefox/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-mjtsai-mozilla-google-revenue
+  title: Mozilla Also Defends Google Revenue Sharing Agreement
+  publisher: Michael Tsai
+  url: https://mjtsai.com/blog/2025/03/13/mozilla-also-defends-google-revenue-sharing-agreement
+  tier: 3
+  type: secondary
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-firefox-repo
+  title: Firefox source repository
+  publisher: Mozilla (GitHub)
+  url: https://github.com/mozilla-firefox/firefox
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-brave-browser-privacy
+  title: Brave Browser Privacy Policy
+  publisher: Brave
+  url: https://brave.com/privacy/browser/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-brave-browser-repo
+  title: brave-browser
+  publisher: GitHub
+  url: https://github.com/brave/brave-browser
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-apple-safari
+  title: Safari – Privacy
+  publisher: Apple
+  url: https://www.apple.com/safari/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-apple-icloud-security
+  title: iCloud data security overview
+  publisher: Apple Support
+  url: https://support.apple.com/en-us/102651
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-webkit-repo
+  title: WebKit source repository
+  publisher: WebKit (GitHub)
+  url: https://github.com/WebKit/WebKit
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-google-privacy-policy
+  title: Google Privacy Policy
+  publisher: Google
+  url: https://policies.google.com/privacy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-duckduckgo-privacy
+  title: DuckDuckGo Privacy Policy
+  publisher: DuckDuckGo
+  url: https://duckduckgo.com/privacy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-duckduckgo-pro-plan
+  title: DuckDuckGo's New Pro Plan
+  publisher: DuckDuckGo (Spread Privacy)
+  url: https://spreadprivacy.com/pro-subscription/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: US
+- id: alt-duckduckgo-github
+  title: DuckDuckGo open-source repositories
+  publisher: DuckDuckGo (GitHub)
+  url: https://github.com/duckduckgo
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-brave-search-premium
+  title: Brave Search Premium
+  publisher: Brave
+  url: https://search.brave.com/help/premium
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-brave-search-ads
+  title: Brave debuts privacy-preserving ads in its search engine
+  publisher: Brave
+  url: https://brave.com/private-search-ads/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-sej-brave-search-index
+  title: Brave Search cuts ties with Bing
+  publisher: Search Engine Journal
+  url: https://www.searchenginejournal.com/brave-search-cuts-ties-with-bing-goes-independent/485736/
+  tier: 2
+  type: journalism
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-wikipedia-startpage
+  title: Startpage
+  publisher: Wikipedia
+  url: https://en.wikipedia.org/wiki/Startpage
+  tier: 3
+  type: secondary
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-startpage-privacy
+  title: Startpage Privacy Policy
+  publisher: Startpage
+  url: https://www.startpage.com/en/privacy-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-ecosia-privacy
+  title: Ecosia Privacy
+  publisher: Ecosia
+  url: https://www.ecosia.org/privacy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-ecosia-eusp
+  title: We're teaming up with Qwant to build a European search index
+  publisher: Ecosia
+  url: https://blog.ecosia.org/eusp/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-ecosia-privacy-blog
+  title: How Ecosia protects your privacy online
+  publisher: Ecosia
+  url: https://blog.ecosia.org/ecosia-privacy-data
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-gmail-ads-help
+  title: Ads in Gmail
+  publisher: Google Gmail Help
+  url: https://support.google.com/mail/answer/6603
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-proton-plans
+  title: Proton plans
+  publisher: Proton Support
+  url: https://proton.me/support/proton-plans
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-proton-mail-pricing
+  title: Proton Mail pricing
+  publisher: Proton
+  url: https://proton.me/mail/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-proton-mail-github
+  title: Proton Mail open-source repositories
+  publisher: Proton (GitHub)
+  url: https://github.com/ProtonMail
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-tuta-pricing
+  title: Tuta Pricing
+  publisher: Tuta
+  url: https://tuta.com/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-tuta-encryption
+  title: Tuta Encryption
+  publisher: Tuta
+  url: https://tuta.com/encryption
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-tuta-repo
+  title: Tuta client source
+  publisher: Tuta (GitHub)
+  url: https://github.com/tutao/tutanota
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-posteo-features
+  title: Posteo Features
+  publisher: Posteo
+  url: https://posteo.de/en/site/features
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: DE
+- id: alt-mailbox-org-prices
+  title: mailbox.org Prices
+  publisher: mailbox.org
+  url: https://mailbox.org/en/prices
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: DE
+- id: alt-apple-maps
+  title: Apple Maps
+  publisher: Apple
+  url: https://www.apple.com/maps/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-organic-maps
+  title: Organic Maps
+  publisher: Organic Maps
+  url: https://organicmaps.app/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-alternativeto-organic-maps-fork
+  title: Organic Maps contributors fork project
+  publisher: AlternativeTo
+  url: https://alternativeto.net/news/2025/5/organic-maps-contributors-fork-project-as-concerns-over-governance-and-transparency-grow/
+  tier: 3
+  type: secondary
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-organic-maps-repo
+  title: Organic Maps source
+  publisher: Organic Maps (GitHub)
+  url: https://github.com/organicmaps/organicmaps
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-comaps
+  title: CoMaps
+  publisher: CoMaps
+  url: https://www.comaps.app/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-comaps-history
+  title: What is the CoMaps history
+  publisher: CoMaps
+  url: https://www.comaps.app/support/what-is-the-comaps-history/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-wikipedia-comaps
+  title: CoMaps
+  publisher: Wikipedia
+  url: https://en.wikipedia.org/wiki/CoMaps
+  tier: 3
+  type: secondary
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-comaps-repo
+  title: CoMaps source
+  publisher: CoMaps (Codeberg)
+  url: https://codeberg.org/comaps
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-osmand-purchases
+  title: OsmAnd Purchases
+  publisher: OsmAnd
+  url: https://osmand.net/docs/user/purchases/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-osmand-repo
+  title: OsmAnd
+  publisher: GitHub
+  url: https://github.com/osmandapp/OsmAnd
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-us-v-google-doj
+  title: 'U.S. and Plaintiff States v. Google LLC (search case)'
+  publisher: 'U.S. Department of Justice, Antitrust Division'
+  url: https://www.justice.gov/atr/case/us-and-plaintiff-states-v-google-llc
+  tier: 1
+  type: regulator
+  retrievedAt: '2026-10-21'
+  region: US
+- id: alt-apple-safari-privacy
+  title: 'Safari & Privacy'
+  publisher: 'Apple'
+  url: https://www.apple.com/legal/privacy/data/en/safari/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-apple-icloud-windows-passwords
+  title: 'Set up iCloud Passwords on your Windows computer'
+  publisher: 'Apple'
+  url: https://support.apple.com/guide/icloud-windows/set-up-icloud-passwords-icw2babf5e03/icloud
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-apple-icloud-windows-bookmarks
+  title: 'Bookmarks in iCloud for Windows'
+  publisher: 'Apple'
+  url: https://support.apple.com/guide/icloud-windows/bookmarks-icw4a50de3c3/icloud
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-duckduckgo-cost
+  title: 'How much does DuckDuckGo cost?'
+  publisher: 'DuckDuckGo'
+  url: https://duckduckgo.com/duckduckgo-help-pages/get-duckduckgo/how-much-does-duckduckgo-cost
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-duckduckgo-result-sources
+  title: 'Where do DuckDuckGo search results come from?'
+  publisher: 'DuckDuckGo'
+  url: https://duckduckgo.com/duckduckgo-help-pages/results/sources
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-duckduckgo-browsers
+  title: 'Adding DuckDuckGo to your browser'
+  publisher: 'DuckDuckGo'
+  url: https://duckduckgo.com/duckduckgo-help-pages/desktop/adding-duckduckgo-to-your-browser
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-duckduckgo-bangs
+  title: '!Bangs'
+  publisher: 'DuckDuckGo'
+  url: https://duckduckgo.com/duckduckgo-help-pages/features/bangs
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-brave-premium-pricing
+  title: 'Brave premium'
+  publisher: 'Brave'
+  url: https://brave.com/premium/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-brave-search-independence
+  title: 'Brave Search removes last remnant of Bing from search results page'
+  publisher: 'Brave'
+  url: https://brave.com/blog/search-independence/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-brave-search-help
+  title: 'How to use Brave Search: an overview'
+  publisher: 'Brave'
+  url: https://search.brave.com/help/index
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-startpage-how-it-works
+  title: 'How Startpage Works'
+  publisher: 'Startpage'
+  url: https://www.startpage.com/en/how-startpage-works/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-system1-10k-2023
+  title: 'System1, Inc. Annual Report (Form 10-K) 2023'
+  publisher: 'System1, Inc. (SEC EDGAR)'
+  url: https://www.sec.gov/Archives/edgar/data/1805833/000180583324000041/sst-20231231.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: US
+- id: alt-ecosia-ip-addresses
+  title: 'How Ecosia protects your privacy'
+  publisher: 'Ecosia'
+  url: https://support.ecosia.org/article/377-ip-addresses
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-ecosia-result-providers
+  title: 'Search result providers'
+  publisher: 'Ecosia'
+  url: https://support.ecosia.org/article/579-search-results-providers
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-ecosia-how-money
+  title: 'How Ecosia makes money'
+  publisher: 'Ecosia'
+  url: https://support.ecosia.org/article/33-how-does-ecosia-make-money
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-gmail-privacy-help
+  title: 'How Gmail protects your privacy and keeps you in control'
+  publisher: 'Google'
+  url: https://support.google.com/mail/answer/10434152?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-gmail-encryption-help
+  title: 'Learn how Gmail encrypts your emails'
+  publisher: 'Google'
+  url: https://support.google.com/mail/answer/6330403?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-storage-help
+  title: 'How storage works in Google Drive, Gmail and Google Photos'
+  publisher: 'Google'
+  url: https://support.google.com/googleone/answer/9312312?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-gmail-custom-domain-help
+  title: 'Verify your domain to unlock features (for Gmail accounts)'
+  publisher: 'Google'
+  url: https://support.google.com/a/answer/15627411?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-tuta-blog-prices
+  title: 'Tuta vs. StartMail (plan prices)'
+  publisher: 'Tuta'
+  url: https://tuta.com/blog/tuta-vs-startmail
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-tuta-setup-guide
+  title: 'How to use Tuta Mail (step-by-step guide)'
+  publisher: 'Tuta'
+  url: https://tuta.com/blog/how-to-set-up-and-use-tuta-mail
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-mailbox-org-security
+  title: 'Email encryption: Best protection for your data'
+  publisher: 'mailbox.org'
+  url: https://mailbox.org/en/security/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: DE
+- id: alt-mailbox-org-legal
+  title: 'Legal information'
+  publisher: 'mailbox.org'
+  url: https://mailbox.org/en/legal-information/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: DE
+- id: alt-mailbox-org-pwa
+  title: 'Setting up mailbox as an app'
+  publisher: 'mailbox.org'
+  url: https://kb.mailbox.org/en/private/account/setting-up-the-progressive-web-app-pwa-from-mailbox/
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: DE
+- id: alt-google-maps-privacy-help
+  title: 'How Google protects your privacy & keeps you in control (Google Maps)'
+  publisher: 'Google'
+  url: https://support.google.com/maps/answer/10400210?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-maps-offline-help
+  title: 'Download areas & navigate offline in Google Maps'
+  publisher: 'Google'
+  url: https://support.google.com/maps/answer/6291838?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-maps-ads-help
+  title: 'About ads in Maps'
+  publisher: 'Google'
+  url: https://support.google.com/maps/answer/9947218?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-maps-carplay-help
+  title: 'Use Google Maps on CarPlay'
+  publisher: 'Google'
+  url: https://support.google.com/maps/answer/9432062?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-android-auto-navigation-help
+  title: 'Get turn-by-turn navigation (Android Auto)'
+  publisher: 'Google'
+  url: https://support.google.com/androidauto/answer/6348322?hl=en
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-maps-platform-pricing
+  title: 'Google Maps Platform Pricing'
+  publisher: 'Google'
+  url: https://mapsplatform.google.com/pricing/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-comaps-news
+  title: 'CoMaps News (release notes)'
+  publisher: 'CoMaps'
+  url: https://www.comaps.app/news/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-osmand-purchases-android
+  title: 'Android Purchases'
+  publisher: 'OsmAnd'
+  url: https://osmand.net/docs/user/purchases/android
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-osmand-purchases-ios
+  title: 'iOS Purchases'
+  publisher: 'OsmAnd'
+  url: https://osmand.net/docs/user/purchases/ios
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-osmand-privacy
+  title: 'Privacy Policy'
+  publisher: 'OsmAnd'
+  url: https://osmand.net/help-online/privacy-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-whatsapp-privacy-eea
+  title: WhatsApp Privacy Policy
+  publisher: WhatsApp
+  url: https://www.whatsapp.com/legal/privacy-policy-eea
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-signal-bigbrother
+  title: Government Communication
+  publisher: Signal
+  url: https://signal.org/bigbrother/
+  tier: 1
+  type: transparency-report
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-donate
+  title: Donate to Signal
+  publisher: Signal
+  url: https://signal.org/donate/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-github
+  title: Signal source repositories
+  publisher: Signal (GitHub)
+  url: https://github.com/signalapp
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-threema
+  title: Threema
+  publisher: Threema
+  url: https://threema.com/en
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-threema-pricing
+  title: Threema Pricing
+  publisher: Threema
+  url: https://threema.com/en/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-threema-github
+  title: Threema source repositories
+  publisher: Threema (GitHub)
+  url: https://github.com/threema-ch
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-proton-drive-pricing
+  title: Proton Drive pricing
+  publisher: Proton
+  url: https://proton.me/drive/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-proton-drive-github
+  title: Proton Drive apps source
+  publisher: Proton (GitHub)
+  url: https://github.com/ProtonDriveApps
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-nextcloud-repo
+  title: Nextcloud server
+  publisher: GitHub
+  url: https://github.com/nextcloud/server
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-hetzner-storage-share
+  title: Storage Share
+  publisher: Hetzner
+  url: https://www.hetzner.com/de/storage/storage-share/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: DE
+- id: alt-tresorit-pricing
+  title: Tresorit Personal Pricing
+  publisher: Tresorit
+  url: https://www.tresorit.com/pricing/personal
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-openai-data-controls
+  title: Data Controls FAQ
+  publisher: OpenAI Help Center
+  url: https://help.openai.com/en/articles/7730893-data-controls-faq
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-mistral-pricing
+  title: Mistral Pricing
+  publisher: Mistral AI
+  url: https://mistral.ai/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: EU
+- id: alt-duckai-privacy
+  title: Duck.ai Privacy
+  publisher: DuckDuckGo Help
+  url: https://duckduckgo.com/duckduckgo-help-pages/duckai/ai-chat-privacy
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-proton-lumo-pricing
+  title: Lumo Pricing
+  publisher: Proton
+  url: https://proton.me/lumo/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-ollama-repo
+  title: ollama/ollama
+  publisher: GitHub
+  url: https://github.com/ollama/ollama
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-lmstudio
+  title: LM Studio
+  publisher: LM Studio
+  url: https://lmstudio.ai/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-youtube-watch-history-help
+  title: Manage your YouTube watch history
+  publisher: YouTube Help
+  url: https://support.google.com/youtube/answer/95725
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-peertube-faq
+  title: PeerTube FAQ
+  publisher: Framasoft
+  url: https://joinpeertube.org/en_US/faq
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-peertube-repo
+  title: PeerTube source
+  publisher: Framasoft (GitHub)
+  url: https://github.com/Chocobozzz/PeerTube
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-nebula
+  title: Nebula
+  publisher: Nebula
+  url: https://nebula.tv/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-apple-feature-availability
+  title: iOS and iPadOS Feature Availability (Maps – Transit, Cycling, Look Around)
+  publisher: Apple
+  url: https://www.apple.com/ios/feature-availability/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-duckduckgo-apple-maps
+  title: DuckDuckGo Taps Apple Maps to Power Private Search Results
+  publisher: DuckDuckGo (Spread Privacy)
+  url: https://spreadprivacy.com/duckduckgo-apple-mapkit-js/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-comaps-carplay
+  title: Release 2025.08.31 – CarPlay is Available, Improved Routing
+  publisher: CoMaps
+  url: https://www.comaps.app/news/2025-08-31/Release-2025.08.31-CarPlay-is-Available-Improved-Routing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-osmand-android-auto
+  title: Android Auto
+  publisher: OsmAnd
+  url: https://osmand.net/docs/user/navigation/auto-car/
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-signal-secure-backups
+  title: Introducing Signal Secure Backups
+  publisher: Signal
+  url: https://signal.org/blog/introducing-secure-backups/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-threema-desktop
+  title: What are the system requirements for the desktop app?
+  publisher: Threema
+  url: https://threema.com/en/faq/desktop-requirements
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-07'
+  region: global
+- id: alt-whatsapp-blog-updates-tab
+  title: 'Helping you find more channels and businesses on WhatsApp'
+  publisher: 'WhatsApp Blog'
+  url: https://blog.whatsapp.com/helping-you-find-more-channels-and-businesses-on-whatsapp
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-whatsapp-encryption-whitepaper
+  title: 'WhatsApp Encryption Overview (Technical white paper)'
+  publisher: 'WhatsApp'
+  url: https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-whatsapp-e2ee-backup-help
+  title: 'About end-to-end encrypted backup'
+  publisher: 'WhatsApp Help Center'
+  url: https://faq.whatsapp.com/490592613091019
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-secure-backups-help
+  title: 'Signal Secure Backups'
+  publisher: 'Signal Support'
+  url: https://support.signal.org/hc/en-us/articles/9708267671322
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-installing
+  title: 'Installing Signal'
+  publisher: 'Signal Support'
+  url: https://support.signal.org/hc/en-us/articles/360008216551
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-register-number
+  title: 'Register a phone number'
+  publisher: 'Signal Support'
+  url: https://support.signal.org/hc/en-us/articles/360007318691
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-usernames
+  title: 'Phone Number Privacy and Usernames'
+  publisher: 'Signal Support'
+  url: https://support.signal.org/hc/en-us/articles/6712070553754
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-signal-numberless-beta
+  title: 'Phone Numberless Registration for Android beta'
+  publisher: 'Signal Support'
+  url: https://support.signal.org/hc/en-us/articles/11197884108826
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-one-storage
+  title: 'How your Google storage works'
+  publisher: 'Google One Help'
+  url: https://support.google.com/googleone/answer/9312312
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-one-family
+  title: 'Share Google One with your family'
+  publisher: 'Google One Help'
+  url: https://support.google.com/googleone/answer/9004014
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-drive-encryption
+  title: 'Get started with encrypted files in Drive, Docs, Sheets & Slides'
+  publisher: 'Google Drive Help'
+  url: https://support.google.com/drive/answer/10519333
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-drive-download
+  title: 'Download a file'
+  publisher: 'Google Drive Help'
+  url: https://support.google.com/drive/answer/2423534
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-google-photos-backup
+  title: 'Back up photos & videos'
+  publisher: 'Google Photos Help'
+  url: https://support.google.com/photos/answer/6193313
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-proton-drive-security
+  title: 'Proton Drive security'
+  publisher: 'Proton'
+  url: https://proton.me/drive/security
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-proton-drive-download
+  title: 'Download Proton Drive'
+  publisher: 'Proton'
+  url: https://proton.me/drive/download
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-proton-drive-photo-backup
+  title: 'Proton Drive photo backup for iPhone'
+  publisher: 'Proton Blog'
+  url: https://proton.me/blog/proton-drive-photo-backup-ios
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nextcloud-imprint
+  title: 'Impressum'
+  publisher: 'Nextcloud GmbH'
+  url: https://nextcloud.com/impressum/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: DE
+- id: alt-nextcloud-enterprise
+  title: 'Nextcloud Enterprise'
+  publisher: 'Nextcloud GmbH'
+  url: https://nextcloud.com/enterprise/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nextcloud-sse-docs
+  title: 'Server-side encryption'
+  publisher: 'Nextcloud Administration Manual'
+  url: https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/encryption_configuration.html
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nextcloud-e2ee-docs
+  title: 'Using end-to-end encryption'
+  publisher: 'Nextcloud User Manual'
+  url: https://docs.nextcloud.com/server/stable/user_manual/en/files/using_e2ee.html
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-tresorit-basic
+  title: 'Tresorit Basic'
+  publisher: 'Tresorit'
+  url: https://tresorit.com/pricing/basic
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-tresorit-privacy
+  title: 'Privacy Policy'
+  publisher: 'Tresorit'
+  url: https://tresorit.com/legal/privacy-policy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-tresorit-about
+  title: 'About us'
+  publisher: 'Tresorit'
+  url: https://tresorit.com/about-us
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-openai-ads-europe
+  title: 'ChatGPT Ads expands across Europe'
+  publisher: 'OpenAI'
+  url: https://openai.com/index/chatgpt-ads-expands-across-europe/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-openai-ads-help
+  title: 'Ads in ChatGPT'
+  publisher: 'OpenAI Help Center'
+  url: https://help.openai.com/en/articles/20001047-ads-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-openai-eu-privacy
+  title: 'EU Privacy Policy'
+  publisher: 'OpenAI'
+  url: https://openai.com/policies/eu-privacy-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-chatgpt-pricing
+  title: 'Pricing'
+  publisher: 'ChatGPT (OpenAI)'
+  url: https://learn.chatgpt.com/docs/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-proton-lumo-2
+  title: 'Introducing Lumo 2.0'
+  publisher: 'Proton Blog'
+  url: https://proton.me/blog/lumo-2
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-proton-lumo-launch
+  title: 'Introducing Lumo, the AI where every conversation is confidential'
+  publisher: 'Proton Blog'
+  url: https://proton.me/blog/lumo-ai
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-proton-webclients-repo
+  title: 'Proton web clients (including Lumo)'
+  publisher: 'Proton (GitHub)'
+  url: https://github.com/ProtonMail/WebClients
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-lmstudio-offline
+  title: 'Offline Operation'
+  publisher: 'LM Studio Docs'
+  url: https://lmstudio.ai/docs/app/offline
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-lmstudio-pricing
+  title: 'Pricing'
+  publisher: 'LM Studio'
+  url: https://lmstudio.ai/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-ollama-faq
+  title: 'FAQ'
+  publisher: 'Ollama Docs'
+  url: https://docs.ollama.com/faq
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-ollama-pricing
+  title: 'Pricing'
+  publisher: 'Ollama'
+  url: https://ollama.com/pricing
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-youtube-terms
+  title: 'Terms of Service'
+  publisher: 'YouTube'
+  url: https://www.youtube.com/t/terms
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: EU
+- id: alt-youtube-tv-app-help
+  title: 'Download the YouTube app on your smart TV or game console'
+  publisher: 'YouTube Help'
+  url: https://support.google.com/youtube/answer/16432961
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-youtube-premium-help
+  title: 'Your content & YouTube Premium'
+  publisher: 'YouTube Help'
+  url: https://support.google.com/youtube/answer/6306276
+  tier: 1
+  type: help-center
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-peertube-app
+  title: 'PeerTube app'
+  publisher: 'Framasoft (JoinPeerTube)'
+  url: https://joinpeertube.org/news/peertube-app
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-framasoft
+  title: 'Framasoft'
+  publisher: 'Framasoft'
+  url: https://framasoft.org/en/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nebula-pricing-blog
+  title: 'Pricing Updates'
+  publisher: 'Nebula Blog'
+  url: https://blog.nebula.tv/pricing-updates/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nebula-talent
+  title: 'Nebula Talent'
+  publisher: 'Nebula'
+  url: https://talent.nebula.tv/
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global
+- id: alt-nebula-app-store
+  title: 'Nebula: Watch Something Smart (App-Store-Eintrag mit Datenschutzangaben des Anbieters)'
+  publisher: 'Apple App Store'
+  url: https://apps.apple.com/de/app/nebula-watch-something-smart/id1447033725
+  tier: 1
+  type: official-docs
+  retrievedAt: '2026-10-21'
+  region: global

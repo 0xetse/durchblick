@@ -1,0 +1,6 @@
+# Changes to workflows, repository settings files and the security-relevant
+# browser configuration need a review by the maintainer.
+/.github/              @0xetse
+/public/_headers       @0xetse
+/public/sw.js          @0xetse
+/public/.well-known/   @0xetse

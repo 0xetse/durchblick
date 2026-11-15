@@ -1,0 +1,167 @@
+- id: telegram-secret-chat
+  service: telegram
+  kind: setting
+  title: Geheimen Chat für vertrauliche Gespräche starten
+  goal: "Ein Gespräch zu zweit ist Ende-zu-Ende-verschlüsselt: Nur du und dein Gegenüber könnt es lesen, Telegram nicht."
+  whyItMatters: "Normale Telegram-Chats liegen bei Telegram, und Telegram hat die Schlüssel. Nur in Geheimen Chats bleibt der Inhalt auf euren beiden Geräten."
+  whatChanges: "Der neue Chat ist Ende-zu-Ende-verschlüsselt und wird nicht bei Telegram gespeichert. Nachrichten lassen sich nicht weiterleiten. Mit dem Selbstzerstörungs-Timer verschwinden sie nach einer gewählten Zeit auf beiden Geräten."
+  whatDoesNotChange: "Dein bisheriger normaler Chat mit der Person bleibt, wie er ist. Gruppen können keine Geheimen Chats sein. Telegram sieht weiter dein Konto, deine Kontakte und deine IP-Adresse. Dein Gegenüber kann trotzdem Bildschirmfotos machen."
+  tradeOff: "Der Geheime Chat ist nur auf dem Gerät da, auf dem du ihn gestartet hast. Meldest du dich ab, ist er weg."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://telegram.org/faq/de#f-wie-kann-ich-einen-geheimen-chat-starten
+  steps:
+    - "Öffne den normalen Chat mit der Person und tippe oben auf ihr Profilbild."
+    - "Tippe auf „…“ und dann auf „Geheimen Chat starten“."
+    - "Optional: Stelle den Selbstzerstörungs-Timer ein. iPhone: im Geheimen Chat auf die kleine Stoppuhr im Texteingabefeld tippen. Android: im Geheimen Chat oben auf das Profilbild tippen."
+    - "Optional: Vergleicht das Schlüssel-Bild in den Einstellungen des Geheimen Chats, am besten persönlich. Ist es gleich, ist die Verbindung sicher."
+  affects: [tg-cloud-chats, tg-secret-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der deutschen Telegram-FAQ („Wie kann ich einen Geheimen Chat starten?“, „Wie funktioniert die Selbstzerstörung der Nachrichten?“, Schlüssel-Vergleich) abgeglichen; Eigenschaften mit der englischen FAQ und Abschnitt 3.3.2 der Datenschutzerklärung. Nicht in der App geprüft."
+  sources: [telegram-faq-de, telegram-faq, telegram-privacy-policy]
+- id: telegram-phone-number
+  service: telegram
+  kind: setting
+  title: Festlegen, wer deine Telefonnummer sieht
+  goal: "Deine Handynummer sehen nur die Menschen, denen du sie zeigen willst."
+  whyItMatters: "In Gruppen triffst du viele Fremde. Wer deine Nummer sieht, kann dich auch außerhalb von Telegram erreichen."
+  whatChanges: "Andere sehen deine Nummer nur noch nach deiner Einstellung. Standardmäßig sind das nur Personen, die du als Kontakt gespeichert hast."
+  whatDoesNotChange: "Wer deine Nummer schon kennt und gespeichert hat, sieht sie trotzdem. Telegram selbst kennt deine Nummer weiter – und kann sie auf gerichtliche Anordnung an Behörden geben."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios, desktop-app]
+  officialUrl: https://telegram.org/faq/de#f-wer-kann-meine-nummer-sehen
+  steps:
+    - "Öffne in Telegram „Einstellungen“ → „Privatsphäre und Sicherheit“ → „Telefonnummer“."
+    - "Lege fest, wer deine Nummer sehen darf."
+  affects: [tg-account]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menüpfad mit der deutschen Telegram-FAQ („Wer kann meine Nummer sehen?“) und der englischen FAQ („Settings > Privacy and Security > Phone Number“) abgeglichen. Die Namen der einzelnen Auswahl-Optionen nennt die FAQ nicht. Nicht in der App geprüft."
+  sources: [telegram-faq-de, telegram-faq]
+- id: telegram-contact-sync
+  service: telegram
+  kind: setting
+  title: Kontakt-Synchronisierung beenden und gespeicherte Kontakte löschen
+  goal: "Telegram gleicht dein Adressbuch nicht mehr ab und löscht die gespeicherten Kontakte."
+  whyItMatters: "Mit deiner Einwilligung speichert Telegram Nummern und Namen aus deinem Adressbuch – auch von Menschen, die Telegram gar nicht nutzen."
+  whatChanges: "Die bei Telegram gespeicherten Kontakte werden gelöscht. Ist die Synchronisierung aus, lädt Telegram keine neuen Kontakte mehr hoch."
+  whatDoesNotChange: "Andere können deine Nummer weiter über ihr Adressbuch übermitteln. Chats und Gruppen bleiben. Telegram kennt weiter die Menschen, mit denen du schreibst."
+  tradeOff: "Telegram zeigt dir dann nicht mehr automatisch, wer aus deinem Adressbuch Telegram nutzt."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Öffne „Einstellungen“ → „Privatsphäre und Sicherheit“. Auf dem iPhone tippst du zusätzlich auf „Dateneinstellungen“."
+    - "Schalte die Synchronisierung der Kontakte aus."
+    - "Tippe auf „Synchronisierte Kontakte löschen“."
+  affects: [tg-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Mit Abschnitt 3.4 der deutschen Datenschutzerklärung („In den Telegram Einstellungen unter Privatsphäre und Sicherheit (bei iOS im Untermenü Dateneinstellungen) kannst du die Synchronisierung von Kontakten jederzeit beenden oder die Kontakte von unseren Servern löschen.“) und der deutschen FAQ („Synchronisierte Kontakte löschen“) abgeglichen. Die genaue Beschriftung des Schalters für die Synchronisierung nennen die Quellen nicht. Nicht in der App geprüft."
+  sources: [telegram-privacy-policy, telegram-faq-de]
+- id: telegram-frequent-contacts
+  service: telegram
+  kind: setting
+  title: Vorschläge für häufige Kontakte abschalten
+  goal: "Telegram berechnet nicht mehr, wen du häufig anschreibst, und löscht diese Daten."
+  whyItMatters: "Für die Vorschläge in der Suche bewertet Telegram, mit welchen Personen und Bots du oft zu tun hast."
+  whatChanges: "Die Bewertung und die zugehörigen Daten werden gelöscht. Oben in der Suche erscheinen keine Vorschläge mehr."
+  whatDoesNotChange: "Deine Chats bleiben bei Telegram gespeichert. Metadaten wie IP-Adresse und Geräte bleiben bis zu 12 Monate."
+  tradeOff: "Du findest Personen, mit denen du oft schreibst, nicht mehr mit einem Tipp in der Suche."
+  impact: low
+  minutes: 1
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Öffne „Einstellungen“ → „Privatsphäre und Sicherheit“. Auf dem iPhone tippst du zusätzlich auf „Dateneinstellungen“."
+    - "Deaktiviere „Häufige Kontakte vorschlagen“ (in der FAQ: „Vorschläge für häufige Kontakte“)."
+  affects: [tg-usage-aggregates]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Mit Abschnitt 5.5 der deutschen Datenschutzerklärung („Um diese Funktion zu deaktivieren und die relevanten Daten zu löschen, gehe zu Einstellungen > Privatsphäre und Sicherheit (bei iOS zusätzlich Dateneinstellungen) und deaktiviere ‚Häufige Kontakte vorschlagen‘.“) und der deutschen FAQ abgeglichen. Beide Quellen nennen leicht unterschiedliche Bezeichnungen. Nicht in der App geprüft."
+  sources: [telegram-privacy-policy, telegram-faq-de]
+- id: telegram-export-data
+  service: telegram
+  kind: export
+  title: Deine Telegram-Daten exportieren
+  goal: "Du bekommst eine Kopie deiner Chats und Kontodaten als Datei."
+  whyItMatters: "Normale Chats liegen bei Telegram. Mit dem Export siehst du, was dort gespeichert ist, und kannst es sichern, bevor du etwas löschst."
+  whatChanges: "Telegram erstellt eine Kopie, wahlweise als Webseite (HTML) oder als maschinenlesbare Datei (JSON)."
+  whatDoesNotChange: "Bei Telegram wird nichts gelöscht. Geheime Chats liegen nur auf deinem Gerät und sind nicht in der Cloud."
+  impact: medium
+  minutes: 15
+  difficulty: medium
+  platforms: [desktop-app]
+  officialUrl: https://core.telegram.org/import-export
+  steps:
+    - "Installiere Telegram Desktop auf deinem Computer und melde dich an."
+    - "Klicke auf „Settings“ → „Advanced“ → „Export Telegram data“. Telegram nennt den Weg nur mit englischen Bezeichnungen."
+    - "Wähle das Format: „HTML“ zum Lesen im Browser oder „JSON“ als maschinenlesbare Datei."
+    - "Öffne nach dem Export die Datei „export_results.html“ in deinem Browser."
+  affects: [tg-account, tg-cloud-chats, tg-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Menüpfad mit der offiziellen Telegram-Dokumentation „Telegram Data Export Schema“ (core.telegram.org/import-export, abgerufen 2026-10-21) abgeglichen: „make sure you have Telegram Desktop installed on your computer, then click Settings > Advanced > Export Telegram data“, Export als JSON oder HTML, Startdatei „export_results.html“. Die Seite nennt nur englische Menünamen. Die FAQ bestätigt, dass Telegram Desktop Daten exportieren kann. Nicht in der App geprüft."
+  sources: [telegram-core-export, telegram-faq, telegram-blog-export, telegram-privacy-policy]
+- id: telegram-delete-account
+  service: telegram
+  kind: deletion
+  title: Telegram-Konto löschen
+  goal: "Dein Konto mit allen Nachrichten, Medien und Kontakten in der Telegram-Cloud wird gelöscht."
+  whyItMatters: "Die App zu löschen reicht nicht. Deine Chats bleiben bei Telegram, bis du das Konto löschst oder es nach langer Inaktivität automatisch gelöscht wird."
+  whatChanges: "Telegram entfernt deine Nachrichten, Medien, Kontakte und anderen Daten aus der Cloud. Das lässt sich nicht rückgängig machen."
+  whatDoesNotChange: "Andere behalten ihre Kopien deiner Nachrichten. Gruppen und Kanäle, die du gegründet hast, bleiben ohne Ersteller bestehen. Meldest du dich später wieder an, bekommen Menschen mit deiner Nummer im Adressbuch eine Nachricht."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://my.telegram.org/auth?to=delete
+  steps:
+    - "Exportiere vorher, was du behalten willst. Die Löschung ist endgültig."
+    - "Lösche vorher Gruppen oder Kanäle, die du gegründet hast, oder übertrage sie an eine*n Administrator*in."
+    - "Öffne am besten am Computer die Deaktivierungsseite telegram.org/deactivate."
+    - "Gib deine Telefonnummer im internationalen Format ein. Der Code kommt per Telegram, nicht per SMS. Gib ihn ein und bestätige die Löschung."
+  affects: [tg-account, tg-cloud-chats, tg-contacts, tg-usage-aggregates]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Mit der deutschen FAQ („Kann ich mein Konto löschen?“), der englischen FAQ und der Login-Seite my.telegram.org abgeglichen (Weiterleitung von telegram.org/deactivate; „Enter your number and we will send you a confirmation code via Telegram (not SMS).“). Die Beschriftung der letzten Bestätigungs-Schaltfläche haben wir nicht gesehen, weil dafür ein Login nötig ist."
+  sources: [telegram-faq-de, telegram-faq, telegram-delete-page, telegram-privacy-policy]
+- id: telegram-account-self-destruct
+  service: telegram
+  kind: setting
+  title: Frist für die automatische Kontolöschung verkürzen
+  goal: "Nutzt du Telegram nicht mehr, wird dein Konto früher automatisch gelöscht."
+  whyItMatters: "Standardmäßig löscht Telegram ein Konto erst nach 18 Monaten ohne Nutzung. So lange bleiben deine Chats bei Telegram."
+  whatChanges: "Dein Konto wird nach der kürzeren Frist ohne Anmeldung samt Nachrichten, Medien und Kontakten gelöscht."
+  whatDoesNotChange: "Solange du Telegram nutzt, passiert nichts. Andere behalten ihre Kopien deiner Nachrichten."
+  tradeOff: "Machst du länger Pause als die gewählte Frist, ist dein Konto mit allen Chats weg."
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps: []
+  affects: [tg-account, tg-cloud-chats, tg-contacts]
+  region: global
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Am 2026-10-21 erneut gesucht: Datenschutzerklärung (Abschnitt 10.4) und FAQ (deutsch und englisch) bestätigen weiter nur die Standardfrist von 18 Monaten und dass du den Zeitraum „in den Einstellungen“ ändern kannst. Auch core.telegram.org und die Löschseite my.telegram.org nennen keinen Menüpfad und keine wählbaren Fristen. Menüpfade (z. B. „Privatsphäre und Sicherheit“ → „Wenn ich weg bin für“) fanden wir nur in Anleitungen Dritter. Deshalb keine Schritte."
+  sources: [telegram-privacy-policy, telegram-faq-de]

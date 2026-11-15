@@ -1,0 +1,98 @@
+---
+/**
+ * "Alle Apps": a calm list of apps in the order people know them, each with
+ * category and – where it matters – the company behind it. Which apps belong
+ * together (one company, one account) gets its own short section.
+ */
+import Base from '~/layouts/Base.astro';
+import { getContent } from '~/domain/content';
+import { AREAS, areaOf } from '~/domain/areas';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  title: 'Alle Apps',
+  description:
+    'Was Google, YouTube, Instagram, Facebook, WhatsApp, TikTok, Amazon, ChatGPT, Spotify, Netflix, PayPal, Telegram, Snapchat und LinkedIn über dich erfahren – verständlich erklärt, mit Quellen.',
+  lead: 'Tippe auf eine App: Du siehst, was sie über dich erfahren kann, woher sie es weiß – und was du dagegen tun kannst.',
+  areas: (n: number, all: number) => `${n} von ${all} Lebensbereichen`,
+  belongsTo: (company: string) => `gehört zu ${company}`,
+  together: 'Welche Apps zusammengehören',
+  togetherLead: 'Apps eines Konzerns lassen sich oft über ein gemeinsames Konto verbinden. Dann fließen Informationen leichter zusammen.',
+  settings: 'Lieber gleich Einstellungen ändern →',
+  more: 'Weitere Apps folgen – aber nur, wenn wir sie genauso gründlich und belegt beschreiben können.',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'All apps',
+  description:
+    'What Google, YouTube, Instagram, Facebook, WhatsApp, TikTok, Amazon, ChatGPT, Spotify, Netflix, PayPal, Telegram, Snapchat and LinkedIn learn about you – explained in plain language, with sources.',
+  lead: 'Tap an app: you will see what it can learn about you, how it knows – and what you can do about it.',
+  areas: (n, all) => `${n} of ${all} areas of your life`,
+  belongsTo: (company) => `part of ${company}`,
+  together: 'Which apps belong together',
+  togetherLead: 'Apps from the same company can often be linked through one account. Information then flows together more easily.',
+  settings: 'Rather change settings straight away →',
+  more: 'More apps will follow – but only once we can describe them just as thoroughly and with sources.',
+};
+const txt = locale === 'en' ? TXT_EN : TXT_DE;
+
+/** Same order as the wizard: the apps most people use first. */
+const ORDER = ['instagram', 'whatsapp', 'google', 'youtube', 'amazon', 'tiktok', 'facebook', 'chatgpt', 'spotify', 'netflix', 'paypal', 'telegram', 'snapchat', 'linkedin'];
+const { services, companies } = getContent(locale);
+const rank = (id: string) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length);
+const apps = [...services].sort((a, b) => rank(a.id) - rank(b.id) || a.name.localeCompare(b.name, locale));
+const companyOf = (id: string) => companies.find((c) => c.id === id);
+const shared = companies
+  .map((c) => ({ company: c, apps: apps.filter((s) => s.company === c.id) }))
+  .filter((g) => g.apps.length > 1);
+// The company is only worth naming when it is not simply the app's own name.
+const owner = (s: (typeof apps)[number]) => {
+  const c = companyOf(s.company);
+  return c && !c.name.toLowerCase().startsWith((s.shortName ?? s.name).toLowerCase()) ? c.name : undefined;
+};
+const touched = (s: (typeof apps)[number]) => new Set(s.dataPoints.map((d) => areaOf(d.category))).size;
+---
+<Base title={txt.title} description={txt.description} path={href(locale, 'apps')} crumbs={[{ label: t.nav.services }]}>
+  <section>
+    <div class="wrap">
+      <h1>{txt.title}</h1>
+      <p class="lead">{txt.lead}</p>
+
+      <ul class="app-index">
+        {apps.map((s) => {
+          const o = owner(s);
+          return (
+            <li>
+              <a href={href(locale, 'app', s.id)}>
+                <span class="app-index-name">{s.shortName ?? s.name}</span>
+                <span class="meta">
+                  {t.serviceCategories[s.category]}{o && ` · ${txt.belongsTo(o)}`} · {txt.areas(touched(s), AREAS.length)}
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <p class="small"><a href={href(locale, 'settings')}>{txt.settings}</a></p>
+
+      <div class="app-families">
+        <h2>{txt.together}</h2>
+        <p class="small muted">{txt.togetherLead}</p>
+        <dl class="kv">
+          {shared.map((g) => (
+            <div>
+              <dt>{g.company.name}</dt>
+              <dd>
+                {g.apps.map((s, i) => (
+                  <>{i > 0 && ' · '}<a href={href(locale, 'app', s.id)}>{s.shortName ?? s.name}</a></>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <p class="small muted">{txt.more}</p>
+    </div>
+  </section>
+</Base>

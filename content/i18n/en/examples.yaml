@@ -1,0 +1,88 @@
+# Real-world cases for /warum/ – "Why it matters to look after your data".
+# Rules: only facts the sources state; "meaning" stays calm and practical;
+# no single private individuals by name.
+- id: databroker-files
+  title: Location data from apps was sold – and real people could be identified in it
+  year: 2024
+  area: places
+  happened: >-
+    Journalists from netzpolitik.org and Bayerischer Rundfunk received a free sample from a data broker:
+    around 3.6 billion location points from Germany, spread across about 11 million mobile phone IDs. In it,
+    they could identify individual people – for example a senior official at a federal ministry and a person
+    who works for a German intelligence service.
+  meaning: >-
+    Where you regularly spend time reveals who you are: your home, your work, your doctor's surgery. Only give your
+    location to apps that really need it – and ideally only while you are using them.
+  sources:
+    - netzpolitik-databroker-files
+- id: facebook-phone-leak
+  title: Phone numbers of around 6 million Facebook users from Germany ended up online
+  year: 2021
+  area: identity
+  happened: >-
+    In April 2021, a dataset appeared with details on more than 530 million Facebook users, around
+    6 million of them from Germany – including phone numbers. According to Facebook, the data was collected before
+    September 2019 through a feature for finding contacts. In 2022, the Irish data protection authority fined
+    Meta €265 million for this.
+  meaning: >-
+    A phone number seems harmless. Together with a name and profile, it reveals who is behind the number – and
+    once something is circulating online, you cannot get it back.
+  sources:
+    - computerbase-facebook-530-mio
+    - meta-facts-data-2021
+    - dpc-facebook-scraping-2022
+- id: cambridge-analytica
+  title: 65 people took a quiz – up to 310,000 in Germany were affected
+  year: 2018
+  area: people
+  happened: >-
+    Through a quiz app on Facebook, information about up to 87 million people was improperly passed on to the company
+    Cambridge Analytica, most of them in the USA. In Germany, only 65 people had used the app.
+    Even so, according to Facebook, up to 310,000 were affected – mainly their friends.
+  meaning: >-
+    What other people allow in their apps can affect you too – even if you never clicked on anything.
+  sources:
+    - facebook-restricting-data-access-2018
+    - tagesspiegel-cambridge-analytica-de
+- id: meta-pixel-hospitals
+  title: Hospital websites told Facebook who wanted to book an appointment
+  year: 2022
+  area: elsewhere
+  happened: >-
+    The newsroom The Markup checked the websites of the 100 best-known hospitals in the USA. On 33 of them,
+    a built-in piece of code from Facebook (the Meta Pixel) sent data to Facebook as soon as someone wanted to book
+    an appointment. Some patient portals even sent names of medicines and details about appointments to Facebook.
+  meaning: >-
+    Pieces of code like this are built into a great many websites. You can tell Meta not to use this information
+    for ads – but it is still sent.
+  action: facebook-activity-other-businesses
+  sources:
+    - markup-pixel-hospitals-2022
+- id: flo-health
+  title: A period-tracking app passed on health data to Facebook and Google
+  year: 2021
+  area: elsewhere
+  happened: >-
+    The period-tracking app Flo promised to keep health data private. Even so, according to the US consumer protection
+    agency FTC, it passed on sensitive health data from millions of users to marketing and analytics companies,
+    including Facebook and Google. Since 2021, Flo has had to ask for consent first.
+  meaning: >-
+    Apps for health, periods or fitness know particularly personal things. Before you sign up, check whether they
+    pass on data for advertising.
+  action: google-partner-activity
+  sources:
+    - ftc-flo-order-2021
+- id: clearview-faces
+  title: Billions of photos from the internet ended up in a facial recognition system
+  year: 2024
+  area: shared
+  happened: >-
+    The company Clearview AI built a database of billions of photos of faces, collected from
+    social networks and the rest of the internet. The Dutch data protection authority called the database
+    illegal and imposed a fine of €30.5 million in 2024.
+  meaning: >-
+    Anyone can collect what you post publicly – including companies that use it to recognise faces. Think about
+    which photos really need to be public.
+  sources:
+    - edpb-clearview-nl-2024
+    - ap-clearview-nl-2024

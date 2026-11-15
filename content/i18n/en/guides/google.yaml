@@ -1,0 +1,177 @@
+- id: google-ads-personalisation
+  service: google
+  kind: setting
+  title: Turn off personalised ads
+  goal: "Google no longer chooses ads based on what you do and what Google knows about you."
+  whyItMatters: "For personalised ads, Google uses your searches, the videos you watch and the apps you install. On top of that come details such as age and gender – including estimated ones."
+  whatChanges: "On all devices where you are signed in, ads in Google services are no longer based on what Google knows about you."
+  whatDoesNotChange: "You still see ads. They are then based on the context, for example the time of day, the topic of the page or your current location. Your activity stays saved until you delete it."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://myadcenter.google.com/
+  steps:
+    - "Open My Ad Center (myadcenter.google.com) and sign in."
+    - "Next to “Personalised ads”, select “Off”."
+    - "Confirm your choice."
+  affects: [google-ad-interactions, google-search-queries, google-partner-site-activity, google-account-data]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the official help page on My Ad Center (German version)."
+  sources: [google-help-my-ad-center]
+- id: google-activity-controls
+  service: google
+  kind: setting
+  title: Pause Web & App Activity or delete it automatically
+  goal: "Google no longer stores your searches and activity permanently in your account."
+  whyItMatters: "Through Web & App Activity, Google collects your searches, location data and ads you clicked in your account. If you allow it, also your Chrome history and voice recordings."
+  whatChanges: "Paused: new activity no longer ends up in your account. Results and suggestions then match you less closely. With auto-delete, older entries disappear after 3, 18 or 36 months."
+  whatDoesNotChange: "When you pause it, what is already saved stays – unless you choose “Turn off and delete activity”. Technical logs and other storage places are not affected. Google keeps some data for longer for certain purposes."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/activitycontrols
+  steps:
+    - "On a computer, open the Activity controls page."
+    - "Turn off Web & App Activity and choose “Turn off” or “Turn off and delete activity”."
+    - "If you want to keep the setting on: if you like, just untick the boxes for Chrome history/activity from websites and for voice and audio activity."
+    - "For auto-delete: open your Google Account, click “Data & privacy” on the left, and under “History settings” click the activity."
+    - "Click “Auto-delete”, choose the time period, then “Next” and “Confirm”."
+  affects: [google-search-queries, google-chrome-history, google-voice, google-ad-interactions, google-partner-site-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help pages “Web- & App-Aktivitäten” and “Aktivitäten löschen” (German version)."
+  sources: [google-help-web-app-activity, google-help-delete-activity]
+- id: google-partner-activity
+  service: google
+  kind: setting
+  title: Stop saving data from partner websites in your account
+  goal: "Visits to other websites and apps that use Google services no longer end up in your Google Account. You also no longer see personalised ads there."
+  whyItMatters: "Many websites use Google ads or Google's visitor statistics, Google Analytics. When they do, the page address and your IP address – your internet connection's address – go to Google."
+  whatChanges: "What you do on partner websites and in partner apps no longer ends up in your account. You no longer see personalised ads on partner websites."
+  whatDoesNotChange: "The websites still send data to Google, for example for statistics and to fight fraud. You can also limit Google Analytics with an official browser extension from Google."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://adssettings.google.com/partnerads
+  steps:
+    - "Open the settings for partner ads (adssettings.google.com/partnerads) and sign in."
+    - "Untick “Also data from Google partner websites and apps can be saved in my Google Account” and confirm."
+    - "There, also turn off “Show personalised ads when you visit websites of Google partners” and confirm."
+  affects: [google-partner-site-activity]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps and option names checked against the help page on My Ad Center (German version, sections on partner websites); the help page links directly to adssettings.google.com/partnerads (red-team check on 2026-10-07)."
+  sources: [google-help-my-ad-center, google-partner-sites]
+- id: google-location-timeline
+  service: google
+  kind: review
+  title: Check how your location is saved
+  goal: "You know whether Google saves your movements, and where."
+  whyItMatters: "Location data reveals where you live, where you work and your habits. Google can save it through Timeline and also through Web & App Activity."
+  whatChanges: "If Timeline is off, no more visited places are collected. Deleted Timeline data is gone."
+  whatDoesNotChange: "Location details in Web & App Activity and the approximate location from your IP address are not affected. They have their own settings."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://myactivity.google.com/
+  steps:
+    - "On your phone, open the Google Maps app."
+    - "Tap your profile picture or initial and then “Your Timeline”."
+    - "Tap the three-dot menu and then “Location & privacy settings”."
+    - "Under “Location settings”, you can see whether “Timeline is on” or “Timeline is off” is shown."
+    - "To turn it off: Tap “Timeline is on” and, from the dropdown menu, choose “Turn off” or “Turn off and delete activity”."
+    - "To delete all saved places: Under “Location settings”, tap “Delete all Timeline data” and follow the on-screen instructions. Deleted data cannot be restored."
+  affects: [google-timeline, google-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Steps checked against the help page “Manage your Google Maps Timeline” (German version, Android and iPhone/iPad views); the steps are the same on both platforms."
+  sources: [google-help-timeline, google-blog-timeline-on-device]
+- id: google-linked-services
+  service: google
+  kind: setting
+  title: Choose which Google services are linked
+  goal: "You decide whether Search, YouTube, ad services, Play, Chrome, Shopping and Maps share data with each other."
+  whyItMatters: "If services are linked, they can share data about you with each other."
+  whatChanges: "Services that are not linked no longer share your data with each other, for example to tailor content to you."
+  whatDoesNotChange: "For certain purposes, such as fraud protection and legal obligations, Google still shares data between all services. This setting does not control sharing with other companies."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myaccount.google.com/data-and-privacy
+  steps:
+    - "Open your Google Account (myaccount.google.com)."
+    - "On the left, click “Data & privacy”."
+    - "Under “Data sharing”, click “Linked Google services”."
+    - "Select the services you want to keep linked and click “Next”."
+    - "Review your selection and select “Confirm” and then “Done”."
+  affects: [google-search-queries, google-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Steps checked against the help page “Manage your linked Google services” (German version, computer)."
+  sources: [google-help-manage-linked-services, google-help-linked-services]
+- id: google-takeout
+  service: google
+  kind: export
+  title: Download your Google data
+  goal: "You get a copy of your data from Google services as an archive."
+  whyItMatters: "This way you can see what is stored and take your data to another provider."
+  whatChanges: "You get a compressed file (ZIP or TGZ) – through a download link or in an online storage service."
+  whatDoesNotChange: "Downloading does not delete any data at Google. Anything that changes while the file is being created may be missing."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://takeout.google.com/
+  steps:
+    - "Sign in to your Google Account and open Google Takeout (takeout.google.com)."
+    - "Products you use are already selected; deselect what you do not need."
+    - "Click “Next step” and choose the delivery method and file format."
+    - "Create the export. Google sends you an email as soon as the archive is ready – usually on the same day, but with large amounts of data it can take a few days."
+  affects: [google-search-queries, google-content, google-account-data]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help page “Google-Daten herunterladen” (German version)."
+  sources: [google-help-takeout]
+- id: google-account-deletion
+  service: google
+  kind: deletion
+  title: Delete your Google Account
+  goal: "Your Google Account and the data linked to it are deleted."
+  whyItMatters: "This is the only way to remove all the data tied to this account."
+  whatChanges: "Emails, files, calendars, photos and purchases (for example on YouTube or Google Play) are lost. After a certain time, the account can no longer be restored."
+  whatDoesNotChange: "Data that Google has to keep for legal reasons stays. Data that websites collect independently of the account is not affected either. First download what you want to keep, and change your Gmail address with your bank and other accounts."
+  impact: high
+  minutes: 15
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://myaccount.google.com/deleteaccount
+  steps:
+    - "First use Google Takeout to download what you want to keep."
+    - "In your Google Account, open the “Data & privacy” section."
+    - "Scroll to “Data and privacy options”."
+    - "Select “More options”, then “Delete your Google Account”, and follow the instructions."
+  affects: [google-account-data, google-content, google-search-queries]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the help page “Google-Konto löschen” (German version)."
+  sources: [google-help-delete-account, google-help-takeout]

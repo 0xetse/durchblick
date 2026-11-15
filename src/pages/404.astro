@@ -1,0 +1,23 @@
+---
+/**
+ * One 404 for both languages: the host serves it for any unknown path, so the
+ * page cannot know the language – it says everything in German and English.
+ */
+import Base from '~/layouts/Base.astro';
+import { dict, href } from '~/i18n';
+
+const de = dict('de');
+const en = dict('en');
+---
+<Base title="Seite nicht gefunden · Page not found" path="/404/">
+  <section><div class="wrap prose">
+    <h1>Diese Seite gibt es nicht.</h1>
+    <p>Vielleicht hilft dir eine dieser Seiten weiter:</p>
+    <ul><li><a href={href('de', 'home')}>Startseite</a></li><li><a href={href('de', 'settings')}>{de.nav.settings}</a></li><li><a href={href('de', 'apps')}>Alle Apps</a></li><li><a href={href('de', 'plan')}>{de.nav.plan}</a></li></ul>
+  </div></section>
+  <section lang="en"><div class="wrap prose">
+    <h2>This page does not exist.</h2>
+    <p>Perhaps one of these pages will help:</p>
+    <ul><li><a href={href('en', 'home')} hreflang="en">Home page</a></li><li><a href={href('en', 'settings')} hreflang="en">{en.nav.settings}</a></li><li><a href={href('en', 'apps')} hreflang="en">All apps</a></li><li><a href={href('en', 'plan')} hreflang="en">{en.nav.plan}</a></li></ul>
+  </div></section>
+</Base>

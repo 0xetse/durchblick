@@ -1,0 +1,310 @@
+---
+import '~/styles/global.css';
+import '~/styles/ui.css';
+import { dict, formatDate, href, localeOf, switchPath, type Locale } from '~/i18n';
+import TrustPanel from '~/islands/TrustPanel';
+import { contentAsOf, getContent } from '~/domain/content';
+import { version } from '../../package.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** canonical path, e.g. "/dienste/instagram/" */
+  path?: string;
+  jsonLd?: Record<string, unknown>;
+  /** "Du bist hier": path below Start, last entry is the current page (no href). */
+  crumbs?: { label: string; href?: string }[];
+  /** The page reads and adopts the app selection itself (wizard, matrix, plan, settings). */
+  ownsSelection?: boolean;
+}
+const current = Astro.url.pathname;
+// The locale follows the URL: /en/… is English, everything else German.
+const locale = localeOf(current);
+const other: Locale = locale === 'de' ? 'en' : 'de';
+const t = dict(locale);
+const { title, description = t.site.description, path = current, jsonLd, crumbs, ownsSelection = false } = Astro.props;
+const fullTitle = title === t.site.name ? `${t.site.name} – ${t.site.tagline}` : `${title} · ${t.site.name}`;
+const canonical = new URL(path, Astro.site).href;
+const alternates = { de: switchPath(path, 'de'), en: switchPath(path, 'en') };
+const switchHref = alternates[other];
+const home = href(locale, 'home');
+// Four destinations in plain words; each also lights up for the pages that belong to it.
+const nav = [
+  { href: href(locale, 'settings'), label: t.nav.settings, also: [href(locale, 'guide')] },
+  { href: href(locale, 'plan'), label: t.nav.plan, also: [] },
+  { href: href(locale, 'apps'), label: t.nav.services, also: [href(locale, 'check'), href(locale, 'alternatives')] },
+  { href: href(locale, 'why'), label: t.nav.why, also: [href(locale, 'traces')] },
+];
+// aria-current="page" only on the page itself; "true" marks the section a subpage belongs to.
+const currentOf = (n: (typeof nav)[number]) =>
+  current === n.href ? 'page' : [n.href, ...n.also].some((p) => current.startsWith(p)) ? 'true' : undefined;
+const content = getContent(locale);
+const asOf = formatDate(contentAsOf(content), locale);
+const trustServices = content.services.map((s) => ({ id: s.id, name: s.shortName ?? s.name }));
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="de" href={new URL(alternates.de, Astro.site).href} />
+    <link rel="alternate" hreflang="en" href={new URL(alternates.en, Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternates.de, Astro.site).href} />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101214" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'en' ? 'en_GB' : 'de_DE'} />
+    {/* "<" escaped so text from content files can never close the script element. */}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
+  </head>
+  <body data-selection-owner={ownsSelection ? '' : undefined} data-app-ids={trustServices.map((x) => x.id).join(',')}>
+    <a class="skip-link" href="#main">{t.nav.skip}</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href={home} aria-label={`${t.site.name} – ${t.nav.homeLabel}`}>
+          <svg class="brand-mark" viewBox="0 0 18 18" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="5" height="5" fill="currentColor" /><rect x="6.5" y="0.5" width="5" height="5" fill="none" stroke="currentColor" />
+            <rect x="12.5" y="0.5" width="5" height="5" fill="none" stroke="currentColor" /><rect x="0.5" y="6.5" width="5" height="5" fill="none" stroke="currentColor" />
+            <rect x="6.5" y="6.5" width="5" height="5" fill="currentColor" /><rect x="12.5" y="6.5" width="5" height="5" fill="currentColor" />
+            <rect x="0.5" y="12.5" width="5" height="5" fill="none" stroke="currentColor" /><rect x="6.5" y="12.5" width="5" height="5" fill="none" stroke="currentColor" />
+            <rect x="12.5" y="12.5" width="5" height="5" fill="currentColor" />
+          </svg>
+          <span class="brand-name">{t.site.name}</span>
+        </a>
+        {/* The main navigation sits where it is seen, so the focus order matches
+            the screen: desktop "Logo · links · EN · trust", phone "Logo · EN ·
+            trust · Menü". Only one of the two is displayed at a time. */}
+        <nav aria-label={t.nav.main} class="main-nav main-nav-wide">
+          <ul class="nav-wide">
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={currentOf(n)}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+        <a class="lang-switch" href={switchHref} hreflang={other} lang={other} aria-label={t.nav.switchToLabel}>{other.toUpperCase()}</a>
+        <TrustPanel client:idle services={trustServices} locale={locale} />
+        <nav aria-label={t.nav.main} class="main-nav main-nav-menu">
+          <details class="nav-menu">
+            <summary class="btn btn-quiet">{t.nav.menu}</summary>
+            <ul>
+              {nav.map((n) => (
+                <li><a href={n.href} aria-current={currentOf(n)}>{n.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </nav>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      {crumbs && (
+        <nav aria-label={t.nav.here} class="crumbs">
+          <ol class="wrap">
+            <li><a href={home}>{t.nav.start}</a></li>
+            {crumbs.map((c) => (
+              <li>{c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}</li>
+            ))}
+          </ol>
+        </nav>
+      )}
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="brand-foot">{t.site.name}</p>
+          <p class="small muted">{t.footer.about}</p>
+          <p class="meta">{t.footer.contentDate} {asOf} · Version {version}</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href={href(locale, 'check')}>{t.nav.check}</a></li>
+          <li><a href={href(locale, 'alternatives')}>{t.nav.alternatives}</a></li>
+          <li><a href={href(locale, 'traces')}>{t.nav.traces}</a></li>
+          <li><a href={href(locale, 'methodology')}>{t.nav.methodology}</a></li>
+          <li><a href={href(locale, 'transparency')}>{t.nav.transparency}</a></li>
+          <li><a href={href(locale, 'imprint')}>{t.nav.imprint}</a></li>
+          <li><a href={href(locale, 'privacy')}>{t.nav.privacy}</a></li>
+          <li><a href={switchHref} hreflang={other} lang={other}>{t.nav.switchTo}</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      import '~/scripts/sw-register';
+      import '~/scripts/links';
+      import '~/scripts/disclosures';
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 56px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-meta);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .lang-switch:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+  .brand-mark {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+  }
+  /* Smallest phones: logo, trust badge and menu don't fit next to the name. */
+  @media (max-width: 359px) {
+    .brand-name {
+      display: none;
+    }
+  }
+  .nav-menu {
+    position: relative;
+  }
+  .nav-menu > summary {
+    min-height: 44px;
+    font-weight: 600;
+  }
+  .nav-menu > summary::before {
+    display: none;
+  }
+  .nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    min-width: 220px;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r);
+  }
+  .nav-menu li + li {
+    border-top: 1px solid var(--line);
+  }
+  .nav-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav-menu a[aria-current] {
+    color: var(--accent);
+  }
+  .main-nav-wide {
+    display: none;
+  }
+  @media (min-width: 860px) {
+    .main-nav-wide {
+      display: block;
+    }
+    .main-nav-menu {
+      display: none;
+    }
+    .nav-wide {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0 0.5rem 0 0;
+      padding: 0;
+    }
+    .nav-wide a {
+      display: block;
+      padding: 1rem 0;
+      color: var(--ink-2);
+      text-decoration: none;
+      font-size: var(--fs-small);
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-wide a:hover {
+      color: var(--ink);
+    }
+    .nav-wide a[aria-current] {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+  }
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 2rem 2.5rem;
+    margin-top: 1rem;
+  }
+  .footer-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 720px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  .brand-foot {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.35rem;
+    font-size: var(--fs-small);
+  }
+  .footer-links a {
+    display: inline-block;
+    padding-block: 0.15rem;
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+  main:focus {
+    outline: none;
+  }
+</style>

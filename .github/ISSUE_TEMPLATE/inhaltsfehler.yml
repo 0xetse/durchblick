@@ -1,0 +1,41 @@
+name: Inhaltlicher Fehler / Content correction
+description: Eine Aussage, Anleitung oder ein Link stimmt nicht (mehr). / A claim, guide step or link is wrong or outdated.
+labels: ["inhalt"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke! Bitte keine Screenshots oder Angaben aus deinem persönlichen Konto (Name, E-Mail, Kontakte).
+        Thanks! Please do not include screenshots or details from your personal account.
+  - type: input
+    id: seite
+    attributes:
+      label: Seite / Page
+      description: Adresse der Seite auf Durchblick oder Datei in content/
+      placeholder: /dienste/google/ oder content/guides/google.yaml
+    validations:
+      required: true
+  - type: textarea
+    id: aussage
+    attributes:
+      label: Was steht dort, und was stimmt nicht? / What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: quelle
+    attributes:
+      label: Quelle / Source
+      description: Offizielle Hilfeseite, Datenschutzerklärung, Behörde o. Ä., mit Abrufdatum. / Official source with retrieval date.
+    validations:
+      required: true
+  - type: dropdown
+    id: geprueft
+    attributes:
+      label: Selbst nachvollzogen? / Checked yourself?
+      options:
+        - Nein, nur an der Quelle abgeglichen / No, compared with the source only
+        - Ja, in einem echten Konto (Android) / Yes, in a real account (Android)
+        - Ja, in einem echten Konto (iPhone) / Yes, in a real account (iPhone)
+        - Ja, in einem echten Konto (Browser) / Yes, in a real account (browser)
+    validations:
+      required: true

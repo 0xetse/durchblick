@@ -1,0 +1,328 @@
+id: facebook
+name: Facebook
+company: meta
+category: social
+url: https://www.facebook.com/
+summary: "Facebook stores what you share, view and click on. On top of this come reports from other websites and apps. In the EU you choose: personalised ads, less personalised ads or a subscription without ads."
+surprise:
+  action: facebook-activity-other-businesses
+  text: "You can stop Meta from using what other websites and apps report about you for ads. But they may still keep reporting it. Meta says it may then make this information unrecognisable (anonymise it) or use it to improve its products."
+  sources:
+    - ref: meta-help-activity-other-businesses
+      note: "„Unabhängig von der hier gewählten Einstellung können Unternehmen und Organisationen uns Informationen zu deinen Aktivitäten senden …“"
+businessModel:
+  text: "Meta makes almost all of its money from ads on Facebook, Instagram, Messenger and partner apps. In the second quarter of 2026 this was around US$59.4 billion. In the EU there is also a subscription without ads (from €5.99 a month on the web)."
+  sources:
+    - ref: meta-sec-10q-2026-q2
+      note: "„We generate substantially all of our revenue from advertising.“ Advertising Q2 2026: 59.363 Mio. USD"
+    - ref: meta-help-ads-subscription
+      note: "Abschnitt „Preisgestaltung des Abos für die werbefreie Nutzung“"
+dataPoints:
+  - id: fb-profile
+    category: account
+    title: "You give Facebook details about yourself."
+    detail: "For example your name, email address or phone number, age, gender, where you live, your job and your education. For personalised ads, Meta explicitly names: age, stated gender, location, job and level of education."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: meta-help-manage-ad-experience
+        note: "Liste „Personalisierte Werbung“: „Deine Profilinformationen wie Alter, angegebenes Geschlecht, Standort, Beruf und Bildungsgrad“"
+      - ref: meta-privacy-policy
+        note: "Abschnitt „Welche Informationen erheben wir?“"
+  - id: fb-content
+    category: content
+    title: "Facebook stores everything you post and upload."
+    detail: "Posts, comments, photos, videos and audio, content from the camera feature and hashtags. On top of this comes extra data about this content, such as when and where something was created."
+    technical: "Meta calls this extra data “metadata about content and messages”."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Inhalte, die du erstellst, wie Beiträge, Kommentare oder Audio“; „Metadaten zu Inhalten und Nachrichten“"
+  - id: fb-special-category
+    category: content
+    title: "If you choose to share very personal details, Meta handles them separately."
+    detail: "This means things like religion, sexual orientation, political views or health. You might share such details in your profile or in surveys, for example. Meta says it does not use them to show you ads."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only if you share such details yourself"
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Informationen mit besonderem Schutz, die du freiwillig bereitstellst (wie zum Beispiel deine religiösen Ansichten, sexuelle Orientierung, politische Einstellung, Gesundheitszustand …)“; „aber nicht, um dir Werbeanzeigen zu zeigen“"
+  - id: fb-messages
+    category: communications
+    title: "Meta can also process your messages – as far as the law allows."
+    detail: "The privacy policy lists messages you send and receive, “including their content, subject to applicable law”. Meta uses them, for example, to run the service and for security. To tailor content and ads to you, Meta only names extra data about messages, not their content."
+    technical: "For personalisation (including ads), the policy only lists “metadata about content and messages”. Whether Meta can read the content depends on the encryption of each chat; we have not checked this separately for Messenger."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "Abschnitt „Warum und wie wir deine Informationen verarbeiten“: Bereitstellung und Sicherheit vs. Personalisierung"
+  - id: fb-activity
+    category: activity
+    title: "Facebook records exactly what you look at and for how long."
+    detail: "Which posts, videos and Pages you view, like or comment on. Which features you use. And when, how often and for how long you are active. Facebook uses this to put together your Feed."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Die Arten von Inhalten, die du dir ansiehst bzw. mit denen du interagierst“; „Zeitpunkt, Häufigkeit und Dauer deiner Aktivitäten“"
+      - ref: meta-help-manage-ad-experience
+        note: "EU-Hilfeartikel, Liste „Personalisierte Werbung“: „Deine Aktivitäten in unseren Produkten, wie etwa ‚Gefällt mir‘-Angaben für Seiten oder Beitragskommentare“; „Die Inhalte, die du dir in unseren Produkten ansiehst bzw. mit denen du interagierst“"
+      - facebook-help-activity-log
+  - id: fb-ad-interactions
+    category: activity
+    title: "Facebook keeps track of how you respond to ads."
+    detail: "Whether you click on an ad, like it or skip it. This also applies if you have chosen less personalised ads."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: meta-help-less-personalised-ads
+        note: "„Deine Interaktionen mit Werbeanzeigen wie etwa Anklicken oder ‚Gefällt mir‘-Angaben“"
+  - id: fb-connections
+    category: contacts
+    title: "Facebook knows your friends, groups and the accounts you follow."
+    detail: "Who you are friends with, who you follow and which groups you are in. Other people can also tag you in posts or share content about you."
+    provenance: provided
+    mechanisms: [provided, other-users]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Freund*innen, Abonnent*innen und andere Kontakte“; „Inhalte, die andere über dich (als Reshare) teilen“"
+  - id: fb-contact-upload
+    category: contacts
+    title: "If you allow it, the app uploads your phone's address book."
+    detail: "The Facebook app can keep uploading the contacts on your phone. These include numbers of people who are not on Facebook at all. You can view and remove uploaded contacts."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "only if you turn on contact uploading in the app"
+    sources:
+      - ref: facebook-help-contact-upload
+        note: "„Du kannst das kontinuierliche Hochladen von Kontakten nur über die Facebook-App verwalten“; Hinweis für Nicht-Nutzer*innen"
+  - id: fb-device
+    category: device
+    title: "Facebook collects technical data about your devices."
+    detail: "Device type and software, numbers that tell your device apart from others, your network and your internet connection's address (IP address). Also small files in your browser (cookies). Even whether the app is currently in the foreground on your screen or whether your mouse is moving."
+    technical: "The policy names “identifiers”, “IP address” and “cookies and similar technologies”. Meta justifies signals such as mouse movements partly by saying they help tell people apart from bots."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "„ob sich unsere App im Vordergrund befindet oder ob sich deine Maus bewegt“; „Identifikatoren“; „IP-Adresse“; „Cookies und ähnlichen Technologien“"
+      - ref: meta-help-less-personalised-ads
+        note: "EU-Hilfeartikel: „Deine Geräteinformationen, wie etwa das Gerät oder den Browser, den du verwendest“ (bestätigt nur den Gerätetyp, nicht die übrigen Signale)"
+  - id: fb-location
+    category: location
+    title: "Facebook uses information about your location."
+    detail: "Your exact GPS location only if you allow it in your device settings. Besides this, Meta processes other “location-related information” and data about your network. Meta uses a location even for less personalised ads."
+    provenance: observed
+    mechanisms: [permissions, device]
+    evidence: stated
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Informationen, die du über deine Geräteeinstellungen geteilt hast (wie GPS-Standort)“; „Standortbezogene Informationen“"
+      - ref: meta-help-less-personalised-ads
+        note: "„Dein Alter, das von dir angegebene Geschlecht und deinen Standort“"
+  - id: fb-offplatform
+    category: offplatform
+    title: "Other websites, apps and shops tell Meta what you do there."
+    detail: "Many companies build Meta tools into their services, such as small invisible pieces of code on their website (known as the Meta Pixel). Meta then learns, for example, that you visited an online shop or bought something. Advertisers can also send Meta lists of people or devices, for example with email addresses. Meta matches them with accounts."
+    technical: "The Meta Pixel is a JavaScript snippet on websites that reports visitor actions (“events”) to Meta; apps use similar SDKs."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: meta-help-activity-other-businesses
+        note: "„Informationen …, die uns andere Unternehmen oder Organisationen über deine Aktivitäten auf ihren Websites, in ihren Apps oder Geschäften senden“; Listen von Personen oder Geräten"
+      - ref: meta-help-how-ads-chosen
+        note: "„Informationen, die Werbetreibende und unsere Marketingpartner bereits über dich haben und mit uns teilen, z. B. deine E-Mail-Adresse“"
+      - meta-pixel-docs
+  - id: fb-meta-ai
+    category: prompts
+    title: "What you ask Meta AI is stored and analysed."
+    detail: "Questions, texts, images and voice messages you exchange with Meta AI, plus extra data about them. Meta uses them to tailor content to you. According to an announcement from 2025, Meta also uses them in the EU to train its AI."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only if you use Meta AI features"
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Interaktionen mit unseren Funktionen, die Teil von KI bei Meta sind, und zugehörige Metadaten“"
+      - ref: meta-newsroom-ai-training-eu-2025
+        note: "„People’s interactions with Meta AI … will also be used to train and improve our models.“"
+inferences:
+  - id: fb-ad-interests
+    title: "Meta works out from your behaviour what you are interested in."
+    detail: "Meta creates “preferences” and ad topics for you, such as “Cycling”. These are based on your profile details, what you do on Facebook and which other websites and apps you use. In your ad preferences you can see the topics and show fewer ads about individual ones."
+    level: documented
+    basedOn: [fb-profile, fb-activity, fb-ad-interactions, fb-offplatform]
+    sources:
+      - ref: meta-help-ad-preferences-overview
+        note: "„… die wir basierend auf deinen Profilinformationen, auf Facebook unternommenen Handlungen sowie außerhalb von Facebook verwendeten Websites und Apps für dich erstellt haben“"
+      - ref: meta-help-ad-preferences
+        note: "Abschnitt „Werbethemen“"
+  - id: fb-content-preferences
+    title: "Meta estimates which content interests you."
+    detail: "According to the privacy policy, Meta's systems automatically analyse information about you and others. The aim is “to assess your interests and preferences”. This decides which posts, Reels and groups are suggested to you."
+    level: documented
+    basedOn: [fb-activity, fb-content, fb-connections]
+    sources:
+      - ref: meta-privacy-policy
+        note: "Abschnitt „Personalisierung der Meta-Produkte“"
+  - id: fb-people-you-may-know
+    title: "Meta guesses who you might know."
+    detail: "Facebook suggests “People you may know”. Meta explicitly names this as part of tailoring things to you. The policy does not break down exactly which clues are used – such as mutual friends or uploaded contacts."
+    level: documented
+    basedOn: [fb-connections, fb-contact-upload]
+    sources:
+      - ref: meta-privacy-policy
+        note: "„Vorschläge unterbreiten (z. B. Personen, die du kennen könntest …)“"
+  - id: fb-sensitive-possible
+    title: "Sensitive topics could be inferred from likes and groups."
+    detail: "If you follow Pages about an illness, a political party or a religion, you indirectly reveal a lot. This is a technical possibility, not a practice Meta describes. Meta says it does not use specially protected details that you share voluntarily for ads."
+    level: possible
+    basedOn: [fb-activity, fb-connections, fb-content]
+    sources:
+      - ref: meta-privacy-policy
+        note: "Abschnitt zu „Informationen mit besonderem Schutz“"
+purposes:
+  - purpose: provide-service
+    detail: "Providing your account, profile, Feed, messages, calls and groups."
+    sources: [meta-privacy-policy]
+  - purpose: personalisation
+    detail: "Tailoring your Feed, Reels, suggestions for friends, groups and events, and Meta AI to you."
+    sources: [meta-privacy-policy]
+  - purpose: advertising
+    detail: "Choosing ads. In the EU this depends on your choice: fully personalised, less personalised (current session, age, gender, location, device, responses to ads) or no ads at all with the subscription."
+    sources: [meta-help-ads-choices-eu, meta-help-less-personalised-ads, meta-help-manage-ad-experience]
+  - purpose: measurement
+    detail: "Showing advertisers and businesses how well their ads and content perform."
+    sources: [meta-privacy-policy]
+  - purpose: safety
+    detail: "Checking accounts and detecting spam, fraud and rule breaches – automatically and partly by staff."
+    sources: [meta-privacy-policy]
+  - purpose: ai-training
+    detail: "Since May 2025, Meta has been using public posts and comments by adults in the EU, as well as conversations with Meta AI, to train its AI. You can object."
+    sources: [meta-newsroom-ai-training-eu-2025, meta-dpc-ai-statement-2025, meta-privacy-policy]
+sharing:
+  - id: fb-share-meta-companies
+    recipient: "Other Meta companies (e.g. Instagram, WhatsApp)"
+    detail: "Meta shares information, technology and systems across the whole group – for example for security, ads and features. If your accounts are in the same Accounts Center, Meta tailors content and ads to you across all of these accounts."
+    sources: [meta-privacy-policy, meta-help-accounts-center]
+  - id: fb-share-advertisers
+    recipient: "Advertisers, partner apps in Meta's advertising network (Audience Network) and analytics partners"
+    detail: "They receive reports on how well their ads perform. According to Meta, it only shares your name or email address with your explicit consent. According to the company, Meta does not “sell” data."
+    sources:
+      - ref: meta-privacy-policy
+        note: "Abschnitt „Wie teilen wir Informationen mit Dritten?“"
+      - ref: meta-help-how-ads-chosen
+        note: "„Sofern du uns keine ausdrückliche Zustimmung dafür erteilst, geben wir keine Informationen weiter, anhand derer du unmittelbar identifiziert … werden kannst“"
+  - id: fb-share-integrated-partners
+    recipient: "Apps and websites where you log in with Facebook"
+    detail: "If you log in to another service with your Facebook account, you give it information about yourself and your activity. These partners can always see public content."
+    sources: [meta-privacy-policy]
+  - id: fb-share-legal
+    recipient: "Authorities and courts"
+    detail: "When there is a search warrant, a court order or a similar legal request."
+    sources: [meta-privacy-policy]
+retention:
+  text: "Meta stores information for as long as it is needed for its products, for legal obligations or for legitimate purposes. Meta decides this “on a case-by-case basis”. If you delete your account, you can undo this for 30 days. After that, deletion takes up to 90 days. Copies in backups may last longer."
+  sources:
+    - ref: meta-privacy-policy
+      note: "Abschnitt „Wie lange behalten wir deine Informationen?“"
+    - ref: facebook-help-delete-account
+      note: "Abschnitt „Löschung deines Facebook-Kontos rückgängig machen“"
+journey:
+  - id: fb-journey-use
+    title: "You use Facebook"
+    detail: "What you post, view and like, and how long you stay, is stored. On top of this comes data about your device and your network."
+    dataPoints: [fb-content, fb-activity, fb-ad-interactions, fb-device, fb-location]
+    sources: [meta-privacy-policy]
+  - id: fb-journey-partners
+    title: "Other companies report to Meta"
+    detail: "Websites with Meta code snippets (pixels) and apps with Meta building blocks (SDKs) report things like page views or purchases. Advertisers upload lists of their customers."
+    dataPoints: [fb-offplatform]
+    sources: [meta-help-activity-other-businesses, meta-pixel-docs]
+  - id: fb-journey-account
+    title: "Everything ends up in your account"
+    detail: "The data is linked to your profile. If you have Instagram or WhatsApp in the same Accounts Center, Meta uses the information across all of these accounts."
+    dataPoints: [fb-profile, fb-connections, fb-contact-upload]
+    sources: [meta-help-accounts-center, meta-privacy-policy]
+  - id: fb-journey-recommendations
+    title: "Suggestions for you"
+    detail: "Meta's systems automatically estimate your interests. Your Feed, Reels and suggestions are built from this."
+    dataPoints: [fb-activity, fb-content, fb-connections]
+    sources: [meta-privacy-policy]
+  - id: fb-journey-ads
+    title: "Ads for you"
+    detail: "Advertisers decide who they want to reach. Meta picks people who match. In the EU, your choice decides how much data Meta uses for this."
+    dataPoints: [fb-profile, fb-activity, fb-ad-interactions, fb-offplatform, fb-location]
+    sources: [meta-privacy-policy, meta-help-ads-choices-eu]
+  - id: fb-journey-measurement
+    title: "Reports for advertisers"
+    detail: "Businesses learn from reports how their ads performed – without your name."
+    dataPoints: [fb-ad-interactions, fb-offplatform]
+    sources: [meta-privacy-policy, meta-help-how-ads-chosen]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Very broad: profile, content, how you use the service, device and location data, contacts. On top of this comes data from other websites, apps and advertisers."
+    confidence: medium
+    sources: [meta-privacy-policy, meta-help-activity-other-businesses, meta-help-manage-ad-experience]
+  sensitivity:
+    level: 3
+    rationale: "Photos, posts, location and contacts are often private. Meta processes very personal details such as religion or health if you share them voluntarily. According to the company, Meta does not use them for ads."
+    confidence: medium
+    sources: [meta-privacy-policy]
+  observation:
+    level: 4
+    rationale: "Meta records exactly what you view, when, how often and for how long. Even whether the app is currently open and whether your mouse is moving. Your Feed and ads are built on this."
+    confidence: medium
+    sources: [meta-privacy-policy, meta-help-manage-ad-experience]
+  linkability:
+    level: 4
+    rationale: "Meta uses data across its products and your devices. On top of this comes data from other websites, apps and advertisers."
+    confidence: medium
+    sources: [meta-privacy-policy, meta-help-accounts-center, meta-help-activity-other-businesses]
+  adUse:
+    level: 4
+    rationale: "Advertising is the core business. According to the company, Meta makes almost all of its revenue from advertising."
+    confidence: high
+    sources: [meta-sec-10q-2026-q2]
+  sharing:
+    level: 3
+    rationale: "Service providers and other Meta companies receive data. Advertisers receive reports. Apps where you log in with Facebook also receive data. According to the company, Meta only shares names or email addresses with your consent."
+    confidence: medium
+    sources: [meta-privacy-policy, meta-help-how-ads-chosen]
+  defaults:
+    level: 2
+    rationale: "In the EU you have to actively choose: personalised ads, less personalised ads or a subscription. Other things run as long as you change nothing or do not object – such as the Feed tailored to you and AI training with public posts."
+    confidence: medium
+    sources: [meta-help-ads-choices-eu, meta-ec-dma-ads-choice-2025, meta-newsroom-ai-training-eu-2025]
+  controls:
+    level: 3
+    rationale: "You can limit how closely ads are tailored to you. The same goes for ad topics, data from other businesses for ads, contact uploading and AI training. You cannot switch off Meta analysing your behaviour for the Feed."
+    confidence: medium
+    sources: [meta-help-manage-ad-experience, meta-help-ad-preferences, meta-help-activity-other-businesses, meta-newsroom-ai-training-eu-2025]
+  deletion:
+    level: 3
+    rationale: "You can download your data and delete your account yourself. In your Activity log you can review individual entries. Facebook does not offer automatic deletion after a fixed period."
+    confidence: medium
+    sources: [facebook-help-export, facebook-help-delete-account, facebook-help-activity-log]
+  reachability:
+    level: 3
+    rationale: "The most important settings are in one place in Accounts Center or your Meta account. But Meta is currently rebuilding its menus, and the EU has its own options. This is why menus and guides differ noticeably."
+    confidence: medium
+    sources: [meta-help-accounts-center, meta-help-ad-preferences]
+linkedWith: [instagram, whatsapp]
+region: EU
+reviewedAt: "2026-10-07"

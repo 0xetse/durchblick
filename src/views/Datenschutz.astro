@@ -1,0 +1,39 @@
+---
+import Base from '~/layouts/Base.astro';
+import { href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const title = locale === 'en' ? 'Privacy policy' : 'Datenschutzerklärung';
+---
+<Base title={title} path={href(locale, 'privacy')} crumbs={[{ label: title }]}>
+  <section><div class="wrap prose">
+    {locale === 'en' ? (
+      <>
+        <h1>Privacy policy</h1>
+        <p class="panel"><strong>Preview version.</strong> The controller and the hosting provider will be added and legally reviewed before public release. The technical description below already applies to this software.</p>
+        <p class="small muted">This is a translation for your convenience. Only the <a href={href('de', 'privacy')} hreflang="de" lang="de">German version (Datenschutzerklärung)</a> is legally binding.</p>
+        <h2>Summary</h2>
+        <p>Durchblick processes as little data as is technically possible: no account, no cookies, no analytics or advertising services, no content from third-party servers. All your personal choices are calculated in your browser.</p>
+        <h2>What happens when you open the site</h2>
+        <p>When you load the pages, the hosting provider necessarily processes your IP address, the date and time, the address requested and details about your browser, in order to deliver the files and keep the service secure. Provider, storage period and legal basis: <em>[to be added before release]</em>.</p>
+        <h2>Storage on your device</h2>
+        <p>The apps you select are kept only for the open tab (in your browser’s session storage), so that the next page in this tab knows them. They are not put into the address and not sent to us. When you close the tab, the site forgets them; your browser may still keep them for a while to restore closed tabs. Only if you explicitly agree does the site also store, in your browser’s local storage, which actions you have completed and which services you have selected. This data does not leave your device. You can view, export and delete it under <a href={href(locale, 'transparency')}>Transparency</a>. For offline use, your browser also keeps a fixed set of the site’s files in its cache – the same for everyone, not the pages you visited; they contain no data about you.</p>
+        <h2>External links</h2>
+        <p>Links to providers open their websites. We do not tell the other site that you came from Durchblick (no “referrer”).</p>
+      </>
+    ) : (
+      <>
+        <h1>Datenschutzerklärung</h1>
+        <p class="panel"><strong>Vorabversion.</strong> Verantwortliche Stelle und Hosting-Anbieter werden vor einer öffentlichen Veröffentlichung ergänzt und rechtlich geprüft. Die technische Beschreibung unten ist bereits verbindlich für diese Software.</p>
+        <h2>Kurzfassung</h2>
+        <p>Durchblick verarbeitet so wenig Daten wie technisch möglich: kein Konto, keine Cookies, keine Analyse- oder Werbedienste, keine Inhalte von fremden Servern. Alle persönlichen Auswahlen werden in deinem Browser berechnet.</p>
+        <h2>Was beim Aufruf der Seite anfällt</h2>
+        <p>Beim Abruf der Seiten verarbeitet der Hosting-Anbieter technisch notwendig deine IP-Adresse, Datum und Uhrzeit, die abgerufene Adresse und Browser-Angaben, um die Dateien auszuliefern und den Betrieb abzusichern. Anbieter, Speicherdauer und Rechtsgrundlage: <em>[wird vor Veröffentlichung ergänzt]</em>.</p>
+        <h2>Speicherung auf deinem Gerät</h2>
+        <p>Die Apps, die du auswählst, merkt sich die Seite nur für den geöffneten Tab (im Sitzungsspeicher deines Browsers), damit die nächste Seite in diesem Tab sie kennt. Sie kommen nicht in die Adresse und werden nicht an uns gesendet. Schließt du den Tab, vergisst die Seite sie; dein Browser kann sie aber eine Zeit lang aufbewahren, um geschlossene Tabs wiederherzustellen. Nur wenn du ausdrücklich zustimmst, speichert die Seite zusätzlich im lokalen Speicher deines Browsers, welche Maßnahmen du erledigt und welche Dienste du ausgewählt hast. Diese Daten verlassen dein Gerät nicht. Du kannst sie unter <a href={href(locale, 'transparency')}>Transparenz</a> ansehen, exportieren und löschen. Zur Offline-Nutzung legt dein Browser zudem eine feste Auswahl von Seiten-Dateien im Zwischenspeicher ab – für alle gleich, nicht die Seiten, die du besucht hast; darin sind keine Daten über dich enthalten.</p>
+        <h2>Externe Links</h2>
+        <p>Links zu Anbietern öffnen deren Websites. Wir verraten der anderen Seite nicht, dass du von Durchblick kommst (kein „Referrer“).</p>
+      </>
+    )}
+  </div></section>
+</Base>

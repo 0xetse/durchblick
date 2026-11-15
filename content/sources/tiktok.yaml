@@ -1,0 +1,160 @@
+- id: tiktok-privacy-policy-eea
+  title: "Datenschutzerklärung (EWR, Vereinigtes Königreich, Schweiz)"
+  publisher: TikTok Technology Limited
+  url: https://www.tiktok.com/legal/page/eea/privacy-policy/de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Letzte Aktualisierung laut Seite: 30. November 2025. Verantwortlich: TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Irland."
+- id: tiktok-transferee-countries
+  title: "Länder, in denen Unternehmen der TikTok-Gruppe Zugriff auf Daten aus dem EWR haben"
+  publisher: TikTok Technology Limited
+  url: https://www.tiktok.com/legal/page/eea/transferee-countries/de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Nennt u. a. China, Malaysia, Philippinen, Singapur und USA als Standorte mit eingeschränktem Fernzugriff auf Basis von Standardvertragsklauseln."
+- id: tiktok-dpc-decision-2025
+  title: "Irish Data Protection Commission fines TikTok €530 million and orders corrective measures following inquiry into transfers of EEA user data to China"
+  publisher: Data Protection Commission (Irland)
+  url: https://www.dataprotection.ie/en/news-media/latest-news/irish-data-protection-commission-fines-tiktok-eu530-million-and-orders-corrective-measures-following
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Entscheidung vom 2. Mai 2025: 485 Mio. € wegen unzulässiger Übermittlungen (Fernzugriff aus China), 45 Mio. € wegen mangelnder Transparenz."
+- id: tiktok-irishtimes-supreme-court-2026
+  title: "Supreme Court finds for TikTok in dispute with Data Protection Commission"
+  publisher: The Irish Times
+  url: https://www.irishtimes.com/crime-law/courts/2026/04/30/supreme-court-finds-for-tiktok-in-dispute-with-data-protection-commission/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "30. April 2026: Aussetzung (Stay) der DPC-Anordnung zur Übermittlungs-Suspendierung bleibt bestehen."
+- id: tiktok-irishtimes-high-court-2026
+  title: "Data Protection Commission reconsidering TikTok data-transfer ban after court ruling"
+  publisher: The Irish Times
+  url: https://www.irishtimes.com/ireland/2026/06/30/data-protection-commission-reconsidering-tiktok-data-transfer-ban-after-court-ruling/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Juni 2026: High Court bestätigt die Verstoß-Feststellungen der DPC, verlangt aber Neubewertung der Abhilfemaßnahmen; DPC prüft neu."
+- id: tiktok-newsroom-dsa-2023
+  title: "Fulfilling our commitments in Europe (DSA-Update)"
+  publisher: TikTok Newsroom
+  url: https://newsroom.tiktok.com/en-eu/fulfilling-commitments-dsa-update
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "4. August 2023: Ankündigung, dass Nutzer in Europa die Personalisierung des Für-dich-Feeds abschalten können; keine personalisierte Werbung für 13- bis 17-Jährige im EWR."
+- id: tiktok-newsroom-recommendations
+  title: "How TikTok recommends videos #ForYou"
+  publisher: TikTok Newsroom
+  url: https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "18. Juni 2020: Ob ein längeres Video bis zum Ende angesehen wird, ist ein starkes Signal für Empfehlungen."
+- id: tiktok-pixel-help
+  title: "About TikTok Pixel"
+  publisher: TikTok for Business
+  url: https://ads.tiktok.com/help/article/tiktok-pixel
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Beschreibt, welche Daten das Pixel von Websites an TikTok sendet (Ereignisse, Zeitstempel, IP-Adresse, User Agent, Cookies, Klicks)."
+- id: tiktok-help-off-tiktok-data
+  title: "Verwalte deine Daten zu Aktivitäten außerhalb von TikTok"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/account-and-privacy/personalized-ads-and-data/control-your-off-tiktok-data
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Schritte für „Verbindung zu Werbeträgern trennen“ und „Aktivitäten löschen“ (App und Web); Löschen alle 24 Stunden möglich, Trennung kann bis zu 30 Tage dauern."
+- id: tiktok-help-personalized-ads
+  title: "So personalisierst du deine Anzeigen"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/account-and-privacy/personalized-ads-and-data/how-your-ads-are-personalized
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Beschreibt Anzeigenthemen und Geschlecht für Anzeigen unter „Einstellungen und Datenschutz > Anzeigen“, nicht den EWR-Schalter für personalisierte Werbung."
+- id: tiktok-help-targeted-ads
+  title: "Gezielte Anzeigenwerbung"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/account-and-privacy/personalized-ads-and-data/targeted-ads
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Profil > Menü ☰ > Einstellungen und Datenschutz > Anzeigen; Einstellung je nach Region „Gezielte Anzeigenwerbung“ bzw. „Verwendung von Aktivitäten außerhalb von TikTok für gezielte Anzeigen“."
+- id: tiktok-privacy-center-ads
+  title: "Anzeigen und deine Daten (Datenschutzzentrum)"
+  publisher: TikTok
+  url: https://www.tiktok.com/privacy/ads-and-your-data/de
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Im Browser gerendert. Abschnitt „EWR, Vereinigtes Königreich und Schweiz“: unter „Einstellungen und Datenschutz > Anzeigen“ mit dem Schieberegler „Personalisierung von Anzeigen“ personalisierte Anzeigen komplett deaktivieren; Anzeigen erscheinen weiterhin."
+- id: tiktok-help-requesting-data
+  title: "Deine Daten anfordern"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/account-and-privacy/personalized-ads-and-data/requesting-your-data
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Schritte über „Konto > Deine Daten herunterladen“; Vorbereitung kann einige Tage dauern, Datei bis zu 4 Tage verfügbar; manche Daten (z. B. die Privatsphäre anderer betreffend) nicht enthalten."
+- id: tiktok-help-delete-account
+  title: "Konto löschen"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/account-and-privacy/deleting-an-account/deleting-an-account
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Profil > Menü ☰ > Einstellungen und Datenschutz > Konto > Konto deaktivieren oder löschen. Eine Wartefrist wird auf der Seite nicht genannt."
+- id: tiktok-help-suggested-accounts
+  title: "Suggested accounts"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/en/account-and-privacy/account-privacy-settings/suggested-accounts
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Im Browser gerendert (nur Englisch verfügbar). Settings and privacy > Privacy > Sync contacts and Facebook friends; Entzug der Geräteberechtigung stoppt die Synchronisierung, bereits synchronisierte Kontakte bleiben, bis man „Remove previously synced contacts“ nutzt."
+- id: tiktok-help-recommends-content
+  title: "So empfiehlt TikTok Inhalte"
+  publisher: TikTok Support
+  url: https://support.tiktok.com/de/using-tiktok/exploring-videos/how-tiktok-recommends-content
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert. Abschnitt zur Personalisierung: personalisierte Feeds und personalisierte Suche lassen sich in der EU abschalten; der verlinkte Artikel mit den Schritten („managing-personalization-on-tiktok“) lieferte beim Abruf nur eine Fehlermeldung."

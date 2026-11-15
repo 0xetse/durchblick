@@ -1,0 +1,24 @@
+---
+/** Inline citation links to the page's source list (#q-<id>). */
+import { getContent, refId } from '~/domain/content';
+import type { SourceRefInput } from '~/domain/schema';
+import { localeOf } from '~/i18n';
+
+interface Props {
+  refs: readonly SourceRefInput[];
+}
+const locale = localeOf(Astro.url.pathname);
+const TXT_DE = { label: (n: number): string => (n > 1 ? 'Quellen' : 'Quelle'), inGerman: '' };
+const TXT_EN: typeof TXT_DE = { label: (n) => (n > 1 ? 'Sources' : 'Source'), inGerman: ' (in German)' };
+const t = locale === 'en' ? TXT_EN : TXT_DE;
+const { sources } = getContent();
+const refs = Astro.props.refs.map((r) => ({ id: refId(r), note: typeof r === 'string' ? undefined : r.note }));
+---
+<span class="cites">{t.label(refs.length)}: {refs.map((r, i) => {
+  const s = sources.get(r.id);
+  const lang = s?.language === 'de' ? t.inGerman : '';
+  const title = r.note ? `${s?.title} – ${r.note}` : s?.title;
+  return (
+    <>{i > 0 && ', '}<a href={`#q-${r.id}`} class="cite" title={title && title + lang}>{s?.publisher ?? r.id}</a></>
+  );
+})}</span>

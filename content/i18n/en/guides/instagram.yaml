@@ -1,0 +1,139 @@
+- id: instagram-less-personalised-ads
+  service: instagram
+  kind: setting
+  title: Choose less personalised ads
+  goal: "For ads on Instagram, Meta uses only a small amount of data instead of everything it knows about your behaviour."
+  whyItMatters: "With personalised ads, Meta uses your activity and the content you look at. It also uses topics you might be interested in and your profile details."
+  whatChanges: "Ads are then based mainly on the content you are looking at in your current session. Meta also uses your age, gender, location, device and how you react to ads. Your choice applies to all accounts in the same Accounts Center – including a linked Facebook account."
+  whatDoesNotChange: "You still see ads, sometimes with ad breaks. Instagram still analyses your activity for your feed and Reels. You can only go ad-free with the paid subscription."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "In the app: tap your profile picture, then the menu and “Meta Account” (or “Accounts Centre”)."
+    - "On a computer at instagram.com: click “More” in the bottom left > “Settings”, then “Meta Account” (or “Accounts Centre”) in the left menu."
+    - "Choose “Ad preferences”, then “Ad experience” below “Manage info”."
+    - "Choose less-personalised ads and tap or click “Confirm”."
+  affects: [ig-activity, ig-profile, ig-offplatform, ig-ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Steps checked on 2026-10-21 against the Instagram help article “Manage whether you see personalised or less-personalised ads” (German and English versions; Android, iPhone and computer views). The article says explicitly “This option is only available in the European region”. Retrieved in the rendered browser from a non-EU network, so the EU version is served there too. The English version names “Meta Account”; the German version names “Kontenübersicht” (Accounts Centre) and notes the gradual switch to Meta Accounts."
+  sources: [instagram-help-manage-ad-experience, meta-help-manage-ad-experience, meta-help-less-personalised-ads, meta-help-ads-choices-eu]
+- id: instagram-activity-other-businesses
+  service: instagram
+  kind: setting
+  title: Stop Meta using data from other businesses for ads
+  goal: "Meta no longer uses what websites and apps report about your activity there for ads."
+  whyItMatters: "Shops and apps report things like page views or purchases to Meta. This happens through small pieces of code from Meta (a pixel or SDK). These reports can decide which ads you see in your Instagram feed."
+  whatChanges: "According to Meta, ads are then no longer based on these reports. The setting applies to all accounts in the same Accounts Center."
+  whatDoesNotChange: "Businesses can still send data to Meta. Meta can anonymise it or use it to improve its products."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps: []
+  affects: [ig-offplatform]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Read again on 2026-10-21 in the rendered browser (de-DE, non-EU network), including the Android view: the Instagram help article gives the path Profile > Menu > Meta Account > Your information and permissions > Activity from other businesses and only talks about “relevant content”. The matching Facebook article still says that different ad options apply in the European region. A search of the Instagram Help Center for a Europe version only found the articles on the ad experience and the subscription, which do not mention this setting. The EU path remains unconfirmed."
+  sources: [meta-help-activity-other-businesses, instagram-help-activity-other-businesses]
+- id: instagram-ai-training-objection
+  service: instagram
+  kind: setting
+  title: Object to Meta using your data for its AI
+  goal: "Meta no longer uses your public Instagram posts and comments for AI training."
+  whyItMatters: "Since 27 May 2025, Meta has been training its AI on public content from adults on Facebook and Instagram in the EU. This happens unless you object."
+  whatChanges: "According to Meta, once you object it no longer uses your information for training. Meta says it will also respect objections made later."
+  whatDoesNotChange: "Training that has already happened is not undone. Also, if you set your profile to private, your posts no longer count as “public content”."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://help.instagram.com/contact/767264225370182
+  steps: []
+  affects: [ig-content, ig-meta-ai]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Meta Newsroom and the Irish Data Protection Commission confirm that you can object; the Hamburg data protection authority names the form address (as of 27 May 2025). On 2026-10-21 we found the Instagram help article on objections in Meta products (help.instagram.com/2060335334241802) in the rendered browser (de-DE, non-EU network), but in the Android and iPhone views it only shows that this information is not available in our region. The form requires a login. So still no steps."
+  sources: [meta-newsroom-ai-training-eu-2025, meta-dpc-ai-statement-2025, meta-hmbbfdi-ai-objection-2025]
+- id: instagram-contacts
+  service: instagram
+  kind: setting
+  title: Stop contact syncing and delete uploaded contacts
+  tradeOff: "Suggestions of who you could follow are then no longer based on your address book."
+  goal: "Instagram no longer uploads your phone's address book and deletes the contacts it has already stored."
+  whyItMatters: "Instagram uploads your contact list again and again and uses it to suggest accounts. This includes numbers of people who are not on Instagram at all."
+  whatChanges: "There are no new uploads. After you delete them, the stored contacts are removed. This can take up to 90 days."
+  whatDoesNotChange: "Turning it off alone does not delete anything. You cannot delete individual contacts. Until they are finally deleted, Instagram may still show suggestions based on the contacts."
+  impact: medium
+  minutes: 5
+  difficulty: medium
+  platforms: [android, ios, web]
+  steps:
+    - "In the app: tap your profile picture, then the menu at the top right, then “Accounts Center”."
+    - "Choose “Your information and permissions” and “Upload contacts”, then the account."
+    - "Turn off “Connect contacts” and confirm with “Disconnect”. Repeat this on every device where you are logged in. It is also best to remove Instagram's access to your contacts in your device settings."
+    - "On a computer at instagram.com: click your profile picture, then “Edit profile” and “See more in Accounts Center”."
+    - "Choose “Your information and permissions” > “Manage contacts” > “Delete all” and confirm with “Delete”."
+  affects: [ig-contact-sync]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the Instagram help article on contact syncing (German version)."
+  sources: [instagram-help-contacts]
+- id: instagram-export
+  service: instagram
+  kind: export
+  title: Download a copy of your Instagram data
+  goal: "You get a file with your posts, activity, contacts and other stored information."
+  whyItMatters: "The export shows you what Instagram has stored about you. It also backs up your photos and videos."
+  whatChanges: "You request an export. You choose the type of information, the time period, the format and the image quality yourself."
+  whatDoesNotChange: "Nothing changes in the stored data."
+  impact: medium
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  steps:
+    - "Open “More” > “Settings” > “Meta account” (or “Accounts Center”)."
+    - "Choose “Your information and permissions” > “Export your information” > “Create export”."
+    - "Choose your Instagram profile, tap “Next” and then “Export to device”."
+    - "Set the information, time period, format and media quality, and click “Start export”. You will be notified when the file is ready."
+  affects: [ig-content, ig-activity, ig-profile, ig-connections, ig-contact-sync]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the Instagram help article on exporting your information (German version)."
+  sources: [instagram-help-export]
+- id: instagram-delete-account
+  service: instagram
+  kind: deletion
+  title: Permanently delete your Instagram account
+  goal: "Your profile, photos, videos and comments are permanently deleted."
+  whyItMatters: "As long as the account exists, Instagram keeps analysing your activity and keeps your content."
+  whatChanges: "The account is deleted. This can take up to 90 days."
+  whatDoesNotChange: "Copies may remain in backups for some time afterwards. Meta may keep some things longer for legal reasons. A linked Facebook account stays in place."
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web, android, ios]
+  steps:
+    - "Export your data first if you want to keep it."
+    - "Open “More” > “Settings” > “Accounts Center”."
+    - "Choose “Personal details” > “Account ownership and control” > “Deactivation or deletion” (depending on how your account is set up, this may also be under “Manage accounts”)."
+    - "Choose the account, then “Delete account” and “Continue”, and follow the instructions."
+  affects: [ig-profile, ig-content, ig-activity, ig-connections]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the Instagram help article “Permanently delete your Instagram profile” (German version); the article describes two menu variants."
+  sources: [instagram-help-delete-account]

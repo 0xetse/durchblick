@@ -1,0 +1,364 @@
+id: tiktok
+name: TikTok
+company: bytedance
+category: social
+url: https://www.tiktok.com
+summary: >-
+  TikTok zeichnet sehr genau auf, welche Videos du wie lange ansiehst, und baut daraus deinen Für-dich-Feed. Mit deiner Einwilligung nutzt TikTok auch Daten von Partnerfirmen außerhalb der App für personalisierte Werbung.
+surprise:
+  text: "TikTok sagt selbst: Mitarbeitende von TikTok-Firmen in China können aus der Ferne eingeschränkt auf Daten von Nutzer*innen aus Europa zugreifen. Die irische Datenschutzbehörde hat das 2025 beanstandet und TikTok dafür eine Strafe von 485 Millionen Euro auferlegt. Laut Presseberichten hat ein irisches Gericht diese Feststellungen im Juni 2026 bestätigt. Ob die Übermittlung gestoppt werden muss, entscheidet die Behörde neu."
+  sources:
+    - ref: tiktok-transferee-countries
+      note: "Liste der Länder mit Fernzugriff, u. a. China"
+    - ref: tiktok-dpc-decision-2025
+      note: "Entscheidung vom 2. Mai 2025"
+    - ref: tiktok-irishtimes-high-court-2026
+      note: "Stand des Gerichtsverfahrens im Juni 2026"
+businessModel:
+  text: >-
+    TikTok ist für Nutzer kostenlos und finanziert sich vor allem über Werbung. Allgemeine Werbung sehen alle. Werbung, die zu deinen Aktivitäten in und außerhalb der App passt, gibt es im EWR nur mit deiner Einwilligung. Dazu kommen Einkäufe, etwa über Shopping-Funktionen.
+  sources:
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitte zu Werbung und Kaufinformationen"
+dataPoints:
+  - id: account
+    category: account
+    title: Deine Kontodaten wie Name, Geburtsdatum, E-Mail-Adresse oder Telefonnummer.
+    detail: >-
+      Bei der Anmeldung gibst du z. B. Benutzername, Passwort, Geburtsdatum und E-Mail-Adresse oder Telefonnummer an. Dazu kommen Angaben im Profil wie Profilbild und Kurzbeschreibung.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Informationen, die du bereitstellst"
+  - id: content
+    category: content
+    title: Deine Videos, Fotos, Kommentare und Livestreams.
+    detail: >-
+      Alles, was du hochlädst oder aufnimmst, auch Entwürfe, und deine Kommentare. Dazu gehören auch Zusatzangaben zu den Aufnahmen, etwa wann und wo sie entstanden sind.
+    technical: >-
+      Metadaten der Inhalte, z. B. Zeitpunkt und Ort der Erstellung.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Nutzerinhalten"
+  - id: content-analysis
+    category: content
+    title: TikTok analysiert, was in deinen Videos zu sehen und zu hören ist.
+    detail: >-
+      Laut Datenschutzerklärung erkennt TikTok, was in deinen Bildern, Videos und Tonaufnahmen steckt. Zum Beispiel, ob und wo ein Gesicht oder andere Körperteile im Bild sind. Auch gesprochene Worte werden in Text umgewandelt.
+    technical: >-
+      Automatische Bild- und Spracherkennung auf hochgeladenen Inhalten, u. a. für Moderation, Empfehlungen und
+      Effekte.
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt 'Merkmale und Eigenschaften der Video-, Bild- und Audioaufnahmen'"
+  - id: messages
+    category: communications
+    title: Deine Direktnachrichten an andere Nutzer.
+    detail: >-
+      Laut Datenschutzerklärung erfasst TikTok den Inhalt deiner Nachrichten. Dazu kommen Angaben rund um die Nachricht: wann sie gesendet, empfangen oder gelesen wurde und wer am Gespräch beteiligt ist.
+    technical: >-
+      Nachrichteninhalt plus Metadaten (Zeitpunkte von Senden, Empfang und Lesen; Beteiligte).
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: nur wenn du Direktnachrichten nutzt
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Nachrichten"
+  - id: searches
+    category: searches
+    title: Wonach du in TikTok suchst.
+    detail: >-
+      TikTok speichert deinen Suchverlauf, z. B. Suchen nach Rezepten, Orten oder Personen.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Nutzungsinformationen ('Suchverlauf')"
+  - id: viewing-behaviour
+    category: activity
+    title: Welche Videos du wie lange ansiehst, likest, teilst und kommentierst.
+    detail: >-
+      TikTok zeichnet auf, was du tust: angesehene Videos, Likes, geteilte Inhalte, Konten, denen du folgst, und Kommentare. Laut TikTok zählt besonders, ob du ein längeres Video bis zum Ende schaust. Das beeinflusst die Empfehlungen stark.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu automatisch erhobenen Nutzungsinformationen"
+      - ref: tiktok-newsroom-recommendations
+        note: "Faktoren für den Für-dich-Feed"
+  - id: device
+    category: device
+    title: Informationen über dein Gerät und deine Verbindung.
+    detail: >-
+      Zum Beispiel Gerätemodell, Betriebssystem, Spracheinstellung und deine IP-Adresse – die Internet-Adresse deines Anschlusses. Dazu kommen feste Nummern, an denen sich dein Gerät erkennen lässt. Die Datenschutzerklärung nennt auch, in welchem Muster und Rhythmus du tippst.
+    technical: >-
+      Gerätekennungen und „Tastenanschlagmuster oder -rhythmen“ laut Datenschutzerklärung. Tippmuster werden typischerweise zur Erkennung von Bots und Betrug genutzt; TikTok nennt sie als Teil der automatisch erhobenen Geräte- und Netzwerkdaten.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Geräte- und Netzwerkinformationen"
+  - id: approximate-location
+    category: location
+    title: Dein ungefährer Standort, z. B. Land oder Stadt.
+    detail: >-
+      TikTok bestimmt deinen ungefähren Standort u. a. aus deiner IP-Adresse und deiner SIM-Karte – etwa Land, Bundesland oder Stadt.
+    provenance: derived
+    mechanisms: [device, derived]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Standortinformationen"
+  - id: precise-location
+    category: location
+    title: Dein genauer Standort, wenn du es erlaubst.
+    detail: >-
+      Erlaubst du TikTok in den Geräteeinstellungen den Zugriff auf deinen Standort, kann TikTok deinen genauen Standort nutzen – z. B. für Funktionen, die mit deinem Ort zu tun haben.
+    provenance: observed
+    mechanisms: [permissions]
+    evidence: stated
+    condition: nur wenn du die Standortberechtigung erteilst
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Standortinformationen"
+  - id: contacts
+    category: contacts
+    title: Dein Adressbuch, wenn du Kontakte synchronisierst.
+    detail: >-
+      Erlaubst du den Abgleich deiner Kontakte, liest TikTok Namen, Telefonnummern und E-Mail-Adressen aus deinem Telefonbuch. So schlägt TikTok dir Personen vor.
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: nur wenn du deine Kontakte synchronisierst
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Kontakten"
+  - id: clipboard
+    category: content
+    title: Inhalte aus deiner Zwischenablage, wenn du sie in TikTok einfügst.
+    detail: >-
+      Kopierst du Text, Bilder oder Videos und fügst sie in TikTok ein, bekommt TikTok diese Inhalte aus der Zwischenablage deines Geräts.
+    provenance: provided
+    mechanisms: [device]
+    evidence: stated
+    condition: nur beim Einfügen von Inhalten
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zur Zwischenablage"
+  - id: off-tiktok-activity
+    category: offplatform
+    title: Partnerfirmen melden TikTok, was du auf anderen Websites und in Apps tust.
+    detail: >-
+      Firmen, die bei TikTok werben oder Werbung messen, melden TikTok, was du auf anderen Websites, in Apps oder in Geschäften tust – z. B. Käufe oder Seitenaufrufe. Oft schicken sie deine E-Mail-Adresse in unlesbar gemachter Form mit oder die Werbe-Nummer deines Handys. Ein Weg dafür ist ein kleines, unsichtbares Code-Stück auf Websites von Werbenden: das sogenannte TikTok Pixel.
+    technical: >-
+      Partnerdaten kommen oft mit gehashten E-Mail-Adressen oder mobilen Werbe-IDs. Das Pixel sendet u. a. Ereignis, Zeitstempel, IP-Adresse, User Agent, Cookies und Klickinformationen an TikTok.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Informationen von Werbetreibenden und Partnern"
+      - ref: tiktok-pixel-help
+        note: "Welche Daten das Pixel übermittelt"
+inferences:
+  - id: age-gender
+    title: TikTok schätzt deine Altersgruppe und dein Geschlecht.
+    detail: >-
+      TikTok schreibt selbst, dass es aus den vorhandenen Daten Eigenschaften wie Altersgruppe und Geschlecht schätzt.
+    level: documented
+    basedOn: [account, viewing-behaviour, content-analysis]
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu abgeleiteten Informationen"
+  - id: interests
+    title: TikTok leitet deine Interessen ab.
+    detail: >-
+      Aus dem, was du ansiehst, likest und suchst, schließt TikTok auf deine Interessen, z. B. Kochen, Fußball oder Reisen. Danach richtet sich dein Feed – und mit deiner Einwilligung auch die Werbung.
+    level: documented
+    basedOn: [viewing-behaviour, searches, off-tiktok-activity]
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu abgeleiteten Informationen"
+  - id: purchase-intent
+    title: Ob du dich gerade für den Kauf bestimmter Produkte interessierst.
+    detail: >-
+      Aus Daten von Partnerfirmen, z. B. einem abgebrochenen Einkauf in einem Onlineshop, ließe sich schließen, dass du bald etwas kaufen willst. Technisch ist das möglich. TikTok schreibt aber nicht ausdrücklich, dass es so etwas schätzt.
+    level: possible
+    basedOn: [off-tiktok-activity, viewing-behaviour]
+    sources:
+      - ref: tiktok-pixel-help
+        note: "Pixel-Ereignisse von Websites"
+  - id: daily-routine
+    title: Wann und wo du TikTok typischerweise nutzt.
+    detail: >-
+      Aus Uhrzeiten, ungefährem Standort und Gerät ließe sich ein Tagesablauf erkennen, z. B. wann du pendelst. Das ist möglich, aber nicht als Praxis von TikTok dokumentiert.
+    level: possible
+    basedOn: [viewing-behaviour, approximate-location, device]
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitte zu Nutzungs- und Standortinformationen"
+purposes:
+  - purpose: provide-service
+    detail: Die Plattform betreiben, Videos anzeigen, Nachrichten zustellen, dein Konto verwalten.
+    sources: [tiktok-privacy-policy-eea]
+  - purpose: personalisation
+    detail: Deinen Für-dich-Feed und deine Suchergebnisse an deine Interessen anpassen.
+    sources:
+      - tiktok-privacy-policy-eea
+      - tiktok-newsroom-recommendations
+  - purpose: advertising
+    detail: >-
+      Allgemeine Werbung für alle. Werbung passend zu deinen Aktivitäten in und außerhalb der App nur mit deiner Einwilligung.
+    sources:
+      - ref: tiktok-privacy-policy-eea
+        note: "Abschnitt zu Werbung"
+  - purpose: measurement
+    detail: Werbenden, Creatorn und Verkäufern zeigen, wie viele Menschen sie erreichen und was ihre Inhalte bewirken.
+    sources: [tiktok-privacy-policy-eea]
+  - purpose: safety
+    detail: Inhalte moderieren, Betrug und Missbrauch erkennen, Konten schützen.
+    sources: [tiktok-privacy-policy-eea]
+  - purpose: product-development
+    detail: Die Plattform verbessern und neue Technik entwickeln.
+    sources: [tiktok-privacy-policy-eea]
+sharing:
+  - id: corporate-group
+    recipient: Unternehmen der TikTok-Gruppe außerhalb des EWR
+    detail: >-
+      Firmen der TikTok-Gruppe u. a. in China, Malaysia, Singapur, auf den Philippinen und in den USA dürfen eingeschränkt aus der Ferne auf Daten zugreifen. Gespeichert werden Daten laut TikTok u. a. in den USA, Malaysia und Singapur. Laut irischer Datenschutzbehörde räumte TikTok im April 2025 etwas ein: Anders als früher angegeben, lagen begrenzte Daten von Nutzern aus dem EWR auch auf Rechnern (Servern) in China. TikTok gibt an, sie gelöscht zu haben.
+    sources:
+      - tiktok-transferee-countries
+      - tiktok-privacy-policy-eea
+      - tiktok-dpc-decision-2025
+  - id: advertisers
+    recipient: Werbende und Firmen, die Werbung messen
+    detail: >-
+      Werbende bekommen vor allem zusammengefasste Berichte über ihre Werbung. Firmen, die Werbung messen, tauschen Daten mit TikTok aus, um zu prüfen, was die Werbung bewirkt.
+    sources: [tiktok-privacy-policy-eea]
+  - id: public
+    recipient: Öffentlichkeit und andere Nutzer
+    detail: >-
+      Je nach deinen Datenschutzeinstellungen sind dein Profil, deine Videos und Kommentare für alle sichtbar.
+    sources: [tiktok-privacy-policy-eea]
+  - id: service-providers
+    recipient: Dienstleister, Verkäufer und Zahlungsdienstleister
+    detail: >-
+      Dienstleister arbeiten in TikToks Auftrag mit Daten. Bei Käufen bekommen Verkäufer und Zahlungsdienste die nötigen Angaben.
+    sources: [tiktok-privacy-policy-eea]
+retention:
+  text: >-
+    TikTok bewahrt Daten so lange auf, wie es für die Plattform und die anderen genannten Zwecke nötig ist. Feste Fristen nennt TikTok nicht. Verstoßen Inhalte gegen Regeln, sind sie schnell nicht mehr öffentlich sichtbar. Zur Bearbeitung des Falls bleiben sie aber länger gespeichert.
+  sources:
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitt zur Speicherdauer"
+journey:
+  - id: use-app
+    title: Du schaust und postest
+    detail: Jedes angesehene Video, jedes Like und jedes hochgeladene Video wird festgehalten – samt Gerät und ungefährem Ort.
+    dataPoints: [viewing-behaviour, content, device, approximate-location]
+    sources: [tiktok-privacy-policy-eea]
+  - id: content-analysis
+    title: Inhalte werden automatisch analysiert
+    detail: TikTok untersucht hochgeladene Videos auf Bild, Ton und Text – z. B. um Regelverstöße zu finden und für Empfehlungen.
+    dataPoints: [content-analysis]
+    sources: [tiktok-privacy-policy-eea]
+  - id: partners-in
+    title: Partner melden Aktivitäten von außerhalb
+    detail: Websites und Apps melden TikTok z. B. Käufe – über das TikTok Pixel, ein unsichtbares Code-Stück, oder ähnliche Werkzeuge.
+    dataPoints: [off-tiktok-activity]
+    sources: [tiktok-privacy-policy-eea, tiktok-pixel-help]
+  - id: profile
+    title: Profil mit geschätzten Eigenschaften
+    detail: TikTok schätzt Altersgruppe, Geschlecht und Interessen.
+    dataPoints: [account, viewing-behaviour]
+    sources: [tiktok-privacy-policy-eea]
+  - id: recommendations
+    title: Daraus entsteht dein Feed
+    detail: Für den Für-dich-Feed zählt z. B. stark, ob du Videos bis zum Ende ansiehst.
+    dataPoints: [viewing-behaviour]
+    sources: [tiktok-newsroom-recommendations]
+  - id: ads
+    title: Werbung und Erfolgsmessung
+    detail: Mit deiner Einwilligung siehst du personalisierte Anzeigen. Werbende bekommen zusammengefasste Berichte.
+    dataPoints: [off-tiktok-activity, viewing-behaviour]
+    sources: [tiktok-privacy-policy-eea]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      TikTok erfasst Konto, Inhalte, Nachrichten, Geräte- und Standortdaten und bekommt zusätzlich Informationen von
+      Partnern über deine Aktivitäten außerhalb der App.
+    confidence: high
+    sources: [tiktok-privacy-policy-eea]
+  sensitivity:
+    level: 3
+    rationale: >-
+      Typisch sind eigene Videos mit Gesicht und Stimme, Interessen und – wenn du es erlaubst – der genaue Standort. Nachrichten werden auch erfasst, sind für die meisten aber nicht der Kern der Nutzung.
+    confidence: medium
+    sources: [tiktok-privacy-policy-eea]
+  observation:
+    level: 4
+    rationale: >-
+      TikTok erfasst laufend und sehr genau, was du ansiehst. Ob du ein Video zu Ende schaust, steuert direkt deinen Feed.
+    confidence: high
+    sources: [tiktok-privacy-policy-eea, tiktok-newsroom-recommendations]
+  linkability:
+    level: 4
+    rationale: >-
+      Partnerfirmen schicken Daten darüber, was du auf fremden Websites und in Apps tust – z. B. über das TikTok Pixel, ein unsichtbares Code-Stück auf Websites.
+    confidence: high
+    sources: [tiktok-privacy-policy-eea, tiktok-pixel-help]
+  adUse:
+    level: 4
+    rationale: >-
+      Werbung finanziert die kostenlose Plattform. Personalisierte Werbung braucht in der EU deine Einwilligung,
+      allgemeine Werbung siehst du immer.
+    confidence: medium
+    sources: [tiktok-privacy-policy-eea]
+  sharing:
+    level: 3
+    rationale: >-
+      Neben Dienstleistern dürfen Firmen der TikTok-Gruppe weltweit aus der Ferne zugreifen. Werbende und Firmen, die Werbung messen, bekommen vor allem zusammengefasste Auswertungen.
+    confidence: medium
+    sources: [tiktok-privacy-policy-eea, tiktok-transferee-countries]
+  defaults:
+    level: 2
+    rationale: >-
+      Personalisierte Werbung gibt es nur mit deiner Einwilligung. Der auf dich zugeschnittene Feed und die Auswertung, was du ansiehst, sind aber ab Werk an. Den Feed ohne Zuschnitt musst du selbst wählen.
+    confidence: low
+    sources: [tiktok-privacy-policy-eea, tiktok-newsroom-dsa-2023]
+  controls:
+    level: 3
+    rationale: >-
+      Du kannst personalisierte Werbung ablehnen, Daten von Partnerfirmen von deinem Konto trennen und in der EU einen Feed ohne Zuschnitt nutzen. Dass TikTok auswertet, was du ansiehst, lässt sich nicht abschalten.
+    confidence: medium
+    sources: [tiktok-privacy-policy-eea, tiktok-newsroom-dsa-2023, tiktok-help-off-tiktok-data]
+  deletion:
+    level: 3
+    rationale: >-
+      Datenkopie und Kontolöschung sind laut TikTok in den Einstellungen möglich. Feste Löschfristen nennt die
+      Datenschutzerklärung nicht.
+    confidence: low
+    sources: [tiktok-privacy-policy-eea, tiktok-help-requesting-data]
+  reachability:
+    level: 2
+    rationale: >-
+      Die Optionen liegen verteilt in den App-Einstellungen; die offiziellen Hilfeseiten ließen sich bei unserer
+      Prüfung nicht zuverlässig abrufen.
+    confidence: low
+    sources: [tiktok-help-personalized-ads, tiktok-help-off-tiktok-data]
+linkedWith: []
+region: EU
+reviewedAt: "2026-10-07"

@@ -1,0 +1,203 @@
+- id: paypal-personalised-ads
+  service: paypal
+  kind: setting
+  title: Turn off personalised offers and ads at PayPal
+  goal: You decide that PayPal and its advertising partners do not show you ads tailored to you.
+  whyItMatters: >-
+    PayPal uses your payments and your behaviour for offers and ads – in PayPal and on other websites. According to Stiftung Warentest, this is turned on by default. For ad campaigns, PayPal names companies such as Google, Facebook and LinkedIn as possible recipients.
+  whatChanges: >-
+    According to PayPal, this is where you control whether the ads and offers from PayPal and its advertising partners are tailored to you. For Meta's ads in the PayPal app, PayPal only passes on your device's advertising IDs if you have agreed.
+  whatDoesNotChange: >-
+    You still see ads, just less well matched ones. PayPal still saves your payments and uses them to estimate things such as your shopping habits. PayPal does not say whether the switch also stops every transfer of data for ad campaigns to the companies on PayPal's third-party list.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.paypal.com/de/cshelp/article/help337
+  steps:
+    - Log in to PayPal and open Settings.
+    - Click “Data & Privacy”.
+    - Under “Manage your privacy settings”, choose “Personalised offers and ads”.
+    - Turn off personalisation there.
+  affects: [transactions, merchant-shopping, usage, device]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: >-
+      Path checked against the official PayPal help page on managing your settings for personal data and privacy
+      (German version). The exact names of the switches are not given there; they are only named in press reports
+      and have therefore not been included.
+  sources:
+    - ref: paypal-help-privacy-settings
+      note: "„Personalisierte Angebote und Anzeigen, um zu steuern, ob die Anzeigen und Angebote, die Sie von uns und unseren Werbepartnern sehen, auf Sie zugeschnitten sind“"
+    - ref: paypal-third-parties-list
+      note: "Abschnitt 4 (Meta Audience Network): „nur für Nutzer …, die personalisierter Werbung von Drittanbietern zugestimmt haben“; Abschnitt 5 (Retargeting)"
+    - ref: paypal-test-de-datenschutz
+      note: "Sinngemäß: Im Kundenkonto ist die Zustimmung zu personalisierten Angeboten und Werbung voreingestellt; zu ändern unter „Daten und Datenschutz“ > „Personalisierte Angebote und Werbung“."
+- id: paypal-cookies
+  service: paypal
+  kind: setting
+  title: Reject advertising cookies at PayPal
+  goal: You only allow PayPal the cookies that the website needs.
+  whyItMatters: >-
+    Cookies are small files that let PayPal recognise your browser. If you accept them, partners can, according to PayPal, show you personalised PayPal ads on other websites.
+  whatChanges: >-
+    According to the cookie notice, cookies only help partners show you personalised PayPal ads on other websites if you accept them. You can change your choice at any time in the cookie settings.
+  whatDoesNotChange: >-
+    Cookies needed for logging in, security and fraud protection stay. According to its privacy policy, PayPal does not respond to the “Do Not Track” setting in your browser. Your choice only applies to that browser.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.paypal.com/myaccount/privacy/cookiePrefs
+  steps:
+    - In the cookie notice on paypal.com, choose “Decline”.
+    - To change an earlier choice, open Settings in your PayPal account and click “Data & Privacy”.
+    - Under “Manage your privacy settings”, choose “Change cookie preferences” and adjust your choice.
+  affects: [usage, device]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: >-
+      Cookie notice with the buttons “Accept” and “Decline” seen on paypal.com/de; path to the cookie settings
+      checked against the official PayPal help page (German version). Individual cookie categories are not described
+      there.
+  sources:
+    - ref: paypal-help-privacy-settings
+      note: "„Cookie-Einstellungen ändern: Hier steuern Sie die Verwendung von Cookies …“"
+    - ref: paypal-help-close-account
+      note: "Cookie-Hinweis auf der Seite"
+    - ref: paypal-privacy-statement
+      note: "Abschnitt Cookies: „reagieren wir nicht auf DNT-Einstellungen“"
+- id: paypal-connected-apps-payments
+  service: paypal
+  kind: review
+  title: Check connected apps and automatic payments
+  goal: You see which sellers may take money from your PayPal account and which apps get data from PayPal, and you end what you no longer need.
+  whyItMatters: >-
+    With subscriptions and saved businesses, a seller may take money without you confirming again. Apps and websites you have connected to PayPal can get data from your account. Such permissions are often forgotten.
+  whatChanges: >-
+    The seller can no longer collect cancelled automatic payments through PayPal. You can also change there which card or account the money is taken from.
+  whatDoesNotChange: >-
+    Your contract with the seller, e.g. a subscription, continues – you have to cancel it with the seller yourself. Data that a seller or an app has already received stays with them.
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.paypal.com/de/cshelp/article/help240
+  steps:
+    - In your PayPal account, open Settings and click “Payments”.
+    - Choose “Automatic payments” or “Subscriptions and saved businesses”.
+    - Choose a seller. Here you can cancel the automatic payment or change the payment source.
+    - For apps and websites, open “Data & Privacy” in Settings and, under “Manage your privacy settings”, check “Permissions you've given”.
+  affects: [transactions, account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: >-
+      Steps checked against the official PayPal help pages on automatic payments (help240) and on privacy settings
+      (help337), German version. PayPal does not describe there how to remove individual app permissions.
+  sources:
+    - ref: paypal-help-automatic-payments
+      note: "Abschnitt „So finden Sie Ihre Zahlungen per Abbuchung auf der PayPal-Website“"
+    - ref: paypal-help-privacy-settings
+      note: "„Ihre erteilten Berechtigungen: Hier können Sie den Überblick über die Daten und Berechtigungen behalten, die Sie für die von Ihnen verwendeten Apps und Websites freigeben.“"
+- id: paypal-marketing-emails
+  service: paypal
+  kind: setting
+  title: Unsubscribe from PayPal's marketing emails
+  goal: You no longer get marketing emails from PayPal.
+  whyItMatters: >-
+    PayPal uses your data to send you ads for its own services and for partners. You can decide yourself whether you get such emails.
+  whatChanges: >-
+    You choose which kinds of marketing emails you still get.
+  whatDoesNotChange: >-
+    Necessary messages such as payment receipts and notices about your account still arrive. You control ads in PayPal and on other websites separately.
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.paypal.com/de/cshelp/article/help337
+  steps:
+    - In your PayPal account, open the “Notifications” menu.
+    - Scroll down to “Marketing preferences” and click the link to the settings for marketing messages.
+    - Choose which marketing emails you no longer want to receive.
+  affects: [account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: Steps checked against the official PayPal help page on privacy settings (help337, German version).
+  sources:
+    - ref: paypal-help-privacy-settings
+      note: "Absatz zu Marketingmitteilungen im Menü „Benachrichtigungen“"
+    - ref: paypal-privacy-statement
+      note: "Abschnitt 'Legen Sie fest, wie wir mit Ihnen kommunizieren'"
+- id: paypal-download-data
+  service: paypal
+  kind: export
+  title: Download your data from PayPal
+  goal: You get a copy of the personal data PayPal keeps about you.
+  whyItMatters: >-
+    In your account overview, you mainly see payments. The copy shows what else PayPal has saved.
+  whatChanges: >-
+    You send a request and get a report with the data you chose.
+  whatDoesNotChange: >-
+    Nothing is deleted. Some data, such as recordings of calls with customer service, is not in the standard report – for that you have to contact PayPal.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.paypal.com/de/cshelp/article/help366
+  steps:
+    - In your PayPal account, open Settings.
+    - Click “Data & Privacy”.
+    - Click “Download your data”.
+    - Choose the data options and click “Submit request”.
+  affects: [account, financial, transactions, usage]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: Steps checked against the official PayPal help page “How can I access my personal data?” (German version).
+  sources:
+    - ref: paypal-help-data-access
+      note: "Abschnitt für Kunden mit Privatkonto"
+- id: paypal-close-account
+  service: paypal
+  kind: deletion
+  title: Close your PayPal account
+  goal: You close your PayPal account and in this way ask PayPal to delete your data.
+  whyItMatters: >-
+    As long as your account exists, PayPal saves all your payments. According to PayPal, closing the account is the way to request that your data is deleted.
+  whatChanges: >-
+    The account is closed and cannot be reopened. Automatic payments through this account no longer go through.
+  whatDoesNotChange: >-
+    PayPal usually keeps a lot of data, e.g. on payments, for another ten years because of legal obligations such as those against money laundering. What sellers and other recipients have already received stays with them.
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://www.paypal.com/de/cshelp/article/help247
+  tradeOff: "You can no longer use PayPal to pay; a closed account cannot be reopened."
+  steps:
+    - First, withdraw your whole balance. You cannot close the account if there is money left in it, if it is limited or if there are open issues.
+    - Open Settings.
+    - Under “Account preferences”, click “Close your account”.
+    - Confirm with “Close account”.
+  affects: [account, financial, transactions, contacts, biometrics]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: Steps checked against the official PayPal help page “How do I close my PayPal account?” (German version).
+  sources:
+    - ref: paypal-help-close-account
+      note: "Abschnitt „Im Internet“"
+    - ref: paypal-help-privacy-settings
+      note: "„Ihre Daten löschen / Konto schließen – damit bitten Sie uns, Ihre Daten zu löschen. Um dies zu tun, müssen wir auch Ihr Konto schließen.“"
+    - ref: paypal-privacy-statement
+      note: "Abschnitt 'Wie lange wir Ihre personenbezogenen Daten speichern'"

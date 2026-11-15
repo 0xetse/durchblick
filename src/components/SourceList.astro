@@ -1,0 +1,39 @@
+---
+import { getContent } from '~/domain/content';
+import { dict, localeOf } from '~/i18n';
+
+interface Props {
+  ids: string[];
+}
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  tier: { 1: 'Primärquelle', 2: 'Forschung/Recherche', 3: 'ergänzend' } as Record<1 | 2 | 3, string>,
+  external: ' (externe Seite)',
+  retrieved: 'abgerufen',
+  region: (r: string) => ` · Region ${r}`,
+  inGerman: '',
+};
+const TXT_EN: typeof TXT_DE = {
+  tier: { 1: 'Primary source', 2: 'Research/investigation', 3: 'Supplementary' },
+  external: ' (external site)',
+  retrieved: 'retrieved',
+  region: (r) => ` · Region ${r}`,
+  inGerman: ' · in German',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+const { sources } = getContent();
+const list = [...new Set(Astro.props.ids)]
+  .map((id) => sources.get(id))
+  .filter((x) => x !== undefined)
+  .sort((a, b) => a.tier - b.tier || a.publisher.localeCompare(b.publisher, 'de'));
+---
+<ol class="source-list cites">
+  {list.map((src) => (
+    <li id={`q-${src.id}`}>
+      <span class="cite-type" title={t.sourceTypes[src.type]}>{t.sourceTypesShort[src.type] ?? src.type}</span>
+      <a href={src.url} rel="noopener noreferrer" target="_blank">{src.publisher} – {src.title} ↗<span class="visually-hidden">{s.external}</span></a>
+      <span class="meta">{s.tier[src.tier]} · {s.retrieved} {src.retrievedAt}{src.region !== 'EU' && s.region(src.region)}{src.language === 'de' && s.inGerman}</span>
+    </li>
+  ))}
+</ol>

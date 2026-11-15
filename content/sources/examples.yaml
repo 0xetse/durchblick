@@ -1,0 +1,102 @@
+# Sources for the real-world cases on /warum/ (content/examples.yaml).
+# All pages were opened and the cited facts checked on 2026-10-18.
+- id: netzpolitik-databroker-files
+  title: "Databroker Files: Die große Datenhändler-Recherche im Überblick"
+  publisher: netzpolitik.org
+  url: https://netzpolitik.org/2024/databroker-files-die-grosse-datenhaendler-recherche-im-ueberblick/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-18"
+  region: DE
+  language: de
+  note: "Recherche mit dem Bayerischen Rundfunk, 16. Juli 2024. Rund 3,6 Mrd. Standortpunkte, etwa 11 Mio. Geräte-Kennungen; laut Redaktion teils fehlerhaft, die echte Zahl der Geräte ist wohl kleiner."
+- id: dpc-facebook-scraping-2022
+  title: "Data Protection Commission announces decision in Facebook “Data Scraping” Inquiry"
+  publisher: Data Protection Commission (Irland)
+  url: https://www.dataprotection.ie/en/news-media/press-releases/data-protection-commission-announces-decision-in-facebook-data-scraping-inquiry
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-18"
+  region: EU
+  language: en
+  note: "28. November 2022: Bußgeld von 265 Mio. Euro gegen Meta (Art. 25 DSGVO)."
+- id: computerbase-facebook-530-mio
+  title: "Facebook: Datensatz mit Informationen zu 530 Mio. Nutzern im Umlauf"
+  publisher: ComputerBase
+  url: https://www.computerbase.de/2021-04/facebook-datensatz-mit-informationen-zu-530-mio.-nutzern-im-umlauf/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-18"
+  region: DE
+  language: de
+  note: "April 2021: 533 Mio. Datensätze aus 107 Ländern, davon rund 6 Mio. aus Deutschland."
+- id: meta-facts-data-2021
+  title: The Facts on News Reports About Facebook Data
+  publisher: Meta
+  url: https://about.fb.com/news/2021/04/facts-on-news-reports-about-facebook-data/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-18"
+  region: global
+  language: en
+  note: "6. April 2021: Daten vor September 2019 über die Kontakt-Import-Funktion gesammelt."
+- id: facebook-restricting-data-access-2018
+  title: An Update on Our Plans to Restrict Data Access on Facebook
+  publisher: Meta (Facebook)
+  url: https://about.fb.com/news/2018/04/restricting-data-access/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-18"
+  region: global
+  language: en
+  note: "4. April 2018: Informationen von bis zu 87 Millionen Menschen, überwiegend in den USA."
+- id: tagesspiegel-cambridge-analytica-de
+  title: "Datenmissbrauch durch Cambridge Analytica: Facebook-Skandal betrifft bis zu 310.000 Nutzer aus Deutschland"
+  publisher: Der Tagesspiegel
+  url: https://www.tagesspiegel.de/politik/facebook-skandal-betrifft-bis-zu-310000-nutzer-aus-deutschland-8423587.html
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-18"
+  region: DE
+  language: de
+  note: "5. April 2018: 65 Nutzer*innen der App in Deutschland, bis zu 309.815 möglicherweise Betroffene (Angabe von Facebook)."
+- id: markup-pixel-hospitals-2022
+  title: Facebook Is Receiving Sensitive Medical Information from Hospital Websites
+  publisher: The Markup
+  url: https://themarkup.org/pixel-hunt/2022/06/16/facebook-is-receiving-sensitive-medical-information-from-hospital-websites
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-18"
+  region: US
+  language: en
+  note: "16. Juni 2022: Meta-Pixel auf 33 der 100 bekanntesten US-Krankenhaus-Websites; in Patientenportalen u. a. Medikamentennamen."
+- id: ftc-flo-order-2021
+  title: "FTC Finalizes Order with Flo Health, a Fertility-Tracking App that Shared Sensitive Health Data with Facebook, Google, and Others"
+  publisher: U.S. Federal Trade Commission
+  url: https://www.ftc.gov/news-events/news/press-releases/2021/06/ftc-finalizes-order-flo-health-fertility-tracking-app-shared-sensitive-health-data-facebook-google
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-18"
+  region: US
+  language: en
+  note: "22. Juni 2021: Gesundheitsdaten von „Millionen“ Nutzer*innen an Marketing- und Analysefirmen; künftig nur mit Zustimmung."
+- id: edpb-clearview-nl-2024
+  title: Dutch Supervisory Authority imposes a fine on Clearview because of illegal data collection for facial recognition
+  publisher: Europäischer Datenschutzausschuss (für die niederländische Datenschutzbehörde)
+  url: https://www.edpb.europa.eu/news/national-news/2024/dutch-supervisory-authority-imposes-fine-clearview-because-illegal-data_en
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-18"
+  region: EU
+  language: en
+  note: "3. September 2024: Bußgeld von 30,5 Mio. Euro."
+- id: ap-clearview-nl-2024
+  title: Clearview AI fined $33.7 million by Dutch data protection watchdog over 'illegal database' of faces
+  publisher: Associated Press (über WSLS)
+  url: https://www.wsls.com/business/2024/09/03/clearview-ai-fined-337-million-by-dutch-data-protection-watchdog-over-illegal-database-of-faces/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-18"
+  region: EU
+  language: en
+  note: "Datenbank mit Milliarden Fotos von Gesichtern aus sozialen Netzwerken und dem Internet."

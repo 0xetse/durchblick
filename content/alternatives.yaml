@@ -1,0 +1,1125 @@
+# Alternativen je Kategorie – neutrale Abwägung, keine Empfehlung „gut/schlecht“.
+# Leitlinie (V2): Zuerst zeigen, was ohne Wechsel geht. Bei jeder Alternative konkret benennen, auf welchen
+# Komfort man im Alltag in Deutschland verzichtet oder was man gewinnt („Verzichtest du auf“, „Gewinnst du“,
+# „Bleibt gleich“). Quellen-IDs verweisen auf content/sources/alternatives.yaml.
+- id: browser
+  title: Browser
+  einordnung: 'Der Browser sieht alles, was du im Netz tust – deshalb wirkt ein Wechsel breit: Firefox, Brave und
+    Safari blockieren Tracker von Haus aus stärker als Chrome. Tracker sind Code-Schnipsel, die dich über Websites
+    hinweg verfolgen. Chrome lässt außerdem Cookies fremder Firmen (Drittanbieter-Cookies) weiterhin standardmäßig zu. Wer ohnehin fast nur eingeloggt in Google-Diensten arbeitet, gewinnt durch einen Browserwechsel allein
+    weniger und verliert etwas Bequemlichkeit bei der Google-Anmeldung.'
+  withoutSwitching: 'In Chrome unter „Einstellungen“ → „Datenschutz und Sicherheit“ Cookies fremder Firmen (Drittanbieter-Cookies) blockieren.
+    Bei der Synchronisierung nur die Daten auswählen, die du wirklich brauchst. Im Google-Konto „Web- & App-Aktivitäten“
+    (dazu gehört der Chrome-Verlauf) pausieren oder automatisch löschen lassen und in den Chrome-Einstellungen eine
+    andere Standardsuchmaschine wählen. Das schließt nicht alle Lücken, verringert aber spürbar, dass Firmen dich über Webseiten
+    hinweg verfolgen.'
+  incumbent:
+    id: google-chrome
+    name: Google Chrome
+    provider: Google LLC
+    jurisdiction: USA
+    businessModel: Kostenlos; Chrome stärkt Googles Werbe- und Suchgeschäft, das Google den größten Teil seines
+      Umsatzes bringt.
+    price: Kostenlos.
+    openSource: partial
+    encryption: Verschlüsselte Verbindungen (HTTPS) wie alle Browser; synchronisierte Daten sind standardmäßig mit
+      Google-Schlüsseln geschützt, optional mit eigener Passphrase.
+    dataCollection: Bei Anmeldung und aktivierter Synchronisierung können Verlauf und Aktivitäten im Google-Konto
+      landen; Cookies fremder Firmen (Drittanbieter-Cookies) bleiben standardmäßig erlaubt, nachdem Google 2025 von der Abschaffung abgerückt
+      ist.
+    strengths:
+    - Sehr verbreitet, beste Kompatibilität mit Webseiten.
+    - Schnelle Sicherheitsupdates.
+    - Nahtlos mit Google-Konto auf allen Geräten (Lesezeichen, Passwörter, Tabs).
+    - Größte Auswahl an Erweiterungen (Chrome Web Store).
+    tradeOffs:
+    - Weniger eingebauter Schutz davor, dass Firmen dich über Websites hinweg verfolgen, als bei den Alternativen.
+    - Mit Anmeldung landen Verlauf und Aktivitäten standardmäßig im Google-Konto, wenn du es nicht änderst.
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.google.com/chrome/
+    sources:
+    - alt-windowsreport-privacy-sandbox
+    - alt-engadget-privacy-sandbox
+    - alt-chromium-source
+    needsVerification: false
+  alternatives:
+  - id: firefox
+    name: Firefox
+    provider: Mozilla Corporation (Tochter der Mozilla Foundation)
+    jurisdiction: USA
+    businessModel: Vor allem Umsatzbeteiligung aus Suchmaschinen-Verträgen (2024 laut Berichten rund 85 % des Umsatzes
+      über Google), dazu Werbung auf der Neuer-Tab-Seite.
+    price: Kostenlos.
+    openSource: 'yes'
+    encryption: 'Firefox-Sync ist Ende-zu-Ende-verschlüsselt (an das Konto-Passwort gebunden): Nur deine eigenen Geräte
+      können die Daten lesen, Mozilla nicht.'
+    dataCollection: Sendet standardmäßig technische und Nutzungsdaten an Mozilla (abschaltbar); zeigt gesponserte
+      Inhalte auf der Neuer-Tab-Seite (abschaltbar).
+    strengths:
+    - Eigene Browser-Engine, nicht von Chromium abhängig.
+    - Erweiterter Schutz davor, dass Firmen dich über Websites verfolgen (Tracking-Schutz), standardmäßig aktiv.
+    - Viele Erweiterungen, auch auf Android.
+    tradeOffs:
+    - 'Verzichtest du auf: Chrome-Erweiterungen direkt aus dem Chrome Web Store. Firefox hat einen eigenen Katalog;
+      viele bekannte Erweiterungen gibt es dort auch, aber nicht alle.'
+    - 'Verzichtest du auf: die automatische Verbindung mit deinem Google-Konto. Lesezeichen, Passwörter und Tabs
+      synchronisierst du über ein eigenes Mozilla-Konto. In Gmail, YouTube & Co. meldest du dich ganz normal an.'
+    - 'Verzichtest du auf: volle Sicherheit, dass jede Seite läuft. Seiten, die nur für Chrome getestet sind, machen
+      gelegentlich Probleme.'
+    - 'Bleibt gleich: Lesezeichen und gespeicherte Passwörter kannst du aus Chrome übernehmen.'
+    - Nutzungsdaten an Mozilla und Werbung auf der Startseite musst du selbst abschalten.
+    - Finanziell stark von Google abhängig.
+    switchingEffort: low
+    switchingNote: Lesezeichen und Passwörter lassen sich direkt aus Chrome importieren.
+    url: https://www.mozilla.org/firefox/
+    sources:
+    - alt-mozilla-firefox-privacy
+    - alt-mjtsai-mozilla-google-revenue
+    - alt-firefox-repo
+    needsVerification: false
+  - id: brave
+    name: Brave
+    provider: Brave Software Inc.
+    jurisdiction: USA
+    businessModel: Opt-in-Werbung im Browser (Brave Rewards/BAT), Werbung in Brave Search sowie Abos (z. B. Search
+      Premium, Leo Premium, VPN).
+    price: Kostenlos; Zusatzdienste kostenpflichtig.
+    openSource: 'yes'
+    encryption: 'Brave Sync ist laut Anbieter Ende-zu-Ende-verschlüsselt: Nur deine eigenen Geräte können die Daten lesen.'
+    dataCollection: Anonyme Nutzungsstatistik (P3A) und tägliche Nutzungsmeldung, beides abschaltbar; Werbe-Abgleich
+      findet laut Brave lokal auf dem Gerät statt.
+    strengths:
+    - Blocker für Werbung und Tracker (Code, der dich über Websites verfolgt) ab Werk aktiv.
+    - Basiert auf Chromium – Chrome-Erweiterungen funktionieren.
+    - Umstieg fühlt sich vertraut an.
+    tradeOffs:
+    - 'Bleibt gleich: Bedienung und die meisten Chrome-Erweiterungen.'
+    - 'Verzichtest du auf: die Synchronisierung über dein Google-Konto. Brave Sync verbindet Geräte über einen eigenen
+      Code statt über ein Konto – das ist etwas ungewohnter.'
+    - 'Gewinnst du: weniger Werbung und Tracker ohne zusätzliche Erweiterung. Seiten mit Werbeblocker-Sperre musst
+      du manchmal einzeln freigeben.'
+    - Viele Extras (Krypto-Wallet, Rewards, KI-Assistent), die man nicht unbedingt will und erst ausblenden muss.
+    - Geschäftsmodell basiert ebenfalls auf Werbung, wenn auch anders umgesetzt.
+    switchingEffort: low
+    switchingNote: Import aus Chrome mit einem Klick, Bedienung nahezu gleich.
+    url: https://brave.com/
+    sources:
+    - alt-brave-browser-privacy
+    - alt-brave-browser-repo
+    needsVerification: false
+  - id: safari
+    name: Safari
+    provider: Apple Inc.
+    jurisdiction: USA
+    businessModel: Teil von Apples Angebot; Apple verdient an Geräten und Diensten. Wie das US-Kartellverfahren gegen
+      Google zeigt, zahlt Google Apple dafür, in Safari die Standardsuche zu sein.
+    price: Kostenlos, nur auf Apple-Geräten.
+    openSource: partial
+    encryption: 'Verlauf, offene Tabs und Passwörter gleicht iCloud standardmäßig Ende-zu-Ende-verschlüsselt ab, Lesezeichen
+      nur mit „Erweiterter Datenschutz für iCloud“. Ende-zu-Ende heißt: Nur deine eigenen Geräte können die Daten lesen,
+      Apple nicht.'
+    dataCollection: Safari blockiert laut Apple standardmäßig Cookies fremder Firmen (Drittanbieter-Cookies), die dich
+      verfolgen; die „Intelligente Tracking-Verhinderung“ erkennt Tracker direkt auf dem Gerät. Für einzelne Funktionen
+      wie das Übersetzen schickt Safari Webadressen an Apple, laut Apple ohne Verknüpfung mit deinem Account.
+    strengths:
+    - Auf iPhone/Mac bereits installiert – kein Wechsel nötig.
+    - Schützt schon ab Werk streng davor, dass Firmen dich über Websites verfolgen.
+    - Laut Apple sparsam im Akkuverbrauch, etwa beim Videostreamen auf dem Mac.
+    tradeOffs:
+    - 'Verzichtest du auf: Safari unter Windows oder Android. Den Browser gibt es nur auf Apple-Geräten. Auf einem
+      Windows-PC kannst du Passwörter und Lesezeichen über „iCloud für Windows“ mit einer Erweiterung für Chrome,
+      Edge oder Firefox nutzen.'
+    - 'Verzichtest du auf: viele Chrome-Erweiterungen. Safari-Erweiterungen kommen aus dem App Store, die Auswahl
+      ist kleiner.'
+    - 'Gewinnst du: Passwörter und Tabs über iCloud auf iPhone, iPad und Mac, ohne zusätzliches Konto.'
+    switchingEffort: low
+    switchingNote: für Apple-Nutzer nur eine Standard-Browser-Einstellung.
+    url: https://www.apple.com/safari/
+    sources:
+    - alt-apple-safari
+    - alt-apple-safari-privacy
+    - alt-apple-icloud-security
+    - alt-apple-icloud-windows-passwords
+    - alt-apple-icloud-windows-bookmarks
+    - alt-us-v-google-doj
+    - alt-webkit-repo
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: search
+  title: Suche
+  einordnung: Suchanfragen verraten viel über Gesundheit, Pläne und Sorgen. Die Alternativen verknüpfen Suchen nicht
+    mit einem Konto oder Profil, zeigen aber weiterhin Werbung – nur passend zur Suche statt zu deinem Profil. Bei
+    lokalen Fragen (Öffnungszeiten, Geschäfte in der Nähe, Fahrpläne) und beim Einkaufen bietet Google in Deutschland
+    meist mehr direkte Antworten.
+  withoutSwitching: Im Google-Konto unter „Daten und Datenschutz“ die „Web- & App-Aktivitäten“ pausieren oder auf
+    „Automatisch löschen“ stellen und in „Mein Anzeigen-Center“ personalisierte Werbung ausschalten. In den Sucheinstellungen
+    lassen sich zusätzlich personalisierte Suchergebnisse abschalten, oder du suchst abgemeldet. Damit entsteht deutlich
+    weniger Suchprofil, Google sieht die einzelnen Anfragen aber weiterhin.
+  incumbent:
+    id: google-search
+    name: Google Suche
+    provider: Google LLC
+    jurisdiction: USA
+    businessModel: Suchwerbung – Googles größte Einnahmequelle.
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); der Anbieter kann deine Suchen lesen – bei Suche ist das üblich.
+    dataCollection: Suchen können bei Anmeldung in „Web- & App-Aktivitäten“ gespeichert und für Personalisierung
+      und Werbung genutzt werden; Einstellungen erlauben Pausieren und automatisches Löschen.
+    strengths:
+    - Größter Index, sehr gute lokale Ergebnisse.
+    - Viele Direktantworten (Karten, Fahrpläne, Öffnungszeiten, Bewertungen).
+    - Bildersuche und Preisvergleiche (Shopping) direkt in den Ergebnissen.
+    tradeOffs:
+    - Personalisierung basiert auf Nutzungsdaten, solange du sie nicht abschaltest.
+    - Anzeigen und Googles eigene Dienste stehen oft oben in den Ergebnissen.
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.google.com/
+    sources:
+    - alt-google-privacy-policy
+    needsVerification: false
+  alternatives:
+  - id: duckduckgo
+    name: DuckDuckGo
+    provider: Duck Duck Go, Inc.
+    jurisdiction: USA
+    businessModel: Kontextbezogene Suchwerbung über das Microsoft-Werbenetz, dazu ein Abo (Plus/Pro) mit VPN und weiteren
+      Diensten.
+    price: Suche kostenlos; Abo Plus 9,99 €/Monat oder 99,99 €/Jahr, Pro 19,99 €/Monat (Preise für die Eurozone laut
+      DuckDuckGo).
+    openSource: partial
+    encryption: Verbindung verschlüsselt (HTTPS); der Anbieter kann deine Suchen lesen – bei Suche ist das üblich.
+    dataCollection: Speichert laut Datenschutzerklärung keine IP-Adressen zusammen mit Suchen und keinen Suchverlauf;
+      Anzeigen richten sich nach der Suche, Klicks darauf laufen über Microsoft.
+    strengths:
+    - Kein Konto, kein Suchprofil.
+    - Lässt sich in gängigen Browsern wie Chrome, Safari, Firefox und Edge als Standardsuche einstellen.
+    - Karten und Adressen kommen laut DuckDuckGo von Apple Karten.
+    tradeOffs:
+    - 'Verzichtest du auf: einen Teil der lokalen Treffer. Geschäfte, Öffnungszeiten und deutschsprachige Nischenthemen
+      findest du teils schwerer als bei Google (nicht systematisch geprüft).'
+    - 'Verzichtest du auf: Googles Preisvergleich und einen Teil der Direktantworten (nicht systematisch geprüft).'
+    - 'Bleibt gleich: Bilder-, Video- und Nachrichtensuche sind vorhanden.'
+    - Klassische Web-Treffer und Bilder stammen laut DuckDuckGo größtenteils aus Bing.
+    - 'Tipp: Mit Kurzbefehlen („Bangs“) wie „!a“ für Amazon schickst du eine Suche direkt an eine andere Seite oder
+      Suchmaschine.'
+    switchingEffort: low
+    switchingNote: Standardsuche im Browser umstellen.
+    url: https://duckduckgo.com/
+    sources:
+    - alt-duckduckgo-privacy
+    - alt-duckduckgo-pro-plan
+    - alt-duckduckgo-github
+    - alt-duckduckgo-apple-maps
+    - alt-duckduckgo-cost
+    - alt-duckduckgo-result-sources
+    - alt-duckduckgo-browsers
+    - alt-duckduckgo-bangs
+    needsVerification: false
+  - id: brave-search
+    name: Brave Search
+    provider: Brave Software Inc.
+    jurisdiction: USA
+    businessModel: Datenschutzfreundliche Suchwerbung; werbefreie Bezahlversion Search Premium.
+    price: Kostenlos; Search Premium (werbefrei) laut Brave 3 USD/Monat oder 29,99 USD/Jahr (Euro-Preis nicht angegeben).
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); der Anbieter kann deine Suchen lesen – bei Suche ist das üblich.
+    dataCollection: Für Anzeigen nutzt Brave laut eigener Aussage nur Suchbegriff, Land und Gerätetyp und legt kein
+      Suchprofil an.
+    strengths:
+    - Eigener Suchindex; laut Brave stammen seit 2023 alle Web-Treffer daraus und nicht mehr von Bing.
+    - Kein Konto nötig.
+    tradeOffs:
+    - 'Verzichtest du auf: eventuell Treffer bei Nischenthemen. Der eigene Index ist jünger als der von Google (nicht
+      systematisch geprüft).'
+    - 'Verzichtest du auf: einen Teil der lokalen Infos zu Geschäften, Öffnungszeiten und Bewertungen (nicht systematisch
+      geprüft).'
+    - 'Bleibt gleich: Bilder-, Video- und Nachrichtensuche sind vorhanden.'
+    - Search Premium nur im Brave-Browser.
+    switchingEffort: low
+    switchingNote: Standardsuche im Browser umstellen.
+    url: https://search.brave.com/
+    sources:
+    - alt-brave-search-premium
+    - alt-brave-search-ads
+    - alt-sej-brave-search-index
+    - alt-brave-premium-pricing
+    - alt-brave-search-independence
+    - alt-brave-search-help
+    needsVerification: false
+  - id: startpage
+    name: Startpage
+    provider: Surfboard Holding B.V. (Den Haag); laut Jahresbericht von System1 zählt Startpage zu dessen Websites
+    jurisdiction: Niederlande
+    businessModel: Kontextbezogene Suchwerbung (gekennzeichnete Anzeigen, u. a. über Google AdSense); dazu ein optionales
+      Konto mit Abo.
+    price: Suche kostenlos; optionales Startpage-Abo (Umfang und Preis nicht verifiziert).
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); der Anbieter kann deine Suchen lesen – bei Suche ist das üblich.
+    dataCollection: Entfernt laut Startpage die IP-Adresse sofort, speichert keine Suchen und bildet keine Profile; die
+      Anfrage geht ohne persönliche Daten an Suchpartner wie Google.
+    strengths:
+    - Google-Ergebnisse ohne Google-Konto-Bezug.
+    - Sitz in der EU (DSGVO).
+    - Proxy-Funktion „Anonyme Ansicht“ für Webseiten.
+    tradeOffs:
+    - 'Bleibt gleich: Die normalen Web-Treffer kommen von Google und sind deshalb ähnlich gut.'
+    - 'Verzichtest du auf: Googles Extras wie Karten mit Öffnungszeiten, Bewertungen, Fahrpläne und Preisvergleich.'
+    - 'Verzichtest du auf: auf dich zugeschnittene Ergebnisse. Alle sehen dieselben Treffer.'
+    - Zu den Eigentümern gehört das US-Werbetechnik-Unternehmen System1, das Startpage in seinem Jahresbericht als eigene
+      Website führt.
+    switchingEffort: low
+    switchingNote: Standardsuche im Browser umstellen.
+    url: https://www.startpage.com/
+    sources:
+    - alt-wikipedia-startpage
+    - alt-startpage-privacy
+    - alt-startpage-how-it-works
+    - alt-system1-10k-2023
+    needsVerification: true
+  - id: ecosia
+    name: Ecosia
+    provider: Ecosia GmbH
+    jurisdiction: Deutschland
+    businessModel: Suchwerbung über Microsoft Advertising und Google AdSense; laut Ecosia fließen alle Gewinne in den
+      Klimaschutz, vor allem in Baumpflanzungen.
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); der Anbieter kann deine Suchen lesen – bei Suche ist das üblich.
+    dataCollection: Laut Ecosia keine persönlichen Suchprofile; IP-Adressen werden nach höchstens 7 Tagen anonymisiert.
+      Suchen gehen an Partner (Microsoft Bing, Google oder den europäischen Index EUSP), die sie nach eigenen Regeln
+      verarbeiten.
+    strengths:
+    - Sitz in Berlin, DSGVO.
+    - Baut mit Qwant einen eigenen europäischen Suchindex (EUSP) auf.
+    tradeOffs:
+    - 'Bleibt gleich: Die Treffer kommen überwiegend von Bing oder Google und wirken deshalb vertraut. Welcher Partner
+      liefert, hängt laut Ecosia unter anderem von Land und Cookie-Einstellungen ab.'
+    - 'Verzichtest du auf: einen Teil der lokalen Extras wie Öffnungszeiten, Bewertungen und Preisvergleich (nicht
+      systematisch geprüft).'
+    - 'Die Suchpartner erhalten deine Anfragen und anonymisieren IP-Adressen laut Ecosia später: Microsoft nach 6 Monaten,
+      Google (wenn du Google-Ergebnisse erlaubst) nach 9 Monaten.'
+    switchingEffort: low
+    switchingNote: Standardsuche im Browser umstellen.
+    url: https://www.ecosia.org/
+    sources:
+    - alt-ecosia-privacy
+    - alt-ecosia-eusp
+    - alt-ecosia-privacy-blog
+    - alt-ecosia-ip-addresses
+    - alt-ecosia-result-providers
+    - alt-ecosia-how-money
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: email
+  title: E-Mail
+  einordnung: Bei Gmail kann Google den Inhalt deiner Mails technisch lesen (etwa für Spamfilter und Funktionen),
+    nutzt ihn laut eigener Aussage aber nicht für Werbung. Proton und Tuta verschlüsseln gespeicherte Mails so,
+    dass der Anbieter sie nicht lesen kann; Posteo und mailbox.org bieten das optional. Mails an Menschen mit Gmail
+    oder anderen Diensten sind meist nur auf dem Transportweg verschlüsselt – der Empfänger-Anbieter sieht sie trotzdem.
+    Der größte Aufwand beim Wechsel ist die neue Adresse, nicht die Technik.
+  withoutSwitching: Im Google-Konto die Bestätigung in zwei Schritten aktivieren und in „Mein Anzeigen-Center“ personalisierte
+    Werbung ausschalten. In den Gmail-Einstellungen kannst du „Intelligente Funktionen“ abschalten, wenn du Vorschläge
+    und automatische Sortierung nicht brauchst. Am Grundsatz, dass Google Inhalte technisch lesen kann, ändert das
+    nichts.
+  incumbent:
+    id: gmail
+    name: Gmail
+    provider: Google LLC (für EU-Nutzer Google Ireland Ltd.)
+    jurisdiction: USA
+    businessModel: Werbung (personalisiert über die Google-Kontoaktivität) und Speicher-Abos (Google One) bzw. Workspace.
+    price: Kostenlos mit 15 GB (geteilt mit Drive und Fotos); mehr Speicher über Google One; eigene Domain nur mit
+      dem kostenpflichtigen Google Workspace.
+    openSource: 'no'
+    encryption: Verschlüsselt auf dem Weg (TLS, sofern der andere Mail-Anbieter mitmacht) und auf Googles Rechnern, aber
+      mit Google-Schlüsseln. Für Privatkunden
+      gibt es standardmäßig keine Ende-zu-Ende-Verschlüsselung, bei der nur Absender und Empfänger mitlesen können.
+    dataCollection: Google gibt an, Gmail-Inhalte nicht für Werbung zu scannen; Anzeigen in Gmail basieren auf deiner
+      sonstigen Aktivität im Google-Konto (abschaltbar).
+    strengths:
+    - Eingebauter Spamfilter, automatische Sortierung und Suche.
+    - Tiefe Integration mit Kalender, Kontakten, Drive und Android.
+    - Kostenlos mit 15 GB Speicher.
+    tradeOffs:
+    - Anbieter kann Inhalte technisch lesen und verarbeitet sie für Funktionen wie Spamfilter und Sortierung.
+    - Werbung im Posteingang (Tabs „Werbung“ und „Soziale Netzwerke“).
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.google.com/gmail/about/
+    sources:
+    - alt-gmail-ads-help
+    - alt-gmail-privacy-help
+    - alt-gmail-encryption-help
+    - alt-google-storage-help
+    - alt-gmail-custom-domain-help
+    - alt-google-privacy-policy
+    needsVerification: false
+  alternatives:
+  - id: proton-mail
+    name: Proton Mail
+    provider: Proton AG
+    jurisdiction: Schweiz
+    businessModel: Abonnements; laut Proton ausschließlich durch zahlende Nutzer finanziert.
+    price: Kostenlos (bis 1 GB); Mail Plus (15 GB, 1 eigene Domain) 4,99 €/Monat bzw. 3,99 €/Monat bei Jahreszahlung.
+    openSource: partial
+    encryption: Ende-zu-Ende zwischen Proton-Nutzern (nur Absender und Empfänger können mitlesen); gespeicherte Mails mit Zero-Access-Verschlüsselung (Proton
+      kann Inhalte nicht lesen); Betreffzeilen sind nicht Ende-zu-Ende-verschlüsselt.
+    dataCollection: Speichert für den Betrieb nötige Begleitdaten (sogenannte Metadaten, z. B. Absender,
+      Empfänger, Zeitpunkt); keine Werbung.
+    strengths:
+    - Starke Verschlüsselung, einfache Bedienung.
+    - 'Weitere Dienste aus einer Hand: Kalender, Drive, Passwortmanager, VPN.'
+    - Gratisstufe verfügbar.
+    tradeOffs:
+    - 'Verzichtest du auf: viel Gratis-Speicher. Kostenlos gibt es höchstens 1 GB statt 15 GB.'
+    - 'Verzichtest du auf: eine eigene Domain und die Desktop-App in der Gratisstufe (Desktop-App dort nur 14 Tage
+      zum Testen).'
+    - 'Bleibt gleich: Kalender und Kontakte gibt es auch bei Proton, mit eigenen Apps für Handy und Browser.'
+    - 'Verzichtest du auf: einfache Nutzung mit Outlook oder Thunderbird. Das geht nur mit Bezahlplan und Zusatzprogramm
+      (Bridge).'
+    - Die Suche im Mailinhalt ist eingeschränkter, weil Inhalte verschlüsselt sind.
+    switchingEffort: medium
+    switchingNote: Import-Assistent für Gmail vorhanden, aber Adresse muss überall geändert werden.
+    url: https://proton.me/mail
+    sources:
+    - alt-proton-plans
+    - alt-proton-mail-pricing
+    - alt-proton-mail-github
+    needsVerification: false
+  - id: tuta
+    name: Tuta Mail
+    provider: Tutao GmbH
+    jurisdiction: Deutschland
+    businessModel: Abonnements, keine Werbung.
+    price: Kostenlos (1 GB, keine eigene Domain); Revolutionary (20 GB, bis zu 3 eigene Domains) 3,60 €/Monat oder 3 €/Monat
+      bei Jahreszahlung (laut Tuta, August 2026).
+    openSource: partial
+    encryption: Ende-zu-Ende/Zero-Access für Mails inklusive Betreff, Anhänge, Kontakte und Kalender (Tuta selbst
+      kann die Inhalte nicht lesen); post-quanten-sichere Verschlüsselung (TutaCrypt). Absender, Empfänger und Zeitpunkt
+      bleiben unverschlüsselt, weil der Mailversand sie braucht.
+    dataCollection: Laut Tuta minimale Datenerhebung, keine Werbung; Rechenzentren in Deutschland.
+    strengths:
+    - Verschlüsselt auch Betreffzeilen und Kalender.
+    - Firmensitz in Deutschland, Daten liegen auf Rechnern in Deutschland.
+    - Günstig.
+    tradeOffs:
+    - 'Verzichtest du auf: klassische Mailprogramme wie Outlook oder Apple Mail. Tuta bietet kein IMAP und funktioniert
+      nur mit den eigenen Apps.'
+    - 'Verzichtest du auf: viel Gratis-Speicher (1 GB) und eine eigene Domain in der Gratisstufe.'
+    - 'Bleibt gleich: Kalender und Adressbuch sind in allen Stufen dabei, auch verschlüsselt.'
+    - Kein PGP; verschlüsselte Mails an Menschen ohne Tuta schützt du mit einem vorher vereinbarten Passwort.
+    switchingEffort: medium
+    switchingNote: Adresse muss überall geändert werden; alte Mails importieren geht derzeit nur in den Tarifen Legend
+      und Unlimited über die Desktop-App.
+    url: https://tuta.com/
+    sources:
+    - alt-tuta-pricing
+    - alt-tuta-encryption
+    - alt-tuta-repo
+    - alt-tuta-blog-prices
+    - alt-tuta-setup-guide
+    needsVerification: false
+  - id: posteo
+    name: Posteo
+    provider: Posteo e.K.
+    jurisdiction: Deutschland
+    businessModel: Bezahl-Abo, keine Werbung.
+    price: 1 €/Monat (4 GB), kein Gratis-Tarif; zusätzlicher Speicher 0,25 € pro GB und Monat.
+    openSource: partial
+    encryption: Optionale Verschlüsselung des gesamten Mail-Speichers („Krypto-Mailspeicher“); PGP/S-MIME-Unterstützung,
+      auch Eingangsverschlüsselung.
+    dataCollection: Anonyme Anmeldung ohne Namen möglich; Zahlungsdaten werden nicht mit dem Konto verknüpft.
+    strengths:
+    - Anonym nutzbar und bezahlbar (auch per Bargeld).
+    - Funktioniert mit allen Mailprogrammen (IMAP).
+    - Sehr günstig.
+    tradeOffs:
+    - 'Verzichtest du auf: eine kostenlose Nutzung. Posteo kostet 1 € im Monat.'
+    - 'Verzichtest du auf: eigene Apps. Du nutzt die Weboberfläche oder die Mail-App deines Handys.'
+    - 'Verzichtest du auf: eine eigene Domain. Es gibt nur Posteo-Adressen.'
+    - 'Bleibt gleich: Kalender und Adressbuch lassen sich mit Handy und Computer abgleichen (CalDAV/CardDAV).'
+    - Ende-zu-Ende-Verschlüsselung musst du selbst einrichten.
+    switchingEffort: medium
+    switchingNote: einfach einzurichten, aber Adresswechsel überall nötig.
+    url: https://posteo.de/
+    sources:
+    - alt-posteo-features
+    needsVerification: false
+  - id: mailbox-org
+    name: mailbox.org
+    provider: Heinlein Hosting GmbH
+    jurisdiction: Deutschland
+    businessModel: Bezahl-Abos für Privat- und Geschäftskunden, keine Werbung.
+    price: Light ab 1 €/Monat (2 GB, nur bei Jahreszahlung, keine eigene Domain); Standard 4 €/Monat (20 GB Mail,
+      10 GB Cloud, eigene Domain), bei Jahreszahlung 25 % günstiger.
+    openSource: partial
+    encryption: PGP/S-MIME im Webmailer (Guard), optional PGP-verschlüsseltes Postfach für eingehende Mails.
+    dataCollection: Keine Werbung; Daten liegen laut mailbox.org nur auf Rechnern in Berlin (DSGVO).
+    strengths:
+    - Komplettpaket mit Kalender, Office, Cloudspeicher und Videokonferenz.
+    - Eigene Domains und IMAP möglich.
+    - Standard und Premium 30 Tage kostenlos testen.
+    tradeOffs:
+    - 'Verzichtest du auf: eine kostenlose Nutzung.'
+    - 'Bleibt gleich: Kalender und Kontakte sind in allen Tarifen dabei; ab Standard auch Dokumente online bearbeiten
+      und eine eigene Domain.'
+    - 'Verzichtest du auf: eine eigene Mail-App. Du nutzt die Weboberfläche (lässt sich als Web-App auf den Startbildschirm
+      legen) oder die Mail-App deines Handys.'
+    - Ende-zu-Ende-Verschlüsselung erfordert etwas Einrichtung.
+    switchingEffort: medium
+    switchingNote: Import über IMAP möglich, Adresswechsel bleibt Aufwand.
+    url: https://mailbox.org/
+    sources:
+    - alt-mailbox-org-prices
+    - alt-mailbox-org-security
+    - alt-mailbox-org-legal
+    - alt-mailbox-org-pwa
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: maps
+  title: Karten & Navigation
+  einordnung: Karten-Apps sehen, wo du dich bewegst – mit Google-Konto und aktivierter Zeitachse kann das ein detailliertes
+    Bewegungsprofil ergeben. Apple Karten verknüpft Daten laut Apple nicht mit dem Konto; Organic Maps, CoMaps und
+    OsmAnd funktionieren komplett offline mit OpenStreetMap-Daten. Für Live-Verkehr, Bus und Bahn sowie Öffnungszeiten
+    und Bewertungen von Geschäften bietet Google in Deutschland meist den größten Komfort.
+  withoutSwitching: In Google Maps die „Zeitachse“ ausgeschaltet lassen und im Google-Konto „Web- & App-Aktivitäten“
+    auf „Automatisch löschen“ stellen. Für einzelne Fahrten den Inkognitomodus von Google Maps nutzen. In den Handy-Einstellungen
+    den Standortzugriff auf „Beim Verwenden der App“ begrenzen. So bleiben Live-Verkehr und Fahrpläne erhalten, ohne
+    dass ein dauerhaftes Bewegungsprofil entsteht.
+  incumbent:
+    id: google-maps
+    name: Google Maps
+    provider: Google LLC
+    jurisdiction: USA
+    businessModel: Werbung in der Karte (als „Gesponsert“ markierte Orte und Suchtreffer) und kostenpflichtige Schnittstellen
+      für Unternehmen (Google Maps Platform).
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); keine Ende-zu-Ende-Verschlüsselung, der Anbieter kann also mitlesen.
+    dataCollection: Suchen und Standort können über „Web- & App-Aktivitäten“ mit dem Google-Konto verknüpft werden; die
+      Zeitachse ist standardmäßig aus und wird, wenn du sie einschaltest, auf dem Gerät gespeichert (verschlüsselte
+      Sicherung bei Google optional).
+    strengths:
+    - Live-Verkehr, Bus- und Bahnverbindungen und Bewertungen von Orten.
+    - Street View und Öffnungszeiten von Geschäften.
+    - Läuft in Android Auto und Apple CarPlay.
+    tradeOffs:
+    - Viele Funktionen verknüpfen Daten mit dem Google-Konto, wenn du angemeldet bist.
+    - Offline-Karten lassen sich herunterladen; offline gibt es aber keine Verkehrsinfos und keine Routen für Bus und
+      Bahn, Rad oder zu Fuß.
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.google.com/maps
+    sources:
+    - alt-google-privacy-policy
+    - alt-google-maps-privacy-help
+    - alt-google-maps-offline-help
+    - alt-google-maps-ads-help
+    - alt-google-maps-carplay-help
+    - alt-android-auto-navigation-help
+    - alt-google-maps-platform-pricing
+    needsVerification: false
+  alternatives:
+  - id: apple-maps
+    name: Apple Karten
+    provider: Apple Inc.
+    jurisdiction: USA
+    businessModel: Teil von Apples Angebot aus Geräten und Diensten.
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: HTTPS; personenbezogene Funktionen (z. B. geparktes Auto) laufen auf dem Gerät.
+    dataCollection: Laut Apple keine Verknüpfung mit deinem Apple Account und kein Verlauf besuchter Orte bei Apple; Daten
+      zur Verbesserung nutzen wechselnde Zufallskennungen.
+    strengths:
+    - Auf dem iPhone vorinstalliert; Navigation mit Live-Verkehr, laut Apple auch in Deutschland.
+    - Keine Anmeldung nötig; laut Apple speichert Apple nicht, wo du warst.
+    tradeOffs:
+    - 'Bleibt gleich: Bus und Bahn, Fahrradrouten und eine Straßenansicht („Umsehen“) gibt es laut Apple auch in Deutschland.
+      Echtzeitdaten für Bus und Bahn hängen von der Region ab.'
+    - 'Bleibt gleich: läuft in Apple CarPlay.'
+    - 'Verzichtest du auf: Android und Android Auto. Apple Karten gibt es nur auf Apple-Geräten.'
+    - 'Verzichtest du auf: einen Teil der Bewertungen, Fotos und Öffnungszeiten von Geschäften. Hier hat Google in
+      Deutschland meist mehr Einträge (nicht systematisch geprüft).'
+    switchingEffort: low
+    switchingNote: für iPhone-Nutzer sofort verfügbar.
+    url: https://www.apple.com/maps/
+    sources:
+    - alt-apple-maps
+    - alt-apple-feature-availability
+    needsVerification: false
+  - id: organic-maps
+    name: Organic Maps
+    provider: Organic Maps OÜ
+    jurisdiction: Estland
+    businessModel: Spenden und Förderungen (z. B. NLnet).
+    price: Kostenlos.
+    openSource: 'yes'
+    encryption: Nicht relevant – Karten und Navigation laufen offline auf dem Gerät.
+    dataCollection: Laut Projekt keine Tracker (Code, der dein Verhalten an Dritte meldet), keine Werbung, keine Datenerhebung (geprüft u. a. von Exodus Privacy).
+    strengths:
+    - Komplett offline nutzbar, mit schneller Offline-Suche; laut Projekt akkuschonend.
+    - Gut für Wandern, Radfahren und Reisen.
+    - Läuft laut Projekt in Apple CarPlay und Android Auto.
+    tradeOffs:
+    - 'Verzichtest du auf: Live-Verkehr und Staus.'
+    - 'Verzichtest du auf: Bus- und Bahnverbindungen mit Fahrplan (z. B. Deutsche Bahn). Es gibt nur U-Bahn-Pläne
+      für einige Städte.'
+    - 'Verzichtest du auf: verlässliche Öffnungszeiten, Bewertungen und Fotos. Geschäftsinfos sind nur so gut wie
+      OpenStreetMap. Street View gibt es nicht.'
+    - 'Gewinnst du: vollständige Offline-Karten, auch ohne Netz im Ausland.'
+    - 2025 spaltete sich nach Streit um die Projektführung das Community-Projekt CoMaps ab.
+    switchingEffort: low
+    switchingNote: App installieren und Karten der Region herunterladen.
+    url: https://organicmaps.app/
+    sources:
+    - alt-organic-maps
+    - alt-alternativeto-organic-maps-fork
+    - alt-organic-maps-repo
+    - alt-comaps-history
+    needsVerification: false
+  - id: comaps
+    name: CoMaps
+    provider: CoMaps-Community (gemeinnütziges Community-Projekt)
+    jurisdiction: keine Angabe (Community-Projekt)
+    businessModel: Spenden; nach eigener Aussage nicht gewinnorientiert und von der Community gesteuert.
+    price: Kostenlos.
+    openSource: 'yes'
+    encryption: Nicht relevant – Karten und Navigation laufen offline auf dem Gerät.
+    dataCollection: Laut Projekt keine Identifizierung, keine Verfolgung deiner Nutzung (Tracking), keine Werbung und
+      keine Datenerhebung (Android-App geprüft von Exodus Privacy).
+    strengths:
+    - Aktiv entwickelt, regelmäßige Releases (zuletzt Oktober 2026).
+    - Android, iOS, macOS und Linux; vorinstallierte Karten-App u. a. bei CalyxOS.
+    - Gleiche Offline-Stärken wie Organic Maps; seit August 2025 mit Apple CarPlay.
+    tradeOffs:
+    - 'Verzichtest du auf: Live-Verkehr und Staus.'
+    - 'Verzichtest du auf: Bus- und Bahnverbindungen mit Fahrplan. Es gibt nur eine Nahverkehrs-Ebene für U-Bahn und
+      Stadtbahn in einigen Städten.'
+    - 'Verzichtest du auf: verlässliche Öffnungszeiten, Bewertungen und Street View.'
+    - 'Bleibt gleich: läuft laut Projekt in Android Auto und Apple CarPlay.'
+    - Junges Projekt (seit 2025), noch kleine Bekanntheit.
+    switchingEffort: low
+    switchingNote: App installieren und Karten herunterladen.
+    url: https://www.comaps.app/
+    sources:
+    - alt-comaps
+    - alt-comaps-history
+    - alt-wikipedia-comaps
+    - alt-comaps-repo
+    - alt-comaps-carplay
+    - alt-comaps-news
+    needsVerification: false
+  - id: osmand
+    name: OsmAnd
+    provider: OsmAnd B.V.
+    jurisdiction: Niederlande
+    businessModel: Freemium – Basisfunktionen kostenlos, Erweiterungen über Maps+ und OsmAnd Pro.
+    price: Kostenlos mit begrenzten Karten-Downloads (Android 7, iOS 5); Maps+ 14,99 €/Jahr oder einmalig 69,99 €;
+      OsmAnd Pro 5,99 €/Monat oder 39,99 €/Jahr (laut OsmAnd).
+    openSource: 'yes'
+    encryption: Nicht relevant für Offline-Nutzung; optionale Sicherung in der OsmAnd Cloud (voller Umfang nur mit Pro).
+    dataCollection: Funktioniert offline ohne Konto. Beim Herunterladen von Karten speichert OsmAnd laut Datenschutzerklärung
+      eine zufällige Kennung und die IP-Adresse; Statistik über genutzte Bildschirme ist standardmäßig aus. Cloud-Funktionen
+      erfordern ein Konto.
+    strengths:
+    - 'Sehr umfangreich: Tracks aufzeichnen, Plugins, mit Maps+ oder Pro auch Höhenlinien.'
+    - Offline-Navigation für Auto, Rad und Fuß.
+    tradeOffs:
+    - 'Verzichtest du auf: Live-Verkehr, Bus- und Bahnverbindungen mit Fahrplan und verlässliche Öffnungszeiten.'
+    - 'Verzichtest du auf: kostenloses Android Auto und CarPlay. Beides gibt es laut OsmAnd nur mit Maps+ oder Pro.'
+    - 'Verzichtest du auf: eine einfache Bedienung. Durch die vielen Funktionen und Einstellungen braucht der Einstieg
+      mehr Zeit.'
+    - 'Gewinnst du: sehr detaillierte Offline-Karten für Wandern und Radfahren; Höhenlinien gibt es mit Maps+ oder Pro.'
+    switchingEffort: medium
+    switchingNote: mächtig, aber Einarbeitung nötig.
+    url: https://osmand.net/
+    sources:
+    - alt-osmand-purchases
+    - alt-osmand-repo
+    - alt-osmand-android-auto
+    - alt-osmand-purchases-android
+    - alt-osmand-purchases-ios
+    - alt-osmand-privacy
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: messaging
+  title: Messenger
+  einordnung: WhatsApp verschlüsselt Nachrichteninhalte bereits Ende-zu-Ende mit dem Signal-Protokoll. Das heißt, nur Absender
+    und Empfänger können mitlesen. Inhaltlich ändert ein Wechsel also wenig. Der Unterschied liegt bei den Begleitdaten (wer mit wem wann schreibt, Adressbuch,
+    Profil) und der Verbindung zu Meta. In Deutschland nutzen die meisten Kontakte WhatsApp. Darum ist es oft realistischer,
+    eine Alternative zusätzlich zu nutzen.
+  withoutSwitching: In WhatsApp unter „Chats“ → „Chat-Backup“ das Ende-zu-Ende-verschlüsselte Backup aktivieren. Unter
+    „Datenschutz“ festlegen, wer Profilbild, Info, „Zuletzt online“ und Status sieht und wer dich zu Gruppen hinzufügen
+    darf. In den Handy-Einstellungen den Kontaktzugriff prüfen und WhatsApp aus der Meta-Kontenübersicht entfernen.
+    Die Begleitdaten bei Meta bleiben jedoch bestehen.
+  incumbent:
+    id: whatsapp
+    name: WhatsApp
+    provider: Meta Platforms (für EU-Nutzer WhatsApp Ireland Ltd.)
+    jurisdiction: USA
+    businessModel: 'Unternehmenskommunikation (WhatsApp Business) und Werbung im Tab „Aktuelles“ (Status, Kanäle), die WhatsApp seit Mitte 2025 schrittweise einführt.'
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: 'Chats und Anrufe sind standardmäßig Ende-zu-Ende-verschlüsselt (Signal-Protokoll): Nur Absender und
+      Empfänger können mitlesen. Backups optional Ende-zu-Ende-verschlüsselt.'
+    dataCollection: 'Begleitdaten (sogenannte Metadaten) wie Telefonnummer, Kontakte (bei Freigabe), Nutzungs- und Geräteinformationen. Anzeigen im Tab „Aktuelles“ nutzen laut WhatsApp u. a. Land bzw. Stadt, Sprache, abonnierte Kanäle und deine Reaktionen auf Anzeigen – persönliche Chats, Anrufe und Gruppen nicht.'
+    strengths:
+    - 'Fast alle Kontakte sind schon da.'
+    - 'Inhalte Ende-zu-Ende-verschlüsselt.'
+    - 'Viele Funktionen (Gruppen, Communities, Kanäle) und Backup über Google Drive bzw. iCloud.'
+    tradeOffs:
+    - 'Teil des Meta-Konzerns; Meta-Unternehmen verarbeiten Daten als Dienstleister. Nimmst du WhatsApp in die Meta-Kontenübersicht auf, können für Anzeigen auch Infos aus deinen anderen Meta-Konten genutzt werden.'
+    - 'Telefonnummer und Adressbuch zentral.'
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.whatsapp.com/
+    sources:
+    - alt-whatsapp-privacy-eea
+    - alt-whatsapp-blog-updates-tab
+    - alt-whatsapp-encryption-whitepaper
+    - alt-whatsapp-e2ee-backup-help
+    needsVerification: false
+  alternatives:
+  - id: signal
+    name: Signal
+    provider: Signal Technology Foundation (gemeinnützig, 501(c)(3))
+    jurisdiction: USA
+    businessModel: Spenden, keine Werbung; optionales Bezahl-Backup.
+    price: 'Kostenlos; erweitertes Cloud-Backup 1,99 USD im Monat.'
+    openSource: 'yes'
+    encryption: 'Ende-zu-Ende für alle Chats, Anrufe und Gruppen (nur Absender und Empfänger können mitlesen). Laut Signal hat es auch keinen Zugriff auf Profile, Gruppeninfos und Kontakte.'
+    dataCollection: Laut Signal kann auf Behördenanfragen nur Registrierungszeitpunkt und letzte Verbindung herausgegeben
+      werden.
+    strengths:
+    - 'Speichert laut Signal sehr wenige Begleitdaten (wer wann mit wem schreibt) – belegt durch veröffentlichte Behördenanfragen.'
+    - 'Grundfunktionen wie bei WhatsApp: Einzel- und Gruppenchats, Sprach- und Videoanrufe.'
+    - 'Gemeinnützig, ohne Werbung und Tracker.'
+    tradeOffs:
+    - 'Verzichtest du auf: die meisten Kontakte. Signal ist deutlich weniger verbreitet als WhatsApp; für viele Gruppen brauchst du WhatsApp weiter.'
+    - 'Bleibt gleich: Desktop-App für Windows, Mac und Linux (mit dem Handy verknüpft), Gruppen, Sprach- und Videoanrufe.'
+    - 'Verzichtest du auf: ein großes Gratis-Backup. Das verschlüsselte Cloud-Backup („Secure Backups“) sichert kostenlos alle Textnachrichten und die Medien der letzten 45 Tage; bis zu 100 GB Medien kosten 1,99 USD im Monat. Es gibt es auf Android und iPhone.'
+    - 'Telefonnummer zur Registrierung nötig (ein Nutzername kann sie vor anderen verbergen). Eine Anmeldung ohne Nummer testet Signal derzeit in der Android-Beta.'
+    switchingEffort: medium
+    switchingNote: technisch einfach, aber Kontakte müssen mitziehen.
+    url: https://signal.org/
+    sources:
+    - alt-signal-bigbrother
+    - alt-signal-donate
+    - alt-signal-github
+    - alt-signal-secure-backups
+    - alt-signal-secure-backups-help
+    - alt-signal-installing
+    - alt-signal-register-number
+    - alt-signal-usernames
+    - alt-signal-numberless-beta
+    needsVerification: false
+  - id: threema
+    name: Threema
+    provider: Threema GmbH
+    jurisdiction: Schweiz
+    businessModel: Einmaliger App-Kauf sowie Business-Lizenzen (Threema Work).
+    price: Einmalig 6 CHF (Preis in Euro je nach App-Store/Land).
+    openSource: 'yes'
+    encryption: Ende-zu-Ende für Nachrichten, Anrufe und Gruppen (nur Absender und Empfänger können mitlesen).
+    dataCollection: Laut Threema Begleitdaten (Metadaten) auf das technische Minimum reduziert; Nachrichten werden nach
+      Zustellung von Threemas Rechnern gelöscht, Kontaktlisten bleiben auf dem Gerät.
+    strengths:
+    - Keine Telefonnummer oder E-Mail nötig (anonyme Threema-ID).
+    - Daten liegen auf Rechnern in der Schweiz.
+    - Regelmäßige externe Prüfungen.
+    tradeOffs:
+    - 'Verzichtest du auf: die meisten Kontakte. Threema ist in Deutschland noch weniger verbreitet als Signal.'
+    - 'Verzichtest du auf: einen kostenlosen Einstieg. Die App kostet einmalig Geld – das ist eine Hürde für Kontakte.'
+    - 'Bleibt gleich: Desktop-App für Windows, Mac und Linux; dafür brauchst du aber dein Handy mit Internet.'
+    switchingEffort: medium
+    switchingNote: Kauf und Einrichtung einfach, Kontakte müssen mitziehen.
+    url: https://threema.com/
+    sources:
+    - alt-threema
+    - alt-threema-pricing
+    - alt-threema-github
+    - alt-threema-desktop
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: cloud
+  title: Cloud-Speicher
+  einordnung: Bei Google Drive und standardmäßig auch bei iCloud liegen die Schlüssel beim Anbieter – er könnte
+    Dateien technisch einsehen oder auf Anfrage herausgeben. Proton Drive und Tresorit verschlüsseln Ende-zu-Ende, der Anbieter kann also nicht mitlesen;
+    bei gehostetem Nextcloud ist vor allem der Standort der Gewinn, die Verschlüsselung muss man bewusst aktivieren.
+    Wer viel gemeinsam in Google Docs arbeitet oder Google Fotos nutzt, verliert beim Wechsel spürbar Komfort.
+  withoutSwitching: Auf dem iPhone unter „Einstellungen“ → dein Name → „iCloud“ den „Erweiterten Datenschutz“ aktivieren
+    – dann sind Drive, Fotos und Backups Ende-zu-Ende-verschlüsselt. Bei Google Drive gibt es für Privatkunden keine
+    vergleichbare Option. Prüfe dort Freigaben mit „Jeder, der über den Link verfügt“ und aktiviere die Bestätigung
+    in zwei Schritten. Sehr sensible Dateien kannst du vor dem Hochladen selbst verschlüsseln.
+  incumbent:
+    id: google-drive
+    name: 'Google Drive (vergleichbar: iCloud Drive)'
+    provider: 'Google LLC (für EU-Nutzer Google Ireland Ltd.)'
+    jurisdiction: USA
+    businessModel: Speicher-Abos (Google One) und Workspace; gehört zu Googles werbefinanziertem Angebot.
+    price: 'Kostenlos 15 GB (geteilt mit Gmail und Google Fotos); mehr über ein Google-One-Abo, das du mit deiner Familie teilen kannst.'
+    openSource: 'no'
+    encryption: 'Verschlüsselt bei Übertragung und auf Googles Rechnern, Schlüssel bei Google. Eine zusätzliche Verschlüsselung auf dem Gerät gibt es nur für Workspace-Organisationen, nicht für Privatkonten – Google kann also technisch mitlesen. iCloud: Ende-zu-Ende nur mit „Erweitertem Datenschutz“.'
+    dataCollection: 'Laut Google analysieren automatisierte Systeme Inhalte, z. B. um Spam, Schadsoftware und illegale Inhalte zu erkennen; Aktivitäten können je nach Einstellung im Google-Konto gespeichert werden.'
+    strengths:
+    - 'Gemeinsames Bearbeiten (Docs, Sheets, Slides) direkt im Browser.'
+    - 'Automatisches Foto-Backup mit Google Fotos.'
+    - '15 GB Gratisspeicher.'
+    tradeOffs:
+    - 'Anbieter kann Inhalte technisch einsehen.'
+    - 'Docs-, Sheets- und Slides-Dateien musst du beim Umzug herunterladen und dabei in ein anderes Format wie Word oder PowerPoint umwandeln.'
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.google.com/drive/
+    sources:
+    - alt-apple-icloud-security
+    - alt-google-privacy-policy
+    - alt-google-one-storage
+    - alt-google-one-family
+    - alt-google-drive-encryption
+    - alt-google-drive-download
+    - alt-google-photos-backup
+    needsVerification: false
+  alternatives:
+  - id: proton-drive
+    name: Proton Drive
+    provider: Proton AG
+    jurisdiction: Schweiz
+    businessModel: Abonnements.
+    price: 'Kostenlos (5 GB); Drive Plus (200 GB) 4,99 €/Monat bzw. 3,99 €/Monat bei Jahreszahlung; Proton Unlimited (500 GB) 12,99 €/Monat bzw. 9,99 €/Monat bei Jahreszahlung; Proton Family (3 TB, bis 6 Personen) 29,99 €/Monat bzw. 23,99 €/Monat bei Jahreszahlung.'
+    openSource: partial
+    encryption: 'Ende-zu-Ende-Verschlüsselung für Dateien sowie Datei- und Ordnernamen.'
+    dataCollection: 'Laut Proton kann niemand außer dir deine Dateien und Dateinamen einsehen, auch Proton nicht.'
+    strengths:
+    - 'Ende-zu-Ende-verschlüsselt, Apps für Windows, macOS, iPhone und Android.'
+    - 'Kombinierbar mit Proton Mail in einem Abo (Proton Unlimited).'
+    - 'Gratisstufe.'
+    tradeOffs:
+    - 'Verzichtest du auf: Gratis-Speicher. Kostenlos gibt es 5 GB statt 15 GB.'
+    - 'Verzichtest du auf: die gewohnte Zusammenarbeit in Google Docs und Sheets. Proton hat eigene Editoren für Texte und Tabellen; ob sie dir reichen, probierst du am besten vorher aus.'
+    - 'Bleibt gleich: automatisches Foto-Backup vom Handy (iPhone und Android) und ein Familien-Tarif für bis zu 6 Personen.'
+    - 'Keine Desktop-App für Linux; dort bleiben der Browser und ein Kommandozeilen-Programm.'
+    switchingEffort: medium
+    switchingNote: Dateien müssen hoch- und Freigaben neu angelegt werden.
+    url: https://proton.me/drive
+    sources:
+    - alt-proton-drive-pricing
+    - alt-proton-plans
+    - alt-proton-drive-github
+    - alt-proton-drive-security
+    - alt-proton-drive-download
+    - alt-proton-drive-photo-backup
+    needsVerification: false
+  - id: nextcloud-hosted
+    name: Nextcloud (gehostet, z. B. Hetzner Storage Share)
+    provider: 'Nextcloud GmbH (Software, Sitz in Stuttgart); Betrieb durch einen Hoster deiner Wahl'
+    jurisdiction: 'Deutschland (Software); Hoster je nach Wahl, z. B. Hetzner mit Rechenzentrum in Falkenstein (Deutschland)'
+    businessModel: 'Software kostenlos (Open Source); Hoster verlangen Gebühren, die Nextcloud GmbH verkauft Enterprise-Abos mit Support.'
+    price: 'Software kostenlos; Hosting z. B. bei Hetzner Storage Share ab 5,11 €/Monat für 1 TB (inkl. MwSt.), bei anderen Hostern je nach Angebot.'
+    openSource: 'yes'
+    encryption: 'Verschlüsselt auf dem Weg (HTTPS). Verschlüsselung auf dem Server ist optional; im Standardmodus kann der Betreiber die Dateien trotzdem entschlüsseln. Ende-zu-Ende nur für einzelne, leere Ordner und nur, wenn der Hoster die passende App aktiviert hat.'
+    dataCollection: Hängt vom Hoster ab; ohne Ende-zu-Ende-Verschlüsselung kann der Hoster technisch auf Dateien
+      zugreifen.
+    strengths:
+    - 'Freie Wahl des Anbieters und Standorts, kein Lock-in.'
+    - 'Viele Apps: Kalender, Kontakte, Aufgaben und weitere aus dem Nextcloud App Store.'
+    tradeOffs:
+    - 'Verzichtest du auf: eine Lösung aus einer Hand. Office-Bearbeitung, Foto-Upload vom Handy und Speichergröße hängen vom Hoster ab.'
+    - 'Verzichtest du auf: eine kostenlose Nutzung in der Regel. Du zahlst den Hoster.'
+    - 'Verzichtest du auf: einfache Ende-zu-Ende-Verschlüsselung. Sie ist nicht Standard, lässt sich nur für leere Ordner in der Desktop- oder Handy-App einschalten, und im Browser kannst du solche Ordner nur lesen.'
+    - 'Gewinnst du: Kalender, Kontakte und Dateien an einem Ort, den du selbst wählst.'
+    switchingEffort: high
+    switchingNote: Anbieterwahl, Einrichtung und Umzug der Daten nötig.
+    url: https://nextcloud.com/
+    sources:
+    - alt-nextcloud-repo
+    - alt-hetzner-storage-share
+    - alt-nextcloud-imprint
+    - alt-nextcloud-enterprise
+    - alt-nextcloud-sse-docs
+    - alt-nextcloud-e2ee-docs
+    needsVerification: false
+  - id: tresorit
+    name: Tresorit
+    provider: 'Tresorit AG (Teil der Schweizerischen Post)'
+    jurisdiction: Schweiz
+    businessModel: Abonnements für Privat- und Geschäftskunden.
+    price: 'Kostenlos: Basic mit 3 GB (2 Geräte). Privat-Tarife Lite (50 GB) 4,99 €, Essential (1 TB) 11,99 € und Pro (4 TB) 29,99 € im Monat, bei Jahreszahlung günstiger; 14 Tage kostenlos testen.'
+    openSource: 'no'
+    encryption: 'Ende-zu-Ende/Zero-Knowledge: Dateien werden auf dem Gerät verschlüsselt, Tresorit hat keinen Zugriff
+      auf Dateien oder Schlüssel.'
+    dataCollection: 'Laut Tresorit kein Zugriff auf verschlüsselte Inhalte; Konto- und Zahlungsdaten sowie Angaben zur Kontonutzung werden verarbeitet.'
+    strengths:
+    - 'Starke Verschlüsselung, auch für sicheres Teilen per Link.'
+    - 'Apps für Windows, Mac und Linux sowie fürs Handy.'
+    tradeOffs:
+    - 'Verzichtest du auf: viel Gratis-Speicher. Kostenlos gibt es nur 3 GB (Basic), mehr nur im Abo.'
+    - 'Verzichtest du auf: gemeinsames Bearbeiten im Browser wie bei Google Docs. Die Privat-Tarife sind aufs Speichern und Teilen ausgelegt.'
+    - 'Bleibt gleich: automatischer Foto-Upload vom Handy ist in allen Privat-Tarifen enthalten.'
+    - 'Nicht quelloffen.'
+    switchingEffort: medium
+    switchingNote: Dateien neu hochladen und Freigaben neu anlegen.
+    url: https://www.tresorit.com/
+    sources:
+    - alt-tresorit-pricing
+    - alt-tresorit-basic
+    - alt-tresorit-privacy
+    - alt-tresorit-about
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: ai-assistant
+  title: KI-Assistent
+  einordnung: Was man einem Chatbot schreibt, ist oft sehr persönlich. Bei ChatGPT können Gespräche standardmäßig
+    zum Training genutzt werden (abschaltbar), in der kostenlosen und der Go-Stufe zeigt OpenAI inzwischen Werbung.
+    Duck.ai anonymisiert Anfragen, Lumo verschlüsselt den Verlauf so, dass Proton ihn nicht lesen kann, und lokale
+    Modelle schicken gar nichts ins Netz. Bei Antwortqualität und Funktionen wie Sprache oder Dateien liegen die
+    großen Anbieter oft vorn.
+  withoutSwitching: In den ChatGPT-Einstellungen die Option „Das Modell für alle verbessern“ ausschalten. Für heikle
+    Themen temporäre Chats nutzen. Prüfe, was sich ChatGPT über dich gemerkt hat (Memory), und schalte das bei Bedarf
+    ab. Werbung zeigt OpenAI nur in Free und Go; in der EU ist sie laut OpenAI vorerst nicht personalisiert. Gesundheits-, Ausweis- oder Finanzdaten gehören grundsätzlich nicht in einen Chatbot.
+  incumbent:
+    id: chatgpt
+    name: ChatGPT
+    provider: OpenAI (für EU-Nutzer OpenAI Ireland Ltd.)
+    jurisdiction: USA
+    businessModel: 'Abos (Go, Plus, Pro, Business) und Werbung in den Stufen Free und Go, seit 2026 auch in Europa.'
+    price: 'Kostenlos; Go 8 USD, Plus 20 USD im Monat (in manchen Ländern lokal angepasst).'
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); Verlauf beim Anbieter gespeichert, keine Ende-zu-Ende-Verschlüsselung
+      (der Anbieter kann also mitlesen).
+    dataCollection: 'Gespräche können bei Privatkonten standardmäßig zur Modellverbesserung genutzt werden; du kannst das abschalten oder temporäre Chats nutzen. Werbung ist in der EU laut OpenAI vorerst nicht personalisiert, richtet sich aber nach dem aktuellen Chat.'
+    strengths:
+    - 'Viele Funktionen (Bilder, Sprache, Dateien, Recherche).'
+    - 'Weit verbreitet, viele Integrationen.'
+    tradeOffs:
+    - 'Training mit Gesprächen ist voreingestellt; du musst es selbst abschalten.'
+    - 'Werbung in den Stufen Free und Go.'
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://chatgpt.com/
+    sources:
+    - alt-openai-data-controls
+    - alt-openai-ads-europe
+    - alt-openai-ads-help
+    - alt-openai-eu-privacy
+    - alt-chatgpt-pricing
+    needsVerification: false
+  alternatives:
+  - id: le-chat
+    name: Le Chat
+    provider: Mistral AI
+    jurisdiction: Frankreich
+    businessModel: Abos für Privat- und Geschäftskunden sowie kostenpflichtiger Zugang für andere Programme (API).
+    price: Kostenlos; Pro 14,99 pro Monat (USD bzw. EUR je nach Region), für Studierende 5,99.
+    openSource: partial
+    encryption: Verbindung verschlüsselt (HTTPS); Verlauf beim Anbieter, keine Ende-zu-Ende-Verschlüsselung
+      (der Anbieter kann also mitlesen).
+    dataCollection: Laut Preisseite kann man in allen Stufen der Nutzung für das Training widersprechen (Opt-out).
+    strengths:
+    - Europäischer Anbieter, DSGVO.
+    - Gratisstufe mit vielen Funktionen.
+    tradeOffs:
+    - 'Bleibt gleich: Datei-Upload (PDF, Bilder, Office), Sprachmodus, Websuche und Bilderzeugung gibt es laut Mistral
+      auch kostenlos, mit Limits.'
+    - 'Verzichtest du auf: bei manchen Aufgaben etwas Antwortqualität im Vergleich zu den größten US-Modellen.'
+    - 'Bleibt gleich: Training ist auch hier voreingestellt; du musst es aktiv abwählen.'
+    switchingEffort: low
+    switchingNote: Konto anlegen und loslegen.
+    url: https://chat.mistral.ai/
+    sources:
+    - alt-mistral-pricing
+    needsVerification: false
+  - id: duck-ai
+    name: Duck.ai
+    provider: Duck Duck Go, Inc.
+    jurisdiction: USA
+    businessModel: Kostenlose Nutzung mit Tageslimits; Abos Plus (9,99 USD/Monat) und Pro (19,99 USD/Monat).
+    price: Kostenlos; Plus 9,99 USD/Monat, Pro 19,99 USD/Monat (EUR-Preise regional).
+    openSource: 'no'
+    encryption: Chats werden standardmäßig nicht gespeichert; optionales Backup Ende-zu-Ende-verschlüsselt (nur du kannst es lesen).
+    dataCollection: DuckDuckGo entfernt die Internet-Adresse deines Anschlusses (IP-Adresse) und andere
+      Begleitdaten (Metadaten); Modellanbieter (u. a. OpenAI, Anthropic, Mistral)
+      löschen Anfragen laut Vertrag sofort und trainieren nicht damit.
+    strengths:
+    - Kein Konto nötig, Zugang zu mehreren bekannten Modellen.
+    - Kein Training mit deinen Chats.
+    tradeOffs:
+    - 'Verzichtest du auf: die stärksten Modelle in der Gratisstufe. Kostenlos gibt es kleinere Modelle; die großen
+      nur im Abo.'
+    - 'Bleibt gleich: Dateien und Bilder hochladen und Sprachchat sind möglich.'
+    - 'Verzichtest du auf: einen gespeicherten Verlauf auf allen Geräten, außer du aktivierst das verschlüsselte Backup.'
+    - Inhalte gehen weiterhin an US-Modellanbieter (anonymisiert).
+    switchingEffort: low
+    switchingNote: im Browser unter duck.ai sofort nutzbar.
+    url: https://duck.ai/
+    sources:
+    - alt-duckai-privacy
+    - alt-duckduckgo-pro-plan
+    needsVerification: false
+  - id: proton-lumo
+    name: Lumo
+    provider: Proton AG
+    jurisdiction: Schweiz
+    businessModel: Abo (Lumo Plus) bzw. in Proton-Bündeln; Gratisstufe mit Limits.
+    price: 'Kostenlos mit Limits; Lumo Plus 12,99 €/Monat bzw. 9,99 €/Monat bei Jahreszahlung.'
+    openSource: 'partial'
+    encryption: Zero-Access-Verschlüsselung des Chatverlaufs – laut Proton kann nur der Nutzer die Gespräche lesen.
+    dataCollection: 'Laut Proton keine Nutzung der Gespräche für KI-Training und keine Protokolle (Logs).'
+    strengths:
+    - 'Verschlüsselter Verlauf, europäischer Anbieter; laut Proton auf Basis offener Sprachmodelle.'
+    - 'Seit Lumo 2.0 (Juni 2026) mit Bildern, Denkmodus und Websuche.'
+    tradeOffs:
+    - 'Verzichtest du auf: viele Nachrichten und lange Verläufe in der Gratisstufe. Dort sind Nachrichten, Verlauf und Dateigröße begrenzt.'
+    - 'Bleibt gleich: Websuche und kleine Datei-Uploads gibt es auch kostenlos.'
+    - 'Verzichtest du auf: bei komplexen Aufgaben womöglich etwas Antwortqualität im Vergleich zu den größten US-Modellen.'
+    switchingEffort: low
+    switchingNote: mit Proton-Konto sofort nutzbar.
+    url: https://proton.me/lumo
+    sources:
+    - alt-proton-lumo-pricing
+    - alt-proton-lumo-2
+    - alt-proton-lumo-launch
+    - alt-proton-webclients-repo
+    needsVerification: false
+  - id: local-models
+    name: Lokale Modelle (z. B. Ollama, LM Studio)
+    provider: 'Verschiedene (z. B. Ollama, Element Labs mit LM Studio); Modelle von Dritten'
+    jurisdiction: je nach Software; Daten bleiben auf dem eigenen Gerät
+    businessModel: 'Ollama ist Open Source, LM Studio kostenlos nutzbar. Beide verdienen an optionalen Cloud-Modellen im Abo.'
+    price: 'Lokale Nutzung kostenlos; Kosten entstehen durch leistungsfähige Hardware. Optionale Cloud-Abos z. B. ab 20 USD im Monat.'
+    openSource: partial
+    encryption: Nicht nötig, solange nur lokale Modelle genutzt werden – nichts verlässt das Gerät.
+    dataCollection: 'Bei rein lokaler Nutzung verlassen Chat-Inhalte laut LM Studio und Ollama das Gerät nicht; bei optionalen Cloud-Modellen gehen sie an den jeweiligen Dienst. Ollama lässt sich auf einen reinen Lokalmodus umstellen.'
+    strengths:
+    - 'Maximale Kontrolle, funktioniert nach dem Herunterladen der Modelle offline.'
+    - 'Keine Abos, kein Konto nötig.'
+    tradeOffs:
+    - 'Verzichtest du auf: Antwortqualität und Tempo. Modelle, die auf normalen Rechnern laufen, sind kleiner und meist schwächer als große Cloud-Modelle; das Tempo hängt stark von der Hardware ab.'
+    - 'Verzichtest du auf: eine fertige Handy-App. Ollama und LM Studio sind Programme für Windows, Mac und Linux.'
+    - 'Verzichtest du auf: Bequemlichkeit beim Einrichten. Du brauchst einen starken Rechner und musst Modelle selbst auswählen.'
+    - 'Cloud-Funktionen der Tools nicht mit lokalen verwechseln – bei Ollama kannst du sie ganz abschalten.'
+    switchingEffort: high
+    switchingNote: Hardware, Installation und Einarbeitung nötig.
+    url: https://ollama.com/
+    sources:
+    - alt-ollama-repo
+    - alt-lmstudio
+    - alt-lmstudio-offline
+    - alt-lmstudio-pricing
+    - alt-ollama-faq
+    - alt-ollama-pricing
+    needsVerification: false
+  reviewedAt: '2026-10-21'
+- id: video
+  title: Video
+  einordnung: 'Ehrlich gesagt: Für YouTube gibt es keinen gleichwertigen Ersatz, weil die Inhalte dort liegen. PeerTube
+    und Nebula sind echte Alternativen, aber nur für einen kleinen Ausschnitt von Inhalten – meist ergänzen sie
+    YouTube eher, als es zu ersetzen. Am meisten erreichst du hier über die Einstellungen.'
+  withoutSwitching: Im Google-Konto unter „Daten und Datenschutz“ → „YouTube-Verlauf“ den Wiedergabe- und Suchverlauf
+    pausieren oder auf „Automatisch löschen“ stellen. In „Mein Anzeigen-Center“ personalisierte Werbung ausschalten. Dafür
+    verschwinden die personalisierten Empfehlungen auf der Startseite.
+  incumbent:
+    id: youtube
+    name: YouTube
+    provider: 'Google LLC (für EU-Nutzer Google Ireland Ltd.)'
+    jurisdiction: USA
+    businessModel: Werbung und Abos (YouTube Premium).
+    price: 'Kostenlos mit Werbung; werbefrei mit dem Abo YouTube Premium.'
+    openSource: 'no'
+    encryption: Verbindung verschlüsselt (HTTPS); keine Ende-zu-Ende-Verschlüsselung, der Anbieter kann also mitlesen.
+    dataCollection: Wiedergabe- und Suchverlauf können im Google-Konto gespeichert und für Empfehlungen und Werbung
+      genutzt werden; beide lassen sich pausieren oder automatisch löschen.
+    strengths:
+    - 'Unvergleichliche Auswahl an Inhalten, auch auf Deutsch.'
+    - 'Personalisierte Empfehlungen und Apps auf vielen Geräten; auf vielen Smart-TVs ist YouTube vorinstalliert.'
+    tradeOffs:
+    - 'Empfehlungen beruhen auf deinem Wiedergabeverlauf.'
+    - 'Werbung ohne Premium.'
+    switchingEffort: low
+    switchingNote: Bereits weit verbreitet – hier geht es um Einstellungen, nicht um einen Wechsel.
+    url: https://www.youtube.com/
+    sources:
+    - alt-youtube-watch-history-help
+    - alt-youtube-terms
+    - alt-youtube-tv-app-help
+    - alt-youtube-premium-help
+    - alt-google-privacy-policy
+    needsVerification: false
+  alternatives:
+  - id: youtube-history-off
+    name: YouTube mit pausiertem Verlauf bzw. abgemeldet
+    provider: Google LLC
+    jurisdiction: USA
+    businessModel: Wie YouTube (Werbung, Premium).
+    price: Kostenlos.
+    openSource: 'no'
+    encryption: HTTPS.
+    dataCollection: Bei pausiertem Verlauf werden angesehene Videos nicht im Verlauf gespeichert; ohne relevanten
+      Verlauf zeigt YouTube keine Empfehlungen auf der Startseite.
+    strengths:
+    - Alle Inhalte bleiben verfügbar.
+    - In wenigen Klicks erledigt.
+    tradeOffs:
+    - 'Bleibt gleich: alle Videos, Abos und Apps.'
+    - 'Verzichtest du auf: personalisierte Empfehlungen auf der Startseite. Abonnierte Kanäle findest du weiter unter
+      „Abos“.'
+    - Google sieht weiterhin Nutzung auf Geräte- bzw. Sitzungsebene.
+    switchingEffort: low
+    switchingNote: eine Einstellung unter „Meine Aktivitäten“.
+    url: https://myactivity.google.com/
+    sources:
+    - alt-youtube-watch-history-help
+    needsVerification: false
+  - id: peertube
+    name: PeerTube
+    provider: Framasoft (gemeinnütziger Verein) als Entwickler; Instanzen von vielen Betreibern
+    jurisdiction: Frankreich (Entwickler); Instanzen weltweit
+    businessModel: 'Software von Framasoft, einem spendenfinanzierten Verein; Instanzen werden von Vereinen, Institutionen oder Einzelpersonen betrieben.'
+    price: Kostenlos.
+    openSource: 'yes'
+    encryption: Verbindung verschlüsselt (HTTPS); keine Ende-zu-Ende-Verschlüsselung, der Anbieter kann also mitlesen.
+    dataCollection: Hängt von der jeweiligen Instanz ab; keine zentrale Plattform und kein zentrales Werbeprofil.
+    strengths:
+    - 'Auf viele unabhängige Betreiber verteilt, keine eingebaute Werbung und keine Empfehlungen nach Werbeinteressen.'
+    - 'Jede Organisation kann eine eigene Instanz mit eigenen Regeln betreiben.'
+    tradeOffs:
+    - 'Verzichtest du auf: fast alle Inhalte, die du von YouTube kennst. Die Auswahl ist sehr klein.'
+    - 'Verzichtest du auf: eine zentrale Suche und Empfehlungen. Inhalte sind über viele Instanzen verstreut; gesucht wird über SepiaSearch.'
+    - 'Bleibt teilweise gleich: Eine offizielle Handy-App gibt es für Android und iPhone; eine eigene Smart-TV-App nennt Framasoft nicht.'
+    switchingEffort: medium
+    switchingNote: Konzept der Instanzen ist ungewohnt.
+    url: https://joinpeertube.org/
+    sources:
+    - alt-peertube-faq
+    - alt-peertube-repo
+    - alt-peertube-app
+    - alt-framasoft
+    needsVerification: false
+  - id: nebula
+    name: Nebula
+    provider: 'Standard Broadcast LLC (laut Nebula im Besitz der Creatorinnen und Creator)'
+    jurisdiction: USA
+    businessModel: 'Abo, keine Werbung; Gewinne werden laut Nebula monatlich mit den Creatorn geteilt.'
+    price: '6 USD im Monat oder 60 USD im Jahr; mit Creator-Code ist das Jahresabo günstiger.'
+    openSource: 'no'
+    encryption: HTTPS.
+    dataCollection: 'Konto mit E-Mail-Adresse und Zahlungsdaten nötig. Laut App-Store-Angaben des Anbieters werden Nutzungsdaten mit dem Konto verknüpft; Tracking gibt er dort nicht an. Keine Werbung.'
+    strengths:
+    - 'Werbefrei, unterstützt Creator direkt.'
+    - 'Viele Wissens- und Bildungskanäle unabhängiger Creator.'
+    tradeOffs:
+    - 'Verzichtest du auf: fast alle Inhalte von YouTube. Nebula hat nur einen kleinen Ausschnitt; die App gibt es nur auf Englisch.'
+    - 'Verzichtest du auf: eine kostenlose Nutzung.'
+    - 'Gewinnst du: keine Werbung bei den Kanälen, die es dort gibt.'
+    switchingEffort: low
+    switchingNote: Abo abschließen, ergänzt YouTube eher als es zu ersetzen.
+    url: https://nebula.tv/
+    sources:
+    - alt-nebula
+    - alt-nebula-pricing-blog
+    - alt-nebula-talent
+    - alt-nebula-app-store
+    needsVerification: false
+  reviewedAt: '2026-10-21'

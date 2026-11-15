@@ -1,0 +1,143 @@
+---
+/**
+ * "Einstellungen ändern": every setting per app, most useful first, each with a
+ * direct link to the provider's own setting page. Works without JavaScript; a
+ * small script only puts the apps from the selection (this tab) first.
+ */
+import Base from '~/layouts/Base.astro';
+import { guideCards, serviceCards } from '~/domain/projections';
+import { byPriority, isOptional } from '~/domain/priority';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+
+const TXT_DE = {
+  title: 'Einstellungen ändern',
+  description: 'Alle Datenschutz-Einstellungen deiner Apps an einem Ort: Was sie bewirken, wie lange sie dauern – und ein Direktlink zur Einstellung beim Anbieter.',
+  lead: 'Tippe auf deine App. Oben stehen jeweils die Einstellungen, die am meisten bringen und keinen Komfort kosten. Wo es geht, kommst du mit einem Tipp direkt zur Einstellung beim Anbieter – sonst hilft die Anleitung Schritt für Schritt.',
+  count: (n: number) => `${n} Einstellungen`,
+  mine: 'deine App',
+  minutes: (n: number) => `ca. ${n} Min`,
+  impact: 'Wirkung',
+  notVerified: ' · Anleitung noch nicht nachgeprüft',
+  open: (name: string) => `Bei ${name} öffnen ↗`,
+  external: ' (externe Seite)',
+  guide: 'Anleitung',
+  more: (n: number) => `Weitere: kosten Komfort oder sind endgültig (${n})`,
+  goodToKnow: 'Gut zu wissen:',
+  learns: (name: string) => `Was ${name} über dich erfährt →`,
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'Change settings',
+  description: 'All the privacy settings of your apps in one place: what they do, how long they take – and a direct link to each setting on the provider’s site.',
+  lead: 'Tap your app. At the top of each list are the settings that make the biggest difference without costing you any convenience. Where possible, one tap takes you straight to the setting on the provider’s site – otherwise the guide helps you step by step.',
+  count: (n) => (n === 1 ? '1 setting' : `${n} settings`),
+  mine: 'your app',
+  minutes: (n) => `approx. ${n} min`,
+  impact: 'Impact',
+  notVerified: ' · guide not yet checked',
+  open: (name) => `Open in ${name} ↗`,
+  external: ' (external site)',
+  guide: 'Guide',
+  more: (n) => `More: these cost convenience or are permanent (${n})`,
+  goodToKnow: 'Good to know:',
+  learns: (name) => `What ${name} learns about you →`,
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+
+const PICK_ORDER = ['instagram', 'whatsapp', 'google', 'youtube', 'amazon', 'tiktok', 'facebook', 'chatgpt', 'spotify', 'netflix', 'paypal', 'telegram', 'snapchat', 'linkedin'];
+const services = serviceCards(locale).sort((a, b) => PICK_ORDER.indexOf(a.id) - PICK_ORDER.indexOf(b.id));
+const guides = guideCards(locale);
+const apps = services.map((app) => {
+  const own = guides.filter((g) => g.service === app.id).sort(byPriority);
+  return { app, first: own.filter((g) => !isOptional(g)), more: own.filter(isOptional) };
+});
+---
+<Base ownsSelection title={s.title} description={s.description} path={href(locale, 'settings')} crumbs={[{ label: s.title }]}>
+  <section>
+    <div class="wrap">
+      <h1>{s.title}</h1>
+      <p class="lead">{s.lead}</p>
+
+      <div class="settings-list" data-settings-sections>
+        {apps.map(({ app, first, more }) => (
+          <details id={app.id} class="settings-app" data-app={app.id}>
+            <summary><h2>{app.shortName}</h2><span class="meta">{s.count(first.length + more.length)}</span><span class="app-mine meta" hidden>{s.mine}</span></summary>
+            <ul class="rows settings-rows">
+              {first.map((g) => (
+                <li>
+                  <p class="settings-title">{g.title}</p>
+                  <p class="small">{g.goal}</p>
+                  <p class="meta">{s.minutes(g.minutes)} · {s.impact} {t.plan.impactShort[g.impact]}{g.status !== 'verified' && s.notVerified}</p>
+                  <div class="cluster">
+                    {g.officialUrl && <a class="btn" href={g.officialUrl} target="_blank" rel="noopener noreferrer">{s.open(app.shortName)}<span class="visually-hidden">{s.external}</span></a>}
+                    <a class={g.officialUrl ? 'btn btn-quiet' : 'btn'} href={href(locale, 'guide', g.id)}>{s.guide}<span class="visually-hidden">: {g.title}</span></a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            {more.length > 0 && (
+              <details class="settings-more">
+                <summary>{s.more(more.length)}</summary>
+                <ul class="rows settings-rows">
+                  {more.map((g) => (
+                    <li>
+                      <p class="settings-title">{g.title}</p>
+                      {g.tradeOff ? <p class="tradeoff small">{s.goodToKnow} {g.tradeOff}</p> : <p class="small">{g.goal}</p>}
+                      <p class="meta">{s.minutes(g.minutes)} · {t.plan.kinds[g.kind]}</p>
+                      <div class="cluster">
+                        {g.officialUrl && <a class="btn" href={g.officialUrl} target="_blank" rel="noopener noreferrer">{s.open(app.shortName)}<span class="visually-hidden">{s.external}</span></a>}
+                        <a class="btn btn-quiet" href={href(locale, 'guide', g.id)}>{s.guide}<span class="visually-hidden">: {g.title}</span></a>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+            <p class="small"><a href={href(locale, 'app', app.id)}>{s.learns(app.shortName)}</a></p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { RESET_EVENT, cleanSelectionFromUrl, initialSelection, rememberSelection } from '~/domain/selection';
+
+  // The app you came for opens; your apps – from this tab, after consent from
+  // this device, or from a shared link (taken over, then removed from the
+  // address) – come first, are marked and open. Without JavaScript every app
+  // can be opened by hand. The markup carries the language.
+  const list = document.querySelector<HTMLElement>('[data-settings-sections]');
+  if (list) {
+    const apps = [...list.querySelectorAll<HTMLDetailsElement>(':scope > [data-app]')];
+    const ids = apps.map((el) => el.dataset.app!);
+    const apply = () => {
+      const hash = window.location.hash;
+      const anchor = hash && !hash.startsWith('#d=') ? apps.find((d) => `#${d.id}` === hash) : undefined;
+      const initial = initialSelection(ids, anchor ? '' : hash);
+      if (initial.source === 'link') rememberSelection(initial.ids, { device: false });
+      cleanSelectionFromUrl();
+      const mine = initial.ids;
+      const order = [...mine, ...ids.filter((id) => !mine.includes(id))];
+      for (const id of order) {
+        const app = apps.find((d) => d.dataset.app === id)!;
+        const on = mine.includes(id);
+        app.classList.toggle('is-mine', on);
+        app.querySelector('.app-mine')?.toggleAttribute('hidden', !on);
+        app.open = on || app === anchor;
+        list.append(app);
+      }
+      anchor?.scrollIntoView({ block: 'start' });
+    };
+    apply();
+    window.addEventListener('hashchange', apply);
+    // "Alles löschen" changes nothing in the address; back/forward cache restores an old view.
+    window.addEventListener(RESET_EVENT, apply);
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) apply();
+    });
+  }
+</script>

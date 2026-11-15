@@ -1,0 +1,270 @@
+id: youtube
+name: YouTube
+company: google
+category: video
+url: https://www.youtube.com/
+summary: "YouTube remembers what you watch, search for and like. YouTube uses this for recommendations and ads – including in other Google services. You can pause, delete or limit your history and ads."
+surprise:
+  action: youtube-watch-history-pause
+  text: "If you pause your watch history and there is hardly any older history, YouTube stops showing recommendations on the home page altogether. So the recommendations depend directly on your history."
+  sources:
+    - ref: youtube-help-watch-history
+      note: "„werden YouTube-Funktionen wie Empfehlungen auf der YouTube-Startseite entfernt“"
+businessModel:
+  text: "YouTube is funded by ads and subscriptions. In the fourth quarter of 2025, YouTube ads brought in 11.4 billion US dollars. For the whole of 2025, YouTube's revenue from ads and subscriptions was over 60 billion US dollars."
+  sources:
+    - ref: alphabet-q4-2025-results
+      note: "„YouTube ads 11,383“ (Q4 2025, Mio. USD); „YouTube revenue across ads and subscriptions exceeded $60 billion for the full year 2025“"
+dataPoints:
+  - id: youtube-account
+    category: account
+    title: "YouTube runs on your Google Account."
+    detail: "YouTube knows your name, your account details, and your age and gender from your Google Account. Google uses age and gender, for example, to choose ads – on YouTube too."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Für personalisierte Werbung auf Google, auch auf YouTube, zählen u. a. Angaben zu Alter und Geschlecht aus dem Google-Konto oder von Google abgeleitet."
+      - google-privacy-policy
+  - id: youtube-watch-history
+    category: activity
+    title: "YouTube stores which videos you watch."
+    detail: "Your watch history shows every video and Short you have watched. If it is turned on, YouTube uses it for recommendations."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: "stored in your account as long as YouTube History is turned on"
+    sources:
+      - ref: youtube-help-watch-history
+        note: "„Wenn er aktiviert ist, können wir dir relevante Videoempfehlungen geben“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-search-history
+    category: searches
+    title: "YouTube stores what you search for."
+    detail: "Your searches on YouTube end up in your search history and influence the recommendations. Deleted searches no longer have any effect on them."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: youtube-help-search-history
+        note: "„Gelöschte Suchanfragen wirken sich nicht mehr auf Empfehlungen aus.“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-interactions
+    category: activity
+    title: "YouTube analyses your likes, subscriptions and feedback."
+    detail: "This includes what you like or dislike, which channels you subscribe to and how you answer short satisfaction surveys."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: youtube-how-recommendations
+        note: "„viewing behavior, likes, dislikes, subscriptions, and feedback, including from satisfaction surveys“"
+      - ref: youtube-help-privacy-basics
+  - id: youtube-uploads-comments
+    category: content
+    title: "Comments, videos and playlists you create are held by YouTube."
+    detail: "What you upload or write is public, depending on your settings. If you delete your channel, videos, comments, messages and playlists are permanently removed."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "if you upload content or comment"
+    sources:
+      - ref: youtube-help-privacy-basics
+        note: "Absatz zum Schließen oder Löschen des Kanals"
+  - id: youtube-device
+    category: device
+    title: "YouTube collects details about your device."
+    detail: "This includes details about the device. On phones, Google can personalise ads using the advertising ID – a number that does not contain your name."
+    technical: "According to My Ad Center Help, ads on mobile devices can be personalised based on the advertising ID (Android: Google's advertising ID, iPhone: Apple's)."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - youtube-help-privacy-basics
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Werbung auf Mobilgeräten kann anhand der Werbe-ID personalisiert werden (Android: Werbe-ID von Google, iPhone: von Apple)."
+  - id: youtube-location
+    category: location
+    title: "YouTube estimates where you are right now."
+    detail: "For this, YouTube uses your device's location, the home or work address in your Google Account and your IP address – your internet connection's address."
+    provenance: derived
+    mechanisms: [device, derived]
+    evidence: stated
+    sources:
+      - ref: youtube-help-privacy-basics
+        note: "„YouTube schätzt deinen aktuellen Standort anhand des Gerätestandorts, der in deinem Google-Konto gespeicherten Privat- oder Arbeitsadresse und deiner IP‑Adresse“"
+  - id: youtube-ad-interactions
+    category: activity
+    title: "YouTube remembers how you respond to ads."
+    detail: "Which ads and content you have interacted with can influence which ads you see later – on YouTube too."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Zu den Faktoren gehören im Google-Konto gespeicherte Interaktionen mit Anzeigen oder Inhalten."
+  - id: youtube-offplatform
+    category: offplatform
+    title: "For ads on YouTube, websites and apps outside YouTube can count too."
+    detail: "If you are signed in, Google can use your activity on its partners' websites and apps for ads in its services, including YouTube, if that activity is saved in your Google Account. On Android, the apps you have installed count too."
+    provenance: observed
+    mechanisms: [partners, device]
+    evidence: stated
+    condition: "if you are signed in, personalised ads are turned on and partner activity is saved in your Google Account"
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Faktoren sind u. a. im Google-Konto gespeicherte Aktivitäten auf Websites von Google-Partnern und auf Android installierte Apps; ob Partnerdaten gespeichert werden, ist eine eigene Einstellung."
+      - google-partner-sites
+inferences:
+  - id: youtube-interests
+    title: "YouTube infers interests from your videos."
+    detail: "The kinds of videos you watch shape the recommendations. If personalised ads are on, they also shape the ads. In My Ad Center you can see the topics used for this."
+    level: documented
+    basedOn: [youtube-watch-history, youtube-search-history, youtube-interactions]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "Sinngemäß: Zu den Faktoren gehören auf YouTube angesehene Videos; bevorzugte Themen und Marken lassen sich in Mein Anzeigen-Center einstellen."
+      - youtube-how-recommendations
+  - id: youtube-age-gender
+    title: "Google can estimate age and gender, including for YouTube ads."
+    detail: "Age group and gender count when ads on YouTube are chosen. According to Google, these details come from your account or Google has estimated them itself."
+    level: documented
+    basedOn: [youtube-account, youtube-watch-history]
+    sources:
+      - ref: google-help-my-ad-center
+        note: "„die Sie in Ihrem Google-Konto gemacht haben oder die Google abgeleitet hat“"
+  - id: youtube-life-situation
+    title: "Your history can hint at your life circumstances."
+    detail: "Lots of videos about pregnancy, building a house or job applications allow conclusions about your situation. This is technically possible. It is not documented that YouTube does this."
+    level: possible
+    basedOn: [youtube-watch-history, youtube-search-history]
+    sources:
+      - youtube-help-privacy-basics
+  - id: youtube-sensitive-topics
+    title: "Videos about health, faith or politics leave sensitive traces."
+    detail: "What you watch on such topics could, in theory, allow conclusions about you. This is not documented for YouTube. Google writes that it does not show personalised ads on sensitive topics such as religion, sexual orientation or health."
+    level: possible
+    basedOn: [youtube-watch-history]
+    sources:
+      - google-privacy-policy
+purposes:
+  - purpose: provide-service
+    detail: "Playing videos, managing subscriptions and playlists, showing comments."
+    sources: [youtube-help-privacy-basics]
+  - purpose: personalisation
+    detail: "Recommendations and search results based on watch and search history, likes, subscriptions and feedback."
+    sources: [youtube-help-watch-history, youtube-how-recommendations, youtube-help-privacy-basics]
+  - purpose: advertising
+    detail: "Personalised ads on YouTube and in other Google services. If they are off or you are not signed in, ads are based on the videos you are currently watching."
+    sources: [youtube-help-privacy-basics, youtube-help-ads, google-help-my-ad-center]
+  - purpose: product-development
+    detail: "Improving services, among other things with summarised analyses that are no longer linked to you as a person (anonymised)."
+    sources: [youtube-help-privacy-basics]
+  - purpose: safety
+    detail: "Preventing abuse and fraud, as described in Google's privacy policy."
+    sources: [google-privacy-policy]
+sharing:
+  - id: youtube-sharing-google
+    recipient: "Other Google services"
+    detail: "Your YouTube activity can influence ads in other Google services. In the EEA you can choose whether YouTube is linked with Search, advertising services and other services."
+    sources: [youtube-help-privacy-basics, google-help-linked-services]
+  - id: youtube-sharing-public
+    recipient: "The public"
+    detail: "Everyone can see public videos, comments and playlists; you can set the visibility of your videos."
+    sources: [youtube-help-privacy-basics]
+  - id: youtube-sharing-advertisers
+    recipient: "Advertisers"
+    detail: "According to Google, advertisers only receive summarised details that do not point to you as a person. YouTube writes that it does not sell your personal data."
+    sources:
+      - google-privacy-policy
+      - ref: youtube-help-privacy-basics
+        note: "„YouTube verkauft deine personenbezogenen Daten nicht.“"
+retention:
+  text: "Watch and search history stay stored until you delete them. If you are new to YouTube or turn on your history for the first time, auto-delete after 36 months has been the default since 2020. You can choose shorter periods."
+  sources:
+    - ref: google-blog-auto-delete-2020
+      note: "„das Zeitfenster für das automatische Löschen der Daten auf 36 Monate gesetzt wird“"
+    - youtube-help-watch-history
+    - google-help-delete-activity
+journey:
+  - id: youtube-journey-watch
+    title: "You watch, search and like"
+    detail: "YouTube records every video you watch, every search, every like and every subscription. Details about your device and an estimated location are added."
+    dataPoints: [youtube-watch-history, youtube-search-history, youtube-interactions, youtube-device, youtube-location]
+    sources: [youtube-help-privacy-basics]
+  - id: youtube-journey-history
+    title: "Stored in your YouTube History"
+    detail: "Everything is collected in your Google Account. Under “Your data in YouTube” you can view it, pause it or delete it."
+    dataPoints: [youtube-watch-history, youtube-search-history]
+    sources: [youtube-help-watch-history, youtube-help-privacy-basics]
+  - id: youtube-journey-recommendations
+    title: "How recommendations come about"
+    detail: "From what you watch, like and subscribe to, and from your survey answers, YouTube works out what to suggest to you next."
+    dataPoints: [youtube-watch-history, youtube-interactions, youtube-search-history]
+    sources: [youtube-how-recommendations]
+  - id: youtube-journey-ads
+    title: "Choosing the ads"
+    detail: "Which ads you see can depend on: the kinds of videos you have watched, age, gender, approximate location, saved activity on partner websites and ads you have interacted with."
+    dataPoints: [youtube-watch-history, youtube-account, youtube-location, youtube-offplatform, youtube-ad-interactions]
+    sources: [google-help-my-ad-center, youtube-help-ads]
+  - id: youtube-journey-google
+    title: "Other Google services"
+    detail: "Your YouTube activity can also influence ads in other Google services – in the EEA, depending on whether you have linked the services."
+    dataPoints: [youtube-watch-history]
+    sources: [youtube-help-privacy-basics, google-help-linked-services]
+assessment:
+  breadth:
+    level: 4
+    rationale: "Besides viewing and search behaviour and interactions, Google can use age, gender, the phone's advertising ID and saved activity on partner websites for ads, including on YouTube; on Android also installed apps."
+    confidence: medium
+    sources: [youtube-help-privacy-basics, youtube-help-ads, google-help-my-ad-center]
+  sensitivity:
+    level: 3
+    rationale: "Watch and search histories are private and often touch on health, politics or life circumstances. Very personal messages usually do not come into it."
+    confidence: medium
+    sources: [youtube-help-privacy-basics]
+  observation:
+    level: 4
+    rationale: "YouTube continuously analyses what you watch, like and subscribe to and how you answer surveys. This is the heart of the recommendations."
+    confidence: high
+    sources: [youtube-how-recommendations, youtube-help-watch-history]
+  linkability:
+    level: 4
+    rationale: "YouTube uses the same Google Account. Your activity also has an effect in other Google services, and saved activity on partners' websites and apps can count for ads. In the EEA you can choose not to link them."
+    confidence: high
+    sources: [youtube-help-privacy-basics, google-help-my-ad-center, google-help-linked-services]
+  adUse:
+    level: 4
+    rationale: "Advertising is the main source of income; YouTube ads brought in around 11.4 billion US dollars in the fourth quarter of 2025."
+    confidence: high
+    sources: [alphabet-q4-2025-results]
+  sharing:
+    level: 3
+    rationale: "According to Google, data stays within the group and with service providers. Advertisers receive summarised details. Public content is visible to everyone."
+    confidence: medium
+    sources: [google-privacy-policy, youtube-help-privacy-basics]
+  defaults:
+    level: 2
+    rationale: "For new users, auto-delete is set by default, but only after 36 months – under our method, that does not count as a protective default. In the EEA, Google asks about linking services; however, watch and search history are on by default."
+    confidence: medium
+    sources: [google-blog-auto-delete-2020, youtube-help-watch-history, google-help-linked-services]
+  controls:
+    level: 3
+    rationale: "Watch history, search history and personalised ads can each be switched off separately. Without a history, however, there are no recommendations on the home page."
+    confidence: high
+    sources: [youtube-help-watch-history, youtube-help-search-history, google-help-my-ad-center]
+  deletion:
+    level: 4
+    rationale: "You can delete your history item by item or completely, set up auto-delete, export via Google Takeout; the channel can be deleted."
+    confidence: high
+    sources: [youtube-help-watch-history, google-help-takeout, youtube-help-privacy-basics]
+  reachability:
+    level: 3
+    rationale: "History and ad settings can be found in the app under Settings and centrally in “My Activity”."
+    confidence: medium
+    sources: [youtube-help-privacy-basics, youtube-help-watch-history]
+alternatives: video
+linkedWith: [google]
+region: EU
+reviewedAt: "2026-10-07"

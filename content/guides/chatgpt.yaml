@@ -1,0 +1,215 @@
+- id: chatgpt-training-opt-out
+  service: chatgpt
+  kind: setting
+  title: Training mit deinen Chats abschalten
+  goal: Deine neuen Gespräche werden nicht mehr genutzt, um die KI-Modelle von OpenAI zu trainieren.
+  whyItMatters: >-
+    Ist die Einstellung „Das Modell für alle verbessern“ an, darf OpenAI laut eigenen Angaben deine Chats und
+    Erinnerungen zum Training nutzen.
+  whatChanges: >-
+    Neue Gespräche werden nicht mehr zum Training verwendet. Das gilt in deinem Konto auf allen Geräten. Statt der
+    Einstellung kannst du im Privacy Portal von OpenAI auch „Do not train on my content“ wählen. Eins von beiden
+    reicht.
+  whatDoesNotChange: >-
+    Deine Chats bleiben im Verlauf gespeichert. Die Einstellung wirkt nur für neue Gespräche. Gibst du einer Antwort
+    Daumen hoch oder runter, darf OpenAI das ganze Gespräch trotzdem zum Training nutzen.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "Im Browser: Öffne das Kontomenü und wähle „Einstellungen“."
+    - "In der App (iOS, Android): Öffne die Seitenleiste und tippe auf dein Profilbild, um die Einstellungen zu öffnen."
+    - "Wähle „Datenkontrollen“."
+    - "Schalte „Das Modell für alle verbessern“ aus. Im Browser bestätigst du mit „Fertig“."
+  affects: [prompts, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte mit der offiziellen OpenAI-Hilfeseite „Data controls in ChatGPT“ (en, Stand Ende September 2026)
+      abgeglichen, im Browser gerendert. Die deutsche Fassung dieser Seite war blockiert; die deutschen
+      Bezeichnungen „Datenkontrollen“ und „Das Modell für alle verbessern“ stammen aus den deutschen OpenAI-Hilfeseiten
+      zu Export und Erinnerung. Die Bezeichnungen in der App können abweichen.
+  sources:
+    - chatgpt-help-data-controls
+    - chatgpt-help-model-improvement
+- id: chatgpt-temporary-chat
+  service: chatgpt
+  kind: setting
+  title: Temporäre Chats für vertrauliche Fragen nutzen
+  goal: Du führst einzelne Gespräche, die nicht im Verlauf landen und nicht fürs Training genutzt werden.
+  whyItMatters: >-
+    Für ein heikles Thema musst du nicht alle Einstellungen ändern. Ein temporärer Chat erscheint nicht im Verlauf,
+    legt keine neuen Erinnerungen an und wird nicht zum Training genutzt.
+  whatChanges: >-
+    Das Gespräch landet nicht im Verlauf. Wählst du „Nicht personalisiert“, nutzt ChatGPT auch keine
+    vorhandenen Erinnerungen und keine eigenen Anweisungen.
+  whatDoesNotChange: >-
+    OpenAI kann eine Kopie bis zu 30 Tage aufbewahren, zu Sicherheitszwecken. Speicherst du den Chat später, wird er
+    ein normaler Chat und für ihn gelten wieder deine üblichen Einstellungen.
+  impact: medium
+  minutes: 1
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "Öffne einen neuen Chat."
+    - "Wähle „Temporär“."
+    - "Wähle „Personalisiert“ oder „Nicht personalisiert“, bevor du die erste Nachricht schickst. Später lässt sich das nicht mehr ändern."
+    - "Schreib deine Nachricht."
+  affects: [chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte mit der offiziellen OpenAI-Hilfeseite „Temporäre Chats in ChatGPT“ (de und en) abgeglichen, im
+      Browser gerendert.
+  sources:
+    - chatgpt-help-temporary-chat
+    - chatgpt-help-model-improvement
+    - chatgpt-help-retention
+- id: chatgpt-memory
+  service: chatgpt
+  kind: review
+  title: Erinnerungen von ChatGPT prüfen und begrenzen
+  tradeOff: "ChatGPT kennt dann weniger Zusammenhänge aus früheren Gesprächen."
+  goal: Du siehst, was ChatGPT sich über dich gemerkt hat, löschst einzelne Erinnerungen oder schaltest die Funktion ab.
+  whyItMatters: >-
+    Mit der Erinnerungsfunktion sammelt ChatGPT persönliche Details über viele Gespräche hinweg. Ist das Training an,
+    kann OpenAI auch diese Erinnerungen dafür nutzen.
+  whatChanges: >-
+    Gelöschte Erinnerungen nutzt ChatGPT nicht mehr für Antworten. Schaltest du „Chatverlauf berücksichtigen“ ab,
+    löscht OpenAI das, was ChatGPT sich aus früheren Chats gemerkt hat, innerhalb von 30 Tagen.
+  whatDoesNotChange: >-
+    Deine Chats bleiben im Verlauf, bis du sie löschst. Umgekehrt gilt auch: Löschst du nur einen Chat, bleibt eine
+    daraus gespeicherte Erinnerung bestehen. Willst du etwas ganz entfernen, lösch beides.
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "Öffne die Einstellungen."
+    - "Wähle „Personalisierung“."
+    - "Wähle „Erinnerung“."
+    - "Je nach Konto siehst du hier „Erinnerung“, „Gespeicherte Erinnerungen berücksichtigen“, „Chatverlauf berücksichtigen“, „Erinnerungsübersicht“ oder „Verwalten“. Prüfe die Einträge, lösch einzelne oder schalte die Funktionen aus."
+  affects: [memories, chat-history]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte mit der offiziellen OpenAI-Hilfeseite „Erinnerung in ChatGPT“ (de und en) abgeglichen, im Browser
+      gerendert. Laut Hilfeseite hängen die angezeigten Optionen von Tarif, Region und Plattform ab.
+  sources:
+    - chatgpt-help-memory
+    - chatgpt-help-retention
+- id: chatgpt-ad-controls
+  service: chatgpt
+  kind: setting
+  title: Werbeeinstellungen in ChatGPT prüfen
+  goal: Du siehst, welche Daten ChatGPT für Werbung speichert, löschst sie oder wechselst im Tarif Free zur werbefreien Variante.
+  whyItMatters: >-
+    In den Tarifen Free und Go zeigt ChatGPT seit August 2026 auch in Deutschland Werbung. Dafür speichert OpenAI,
+    welche Anzeigen du ansiehst oder anklickst.
+  whatChanges: >-
+    Löschst du die Anzeigendaten, nutzt ChatGPT deinen Anzeigenverlauf und die dir zugeordneten Themen nicht mehr.
+    Sie werden innerhalb von 30 Tagen entfernt. Wechselst du im Tarif Free zur werbefreien Variante, siehst du keine
+    Werbung mehr. Dafür kannst du weniger Nachrichten schicken und manche Funktionen nicht nutzen.
+  whatDoesNotChange: >-
+    Deine Chats bleiben unverändert. Laut OpenAI ist personalisierte Werbung im EWR und in der Schweiz zunächst nicht
+    verfügbar; die Anzeigen richten sich hier nach dem aktuellen Chat, deinem ungefähren Standort und der Tageszeit.
+    Ganz ohne Werbung und Einschränkungen geht es nur mit Plus oder Pro.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Öffne in ChatGPT die Einstellungen."
+    - "Wähle „Werbeeinstellungen“. Fehlt der Punkt in der App, aktualisiere sie."
+    - "Je nach Region siehst du unter „Verlauf und Themen anzeigen“, welche Anzeigen und Themen gespeichert sind."
+    - "Mit „Anzeigendaten löschen“ entfernst du Anzeigenverlauf und Themen."
+    - "Nur im Tarif Free: Tippe auf „Abo wechseln“, wähle „Nachrichtenlimits verringern“ und bestätige. Dann siehst du keine Werbung mehr."
+  affects: [ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte mit der offiziellen OpenAI-Hilfeseite „Anzeigen in ChatGPT“ (de und en, Stand Anfang Oktober 2026)
+      abgeglichen, im Browser gerendert; EWR-Hinweis und Werbung ohne Personalisierung mit der EU-Datenschutzerklärung
+      von OpenAI (Stand 24. August 2026) abgeglichen. Die Bezeichnungen können je nach Plattform abweichen.
+  sources:
+    - chatgpt-help-ads
+    - openai-eu-privacy-policy
+- id: chatgpt-export
+  service: chatgpt
+  kind: export
+  title: Deine ChatGPT-Daten exportieren
+  goal: Du lädst eine Kopie deines Chatverlaufs und deiner Kontodaten herunter.
+  whyItMatters: >-
+    So siehst du, was gespeichert ist. Und du sicherst Gespräche, bevor du sie oder dein Konto löschst.
+  whatChanges: >-
+    Du bekommst per E-Mail oder SMS einen Link zu einer ZIP-Datei. Laut OpenAI kann das bis zu 7 Tage dauern. Der
+    Link gilt 24 Stunden.
+  whatDoesNotChange: Es wird nichts gelöscht. Bereits gelöschte Chats lassen sich nicht wiederherstellen.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Melde dich bei ChatGPT an."
+    - "Öffne dein Profilmenü und wähle „Einstellungen“."
+    - "Wähle „Datenkontrollen“."
+    - "Wähle unter „Daten exportieren“ die Option „Export“."
+    - "Bestätige mit „Export bestätigen“."
+    - "Öffne die Nachricht von OpenAI, sobald sie da ist, und wähle „Datenexport herunterladen“. Bleib dabei mit demselben Konto angemeldet."
+  affects: [account, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte mit der offiziellen OpenAI-Hilfeseite „Deinen ChatGPT-Verlauf und deine Daten exportieren“ (de und en)
+      abgeglichen, im Browser gerendert.
+  sources:
+    - chatgpt-help-export
+- id: chatgpt-delete-account
+  service: chatgpt
+  kind: deletion
+  title: Dein ChatGPT-Konto löschen
+  goal: Du löschst dein OpenAI-Konto und die zugehörigen Daten dauerhaft.
+  whyItMatters: >-
+    Chats bleiben gespeichert, bis du sie löschst. Die Kontolöschung entfernt alles auf einmal.
+  whatChanges: >-
+    Laut OpenAI werden deine Daten innerhalb von 30 Tagen gelöscht. Das Konto lässt sich nicht wiederherstellen. Du
+    verlierst auch den Zugang zu anderen OpenAI-Diensten mit diesem Konto.
+  whatDoesNotChange: >-
+    Einige Daten darf OpenAI länger behalten, wenn ein Gesetz das verlangt oder erlaubt. Ein Abo über Apple wird
+    nicht automatisch gekündigt; kündige es vorher selbst. Mit derselben E-Mail-Adresse kannst du dich erst nach 30
+    Tagen neu anmelden.
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Im Browser: Melde dich bei ChatGPT an."
+    - "Öffne dein Kontomenü und wähle „Einstellungen“."
+    - "Wähle „Konto“."
+    - "Wähle neben „Konto löschen“ die Option „Löschen“."
+    - "Gib die E-Mail-Adresse oder Telefonnummer deines Kontos ein und tippe „LÖSCHEN“, wenn du dazu aufgefordert wirst."
+    - "Wähle „Mein Konto dauerhaft löschen“."
+    - "In den Apps für iOS und Android gelten eigene Schritte; OpenAI verlinkt sie auf der Hilfeseite."
+  affects: [account, prompts, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Schritte für den Browser mit der offiziellen OpenAI-Hilfeseite „Dein ChatGPT-Konto löschen“ (de und en)
+      abgeglichen, im Browser gerendert. Die Schritte in den Apps stehen auf eigenen Hilfeseiten und wurden nicht
+      geprüft.
+  sources:
+    - chatgpt-help-delete-account
+    - chatgpt-help-retention

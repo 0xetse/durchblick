@@ -1,0 +1,387 @@
+id: chatgpt
+name: ChatGPT
+company: openai
+category: ai-assistant
+url: https://chatgpt.com
+summary: >-
+  ChatGPT speichert deine Gespräche, hochgeladene Dateien und auf Wunsch Erinnerungen über dich. Wenn du nicht
+  widersprichst, trainiert OpenAI laut eigenen Angaben seine KI damit. In den Tarifen Free und Go gibt es seit
+  August 2026 Werbung.
+surprise:
+  action: chatgpt-training-opt-out
+  text: >-
+    Was du ChatGPT schreibst, darf OpenAI laut eigenen Angaben nutzen, um seine nächste KI zu trainieren. Das
+    gilt, bis du die Einstellung „Das Modell für alle verbessern“ abschaltest. Temporäre Chats nutzt OpenAI nicht
+    zum Training.
+  sources:
+    - ref: chatgpt-help-model-improvement
+      note: "Abschnitt zu Diensten für Privatpersonen (ChatGPT)"
+    - ref: chatgpt-help-data-controls
+      note: "Einstellung „Improve the model for everyone“ (deutsch: „Das Modell für alle verbessern“)"
+businessModel:
+  text: >-
+    OpenAI verdient Geld mit Abos wie Plus und Pro, mit Angeboten für Firmen und mit dem Zugang für Entwickler.
+    Seit dem 24. August 2026 zeigt ChatGPT auch in Deutschland Werbung, aber nur in den Tarifen Free und Go.
+  sources:
+    - ref: chatgpt-ads-europe-announcement
+      note: "Start in 31 europäischen Märkten"
+    - ref: chatgpt-help-ads
+      note: "Welche Tarife Werbung sehen"
+dataPoints:
+  - id: account
+    category: account
+    title: Deine Kontodaten wie Name, Kontaktdaten, Geburtsdatum und Zahlungsdaten.
+    detail: >-
+      OpenAI nennt Name, Kontaktdaten, Zugangsdaten, Geburtsdatum, Zahlungsdaten und deine bisherigen Zahlungen.
+      Bei manchen Diensten kommen Profilbild und Benutzername dazu.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Account Information'"
+  - id: prompts
+    category: prompts
+    title: Alles, was du ChatGPT schreibst, sagst oder hochlädst.
+    detail: >-
+      Deine Fragen und Anweisungen, hochgeladene Dateien, Bilder, Ton- und Videoaufnahmen. Viele Menschen besprechen
+      mit ChatGPT auch sehr Persönliches, etwa Gesundheit, Beziehungen oder Arbeit.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Content' / Nutzerinhalte"
+  - id: chat-history
+    category: prompts
+    title: Dein gespeicherter Chatverlauf mit den Antworten.
+    detail: >-
+      Normale Chats bleiben in deinem Verlauf, bis du sie löschst. Temporäre Chats erscheinen nicht im Verlauf.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: chatgpt-help-retention
+        note: "Aufbewahrung von Chats"
+      - chatgpt-help-temporary-chat
+  - id: memories
+    category: content
+    title: Erinnerungen, die ChatGPT über dich speichert.
+    detail: >-
+      Gespeicherte Erinnerungen sind Details, die ChatGPT sich merken soll, z. B. dass du Vegetarierin bist oder
+      Lehrer. Außerdem kann ChatGPT auf frühere Chats zurückgreifen. Im EWR ist das laut OpenAI ab Werk aus.
+    provenance: derived
+    mechanisms: [usage, derived]
+    evidence: stated
+    condition: nur wenn die Erinnerungsfunktion an ist
+    sources:
+      - ref: chatgpt-help-memory
+        note: "Abschnitte zu gespeicherten Erinnerungen und Chatverlauf"
+  - id: connected-apps
+    category: content
+    title: Daten aus Diensten, die du mit ChatGPT verbindest.
+    detail: >-
+      Verbindest du z. B. einen Online-Speicher oder andere Apps mit ChatGPT, verarbeitet OpenAI die Daten, die
+      ChatGPT dort abruft.
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: nur wenn du Dienste verbindest
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt zu Inhalten aus verbundenen Diensten"
+  - id: log-data
+    category: device
+    title: Deine Internet-Adresse, dein Browser und der Zeitpunkt jeder Anfrage.
+    detail: >-
+      Dein Browser oder Gerät sendet automatisch mit: die Internet-Adresse deines Anschlusses (IP-Adresse), welchen
+      Browser du nutzt und wie er eingestellt ist, dazu Datum und Uhrzeit.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Log data'"
+  - id: device
+    category: device
+    title: Informationen über dein Gerät.
+    detail: Z. B. Gerätename, Betriebssystem, Browser und Nummern, an denen sich dein Gerät erkennen lässt.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Device information'"
+  - id: usage
+    category: activity
+    title: Wie du ChatGPT nutzt.
+    detail: >-
+      Welche Funktionen du verwendest, welche Aktionen du ausführst, wann du Feedback zu Antworten gibst, deine
+      Zeitzone, dein Land sowie Datum und Uhrzeit der Nutzung.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Usage data'"
+  - id: location
+    category: location
+    title: Deine ungefähre Region, auf Wunsch auch dein genauer Standort.
+    detail: >-
+      OpenAI schätzt deine ungefähre Region anhand deiner Internet-Adresse, z. B. um ungewöhnliche Anmeldungen zu
+      erkennen. Bei einigen Funktionen kannst du auch deinen genauen Standort teilen, etwa per GPS.
+    provenance: derived
+    mechanisms: [device, permissions]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Location information'"
+  - id: ad-interactions
+    category: activity
+    title: Wie du mit Anzeigen in ChatGPT umgehst.
+    detail: >-
+      In den Tarifen Free und Go zeigt ChatGPT Werbung. OpenAI speichert, welche Anzeigen du ansiehst oder anklickst.
+      Welche Anzeige du siehst, hängt vom aktuellen Gespräch ab, von deinem ungefähren Standort und der Tageszeit.
+      Personalisierte Werbung nutzt auch frühere Chats und Erinnerungen. Sie ist laut OpenAI im EWR zunächst nicht
+      verfügbar und bräuchte hier deine Einwilligung.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    condition: nur in den Tarifen Free und Go
+    sources:
+      - ref: chatgpt-help-ads
+        note: "„Personalized ads are not initially available in the European Economic Area (EEA) or Switzerland“"
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 9, Rechtsgrundlagen: Einwilligung für personalisierte, berechtigtes Interesse für generische Werbung"
+  - id: advertiser-data
+    category: offplatform
+    title: Angaben, die Werbekunden über dich an OpenAI schicken.
+    detail: >-
+      Laut Datenschutzerklärung bekommt OpenAI Informationen von Werbekunden und anderen Datenpartnern, zum
+      Beispiel über Käufe, die du tätigst. OpenAI nutzt sie, um zu messen, ob Werbung wirkt, und um Free- und
+      Go-Nutzern passendere Anzeigen zu zeigen. Im EWR und in der Schweiz gibt es auf dich zugeschnittene Werbung laut
+      OpenAI vorerst nicht.
+    condition: Betrifft vor allem die kostenlosen Tarife mit Werbung (Free, Go).
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 1, „Informationen, die wir aus anderen Quellen erhalten“"
+      - ref: chatgpt-help-ads
+        note: "personalisierte Anzeigen im EWR und in der Schweiz zunächst nicht verfügbar"
+inferences:
+  - id: memory-profile
+    title: ChatGPT merkt sich Vorlieben und Details über dich.
+    detail: >-
+      Ist die Erinnerungsfunktion an, schließt ChatGPT aus deinen Gesprächen auf Dinge über dich, z. B. deinen Beruf,
+      deine Vorlieben oder laufende Projekte. Das nutzt es in späteren Antworten.
+    level: documented
+    basedOn: [prompts, chat-history, memories]
+    sources:
+      - ref: chatgpt-help-memory
+        note: "Abschnitt zu Erkenntnissen aus dem Chatverlauf"
+  - id: ad-topics
+    title: Für Werbung ordnet ChatGPT dir Themen zu.
+    detail: >-
+      Laut OpenAI erfasst ChatGPT bei Free und Go deinen Anzeigenverlauf und deine Interessen. Für personalisierte
+      Werbung nutzt es auch „Themen“, die es dir zuordnet. Im EWR ist personalisierte Werbung laut OpenAI zunächst
+      nicht verfügbar und bräuchte deine Einwilligung.
+    level: documented
+    basedOn: [ad-interactions, chat-history, memories]
+    sources:
+      - ref: chatgpt-help-ads
+        note: "Abschnitte zu Ad controls („History and Topics“) und zur Verfügbarkeit im EWR"
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 1, Nutzungsdaten: „Werbeverlauf und Ihre Interessen“"
+  - id: sensitive-topics
+    title: Gesundheit, Beziehungen, Finanzen oder Überzeugungen.
+    detail: >-
+      Wer mit ChatGPT über Beschwerden, Sorgen oder Glaubensfragen spricht, gibt das direkt preis. Dass OpenAI daraus
+      gezielt heikle Merkmale über dich ableitet, ist nicht dokumentiert. Technisch möglich wäre es.
+    level: possible
+    basedOn: [prompts, chat-history]
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitt 'Content' / Nutzerinhalte"
+  - id: location-routine
+    title: Wo und wann du typischerweise arbeitest.
+    detail: >-
+      Aus deiner ungefähren Region, deiner Zeitzone und deinen Nutzungszeiten ließe sich ein grobes Bild deines
+      Alltags gewinnen. Das ist möglich, OpenAI beschreibt es aber nicht als Praxis.
+    level: possible
+    basedOn: [location, usage, log-data]
+    sources:
+      - ref: openai-eu-privacy-policy
+        note: "Abschnitte 'Usage data' und 'Location information'"
+purposes:
+  - purpose: provide-service
+    detail: Antworten schreiben, Chatverlauf und Erinnerungen bereithalten, dein Konto verwalten.
+    sources: [openai-eu-privacy-policy]
+  - purpose: personalisation
+    detail: Antworten mit Erinnerungen und früheren Chats auf dich zuschneiden.
+    sources: [chatgpt-help-memory]
+  - purpose: ai-training
+    detail: >-
+      OpenAI darf deine Inhalte nutzen, um seine KI-Modelle zu trainieren und zu verbessern. Es beruft sich dabei
+      auf ein „berechtigtes Interesse“. Das ist eine Rechtsgrundlage, bei der das Unternehmen seine Interessen gegen
+      deine abwägt. Du kannst widersprechen.
+    sources: [openai-eu-privacy-policy, chatgpt-help-model-improvement]
+  - purpose: advertising
+    detail: >-
+      Werbung in den Tarifen Free und Go. Sie richtet sich nach dem aktuellen Gespräch, deinem ungefähren Standort und
+      der Tageszeit. Personalisierte Werbung braucht deine Einwilligung und ist im EWR laut OpenAI zunächst nicht
+      verfügbar.
+    sources: [chatgpt-help-ads, openai-eu-privacy-policy]
+  - purpose: safety
+    detail: Missbrauch und Betrug erkennen, Konten schützen, z. B. bei ungewöhnlichen Anmeldungen.
+    sources: [openai-eu-privacy-policy]
+  - purpose: legal
+    detail: Gesetzliche Pflichten und Anordnungen von Behörden oder Gerichten erfüllen.
+    sources: [openai-eu-privacy-policy]
+sharing:
+  - id: vendors
+    recipient: Dienstleister von OpenAI
+    detail: >-
+      Firmen, die für OpenAI arbeiten: z. B. Anbieter von Rechenzentren, Kundenservice, Sicherheitsdienste,
+      Zahlungsdienste sowie Such- und Shopping-Anbieter.
+    sources: [openai-eu-privacy-policy]
+  - id: affiliates
+    recipient: OpenAI-Konzernunternehmen, u. a. in den USA
+    detail: >-
+      Deine Daten werden auch außerhalb des EWR verarbeitet, vor allem in den USA. OpenAI stützt sich dabei auf
+      EU-Musterverträge (Standardvertragsklauseln) oder auf Beschlüsse der EU, dass dort genug Datenschutz gilt.
+    sources: [openai-eu-privacy-policy]
+  - id: workspace-admins
+    recipient: Administratoren von Business- oder Enterprise-Konten
+    detail: Nutzt du ChatGPT über deinen Arbeitgeber, können Administratoren auf dein Konto und deine Inhalte zugreifen.
+    sources: [openai-eu-privacy-policy]
+  - id: authorities-courts
+    recipient: Behörden und Gerichte
+    detail: >-
+      Wenn ein Gesetz es verlangt. Im US-Streit mit der New York Times um Urheberrechte musste OpenAI 2025 zeitweise
+      auch gelöschte Chats aufbewahren.
+    sources: [openai-eu-privacy-policy, chatgpt-engadget-preservation-order]
+  - id: advertisers
+    recipient: Werbekunden
+    detail: >-
+      Laut OpenAI bekommen Werbekunden keine Gespräche und keine persönlichen Angaben, nur zusammengefasste Zahlen
+      wie Aufrufe und Klicks. OpenAI verkauft nach eigenen Angaben keine Nutzerdaten.
+    sources: [chatgpt-help-ads, chatgpt-ads-europe-announcement]
+retention:
+  text: >-
+    Normale Chats bleiben gespeichert, bis du sie löschst. Gelöschte Chats, Erinnerungen und Konten entfernt OpenAI
+    innerhalb von 30 Tagen, außer es muss sie aus Sicherheits- oder Rechtsgründen länger behalten. Von temporären
+    Chats kann OpenAI bis zu 30 Tage eine Kopie behalten. Wegen eines US-Gerichtsbeschlusses wurden 2025 zeitweise
+    auch gelöschte Chats aufbewahrt. Diese Pflicht endete am 26. September 2025, mit Ausnahmen.
+  sources:
+    - chatgpt-help-retention
+    - chatgpt-help-temporary-chat
+    - chatgpt-help-delete-account
+    - ref: chatgpt-engadget-preservation-order
+      note: "Ende der allgemeinen Aufbewahrungspflicht"
+journey:
+  - id: you-write
+    title: Du schreibst oder lädst etwas hoch
+    detail: Deine Eingabe geht an OpenAI, zusammen mit deiner Internet-Adresse, Angaben zum Gerät und dem Zeitpunkt.
+    dataPoints: [prompts, log-data, device]
+    sources: [openai-eu-privacy-policy]
+  - id: processing
+    title: Verarbeitung in den Rechenzentren von OpenAI
+    detail: Die KI schreibt die Antwort. Das passiert auch außerhalb des EWR, vor allem in den USA.
+    dataPoints: [prompts]
+    sources: [openai-eu-privacy-policy]
+  - id: account-storage
+    title: Chatverlauf und Erinnerungen im Konto
+    detail: Gespräche bleiben im Verlauf. Ist die Erinnerungsfunktion an, merkt sich ChatGPT Details über dich.
+    dataPoints: [chat-history, memories]
+    sources: [chatgpt-help-retention, chatgpt-help-memory]
+  - id: training
+    title: Training der KI
+    detail: Ist „Das Modell für alle verbessern“ an, darf OpenAI deine Inhalte nutzen, um künftige KI-Modelle zu trainieren.
+    dataPoints: [prompts, chat-history, memories]
+    sources: [chatgpt-help-model-improvement]
+  - id: ads
+    title: Werbesystem (Free und Go)
+    detail: >-
+      Anzeigen richten sich nach dem aktuellen Gespräch, deinem ungefähren Standort und der Tageszeit. Personalisierte
+      Werbung ist im EWR zunächst nicht verfügbar. Werbekunden sehen keine Gespräche.
+    dataPoints: [ad-interactions, prompts, location]
+    sources: [chatgpt-help-ads, openai-eu-privacy-policy]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      ChatGPT erfasst Kontodaten, Inhalte, Nutzung, Gerät und Standort, auf Wunsch auch Daten aus verbundenen
+      Diensten. Laut Datenschutzerklärung kommen Angaben von Werbekunden dazu, etwa über deine Käufe.
+    confidence: medium
+    sources: [openai-eu-privacy-policy]
+  sensitivity:
+    level: 4
+    rationale: >-
+      Gespräche mit einer KI enthalten oft sehr Persönliches, etwa Gesundheitsfragen, Sorgen oder Interna aus der
+      Arbeit. OpenAI speichert sie im Wortlaut.
+    confidence: high
+    sources: [openai-eu-privacy-policy]
+  observation:
+    level: 3
+    rationale: >-
+      OpenAI speichert den ganzen Chatverlauf mit Zeitpunkten und die Funktionen, die du nutzt. Eine laufende
+      Messung, wie lange du etwas ansiehst, ist nicht beschrieben.
+    confidence: medium
+    sources: [openai-eu-privacy-policy, chatgpt-help-retention]
+  linkability:
+    level: 4
+    rationale: >-
+      Deine Daten hängen über alle Geräte an deinem Konto, auf Wunsch auch an verbundenen Diensten. Laut
+      Datenschutzerklärung bekommt OpenAI zudem Angaben von Werbekunden und anderen Datenpartnern, etwa über
+      deine Käufe.
+    confidence: medium
+    sources: [openai-eu-privacy-policy]
+  adUse:
+    level: 2
+    rationale: >-
+      Werbung gibt es erst seit August 2026 und nur in den Tarifen Free und Go. Im EWR richtet sie sich vorerst nur
+      nach dem aktuellen Chat, dem ungefähren Standort und der Tageszeit. Das meiste Geld bringen Abos und Firmenkunden.
+    confidence: medium
+    sources: [chatgpt-ads-europe-announcement, chatgpt-help-ads, openai-eu-privacy-policy]
+  sharing:
+    level: 2
+    rationale: >-
+      OpenAI gibt Daten an Dienstleister und eigene Konzernfirmen weiter. Werbekunden bekommen laut OpenAI keine
+      Gespräche, nur zusammengefasste Zahlen.
+    confidence: medium
+    sources: [openai-eu-privacy-policy, chatgpt-help-ads]
+  defaults:
+    level: 2
+    rationale: >-
+      Das Training mit deinen Inhalten ist an, bis du widersprichst. Chats bleiben ohne Frist gespeichert. Im EWR
+      greift die Erinnerungsfunktion ab Werk nicht auf frühere Chats zurück. Personalisierte Werbung braucht deine
+      Einwilligung.
+    confidence: medium
+    sources: [chatgpt-help-model-improvement, chatgpt-help-memory, openai-eu-privacy-policy]
+  controls:
+    level: 3
+    rationale: >-
+      Training, Erinnerungen, Werbedaten und temporäre Chats lassen sich in den Einstellungen steuern. Normale Chats
+      bleiben gespeichert, bis du sie löschst.
+    confidence: medium
+    sources: [chatgpt-help-data-controls, chatgpt-help-memory, chatgpt-help-ads, chatgpt-help-temporary-chat]
+  deletion:
+    level: 3
+    rationale: >-
+      Export und Kontolöschung kannst du selbst erledigen. Gelöschte Daten verschwinden meist innerhalb von 30 Tagen.
+      2025 hat ein US-Gerichtsbeschluss diese Frist zeitweise außer Kraft gesetzt.
+    confidence: medium
+    sources: [chatgpt-help-export, chatgpt-help-delete-account, chatgpt-engadget-preservation-order]
+  reachability:
+    level: 3
+    rationale: >-
+      Die wichtigsten Optionen liegen gebündelt in den Einstellungen unter „Datenkontrollen“, „Personalisierung“ und
+      „Werbeeinstellungen“. Die Hilfeseiten von OpenAI beschreiben die Wege Schritt für Schritt.
+    confidence: medium
+    sources: [chatgpt-help-data-controls, chatgpt-help-memory, chatgpt-help-ads]
+alternatives: ai-assistant
+linkedWith: []
+region: EU
+reviewedAt: "2026-10-07"

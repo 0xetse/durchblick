@@ -1,0 +1,23 @@
+---
+import Base from '~/layouts/Base.astro';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+---
+<Base title={t.nav.imprint} path={href(locale, 'imprint')} crumbs={[{ label: t.nav.imprint }]}>
+  <section><div class="wrap prose">
+    {locale === 'en' ? (
+      <>
+        <h1>Legal notice</h1>
+        <p class="panel"><strong>Preview version.</strong> The details required by § 5 DDG (German <span lang="de">Digitale-Dienste-Gesetz</span>) will be added before public release. This version is not public.</p>
+        <p class="small muted">This is a translation for your convenience. Only the <a href={href('de', 'imprint')} hreflang="de" lang="de">German version (Impressum)</a> is legally binding.</p>
+      </>
+    ) : (
+      <>
+        <h1>Impressum</h1>
+        <p class="panel"><strong>Vorabversion.</strong> Die Angaben nach § 5 DDG werden vor einer öffentlichen Veröffentlichung ergänzt. Diese Version ist nicht öffentlich.</p>
+      </>
+    )}
+  </div></section>
+</Base>

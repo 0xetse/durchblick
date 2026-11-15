@@ -1,0 +1,137 @@
+# WhatsApp-specific sources. Shared Meta sources (meta-*) live in facebook.yaml.
+- id: whatsapp-privacy-policy-eea
+  title: WhatsApp-Datenschutzrichtlinie (Europäische Region)
+  publisher: WhatsApp Ireland Limited
+  url: https://www.whatsapp.com/legal/privacy-policy-eea?lang=de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Fassung 'Gültig ab 2. Juli 2026'."
+- id: whatsapp-accounts-center-policy-eea
+  title: Ergänzende Datenschutzrichtlinie für WhatsApp in der Kontenübersicht (EWR)
+  publisher: WhatsApp Ireland Limited
+  url: https://www.whatsapp.com/legal/accounts-centre-supplemental-privacy-policy-eea?lang=de
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+  note: "Fassung 'Gültig ab 25. Februar 2026'. Freiwillige Verknüpfung mit Facebook/Instagram; Austausch mit Meta Platforms Ireland für Personalisierung inkl. Anzeigen in Status und Kanälen."
+- id: whatsapp-status-channels-policy
+  title: WhatsApp Status and Channels Supplemental Privacy Policy
+  publisher: WhatsApp LLC
+  url: https://www.whatsapp.com/legal/statusandchannels-privacy-policy
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Fassung 'Gültig ab 14. Juli 2025' für Nutzer außerhalb der Europäischen Region (WhatsApp LLC). Eine EWR-Fassung war beim Abruf nicht erreichbar; nur zur allgemeinen Funktionsweise von Werbung in Status und Kanälen herangezogen."
+- id: whatsapp-help-contact-upload
+  title: Informationen zum Hochladen von Kontakten
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/423109552047857/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Leitet inzwischen auf https://faq.whatsapp.com/1191526044909364/ weiter (gleicher Inhalt). Nennt zusätzlich: gespeicherte Kontakte löschst du unter Einstellungen > Datenschutz > Kontakte."
+- id: whatsapp-help-e2ee
+  title: Informationen zur Ende-zu-Ende-Verschlüsselung
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/791574747982248/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: whatsapp-help-delete-account
+  title: Konto löschen
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/2138577903196467/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: whatsapp-help-request-account-info
+  title: Konto-Informationen anfordern
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/526463418847093/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Bericht enthält keine Nachrichten; Kanal- und Anzeigenberichte werden separat angefordert."
+- id: whatsapp-help-region
+  title: Wer stellt deine WhatsApp Dienste bereit?
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/1013614932324960/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: de
+- id: whatsapp-help-live-location
+  title: Live-Standort verwenden
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/480865177351335/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+- id: whatsapp-ppcland-dma-report-2026
+  title: "Meta's 2026 DMA report reveals WhatsApp ads, a €200m fine, and a defiant stance on personalized advertising"
+  publisher: PPC Land
+  url: https://ppc.land/metas-2026-dma-report-reveals-whatsapp-ads-a-eu200m-fine-and-a-defiant-stance-on-personalized-advertising/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Bericht über Metas DMA-Compliance-Bericht vom 6. März 2026 (Werbung in WhatsApp-Status/-Kanälen in der EU „in den kommenden Wochen“, Abo-Preise für WhatsApp). Originaldokument nicht auf einer Meta- oder EU-Seite gefunden."
+- id: whatsapp-help-block-report
+  title: Jemanden blockieren und melden
+  publisher: WhatsApp Hilfebereich
+  url: https://faq.whatsapp.com/1142481766359885
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Im Browser gerendert: „Wenn du jemanden meldest, erhält WhatsApp bis zu fünf der letzten Nachrichten, die dir gesendet wurden.“ Die gemeldete Person bzw. Gruppe wird nicht informiert."
+- id: whatsapp-help-contact-names
+  title: Kontaktnamen fehlen
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/522615322631338/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: de
+  note: "Gerendert (de-DE) in der Android- und iOS-Ansicht. Android: Einstellungen des Telefons > Apps > WhatsApp > Berechtigungen > Kontakte; iOS: Einstellungen > Apps > WhatsApp > Kontakte (Beschränkter Zugriff / Voller Zugriff). „Wenn du WhatsApp die Berechtigung verweigerst …, kannst du trotzdem Kontakte in WhatsApp erstellen …, Nachrichten … empfangen, WhatsApp-Einstellungen ändern.“"
+- id: whatsapp-help-meta-account
+  title: WhatsApp in deinem Meta-Konto verwalten
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/519792767655150/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: global
+  language: de
+  note: "Gerendert (de-DE und en-US, US-Netz) in der Android- und iOS-Ansicht; der Abschnitt zum Entfernen ist in beiden gleich: „Tippe auf [Symbol] > Einstellungen > Meta-Konto > Konto verwalten. Tippe neben „WhatsApp“ auf Verwalten > Aus diesem Meta-Konto entfernen. Tippe auf Ja, fortfahren > Weiter > Ja, jetzt verschieben.“ Hinweis im Artikel: Die Kontenübersicht wird schrittweise in „Meta-Konto“ umbenannt. Englisch: „Settings > Meta Account > Manage account … Manage > Move out of this Meta Account … Yes, continue > Continue > Yes, finish moving“. Ziel des Links „WhatsApp-Konto der Kontenübersicht hinzufügen oder daraus entfernen“ im Artikel 849367647393371."
+- id: whatsapp-help-accounts-center-data
+  title: Informationen zum Verwalten deiner WhatsApp-Daten in der Kontenübersicht
+  publisher: WhatsApp-Hilfebereich
+  url: https://faq.whatsapp.com/2957533991082921/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-21"
+  region: global
+  language: de
+  note: "„Du kannst dein WhatsApp-Konto jederzeit in deinen WhatsApp-Einstellungen aus einer Kontenübersicht entfernen. Wir beenden die Weitergabe deiner Informationen innerhalb von 24 Stunden …“; Entfernen kopierter Verknüpfungen „kann bis zu sieben Tage dauern“. Nicht regionsspezifisch; die EWR-Ergänzungsrichtlinie nennt für die Löschung 90 Tage – der Guide folgt weiter der EWR-Fassung."

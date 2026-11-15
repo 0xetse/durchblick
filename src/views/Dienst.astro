@@ -1,0 +1,329 @@
+---
+import { dict, formatDate, href, localeOf } from '~/i18n';
+import Base from '~/layouts/Base.astro';
+import DataJourney from '~/islands/DataJourney';
+import ProfileMeter from '~/components/ProfileMeter.astro';
+import SourceRefs from '~/components/SourceRefs.astro';
+import SourceList from '~/components/SourceList.astro';
+import GuideItem from '~/components/GuideItem.astro';
+import { Glyph } from '~/components/Glyph';
+import { getContent, refId } from '~/domain/content';
+import type { Service } from '~/domain/schema';
+import { bucketOf } from '~/domain/plan';
+import { Evidence } from '~/components/Evidence';
+import { AREAS, areaOf } from '~/domain/areas';
+import { stagePlan } from '~/domain/priority';
+import { guideCards, sourceCards } from '~/domain/projections';
+import { MECHANISMS } from '~/domain/schema';
+
+interface Props {
+  id: string;
+}
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const TXT_DE = {
+  headline: (name: string) => `Was erfährt ${name} über dich?`,
+  description: (summary: string, name: string) =>
+    `${summary} Was ${name} über dich erfährt, wie, was sich daraus ableiten lässt und welche Einstellungen etwas ändern – mit Quellen.`,
+  meta: (reviewedAt: string, points: number, sources: number) =>
+    `Stand ${reviewedAt} · ${points} Angaben · ${sources} Quellen · Sicht: Konto in der EU`,
+  changeSettings: (name: string) => `Einstellungen bei ${name} ändern`,
+  atAGlance: 'Auf einen Blick',
+  canKnow: 'Kann wissen',
+  areasOf: (n: number, total: number) => `${n} von ${total} Lebensbereichen:`,
+  whereFrom: 'Woher',
+  whatFor: 'Wofür',
+  whatYouCanChange: 'Was du ändern kannst',
+  minutes: (n: number) => `ca. ${n} Min`,
+  surprise: 'Das wissen die wenigsten',
+  sections: 'Abschnitte',
+  jump: ['Wissen', 'Herkunft', 'Schlüsse', 'Ändern', 'Belege'],
+  whatCanKnow: (name: string) => `Was ${name} wissen kann`,
+  origin: 'Herkunft:',
+  tapRow: 'Zeile antippen für Details und Beleg',
+  conditional: ' · bedingt',
+  condition: 'Bedingung:',
+  technical: 'Technisch:',
+  route: 'Weg:',
+  certainty: 'Gewissheit:',
+  howLearns: (name: string) => `Wie ${name} es erfährt`,
+  journeyLead: (name: string) => `Vereinfacht, aber nicht verfälscht: So bewegen sich Daten von dir durch die Systeme von ${name}.`,
+  journeyFallback: 'Vereinfachte Zusammenfassung der Angaben aus Abschnitt 01.',
+  inferred: 'Was sich daraus schließen lässt',
+  basedOn: 'Grundlage:',
+  useSharing: 'Nutzung, Weitergabe, Speicherung',
+  purposes: 'Zwecke',
+  sharing: 'Weitergabe',
+  retention: 'Speicherdauer',
+  businessModel: 'Geschäftsmodell',
+  linkedWith: 'Verknüpft mit',
+  assessment: 'Unsere Einordnung in 10 Punkten',
+  addToPlan: 'In meinen Plan übernehmen',
+  considerSwitching: 'Wechsel erwägen?',
+  alternativesFor: (title: string) => `Alternativen für ${title} mit Abwägungen →`,
+  evidence: 'Belege',
+  priority: 'Vorrang haben Quellen direkt vom Anbieter (Datenschutzerklärung, Hilfeseiten), von Behörden und Gesetze.',
+  methodology: 'Methodik →',
+};
+const TXT_EN: typeof TXT_DE = {
+  headline: (name) => `What does ${name} learn about you?`,
+  description: (summary, name) =>
+    `${summary} What ${name} learns about you, how, what can be inferred from it and which settings make a difference – with sources.`,
+  meta: (reviewedAt, points, sources) =>
+    `As of ${reviewedAt} · ${points} ${points === 1 ? 'detail' : 'details'} · ${sources} ${sources === 1 ? 'source' : 'sources'} · View: account in the EU`,
+  changeSettings: (name) => `Change settings in ${name}`,
+  atAGlance: 'At a glance',
+  canKnow: 'Can know',
+  areasOf: (n, total) => `${n} of ${total} areas of your life:`,
+  whereFrom: 'Where from',
+  whatFor: 'What for',
+  whatYouCanChange: 'What you can change',
+  minutes: (n) => `approx. ${n} min`,
+  surprise: 'Few people know this',
+  sections: 'Sections',
+  jump: ['Knows', 'Where from', 'Inferences', 'Change', 'Evidence'],
+  whatCanKnow: (name) => `What ${name} can know`,
+  origin: 'Origin:',
+  tapRow: 'tap a row for details and evidence',
+  conditional: ' · conditional',
+  condition: 'Condition:',
+  technical: 'Technical:',
+  route: 'Route:',
+  certainty: 'Certainty:',
+  howLearns: (name) => `How ${name} learns it`,
+  journeyLead: (name) => `Simplified, but not distorted: this is how data moves from you through the systems of ${name}.`,
+  journeyFallback: 'Simplified summary of the details in section 01.',
+  inferred: 'What can be inferred from it',
+  basedOn: 'Based on:',
+  useSharing: 'Use, sharing, storage',
+  purposes: 'Purposes',
+  sharing: 'Sharing',
+  retention: 'How long it is kept',
+  businessModel: 'Business model',
+  linkedWith: 'Linked with',
+  assessment: 'Our assessment in 10 points',
+  addToPlan: 'Add to my plan',
+  considerSwitching: 'Thinking of switching?',
+  alternativesFor: (title) => `Alternatives for ${title} with honest trade-offs →`,
+  evidence: 'Evidence',
+  priority: 'Sources directly from the provider (privacy policy, help pages), from authorities and legal texts take priority.',
+  methodology: 'Methodology →',
+};
+const txt = locale === 'en' ? TXT_EN : TXT_DE;
+const content = getContent(locale);
+const s: Service = content.services.find((x) => x.id === Astro.props.id)!;
+const company = content.companies.find((c) => c.id === s.company);
+const guides = content.guides
+  .filter((g) => g.service === s.id)
+  .sort((a, b) => ['quick', 'important', 'cleanup', 'advanced'].indexOf(bucketOf(a)) - ['quick', 'important', 'cleanup', 'advanced'].indexOf(bucketOf(b)) || a.minutes - b.minutes);
+const alt = s.alternatives ? content.alternatives.find((a) => a.id === s.alternatives) : undefined;
+const linked = s.linkedWith.map((id) => content.services.find((x) => x.id === id)).filter((x) => x !== undefined);
+
+
+// collect all source ids used on this page for the source list
+const ids = new Set<string>();
+const collect = (v: unknown): void => {
+  if (Array.isArray(v)) v.forEach(collect);
+  else if (v && typeof v === 'object') {
+    for (const [k, x] of Object.entries(v)) {
+      if (k === 'sources' && Array.isArray(x)) x.forEach((r) => ids.add(refId(r)));
+      else collect(x);
+    }
+  }
+};
+collect(s);
+collect(guides);
+collect(company);
+
+const short = s.shortName ?? s.name;
+const byArea = AREAS.map((a) => ({ area: a, points: s.dataPoints.filter((d) => areaOf(d.category) === a.id) })).filter((g) => g.points.length);
+// "Auf einen Blick": the four questions answered in one screen.
+const touchedAreas = AREAS.filter((a) => s.dataPoints.some((d) => areaOf(d.category) === a.id));
+const mechanismCounts = MECHANISMS.map((m) => ({ m, n: s.dataPoints.filter((d) => d.mechanisms.includes(m)).length }))
+  .filter((x) => x.n > 0)
+  .sort((a, b) => b.n - a.n);
+const topActions = stagePlan(guideCards(locale), [s.id], 2).start;
+// German keeps the ISO date as before; English gets a readable date.
+const reviewed = locale === 'en' ? formatDate(s.reviewedAt, locale) : s.reviewedAt;
+
+const journeySources = s.journey.flatMap((j) => j.sources);
+const journeyPoints = s.dataPoints.map((d) => ({ id: d.id, title: d.title, category: d.category, categoryLabel: t.categories[d.category] }));
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: txt.headline(short),
+  inLanguage: locale,
+  dateModified: s.reviewedAt,
+  about: { '@type': 'SoftwareApplication', name: s.name, applicationCategory: t.serviceCategories[s.category] },
+};
+---
+<Base title={txt.headline(short)} description={txt.description(s.summary, s.name)} path={href(locale, 'app', s.id)} jsonLd={jsonLd} crumbs={[{ label: t.nav.services, href: href(locale, 'apps') }, { label: s.name }]}>
+  <article class="service brief">
+    <header class="brief-head">
+      <div class="wrap">
+        <p class="meta">{company?.name} · {t.serviceCategories[s.category]} · {txt.meta(reviewed, s.dataPoints.length, ids.size)}</p>
+        <h1>{txt.headline(short)}</h1>
+        <p class="lead">{s.summary}</p>
+        <p class="cluster"><a class="btn btn-primary" href={`${href(locale, 'settings')}#${s.id}`}>{txt.changeSettings(short)}</a></p>
+        <dl class="kv brief-summary" aria-label={txt.atAGlance}>
+          <div>
+            <dt>{txt.canKnow}</dt>
+            <dd><strong>{txt.areasOf(touchedAreas.length, AREAS.length)}</strong> {touchedAreas.map((a) => t.areas[a.id].title).join(' · ')}</dd>
+          </div>
+          <div>
+            <dt>{txt.whereFrom}</dt>
+            <dd>{mechanismCounts.map(({ m, n }) => `${t.mechanismsShort[m]} (${n})`).join(' · ')}</dd>
+          </div>
+          <div>
+            <dt>{txt.whatFor}</dt>
+            <dd>{s.purposes.map((p) => t.purposes[p.purpose]).join(' · ')}</dd>
+          </div>
+          <div>
+            <dt>{txt.whatYouCanChange}</dt>
+            <dd>
+              <ul class="plain-list">
+                {topActions.map((g) => <li><a href={href(locale, 'guide', g.id)}>{g.title}</a> <span class="meta">{txt.minutes(g.minutes)}</span></li>)}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <div class="finding" id="ueberraschung">
+          <p class="label">{txt.surprise}</p>
+          <p class="finding-text">{s.surprise.text}</p>
+          <Evidence sources={sourceCards(s.surprise.sources)} locale={locale} />
+        </div>
+      </div>
+    </header>
+    {/* Outside the header, so it stays visible while you scroll the whole brief. */}
+    <nav class="jump" aria-label={txt.sections}>
+      <div class="wrap">
+        <ol>
+          <li><a href="#was"><span class="meta">01</span> {txt.jump[0]}</a></li>
+          <li><a href="#wie"><span class="meta">02</span> {txt.jump[1]}</a></li>
+          <li><a href="#bedeutung"><span class="meta">03</span> {txt.jump[2]}</a></li>
+          <li><a href="#tun"><span class="meta">04</span> {txt.jump[3]}</a></li>
+          <li><a href="#quellen"><span class="meta">05</span> {txt.jump[4]}</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <section id="was" aria-labelledby="was-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="meta">01</span><h2 id="was-h">{txt.whatCanKnow(short)}</h2></div>
+        <p class="meta legend">
+          {txt.origin} <Glyph kind="provided" size={10} /> {t.provenance.provided.label.toLowerCase()} ·{' '}
+          <Glyph kind="observed" size={10} /> {t.provenance.observed.label.toLowerCase()} ·{' '}
+          <Glyph kind="derived" size={10} /> {t.provenance.derived.label.toLowerCase()} · {txt.tapRow}
+        </p>
+        {byArea.map((g) => (
+          <div class="row-group">
+            <h3 class="label">{t.areas[g.area.id].title}</h3>
+            <ul class="rows">
+              {g.points.map((d) => (
+                <li class="dp">
+                  <details>
+                    <summary>
+                      <span class="dp-title">{d.title}</span>
+                      <span class="dp-meta meta" title={t.provenance[d.provenance].hint}>
+                        <Glyph kind={d.provenance} size={10} /> {t.provenance[d.provenance].label.toLowerCase()}
+                        {d.condition && txt.conditional}
+                      </span>
+                    </summary>
+                    <div class="dp-body">
+                      <p>{d.detail}</p>
+                      {d.condition && <p class="small"><strong>{txt.condition}</strong> {d.condition}</p>}
+                      {d.technical && <p class="small muted"><strong>{txt.technical}</strong> {d.technical}</p>}
+                      <p class="meta">{txt.route} {d.mechanisms.map((m) => t.mechanismsShort[m]).join(' · ')} · {txt.certainty} {t.evidence[d.evidence].label}</p>
+                      <Evidence sources={sourceCards(d.sources)} locale={locale} />
+                    </div>
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="wie" aria-labelledby="wie-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="meta">02</span><h2 id="wie-h">{txt.howLearns(short)}</h2></div>
+        <p>{txt.journeyLead(s.name)}</p>
+        <DataJourney client:load steps={s.journey} points={journeyPoints} serviceName={s.name} locale={locale} />
+        {journeySources.length > 0
+          ? <p class="meta"><SourceRefs refs={journeySources} /></p>
+          : <p class="meta">{txt.journeyFallback}</p>}
+      </div>
+    </section>
+
+    <section id="bedeutung" aria-labelledby="bed-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="meta">03</span><h2 id="bed-h">{txt.inferred}</h2></div>
+        {s.inferences.length > 0 && (
+          <ul class="rows">
+            {s.inferences.map((i) => (
+              <li class={`inf inf-${i.level}`}>
+                <div class="inf-head"><strong>{i.title}</strong> <span class="meta" title={t.inference[i.level].hint}><Glyph kind={i.level} size={10} /> {t.inference[i.level].label}</span></div>
+                <p class="small">{i.detail}</p>
+                <p class="meta">{txt.basedOn} {i.basedOn.map((b) => s.dataPoints.find((d) => d.id === b)?.title).join(' · ')}</p>
+                <Evidence sources={sourceCards(i.sources)} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        )}
+        <h3 class="sub">{txt.useSharing}</h3>
+        <dl class="kv kv-wide">
+          <div>
+            <dt>{txt.purposes}</dt>
+            <dd><ul class="plain-list">{s.purposes.map((p) => (<li><strong>{t.purposes[p.purpose]}:</strong> {p.detail} <span class="meta"><SourceRefs refs={p.sources} /></span></li>))}</ul></dd>
+          </div>
+          <div>
+            <dt>{txt.sharing}</dt>
+            <dd><ul class="plain-list">{s.sharing.map((sh) => (<li><strong>{sh.recipient}:</strong> {sh.detail} <span class="meta"><SourceRefs refs={sh.sources} /></span></li>))}</ul></dd>
+          </div>
+          <div>
+            <dt>{txt.retention}</dt>
+            <dd>{s.retention.text} <span class="meta"><SourceRefs refs={s.retention.sources} /></span></dd>
+          </div>
+          <div>
+            <dt>{txt.businessModel}</dt>
+            <dd>{s.businessModel.text} <span class="meta"><SourceRefs refs={s.businessModel.sources} /></span></dd>
+          </div>
+          {linked.length > 0 && (
+            <div>
+              <dt>{txt.linkedWith}</dt>
+              <dd>{linked.map((l, i) => (<>{i > 0 && ', '}<a href={href(locale, 'app', l.id)}>{l.name}</a></>))}</dd>
+            </div>
+          )}
+        </dl>
+        <h3 class="sub" id="datenprofil">{txt.assessment}</h3>
+        <ProfileMeter assessment={s.assessment} serviceName={s.name} />
+      </div>
+    </section>
+
+    <section id="tun" aria-labelledby="tun-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="meta">04</span><h2 id="tun-h">{txt.whatYouCanChange}</h2></div>
+        <ul class="rows guide-list">
+          {guides.map((g) => <li><GuideItem guide={g} /></li>)}
+        </ul>
+        <div class="cluster"><a class="btn btn-primary" href={href(locale, 'plan')} data-add-app={s.id}>{txt.addToPlan}</a></div>
+        {alt && (
+          <div class="alt-note">
+            <p class="label">{txt.considerSwitching}</p>
+            <p>{alt.withoutSwitching}</p>
+            <a href={`${href(locale, 'alternatives')}#${alt.id}`}>{txt.alternativesFor(alt.title)}</a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section id="quellen" aria-labelledby="quellen-h">
+      <div class="wrap">
+        <div class="sec-head"><span class="meta">05</span><h2 id="quellen-h">{txt.evidence}</h2></div>
+        <p class="small muted">{txt.priority} <a href={href(locale, 'methodology')}>{txt.methodology}</a></p>
+        <SourceList ids={[...ids]} />
+      </div>
+    </section>
+  </article>
+</Base>

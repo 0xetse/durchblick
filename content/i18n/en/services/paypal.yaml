@@ -1,0 +1,352 @@
+id: paypal
+name: PayPal
+company: paypal
+category: payments
+url: https://www.paypal.com/de
+summary: >-
+  PayPal stores who you pay, when, how much and what you buy – plus bank details, ID and credit checks. It also uses the data for ads, on by default according to Stiftung Warentest. Much of it is kept for up to ten years after your account ends.
+surprise:
+  action: paypal-personalised-ads
+  text: >-
+    PayPal publishes a long list of companies that may receive your data. They include Google, Facebook and LinkedIn for ad campaigns. According to the list, Google may receive an encrypted form of your email address and the value of payments.
+  sources:
+    - ref: paypal-third-parties-list
+      note: "Abschnitt '5. Marketing und Public Relations': Google/DoubleClick „Durchführung von Retargeting-Kampagnen zur Schaltung personalisierter Werbeanzeigen“; Daten u. a. „verschlüsselte E-Mail-Adresse, verschlüsselte Kunden-ID, verschlüsselte Händler-ID, Transaktionswert“"
+    - ref: paypal-netzpolitik-gutachten
+      note: "Sinngemäß: Bericht über ein Gutachten des Netzwerks Datenschutzexpertise; die Liste möglicher Datenempfänger umfasst rund 600 Firmen aus vielen Staaten."
+businessModel:
+  text: >-
+    PayPal earns money mainly from fees on payments: in 2025, this was around 90 per cent of US$33.2 billion in revenue. Since 2025, PayPal has also been selling ads in Germany that are based on real purchases. PayPal does not report separately how much this brings in.
+  sources:
+    - ref: paypal-q4-2025-results
+      note: "Tabelle 'Net Revenues by Type', Quartale 2025"
+    - ref: paypal-offsite-ads-germany
+      note: "„real, cross-merchant purchase signals“"
+dataPoints:
+  - id: account
+    category: account
+    title: Name, address, date of birth, contact details and ID.
+    detail: >-
+      What you provide when you sign up and when your identity is checked: name, address, phone number, email address, date of birth. Depending on the case, also an ID document, your signature and your tax identification number.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung': „Persönliche Identifikatoren“, „Merkmale geschützter Klassifikationen“"
+  - id: financial
+    category: account
+    title: Bank account, cards and information about your finances.
+    detail: >-
+      The bank accounts and credit cards you add, with IBAN and card details. According to the privacy policy, this can also include your income.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung': „Aufzeichnungen und Finanzdaten: … Bankkontonummern …, Kredit- und Debitkarteninformationen, Einkommen“"
+  - id: transactions
+    category: purchases
+    title: Every payment – to whom, when, how much and what for.
+    detail: >-
+      Your whole transaction history: amount, recipient, date, items bought, the contents of your shopping basket, delivery address and parcel tracking. Also money you send to friends or request from them.
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung': „Transaktions- und Erfahrungsdaten: … Transaktionsübersicht …, Informationen zum Online-Warenkorb, … Einkaufshistorie“"
+  - id: merchant-shopping
+    category: offplatform
+    title: What you look at in online shops that offer PayPal.
+    detail: >-
+      PayPal mentions “shopping activities considered on partner and merchant sites”. Shops where you buy things can also send PayPal data about you themselves.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung', Kategorie Transaktionsdaten und Quellen: „Wenn Sie auf Partner- und Händler-Websites einkaufen, können der Partner oder der Händler personenbezogene Daten an PayPal weitergeben“"
+  - id: usage
+    category: activity
+    title: How you use the PayPal website and app.
+    detail: >-
+      What you click on, when you use PayPal, how fast pages load and which website you came from. On top of that comes what cookies record – small files that PayPal uses to recognise your browser. Also when you open emails from PayPal.
+    provenance: observed
+    mechanisms: [usage, device]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitte 'Hinweis bei Erhebung' („Internet- oder Netzwerkaktivitäten“) und Cookies („wenn Sie … E-Mails öffnen, die wir Ihnen senden“)"
+  - id: device
+    category: device
+    title: Information about your device and your connection.
+    detail: >-
+      For example, your IP address (your internet connection's address), device type, operating system, screen resolution, time zone and fixed numbers for your device and browser. According to PayPal, also information about apps installed on your device.
+    technical: >-
+      Browser ID, device ID, cookie settings, network connections; the definition of “device data” mentions information about apps that have been downloaded to your device.
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitte 'Hinweis bei Erhebung' („Daten von Ihrem Gerät“) und 'Begriffsbestimmungen' („Gerätedaten“)"
+  - id: location
+    category: location
+    title: Your approximate location, and with your consent also your exact one.
+    detail: >-
+      PayPal estimates roughly where you are from your IP address. PayPal only collects your exact GPS location with your consent – according to the policy, mainly for accounts for financial services.
+    provenance: observed
+    mechanisms: [device, permissions]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung': „Standortdaten“ und Zweck „Übersendung standortbezogener Optionen sowie Sicherheitsgründe“"
+  - id: credit-data
+    category: account
+    title: Information about your creditworthiness, e.g. from SCHUFA.
+    detail: >-
+      PayPal exchanges data with credit agencies to check your identity and address, to prevent fraud and to assess whether you can pay. For Germany, PayPal names SCHUFA, among others.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Zweck „Verwaltung Ihrer Kreditwürdigkeit“"
+      - ref: paypal-third-parties-list
+        note: "Abschnitt '2. Kreditauskunfteien und Betrugsbekämpfungsdienste': SCHUFA Holding AG (Deutschland)"
+  - id: other-sources
+    category: offplatform
+    title: Data from other sources – including from companies that sell data.
+    detail: >-
+      Among its sources, PayPal names banks, payment networks, public authorities and companies that collect and sell data about people (PayPal calls them “data brokers”). There are also accounts you link to PayPal, and PayPal services such as Honey.
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'Hinweis bei Erhebung', Quellen: „Dritte, einschließlich … Kreditauskunfteien …, öffentliche Körperschaften, Datenbroker und Finanzinstitute“; „Verknüpfte Konten“; „Ausgeschlossene Dienste, einschließlich Venmo und PayPal Honey“"
+  - id: contacts
+    category: contacts
+    title: Your address book, if you sync your contacts.
+    detail: >-
+      If you sync your contacts with PayPal, PayPal receives the names, phone numbers, email addresses and pictures in them. PayPal uses this to suggest people you might know.
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: only if you allow contact syncing
+    sources:
+      - ref: paypal-privacy-statement
+        note: "„Importierte Kontaktdaten“ und Zweck „Verarbeitung von Daten über Ihre Kontakte“; Rechtsgrundlage Einwilligung (EWR-Tabelle)"
+  - id: biometrics
+    category: account
+    title: Face scan or voice, if you use them to log in.
+    detail: >-
+      With your consent, PayPal can use face scans, photos or your voice to check that it really is you. For example, when you reset your password.
+    provenance: provided
+    mechanisms: [provided, permissions]
+    evidence: stated
+    condition: only with your consent
+    sources:
+      - ref: paypal-privacy-statement
+        note: "„Biometrische Daten: Zum Beispiel Stimmidentifizierung, Fotoidentifizierung oder Gesichtsscans, die wir mit Ihrer Einwilligung … erheben können“"
+  - id: support
+    category: communications
+    title: Conversations with customer service.
+    detail: >-
+      Calls to customer service may be recorded. PayPal also stores chats, emails and answers to surveys.
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: if you contact PayPal
+    sources:
+      - ref: paypal-privacy-statement
+        note: "„Anrufaufzeichnungen, wenn Sie mit dem Kundenservice sprechen“; „Daten, die Sie angeben, wenn Sie uns kontaktieren“"
+inferences:
+  - id: derived-profile
+    title: PayPal estimates your income, gender and shopping habits.
+    detail: >-
+      PayPal itself writes that it creates “derived data” from your payments and your behaviour. As examples, PayPal names gender, income, shopping habits and preferences. PayPal also uses this for offers and ads.
+    level: documented
+    basedOn: [transactions, merchant-shopping, usage]
+    sources:
+      - ref: paypal-privacy-statement
+        note: "„Abgeleitete Daten: Zum Beispiel Geschlecht, Einkommen, Browsing- und Kaufgewohnheiten, Kreditwürdigkeit, Betrugs- und Risikobewertung, Ihre Präferenzen und Ihr Einkaufsverhalten“"
+  - id: risk-score
+    title: PayPal automatically assesses whether you are a risk.
+    detail: >-
+      Computer programs assess your financial situation, reliability and behaviour. If PayPal considers you a risk, it can refuse services or limit your account. You can ask for a human to review the decision.
+    level: documented
+    basedOn: [transactions, credit-data, device]
+    sources:
+      - ref: paypal-privacy-statement
+        note: "Abschnitt 'KI und automatisierte Entscheidungsfindung': „Analyse oder Vorhersage Ihrer wirtschaftlichen Situation, Zuverlässigkeit und/oder Ihres Verhaltens“"
+  - id: sensitive-life
+    title: Health, faith or political views.
+    detail: >-
+      Payments to a doctor's practice, a counselling service, a political party or a religious community can reveal a lot. Technically, something about you could be read from them. But PayPal does not write that it draws such conclusions.
+    level: possible
+    basedOn: [transactions]
+    sources:
+      - ref: paypal-netzpolitik-gutachten
+        note: "Bericht: Zahlungen an Gesundheitseinrichtungen, Anwälte, Parteien und religiöse Einrichtungen können sensible Informationen offenlegen"
+purposes:
+  - purpose: provide-service
+    detail: Carrying out payments, sending and receiving money, handling purchases and returns, showing your account.
+    sources: [paypal-privacy-statement]
+  - purpose: safety
+    detail: Checking identity, detecting fraud and abuse, assessing creditworthiness – also automatically.
+    sources: [paypal-privacy-statement]
+  - purpose: legal
+    detail: >-
+      Complying with laws against money laundering and terrorist financing, meeting accounting and tax obligations, making reports to authorities.
+    sources: [paypal-privacy-statement]
+  - purpose: personalisation
+    detail: Tailoring offers, rewards and recommendations to you.
+    sources: [paypal-privacy-statement]
+  - purpose: advertising
+    detail: >-
+      Ads for PayPal and for shops, in PayPal and on other websites. For this, PayPal relies in the EU on its “legitimate interest” – a legal basis that does not require your consent.
+    sources: [paypal-privacy-statement, paypal-offsite-ads-germany]
+  - purpose: product-development
+    detail: Developing new features, finding bugs, creating statistics. PayPal passes summarised insights on to shops.
+    sources: [paypal-privacy-statement]
+  - purpose: ai-training
+    detail: PayPal can use personal data to train its AI models, e.g. for security and personalisation.
+    sources: [paypal-privacy-statement]
+sharing:
+  - id: merchants
+    recipient: Shops and others involved in a payment
+    detail: >-
+      Whoever receives your money sees, for example, your name, email address and delivery address. Shops that offer PayPal can check whether you use PayPal.
+    sources: [paypal-privacy-statement]
+  - id: payment-banks
+    recipient: Banks, card companies and payment service providers
+    detail: >-
+      For direct debits, card payments and billing. The list includes Deutsche Bank and large card companies, among others.
+    sources: [paypal-third-parties-list]
+  - id: credit-agencies
+    recipient: Credit agencies, fraud checkers and debt collection agencies
+    detail: >-
+      For example SCHUFA. It receives, among other things, your name, address, date of birth, bank details and information about failed direct debits.
+    sources: [paypal-third-parties-list, paypal-privacy-statement]
+  - id: ad-platforms
+    recipient: Advertising companies and social networks
+    detail: >-
+      For ad campaigns, PayPal names Google, Facebook and LinkedIn, among others. They may receive your device's advertising IDs, identifiers from cookies and an encrypted form of your email address – according to the list, Google may also receive the value of payments.
+    sources: [paypal-third-parties-list]
+  - id: service-providers
+    recipient: Service providers working on behalf of PayPal
+    detail: >-
+      For example for customer service, IT, shipping, marketing and surveys, in the EU and in other countries such as the USA, Egypt or the Philippines.
+    sources: [paypal-third-parties-list]
+  - id: paypal-group-authorities
+    recipient: PayPal group and authorities
+    detail: >-
+      Companies in the PayPal group, including in the USA. Authorities such as the police and financial regulators receive data when a law or a court requires it. Rights holders can request information in cases of trademark or copyright infringement.
+    sources: [paypal-privacy-statement]
+  - id: other-users
+    recipient: Other PayPal users
+    detail: >-
+      Anyone who enters your name, email address or phone number can find you in the PayPal user directory. According to PayPal, you can turn this off in your profile settings.
+    sources: [paypal-privacy-statement]
+retention:
+  text: >-
+    PayPal stores data as long as your account exists, and usually for ten more years after that. One reason is legal obligations, e.g. against money laundering and for accounting – PayPal cannot simply delete such data. PayPal stores biometric data for no more than three years after your account is closed.
+  sources:
+    - ref: paypal-privacy-statement
+      note: "Abschnitt 'Wie lange wir Ihre personenbezogenen Daten speichern': „für die Dauer der Geschäftsbeziehung sowie für einen Zeitraum von zehn Jahren“; „AML-Verpflichtungen“; Biometrie „nicht länger als drei Jahre nach Schließung Ihres Kontos“"
+journey:
+  - id: pay
+    title: You pay with PayPal
+    detail: PayPal stores the amount, recipient, shopping basket and delivery address. Your device, IP address and location are recorded too.
+    dataPoints: [transactions, device, location]
+    sources: [paypal-privacy-statement]
+  - id: merchant
+    title: The shop receives information about you
+    detail: Shops and payment service providers receive what they need for the purchase and delivery. Shops can also send PayPal their own data.
+    dataPoints: [account, merchant-shopping]
+    sources: [paypal-privacy-statement, paypal-third-parties-list]
+  - id: risk-check
+    title: Checking identity and risk
+    detail: Programs assess the risk of fraud and your creditworthiness, partly using information from SCHUFA and other credit agencies.
+    dataPoints: [credit-data, transactions, device]
+    sources: [paypal-privacy-statement, paypal-third-parties-list]
+  - id: profile
+    title: PayPal derives a profile
+    detail: From payments and behaviour, PayPal estimates things like your income, shopping habits and preferences.
+    dataPoints: [transactions, merchant-shopping, usage]
+    sources: [paypal-privacy-statement]
+  - id: ads
+    title: Ads in PayPal and across the web
+    detail: PayPal shows you offers and sells ads based on real purchases. For this, advertising companies receive identifiers and encrypted email addresses.
+    dataPoints: [transactions, device, usage]
+    sources: [paypal-offsite-ads-germany, paypal-third-parties-list]
+  - id: keep
+    title: Keeping data after your account ends
+    detail: If you close your account, PayPal keeps a lot of data for up to ten years because of legal obligations.
+    dataPoints: [account, financial, transactions]
+    sources: [paypal-privacy-statement]
+assessment:
+  breadth:
+    level: 4
+    rationale: >-
+      PayPal collects account, ID, bank and payment data, usage, device and location. On top of that comes data from shops, credit agencies and, according to the company, also from companies that sell data about people.
+    confidence: high
+    sources: [paypal-privacy-statement]
+  sensitivity:
+    level: 3
+    rationale: >-
+      Financial data, ID and every payment are very private. Payments can also reveal something about health or faith. But there is no evidence that PayPal analyses this. Biometrics only with consent.
+    confidence: medium
+    sources: [paypal-privacy-statement, paypal-netzpolitik-gutachten]
+  observation:
+    level: 3
+    rationale: >-
+      PayPal stores every payment with the shopping basket, as well as your usage history and your shopping activity at shops. PayPal does not describe detailed tracking like that of video apps.
+    confidence: medium
+    sources: [paypal-privacy-statement]
+  linkability:
+    level: 4
+    rationale: >-
+      PayPal combines data from your account, online shops, linked accounts, credit agencies and group services such as Honey. With cookies, it also recognises you on other websites.
+    confidence: high
+    sources: [paypal-privacy-statement]
+  adUse:
+    level: 2
+    rationale: >-
+      Around 90 per cent of revenue comes from payment fees. Ads using purchase data are a new side business that PayPal is expanding. PayPal does not publish figures on this.
+    confidence: medium
+    sources: [paypal-q4-2025-results, paypal-offsite-ads-germany]
+  sharing:
+    level: 4
+    rationale: >-
+      PayPal's own list names well over a hundred companies in many countries. They include credit agencies, banks and advertising companies such as Google and Facebook, which may receive encrypted email addresses, among other things.
+    confidence: high
+    sources: [paypal-third-parties-list]
+  defaults:
+    level: 2
+    rationale: >-
+      Contact syncing, exact location and biometrics need your consent, and you can reject cookies in the banner. But according to Stiftung Warentest, personalised ads are switched on by default.
+    confidence: medium
+    sources: [paypal-privacy-statement, paypal-help-close-account, paypal-test-de-datenschutz]
+  controls:
+    level: 2
+    rationale: >-
+      You can control ads, cookies, marketing emails and permissions for apps. You cannot turn off the analysis of your payments, checks with credit agencies or sharing according to the third-party list.
+    confidence: medium
+    sources: [paypal-help-privacy-settings, paypal-privacy-statement]
+  deletion:
+    level: 3
+    rationale: >-
+      You can get a copy of your data and close your account yourself. But a lot of data stays stored for up to ten years after your account ends because of legal obligations.
+    confidence: high
+    sources: [paypal-help-data-access, paypal-help-close-account, paypal-privacy-statement]
+  reachability:
+    level: 3
+    rationale: >-
+      The most important options are in one place under “Data & Privacy”. PayPal hardly explains there what the ad controls actually do.
+    confidence: medium
+    sources: [paypal-help-privacy-settings]
+region: EU
+reviewedAt: "2026-10-08"

@@ -1,0 +1,26 @@
+name: Vorschlag / Suggestion
+description: Eine neue App, eine Anleitung oder eine Verbesserung vorschlagen. / Suggest an app, a guide or an improvement.
+labels: ["vorschlag"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Durchblick hält den Funktionsumfang bewusst klein und erhebt keine Daten. Vorschläge, die Tracking, Konten oder fremde Server brauchen, können wir nicht umsetzen.
+        Durchblick deliberately stays small and collects no data. Suggestions that need tracking, accounts or third-party servers cannot be accepted.
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Was schlägst du vor? / What do you suggest?
+    validations:
+      required: true
+  - type: textarea
+    id: warum
+    attributes:
+      label: Wem hilft das, und warum? / Who does this help, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: quellen
+    attributes:
+      label: Quellen (bei Inhalten) / Sources (for content)
+      description: Offizielle Hilfeseiten, Datenschutzerklärungen, Behörden. / Official sources.

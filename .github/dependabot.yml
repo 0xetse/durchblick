@@ -1,0 +1,23 @@
+# Update proposals for GitHub Actions (SHA pins) and npm. Every update arrives
+# as a pull request and is reviewed like any other change (CI must be green).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Types must match the Node runtime in package.json "engines" (Node 22).
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+    # Batch minor/patch updates of development tools into one PR.
+    groups:
+      dev-tools:
+        dependency-type: development
+        update-types: [minor, patch]

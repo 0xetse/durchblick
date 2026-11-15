@@ -1,0 +1,149 @@
+- id: openai-eu-privacy-policy
+  title: Europe privacy policy
+  publisher: OpenAI Ireland Limited
+  url: https://openai.com/policies/eu-privacy-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Stand 24. August 2026 (deutsche Fassung). Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden). Verantwortlich im EWR: OpenAI Ireland Limited, 117-126 Sheriff Street Upper, Dublin 1."
+- id: chatgpt-help-data-controls
+  title: Data controls in ChatGPT
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-model-improvement
+  title: How your data is used to improve model performance
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-memory
+  title: Memory in ChatGPT
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/8590148-memory-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-temporary-chat
+  title: Temporary chat in ChatGPT
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/8914046-temporary-chat-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-retention
+  title: Chat and file retention in ChatGPT
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-export
+  title: Exporting your ChatGPT history and data
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/7260999-exporting-your-chatgpt-history-and-data
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-delete-account
+  title: Deleting your ChatGPT account
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/6378407-deleting-your-chatgpt-account
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden)."
+- id: chatgpt-help-ads
+  title: Ads in ChatGPT
+  publisher: OpenAI
+  url: https://help.openai.com/en/articles/20001047-ads-in-chatgpt
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Am 2026-10-07 im Browser gerendert und gelesen (Cloudflare-Prüfung im zweiten Anlauf bestanden). Auch in der deutschen Fassung (Stand Anfang Oktober 2026): „Personalisierte Anzeigen sind zunächst im Europäischen Wirtschaftsraum (EWR) und in der Schweiz nicht verfügbar.“"
+- id: chatgpt-ads-europe-announcement
+  title: ChatGPT Ads expands across Europe
+  publisher: OpenAI
+  url: https://openai.com/index/chatgpt-ads-expands-across-europe/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "Ankündigung vom 18. August 2026, Start am 24. August 2026 in 31 europäischen Märkten. Deutsche Fassung am 2026-10-07 im Browser gerendert und gelesen (inkl. Update vom 31. August 2026)."
+- id: chatgpt-digiday-ads-europe
+  title: OpenAI builds offerings on consent as it expands ChatGPT ads to Europe
+  publisher: Digiday
+  url: https://digiday.com/marketing/openai-builds-offerings-on-consent-as-it-expands-chatgpt-ads-to-europe/
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: en
+  note: "18. August 2026: Einwilligung als Rechtsgrundlage für personalisierte Werbung im EWR; kontextbezogene Anzeigen nutzen laufendes Gespräch und groben Standort."
+- id: chatgpt-engadget-preservation-order
+  title: OpenAI no longer has to preserve all of its ChatGPT data, with some exceptions
+  publisher: Engadget
+  url: https://www.engadget.com/ai/openai-no-longer-has-to-preserve-all-of-its-chatgpt-data-with-some-exceptions-192422093.html
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: US
+  language: en
+  note: "9. Oktober 2025: Pflicht zur Aufbewahrung aller neuen Chat-Logs endete am 26. September 2025; Ausnahmen für bereits gesicherte Daten und von der NYT markierte Konten."
+- id: chatgpt-mashable-preservation-order
+  title: Judge lifts order requiring OpenAI to preserve ChatGPT logs
+  publisher: Mashable (via Yahoo News)
+  url: https://www.yahoo.com/news/articles/judge-lifts-order-requiring-openai-151518813.html
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-07"
+  region: US
+  language: en
+- id: openai-nyt-response
+  title: "How we're responding to The New York Times' data demands in order to protect user privacy"
+  publisher: OpenAI
+  url: https://openai.com/index/response-to-nyt-data-demands/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-07"
+  region: global
+  language: en
+  note: "Direktabruf blockiert (HTTP 403); nur als Fundstelle angegeben."
+- id: chatgpt-garante-2024
+  title: "ChatGPT, il Garante privacy chiude l'istruttoria. OpenAI dovrà realizzare una campagna informativa di sei mesi e pagare una sanzione di 15 milioni di euro"
+  publisher: Garante per la protezione dei dati personali (Italien)
+  url: https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10085432
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-07"
+  region: EU
+  language: it
+  note: "Dezember 2024: 15 Mio. € Bußgeld u. a. wegen Training ohne geeignete Rechtsgrundlage; Verfahren an die irische DPC als federführende Behörde abgegeben. ACHTUNG: Laut Berichterstattung hat das Tribunale di Roma den Bescheid am 18. März 2026 aus Zuständigkeitsgründen aufgehoben (ohne Prüfung in der Sache) – nicht mehr als Beleg für Aussagen über OpenAI verwenden (Red-Team-Review 2026-10-07)."

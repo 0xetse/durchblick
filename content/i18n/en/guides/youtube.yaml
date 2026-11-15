@@ -1,0 +1,150 @@
+- id: youtube-watch-history-pause
+  service: youtube
+  kind: setting
+  title: Pause your YouTube watch history
+  tradeOff: "Without a history, YouTube shows hardly any recommendations on the home page."
+  goal: "YouTube no longer saves videos you watch from now on in your account."
+  whyItMatters: "Your watch history is the most important basis for recommendations and is also used for ads."
+  whatChanges: "New videos no longer end up in your history and no longer affect your recommendations."
+  whatDoesNotChange: "Your existing history stays until you delete it. If there is hardly any history, YouTube no longer shows recommendations on the home page."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/product/youtube
+  steps:
+    - "On a computer, go to “My Activity” for YouTube and sign in."
+    - "Click the “Controls” tab on the left."
+    - "Choose “Turn off”."
+  affects: [youtube-watch-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the YouTube help page on watch history (German version, computer)."
+  sources: [youtube-help-watch-history]
+- id: youtube-history-auto-delete
+  service: youtube
+  kind: setting
+  title: Delete your YouTube history automatically
+  goal: "Older entries in your YouTube history regularly disappear on their own."
+  whyItMatters: "For new users, auto-delete is set by default to only after 36 months. A shorter period limits how far back the stored data about you goes."
+  whatChanges: "Entries older than the period you choose are deleted on an ongoing basis. You still get recommendations."
+  whatDoesNotChange: "New activity is still saved. Google keeps some data longer for certain purposes."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/product/youtube
+  steps:
+    - "Go to “My Activity” and sign in."
+    - "Click “YouTube History” and then “Manage history”."
+    - "Click “Auto-delete”."
+    - "Choose the time period you want, click “Next” and then “Confirm”."
+  affects: [youtube-watch-history, youtube-search-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the YouTube help page on watch history (German version, computer)."
+  sources: [youtube-help-watch-history, google-blog-auto-delete-2020]
+- id: youtube-search-history-pause
+  service: youtube
+  kind: setting
+  title: Pause your YouTube search history
+  goal: "Your searches on YouTube are no longer saved."
+  whyItMatters: "Searches often reveal exactly what is on your mind right now, and they affect recommendations."
+  whatChanges: "New searches are no longer saved; deleted searches no longer affect recommendations."
+  whatDoesNotChange: "Searches already saved stay until you delete them. Watch history is a separate setting."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android]
+  steps:
+    - "Sign in to the YouTube app and tap your profile picture."
+    - "Tap “Settings” and then “Manage all history”."
+    - "Tap the “Controls” tab."
+    - "Untick “Include your searches on YouTube”."
+  affects: [youtube-search-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the YouTube help page on search history (German version, Android); iOS and computer not checked."
+  sources: [youtube-help-search-history]
+- id: youtube-ads-personalisation
+  service: youtube
+  kind: setting
+  title: Turn off personalised ads in the YouTube app
+  goal: "Ads on YouTube are no longer chosen based on what Google knows about you."
+  whyItMatters: "For ads on YouTube, Google looks at the kind of videos you watch, websites you visit, apps on your device, your location, age group and gender."
+  whatChanges: "Ads are no longer based on what Google knows about you. The setting applies to your whole Google account."
+  whatDoesNotChange: "You still see ads, chosen for example by the content of the videos. Your history stays saved for recommendations."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, web]
+  officialUrl: https://myadcenter.google.com/
+  steps:
+    - "In the YouTube app, open “Account” and then “Settings”."
+    - "Scroll to “Privacy” and then the Google ad settings."
+    - "Next to “Personalized ads”, choose “Off”."
+    - "Confirm your choice."
+  affects: [youtube-watch-history, youtube-offplatform, youtube-ad-interactions, youtube-account]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Steps checked against the My Ad Center help page (German version, section on the YouTube app on Android, signed in)."
+  sources: [google-help-my-ad-center, youtube-help-ads]
+- id: youtube-export
+  service: youtube
+  kind: export
+  title: Download your YouTube data
+  goal: "You get a copy of your YouTube data, such as your history, playlists and videos."
+  whyItMatters: "This lets you see what YouTube has stored about you, and back up your own content."
+  whatChanges: "You get a compressed file – via a download link or in online storage."
+  whatDoesNotChange: "Downloading does not delete anything at YouTube."
+  impact: low
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://takeout.google.com/
+  steps:
+    - "Sign in and open Google Takeout (takeout.google.com)."
+    - "Deselect all products except YouTube."
+    - "Click “Next step”, choose the delivery method and file type, and create the export."
+  affects: [youtube-watch-history, youtube-search-history, youtube-uploads-comments]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "General Takeout steps checked (German version); we did not check the product name for YouTube in the Takeout menu ourselves."
+  sources: [google-help-takeout]
+- id: youtube-channel-delete
+  service: youtube
+  kind: deletion
+  title: Close or delete your YouTube channel
+  goal: "Your public YouTube content is permanently removed without deleting your whole Google account."
+  whyItMatters: "Comments, videos and playlists can stay publicly visible for a long time."
+  whatChanges: "Videos, comments, messages and playlists are permanently deleted."
+  whatDoesNotChange: "This does not delete your Google account; you manage your history and ad settings separately."
+  impact: medium
+  minutes: 5
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://studio.youtube.com/
+  steps:
+    - "On a computer, sign in to YouTube Studio in your browser. This does not work in the app."
+    - "From the left sidebar, select “Settings”."
+    - "Select “Channel” and then “Advanced Settings”."
+    - "At the bottom, select “Remove YouTube Content”. Enter your sign-in details if you are asked to."
+    - "Select “I want to permanently delete my content”. If you only want to hide the channel for now, select “I want to hide my channel” instead."
+    - "Tick the boxes to confirm and select “Delete my content”."
+  affects: [youtube-uploads-comments]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Steps checked against the YouTube help page “Delete or hide your YouTube channel” (German version)."
+  sources: [youtube-help-delete-channel, youtube-help-privacy-basics]

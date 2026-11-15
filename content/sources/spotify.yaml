@@ -1,0 +1,211 @@
+# Spotify-Quellen. Alle Spotify-Seiten am 2026-10-08 in der deutschen Fassung (de) abgerufen, sofern nicht anders vermerkt.
+- id: spotify-privacy-policy
+  title: Datenschutzrichtlinie von Spotify
+  publisher: Spotify AB
+  url: https://www.spotify.com/de/legal/privacy-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Fassung „Gültig ab dem 12. Juni 2026“. Verantwortlich: „Spotify AB ist zuständig für die im Rahmen dieser Richtlinie verarbeiteten personenbezogenen Daten.“ Anschrift: Regeringsgatan 19, 111 53 Stockholm, Schweden."
+- id: spotify-gdpr-article-15
+  title: Informationen zu Artikel 15 der DSGVO
+  publisher: Spotify AB
+  url: https://www.spotify.com/de/legal/gdpr-article-15-information/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Ergänzt die Datenschutzrichtlinie um Dateinamen im Datenpaket („Inferences.json“, „PreciseLocationData.json“). „Sofern du individuelle Werbeinhalte nicht deaktiviert hast, erhalten wir Daten über dich von bestimmten Werbe- oder Marketingpartnern, einschließlich Gerätekennungen, verknüpfte E-Mail-Adressen und Telefonnummern.“"
+- id: spotify-cookie-policy
+  title: Cookie-Richtlinie von Spotify
+  publisher: Spotify AB
+  url: https://www.spotify.com/de/legal/cookies-policy/
+  tier: 1
+  type: privacy-policy
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Fassung „Gültig ab dem 23. Oktober 2025“. „Wenn du die Option „Individuelle Werbeinhalte“ deaktivierst, wird Spotify deine Daten nicht mehr an externe Werbetreibende weitergeben.“"
+- id: spotify-help-data-rights
+  title: Datenrechte und Datenschutzeinstellungen
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/data-rights-and-privacy-settings/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Tool „Deine Daten herunterladen“ auf der Seite „Datenschutzeinstellungen für dein Konto“ (Link auf https://www.spotify.com/account/privacy/). Einstellungen für personalisierte Ads und für Facebook-Daten."
+- id: spotify-help-understanding-data
+  title: Informationen zu deinen Daten
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/understanding-your-data/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Beschreibt die drei Datenpakete (Kontodaten, erweiterter Streamingverlauf, technisches Protokoll), u. a. „eine Liste von Marktsegmenten, denen du derzeit zugeordnet bist“."
+- id: spotify-help-close-account
+  title: Schließen deines Kontos und Löschen deiner Daten
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/how-can-i-close-my-spotify-account/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Link „Konto schließen und alle Daten löschen“ führt zu https://www.spotify.com/account/close/. Reaktivierung binnen 7 Tagen; neue Registrierung mit derselben E-Mail-Adresse nach 14 Tagen."
+- id: spotify-help-privacy-social
+  title: Einstellungen für Datenschutz und soziale Funktionen
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/privacy-and-social-controls/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Nennt je Schalter die Standardeinstellung, z. B. Höraktivität: „Standardeinstellung: „Ein“ für Nutzer*innen ab 18, „Aus“ für Personen unter 18.“"
+- id: spotify-help-private-session
+  title: So aktivierst du „Privat Musik hören“
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/private-listening/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Solange die Session aktiv ist, werden die von dir gehörten Songs nicht genutzt, um personalisierte Empfehlungen zu erstellen.“ Endet automatisch nach 6 Stunden oder beim Neustart der App."
+- id: spotify-help-listening-activity
+  title: Höraktivität
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/listening-activity/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Widerspricht beim Standard dem Artikel zu Datenschutz und sozialen Funktionen: „Deine Höraktivität ist standardmäßig deaktiviert.“"
+- id: spotify-help-recently-played
+  title: Kürzlich gehörte Künstler*innen
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/recently-played-artists/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Standardmäßig kann jede*r Nutzer*in, der*die dein Profil aufruft, die Künstler*innen sehen, die du kürzlich gehört hast.“"
+- id: spotify-help-taste-profile
+  title: Playlist oder Song aus Geschmacksprofil ausschließen
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/exclude-playlists-or-tracks-from-your-taste-profile/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Mit dem Geschmacksprofil analysiert Spotify deinen Geschmack basierend darauf, was du auf welche Weise hörst.“"
+- id: spotify-help-connected-apps
+  title: Spotify mit anderen Apps verknüpfen
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/spotify-on-other-apps/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Melde dich auf deiner App-Seite an. Klicke bei der gewünschten App auf ZUGRIFF ENTFERNEN.“ Die App-Seite verlinkt auf https://www.spotify.com/account/apps/."
+- id: spotify-help-facebook-login
+  title: Mit Facebook bei Spotify anmelden
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/facebook-login-help/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Außerdem werden dein Facebook-Name und -Profilbild in der App angezeigt und es ist ganz einfach, deine Freund*innen auf Spotify zu finden.“ Verbindung trennen durch Entfernen als Anmeldemethode."
+- id: spotify-help-ad-preferences
+  title: Werbeeinstellungen verwalten
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/managing-your-ad-preferences/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "Kategorien, die du seltener hören kannst: Alkohol, Dating, Glücksspiel, Gesellschaftliche Themen/Politik/Regierung, Schwangerschaft und Erziehung, Gewichtsverlust."
+- id: spotify-help-messages
+  title: Nachrichten auf Spotify
+  publisher: Spotify Support
+  url: https://support.spotify.com/de/article/messages/
+  tier: 1
+  type: help-center
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: de
+  note: "„Du kannst jetzt direkt in der Spotify App mit Freund*innen und Verwandten chatten …“"
+- id: spotify-ads-audience-targeting
+  title: Zielgruppen-Targeting
+  publisher: Spotify Advertising
+  url: https://ads.spotify.com/de-DE/audience-targeting/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: DE
+  language: de
+  note: "Seite für Werbekunden: „Das Hörverhalten der Nutzer*innen ermöglicht dir ein noch genaueres Zielgruppen-Targeting als demografische Daten …“"
+- id: spotify-ads-contextual
+  title: Contextual Advertising & Targeting Solutions
+  publisher: Spotify Advertising
+  url: https://ads.spotify.com/en-US/contextual-advertising/
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Signale „playlist, genre, time of day, device type, and session behavior“, „derived from logged-in user behavior“; sollen erkennen, „what a listener is doing (e.g. working out, cooking, commuting, relaxing)“. Keine deutsche Fassung gefunden."
+- id: spotify-q2-2026-update
+  title: Spotify Technology S.A. – Q2 2026 Update (Form 6-K, Anlage 99.1)
+  publisher: Spotify Technology S.A. / U.S. SEC
+  url: https://www.sec.gov/Archives/edgar/data/0001639920/000114036126031044/ef20078867_ex99-1.htm
+  tier: 1
+  type: official-docs
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "4. August 2026. Umsatz 4.777 Mio. €, davon Premium 4.331 Mio. € und werbefinanziert 446 Mio. €; 777 Mio. monatlich aktive Nutzer*innen, 300 Mio. Premium-Abonnent*innen."
+- id: spotify-imy-fine-2023
+  title: Sanktionsavgift mot Spotify
+  publisher: Integritetsskyddsmyndigheten (IMY)
+  url: https://www.imy.se/nyheter/sanktionsavgift-mot-spotify/
+  tier: 1
+  type: regulator
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: sv
+  note: "13. Juni 2023: 58 Mio. Kronen, weil Spotify bei Auskunftsanfragen „inte informerar tillräckligt tydligt om hur dessa uppgifter används“. Englische Fassung: https://www.imy.se/en/news/administrative-fee-against-spotify/"
+- id: spotify-tv4-court-2025
+  title: Spotify får miljonböter
+  publisher: TV4 Nyheterna / TT
+  url: https://www.tv4.se/artikel/tt-250603-spotifyboter1-3cbe3a70/spotify-far-miljonboter
+  tier: 2
+  type: journalism
+  retrievedAt: "2026-10-08"
+  region: EU
+  language: sv
+  note: "3. Juni 2025: Das Kammergericht (kammarrätten) in Stockholm bestätigt die Entscheidung der IMY von 2023; Spotify muss 58 Mio. Kronen zahlen. Urteil selbst nicht eingesehen."
+- id: spotify-accessnow-patent-2021
+  title: "Spotify, don't spy: global coalition of 180+ musicians and human rights groups take a stand against speech-recognition technology"
+  publisher: Access Now
+  url: https://www.accessnow.org/spotify-spy-tech-coalition/
+  tier: 2
+  type: research
+  retrievedAt: "2026-10-08"
+  region: global
+  language: en
+  note: "Bürgerrechtsorganisation, 19. Mai 2021. Patent beschreibt Erkennung von „emotional state, gender, age, or accent“ aus der Stimme; Spotify antwortete, es habe die Technik „never implemented … and we have no plans to do so“."

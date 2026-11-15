@@ -1,0 +1,167 @@
+- id: spotify-tailored-ads
+  service: spotify
+  kind: setting
+  title: „Individuelle Werbeinhalte“ ausschalten
+  goal: "Spotify wählt Werbung nicht mehr nach einem Profil über dich aus und gibt deine Daten nicht mehr an externe Werbekunden weiter."
+  whyItMatters: "Ist die Einstellung an, nutzt Spotify für Werbung deine Interessen, die Werbe-Zielgruppen, denen es dich zuordnet, und Daten von Werbepartnern. Spotify stützt sich dafür nicht auf deine Einwilligung. Du musst also selbst widersprechen."
+  whatChanges: "Laut Cookie-Richtlinie gibt Spotify deine Daten nicht mehr an externe Werbekunden weiter und nutzt sie nicht mehr für auf dich zugeschnittene Werbung. Laut Seite zu Artikel 15 DSGVO bekommt Spotify dann auch keine Daten mehr von Werbe- und Marketingpartnern."
+  whatDoesNotChange: "Du hörst nicht weniger Werbung. Spotify wählt sie weiter nach deinen Kontodaten und danach aus, was du gerade hörst. Was du hörst, speichert Spotify weiter. Werbung in manchen Podcasts steuert die Firma, bei der der Podcast liegt, über einen Link in der Folgenbeschreibung."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.spotify.com/account/privacy/
+  steps:
+    - "Melde dich im Browser bei Spotify an und öffne die Seite „Datenschutzeinstellungen für dein Konto“ (spotify.com/account/privacy)."
+    - "Schalte dort „Individuelle Werbeinhalte“ aus."
+    - "Optional: Unter „Werbeeinstellungen verwalten“ kannst du Werbung zu Themen wie Alkohol, Glücksspiel, Dating oder Gewichtsverlust seltener hören."
+  affects: [sp-partner-data, sp-streaming-history]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit der Cookie-Richtlinie (de, „Gültig ab dem 23. Oktober 2025“: Umschalter „Individuelle Werbeinhalte“ auf der Seite „Datenschutzeinstellungen für dein Konto“), der Hilfeseite „Datenrechte und Datenschutzeinstellungen“ (Link auf spotify.com/account/privacy) und der Hilfeseite „Werbeeinstellungen verwalten“ abgeglichen. Die Kontoseite selbst haben wir ohne Anmeldung nicht gesehen."
+  sources: [spotify-cookie-policy, spotify-help-data-rights, spotify-privacy-policy, spotify-gdpr-article-15, spotify-help-ad-preferences]
+- id: spotify-download-data
+  service: spotify
+  kind: export
+  title: Deine Spotify-Daten herunterladen
+  goal: "Du bekommst eine Kopie deiner Daten – auch jeden Song, den du je gehört hast, und die Werbe-Zielgruppen, denen Spotify dich zuordnet."
+  whyItMatters: "Im Datenpaket siehst du schwarz auf weiß, wie genau Spotify mitschreibt: Uhrzeit, Dauer, Gerät und IP-Adresse (die Internet-Adresse deines Anschlusses) jedes Streams. Dazu kommen Spotifys Schlüsse über deine Interessen („Rückschlüsse“)."
+  whatChanges: "Du erhältst Dateien im JSON-Format, einem Format, das Menschen und Computer lesen können. Es gibt drei Pakete, die du einzeln oder zusammen anfordern kannst: Kontodaten, erweiterter Streamingverlauf und technisches Protokoll."
+  whatDoesNotChange: "Bei Spotify wird dabei nichts gelöscht oder abgeschaltet. Die Beschreibung des technischen Protokolls ist standardmäßig nur auf Englisch."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.spotify.com/account/privacy/
+  steps:
+    - "Melde dich im Browser bei Spotify an und öffne die Seite „Datenschutzeinstellungen für dein Konto“ (spotify.com/account/privacy)."
+    - "Nutze dort das Tool „Deine Daten herunterladen“ und wähle die Pakete aus, die du haben möchtest: Kontodaten, erweiterter Streamingverlauf und/oder technisches Protokoll."
+    - "Wenn das Paket fertig ist, lade die ZIP-Datei herunter. Die Datei „Bitte zuerst lesen!“ erklärt den Inhalt. Deine Werbe-Zielgruppen stehen in der Datei „Inferences.json“."
+  affects: [sp-account, sp-streaming-history, sp-searches, sp-library, sp-partner-data, sp-voice, sp-precise-location, sp-messages, sp-ai-prompts]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit den Hilfeseiten „Datenrechte und Datenschutzeinstellungen“ (Tool „Deine Daten herunterladen“ auf der Seite „Datenschutzeinstellungen für dein Konto“, ZIP-Datei, Datei „Bitte zuerst lesen!“) und „Informationen zu deinen Daten“ (drei Pakete, einzeln oder gleichzeitig) sowie der Seite zu Artikel 15 DSGVO (Datei „Inferences.json“) abgeglichen. Beschriftungen der Schaltflächen und die Bearbeitungsdauer nennt Spotify dort nicht; die Kontoseite selbst haben wir ohne Anmeldung nicht gesehen."
+  sources: [spotify-help-data-rights, spotify-help-understanding-data, spotify-gdpr-article-15]
+- id: spotify-private-session
+  service: spotify
+  kind: setting
+  title: Private Session für einzelne Hörphasen nutzen
+  goal: "Was du eine Weile hörst, sehen deine Follower*innen nicht, und es fließt nicht in deine Empfehlungen und dein Wrapped ein."
+  whyItMatters: "Ob Einschlafmusik, Kinderlieder oder ein heikler Podcast: Ohne Private Session prägt alles dein Geschmacksprofil und ist je nach Einstellung für andere sichtbar."
+  whatChanges: "Gehörte Songs erscheinen nicht im Freund*innen-Feed, deine kürzlich gehörten Künstler*innen werden nicht aktualisiert und Spotify nutzt die Songs nicht für Empfehlungen. Die Einstellung gilt auf allen Geräten deines Kontos."
+  whatDoesNotChange: "Spotify speichert die Streams trotzdem. Im erweiterten Streamingverlauf sind sie nur als „privat“ markiert. Die Private Session endet nach 6 Stunden oder beim Neustart der App von selbst."
+  impact: low
+  minutes: 1
+  difficulty: easy
+  platforms: [android, ios, desktop-app]
+  steps:
+    - "Handy: Tippe oben auf dein Profilbild, dann auf „Einstellungen und Datenschutz“ und auf „Datenschutz und soziale Funktionen“."
+    - "Schalte unter „Höraktivität“ die Option „Private Session“ ein."
+    - "Desktop-App: Klicke oben auf dein Profilbild und dann auf „Private Session“."
+    - "Zum Beenden wiederholst du die Schritte und schaltest die Option aus."
+  affects: [sp-social, sp-streaming-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit dem Spotify-Hilfeartikel „So aktivierst du „Privat Musik hören““ (de) abgeglichen. Dass private Streams im Verlauf markiert bleiben, stammt aus dem Hilfeartikel „Informationen zu deinen Daten“."
+  sources: [spotify-help-private-session, spotify-help-understanding-data]
+- id: spotify-social-visibility
+  service: spotify
+  kind: setting
+  title: Festlegen, was andere von deinem Hören sehen
+  goal: "Andere sehen nicht mehr, was du gerade hörst, welche Künstler*innen du zuletzt gehört hast und wem du folgst."
+  whyItMatters: "Kürzlich gehörte Künstler*innen sind laut Spotify-Hilfe standardmäßig für alle sichtbar, die dein Profil öffnen. Über die Höraktivität sehen Follower*innen mit, was du gerade hörst."
+  whatChanges: "Dein Profil zeigt weniger über dein Hören. Follower*innen sehen deine Höraktivität nicht mehr im Freund*innen-Feed. Neue Playlists kannst du privat anlegen."
+  whatDoesNotChange: "Spotify selbst speichert weiter alles, was du hörst, und nutzt es für Empfehlungen und Werbung. Schon öffentliche Playlists bleiben öffentlich, bis du sie einzeln änderst."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios, desktop-app]
+  steps:
+    - "Handy: Tippe oben auf dein Profilbild, dann auf „Einstellungen und Datenschutz“ und scrolle zu „Datenschutz und soziale Funktionen“."
+    - "Schalte „Höraktivität“, „Kürzlich gehörte Künstler*innen“ und „Follower*innen und Personen, denen du folgst“ nach Wunsch aus. Mit „Öffentliche Playlists“ legst du fest, ob neue Playlists für alle sichtbar sind."
+    - "Desktop-App: Klicke oben auf dein Profilbild, wähle „Einstellungen“ und scrolle zu „Soziale Funktionen“. Dort heißen die Schalter z. B. „Meine Höraktivität auf Spotify teilen“."
+  affects: [sp-social, sp-library]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit den Spotify-Hilfeartikeln „Einstellungen für Datenschutz und soziale Funktionen“ und „Kürzlich gehörte Künstler*innen“ (de) abgeglichen. Achtung: Der Artikel „Höraktivität“ nennt die Höraktivität „standardmäßig deaktiviert“, der Artikel zu den sozialen Funktionen „Ein“ für Nutzer*innen ab 18."
+  sources: [spotify-help-privacy-social, spotify-help-recently-played, spotify-help-listening-activity]
+- id: spotify-connected-apps
+  service: spotify
+  kind: review
+  title: Verbundene Apps prüfen und entfernen
+  goal: "Apps, die du nicht mehr nutzt, haben keinen Zugriff mehr auf dein Spotify-Konto."
+  whyItMatters: "Verbundene Apps – etwa Lauf-Apps oder Dating-Apps, die deine Lieblingsmusik zeigen – bekommen Konto- und Nutzungsdaten von Spotify. Viele Verknüpfungen vergisst man."
+  whatChanges: "Die entfernte App kann nicht mehr auf dein Spotify-Konto zugreifen."
+  whatDoesNotChange: "Was die App schon bekommen hat, bleibt bei ihr. Dafür gilt ihre eigene Datenschutzerklärung. Laut Spotify lassen sich nur einige Verknüpfungen auf dieser Seite einsehen."
+  impact: low
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.spotify.com/account/apps/
+  steps:
+    - "Melde dich im Browser auf deiner App-Seite bei Spotify an (spotify.com/account/apps)."
+    - "Klicke bei der App, die keinen Zugriff mehr haben soll, auf „ZUGRIFF ENTFERNEN“."
+  affects: [sp-linked-services]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit dem Spotify-Hilfeartikel „Spotify mit anderen Apps verknüpfen“ (de, Abschnitt „Zugriffsrechte für eine App zurücknehmen“, Link auf spotify.com/account/apps) und Abschnitt 5 der Datenschutzrichtlinie („Einige der Verknüpfungen mit Drittanbietern kannst du in deinem Konto unter „Apps“ einsehen und entfernen.“) abgeglichen."
+  sources: [spotify-help-connected-apps, spotify-privacy-policy]
+- id: spotify-close-account
+  service: spotify
+  kind: deletion
+  title: Spotify-Konto schließen und Daten löschen
+  goal: "Dein Konto wird geschlossen und Spotify beginnt, deine Daten zu löschen – auch den gesamten Streamingverlauf."
+  whyItMatters: "Deinen Streamingverlauf kannst du nicht einzeln löschen. Spotify speichert ihn, bis du das Konto löschst. Premium zu kündigen reicht nicht: Dann läuft dein Konto als kostenlose Version mit Werbung weiter."
+  whatChanges: "Du bekommst per E-Mail einen Link, mit dem du das Konto 7 Tage lang wieder aktivieren kannst. Danach geht das nicht mehr und die Löschung beginnt. Gekaufte Hörbücher und Tickets für kommende Events verlierst du."
+  whatDoesNotChange: "Manche Daten bewahrt Spotify länger auf, etwa wegen gesetzlicher Pflichten oder laufender Verfahren. Was Werbepartner, verbundene Apps oder Podcast-Anbieter schon bekommen haben, liegt bei ihnen. Mit derselben E-Mail-Adresse kannst du erst nach 14 Tagen ein neues Konto anlegen."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.spotify.com/account/close/
+  tradeOff: "Playlists, Bibliothek und gekaufte Hörbücher sind danach weg. Lade sie vorher mit „Deine Daten herunterladen“ herunter, wenn du sie behalten willst."
+  steps:
+    - "Lade vorher deine Daten herunter, wenn du Playlists oder deinen Verlauf behalten willst."
+    - "Öffne im Spotify-Hilfeartikel „Schließen deines Kontos und Löschen deiner Daten“ den Link „Konto schließen und alle Daten löschen“ (spotify.com/account/close) und folge den Schritten."
+    - "Bewahre die Bestätigungs-E-Mail auf. Mit ihrem Link kannst du die Löschung 7 Tage lang rückgängig machen."
+  affects: [sp-account, sp-streaming-history, sp-library, sp-searches, sp-social, sp-payment]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit dem Spotify-Hilfeartikel „Schließen deines Kontos und Löschen deiner Daten“ (de) abgeglichen (Link auf spotify.com/account/close, 7 Tage Reaktivierung, 14 Tage bis zur Neuregistrierung). Ausnahmen bei der Löschung aus Abschnitt 6 der Datenschutzrichtlinie. Die Schritte auf der Kontoseite selbst beschreibt die Hilfe nicht; wir haben sie ohne Anmeldung nicht gesehen."
+  sources: [spotify-help-close-account, spotify-privacy-policy, spotify-help-data-rights]
+- id: spotify-taste-profile
+  service: spotify
+  kind: setting
+  title: Playlists oder Songs aus deinem Geschmacksprofil ausschließen
+  goal: "Bestimmte Playlists oder Songs prägen deine Empfehlungen und dein Wrapped kaum noch."
+  whyItMatters: "Spotify wertet aus, was du auf welche Weise hörst, und bildet daraus ein Geschmacksprofil. Einschlafmusik, Kinderlieder oder Musik, die andere über dein Konto hören, landen sonst auch darin."
+  whatChanges: "Vergangene und künftige Wiedergaben dieser Playlist oder dieses Songs wirken sich weniger auf Empfehlungen wie „Dein Mix der Woche“ aus und tauchen nicht in den Storys von Wrapped auf. Das dauert bis zu 48 Stunden, bei manchen Mixen bis zur nächsten Woche."
+  whatDoesNotChange: "Spotify speichert die Streams weiter in deinem Verlauf. Hörst du dieselben Songs außerhalb der ausgeschlossenen Playlist, zählen sie wieder. Ausschließen kannst du nur Playlists und Songs, keine Podcasts."
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios, desktop-app]
+  steps:
+    - "Wähle eine Playlist oder einen Song aus."
+    - "Tippe oben in der Playlist auf das Menü-Symbol."
+    - "Wähle „Aus Geschmacksprofil ausschließen“ (Playlists) bzw. „Titel aus Geschmacksprofil ausschließen“ (Songs)."
+    - "Rückgängig machst du das mit „In Geschmacksprofil aufnehmen“ bzw. „Titel in Geschmacksprofil aufnehmen“."
+  affects: [sp-streaming-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Am 2026-10-08 mit dem Spotify-Hilfeartikel „Playlist oder Song aus Geschmacksprofil ausschließen“ (de) abgeglichen. Das Menü-Symbol ist dort nur als Bild dargestellt, nicht benannt."
+  sources: [spotify-help-taste-profile, spotify-help-understanding-data]

@@ -1,0 +1,38 @@
+---
+import Base from '~/layouts/Base.astro';
+import PlanView from '~/islands/PlanView';
+import { guideCards, serviceCards } from '~/domain/projections';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const services = serviceCards(locale).map((s) => ({ id: s.id, name: s.name, shortName: s.shortName }));
+
+const TXT_DE = {
+  description:
+    'Konkrete Datenschutz-Maßnahmen nach Zeitaufwand: 5 Minuten, 30 Minuten, 1 Stunde – mit ehrlicher Wirkung und offiziellen Links.',
+  title: 'Wenige Schritte reichen für den Anfang',
+  lead: 'Du musst nicht alles ändern. Fang mit den Schritten unter „Start hier“ an – das sind höchstens drei. Zu jedem steht, was er ändert – und was nicht.',
+  noscript: 'Ohne JavaScript findest du alle Anleitungen auf den',
+  noscriptLink: 'Dienstseiten',
+};
+const TXT_EN: typeof TXT_DE = {
+  description:
+    'Concrete privacy steps by time needed: 5 minutes, 30 minutes, 1 hour – with an honest impact and official links.',
+  title: 'A few steps are enough to start',
+  lead: 'You do not have to change everything. Start with the steps under “Start here” – there are at most three. Each one says what it changes – and what it does not.',
+  noscript: 'Without JavaScript you can find all guides on the',
+  noscriptLink: 'app pages',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+---
+<Base ownsSelection title={t.nav.plan} description={s.description} path={href(locale, 'plan')} crumbs={[{ label: t.nav.plan }]}>
+  <section>
+    <div class="wrap">
+      <h1>{s.title}</h1>
+      <p class="lead">{s.lead}</p>
+      <PlanView client:load guides={guideCards(locale)} services={services} locale={locale} />
+      <noscript><p class="panel">{s.noscript} <a href={href(locale, 'apps')}>{s.noscriptLink}</a>.</p></noscript>
+    </div>
+  </section>
+</Base>

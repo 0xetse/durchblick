@@ -1,0 +1,215 @@
+- id: chatgpt-training-opt-out
+  service: chatgpt
+  kind: setting
+  title: Turn off training on your chats
+  goal: Your new conversations are no longer used to train OpenAI's AI models.
+  whyItMatters: >-
+    If the setting “Improve the model for everyone” is on, OpenAI may, according to the company, use your chats and
+    memories for training.
+  whatChanges: >-
+    New conversations are no longer used for training. This applies to your account on all devices. Instead of the
+    setting, you can also choose “Do not train on my content” in OpenAI's Privacy Portal. One of the two is
+    enough.
+  whatDoesNotChange: >-
+    Your chats stay saved in your history. The setting only works for new conversations. If you give an answer a
+    thumbs up or down, OpenAI may still use the whole conversation for training.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "In the browser: open the account menu and select “Settings”."
+    - "In the app (iOS, Android): open the sidebar and tap your profile picture to open the settings."
+    - "Select “Data controls”."
+    - "Turn off “Improve the model for everyone”. In the browser, confirm with “Done”."
+  affects: [prompts, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps checked against the official OpenAI help page “Data controls in ChatGPT” (English version, as of the end of September 2026),
+      rendered in a browser. The German version of this page was blocked; the German
+      labels “Datenkontrollen” and “Das Modell für alle verbessern” come from the German OpenAI help pages
+      on export and memory. The labels in the app may differ.
+  sources:
+    - chatgpt-help-data-controls
+    - chatgpt-help-model-improvement
+- id: chatgpt-temporary-chat
+  service: chatgpt
+  kind: setting
+  title: Use temporary chats for private questions
+  goal: You have single conversations that do not end up in your history and are not used for training.
+  whyItMatters: >-
+    For a sensitive topic, you do not have to change all your settings. A temporary chat does not appear in your history,
+    does not create new memories and is not used for training.
+  whatChanges: >-
+    The conversation does not end up in your history. If you choose “Not personalised”, ChatGPT also does not use any
+    existing memories or your custom instructions.
+  whatDoesNotChange: >-
+    OpenAI can keep a copy for up to 30 days, for safety purposes. If you save the chat later, it becomes
+    a normal chat and your usual settings apply to it again.
+  impact: medium
+  minutes: 1
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "Open a new chat."
+    - "Select “Temporary”."
+    - "Choose “Personalised” or “Not personalised” before you send the first message. You cannot change this later."
+    - "Write your message."
+  affects: [chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps checked against the official OpenAI help page “Temporäre Chats in ChatGPT” (German and English versions), rendered in a
+      browser.
+  sources:
+    - chatgpt-help-temporary-chat
+    - chatgpt-help-model-improvement
+    - chatgpt-help-retention
+- id: chatgpt-memory
+  service: chatgpt
+  kind: review
+  title: Check and limit ChatGPT's memories
+  tradeOff: "ChatGPT then knows less context from earlier conversations."
+  goal: You see what ChatGPT has remembered about you, delete single memories or turn the feature off.
+  whyItMatters: >-
+    With the memory feature, ChatGPT collects personal details across many conversations. If training is on,
+    OpenAI can also use these memories for it.
+  whatChanges: >-
+    ChatGPT no longer uses deleted memories for answers. If you turn off “Reference chat history”,
+    OpenAI deletes what ChatGPT has remembered from earlier chats within 30 days.
+  whatDoesNotChange: >-
+    Your chats stay in your history until you delete them. The reverse is also true: if you only delete a chat, a memory
+    saved from it stays. If you want to remove something completely, delete both.
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios, desktop-app]
+  steps:
+    - "Open the settings."
+    - "Select “Personalization”."
+    - "Select “Memory”."
+    - "Depending on your account, you will see “Memory”, “Reference saved memories”, “Reference chat history”, a memory summary or “Manage” here. Check the entries, delete single ones or turn the features off."
+  affects: [memories, chat-history]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps checked against the official OpenAI help page “Erinnerung in ChatGPT” (German and English versions), rendered in a browser.
+      According to the help page, the options shown depend on your plan, region and platform.
+  sources:
+    - chatgpt-help-memory
+    - chatgpt-help-retention
+- id: chatgpt-ad-controls
+  service: chatgpt
+  kind: setting
+  title: Check the ad settings in ChatGPT
+  goal: You see which data ChatGPT stores for ads, delete it, or switch to the ad-free option on the Free plan.
+  whyItMatters: >-
+    Since August 2026, ChatGPT has also shown ads in Germany on the Free and Go plans. For this, OpenAI stores
+    which ads you view or click.
+  whatChanges: >-
+    If you delete the ad data, ChatGPT no longer uses your ad history and the topics linked to you.
+    They are removed within 30 days. If you switch to the ad-free option on the Free plan, you no longer see
+    ads. In return, you can send fewer messages and cannot use some features.
+  whatDoesNotChange: >-
+    Your chats stay unchanged. According to OpenAI, personalised ads are not available for now in the EEA and in Switzerland;
+    here, the ads are based on the current chat, your approximate location and the time of day.
+    You can only have no ads and no limits at all with Plus or Pro.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Open the settings in ChatGPT."
+    - "Select “Ad settings”. If the item is missing in the app, update the app."
+    - "Depending on your region, you can see under “View history and topics” which ads and topics are stored."
+    - "With “Delete ad data” you remove your ad history and topics."
+    - "Only on the Free plan: tap “Change plan”, choose “Reduce message limits” and confirm. Then you no longer see ads."
+  affects: [ad-interactions]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps checked against the official OpenAI help page “Anzeigen in ChatGPT” (German and English versions, as of early October 2026),
+      rendered in a browser; the EEA note and ads without personalisation checked against OpenAI's EU privacy policy
+      (as of 24 August 2026). The labels may differ depending on the platform.
+  sources:
+    - chatgpt-help-ads
+    - openai-eu-privacy-policy
+- id: chatgpt-export
+  service: chatgpt
+  kind: export
+  title: Export your ChatGPT data
+  goal: You download a copy of your chat history and your account data.
+  whyItMatters: >-
+    This way you can see what is stored. And you can save conversations before you delete them or your account.
+  whatChanges: >-
+    You get a link to a ZIP file by email or text message. According to OpenAI, this can take up to 7 days. The
+    link is valid for 24 hours.
+  whatDoesNotChange: Nothing is deleted. Chats that have already been deleted cannot be restored.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "Sign in to ChatGPT."
+    - "Open your profile menu and select “Settings”."
+    - "Select “Data controls”."
+    - "Under “Export data”, select “Export”."
+    - "Confirm with “Confirm export”."
+    - "Open the message from OpenAI as soon as it arrives and select “Download data export”. Stay signed in with the same account while you do this."
+  affects: [account, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps checked against the official OpenAI help page “Deinen ChatGPT-Verlauf und deine Daten exportieren” (German and English versions),
+      rendered in a browser.
+  sources:
+    - chatgpt-help-export
+- id: chatgpt-delete-account
+  service: chatgpt
+  kind: deletion
+  title: Delete your ChatGPT account
+  goal: You permanently delete your OpenAI account and the data linked to it.
+  whyItMatters: >-
+    Chats stay saved until you delete them. Deleting your account removes everything at once.
+  whatChanges: >-
+    According to OpenAI, your data is deleted within 30 days. The account cannot be restored. You
+    also lose access to other OpenAI services with this account.
+  whatDoesNotChange: >-
+    OpenAI may keep some data for longer if a law requires or allows it. A subscription through Apple is
+    not cancelled automatically; cancel it yourself first. You can only sign up again with the same email address after 30
+    days.
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  steps:
+    - "In the browser: sign in to ChatGPT."
+    - "Open your account menu and select “Settings”."
+    - "Select “Account”."
+    - "Next to “Delete account”, select “Delete”."
+    - "Enter your account's email address or phone number and type “DELETE” when asked."
+    - "Select “Permanently delete my account”."
+    - "The apps for iOS and Android have their own steps; OpenAI links to them on the help page."
+  affects: [account, prompts, chat-history, memories]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: >-
+      Steps for the browser checked against the official OpenAI help page “Dein ChatGPT-Konto löschen” (German and English versions),
+      rendered in a browser. The steps in the apps are on separate help pages and were not
+      checked.
+  sources:
+    - chatgpt-help-delete-account
+    - chatgpt-help-retention

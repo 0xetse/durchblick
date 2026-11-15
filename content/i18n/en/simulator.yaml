@@ -1,0 +1,300 @@
+# Simulator "What do five harmless traces reveal?"
+# Schema: simulatorSchema in src/domain/schema.ts. Research: docs/research/simulator-research.md
+# Levels: derived = follows almost necessarily from the data; documented = platforms officially
+# document that they estimate such traits; possible = plausible, but not documented as practice.
+
+intro: >-
+  Choose a few things you do online in everyday life – each one quite harmless on its own.
+  The simulator shows you which assumptions about you can arise when several
+  of these traces come together.
+
+signals:
+  - id: fussballvereine
+    label: Follows football clubs
+    observedAs: Subscriptions to and follows of club accounts, match reports watched
+    provenance: observed
+    theme: sport
+  - id: laufschuhe
+    label: Buys running shoes online
+    observedAs: Order or order confirmation, product pages clicked
+    provenance: observed
+    theme: sport
+  - id: fitnessstudio-likes
+    label: Likes posts from a nearby gym
+    observedAs: Likes on posts from a local gym's account
+    provenance: observed
+    theme: sport
+  - id: baby-videos
+    label: Watches videos about baby equipment
+    observedAs: Watch history with videos about prams, cots and first baby essentials
+    provenance: observed
+    theme: family
+  - id: wohnungssuche-andere-stadt
+    label: Searches for flats in another city
+    observedAs: Searches and visited property websites for a place other than your usual one
+    provenance: observed
+    theme: home
+  - id: umzugskartons
+    label: Orders moving boxes
+    observedAs: Buying or searching for boxes, packing tape and vans
+    provenance: observed
+    theme: home
+  - id: geldanlage-podcasts
+    label: Listens to podcasts about investing
+    observedAs: Listening history and subscriptions to finance podcasts
+    provenance: observed
+    theme: money
+  - id: finanz-creator
+    label: Follows finance creators
+    observedAs: Follows and videos watched for a long time about ETFs, shares and savings plans
+    provenance: observed
+    theme: money
+  - id: ratenzahlung
+    label: Often pays in instalments when shopping online
+    observedAs: Payment method chosen at checkout
+    provenance: observed
+    theme: money
+  - id: morgens-selber-ort
+    label: Is always in the same place at 7:40 am on weekdays
+    observedAs: Recurring location points from the phone at the same time of day
+    provenance: observed
+    theme: routine
+  - id: abends-selbes-wlan
+    label: Is always on the same Wi-Fi in the evening
+    observedAs: The same IP address every evening, i.e. the same internet connection's address – from this the approximate region can be read
+    provenance: derived
+    theme: routine
+  - id: einschlafhilfen-nachts
+    label: Searches for sleep aids at night
+    observedAs: Searches like “fall asleep faster” at a time after midnight
+    provenance: observed
+    theme: health
+
+inferences:
+  - id: fester-tagesablauf
+    action: google-location-timeline
+    title: Has a fixed daily routine on weekdays
+    explanation: >-
+      If you are always in the same place at the same time on weekdays, you leave a regular pattern. This can be read almost directly from location data. Research shows: just a few such “when and where” details make a person distinguishable from a great many others. But the pattern alone does not reveal what you do there.
+    requires: [morgens-selber-ort]
+    level: derived
+    sources:
+      - ref: sim-de-montjoye-2013
+        note: Vier Orts-Zeit-Punkte genügten, um 95 % der Personen eindeutig zu identifizieren.
+
+  - id: wohn-und-arbeitsort
+    action: google-location-timeline
+    title: Approximate home and workplace
+    explanation: >-
+      The place where you are on weekday mornings and the Wi-Fi you are on every evening very probably add up to your workplace and your home. Researchers were able to determine where people live from location data using simple methods. It still remains uncertain:
+      the morning place could also be the nursery, the school or the bus stop, and an
+      IP address usually only reveals the rough region.
+    requires: [morgens-selber-ort, abends-selbes-wlan]
+    level: derived
+    sources:
+      - ref: sim-krumm-2007
+        note: Wohnorte ließen sich aus GPS-Spuren bestimmen.
+      - sim-de-montjoye-2013
+
+  - id: wiedererkennbar
+    action: google-location-timeline
+    title: Easy to recognise from just a few traces
+    explanation: >-
+      The morning place, the evening Wi-Fi and the nearby gym together form a pattern that
+      fits only very few people – even without your name. Research shows
+      that even rough location data offers little anonymity. Whether anyone actually links this
+      pattern to you as a person depends on what other data is available.
+    requires: [morgens-selber-ort, abends-selbes-wlan, fitnessstudio-likes]
+    level: derived
+    sources:
+      - ref: sim-de-montjoye-2013
+        note: Auch grobe Mobilitätsdaten bieten wenig Anonymität.
+      - sim-krumm-2007
+
+  - id: fussballfan
+    action: google-ads-personalisation
+    title: Probably a football fan
+    explanation: >-
+      If you follow several clubs, you are very probably interested in football. Google has an advertising audience for this: “Soccer Fans”. It is one of Google's groups based on interests and habits (affinity segments). But it could also be a professional interest,
+      for example for sports journalists, or you only follow your children's club.
+    requires: [fussballvereine]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinitätssegment „/Sports & Fitness/Sports Fans/Soccer Fans“.
+
+  - id: sportlich-aktiv
+    action: google-ads-personalisation
+    title: Probably does sport regularly
+    explanation: >-
+      Buying running shoes and also liking a nearby gym – together this points much more
+      clearly to an active lifestyle than either signal alone. Google has audiences such as “Running Enthusiasts” and “Health & Fitness Buffs”. There are also groups for people who are currently looking for “Athletic Shoes” or “Gyms & Athletic Clubs”. But maybe the shoes were a
+      present, and the like was for a prize draw.
+    requires: [laufschuhe, fitnessstudio-likes]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinity „Running Enthusiasts“, „Health & Fitness Buffs“; In-Market „Athletic Shoes“, „Gyms & Athletic Clubs“.
+
+  - id: interesse-babyausstattung
+    action: google-ads-personalisation
+    title: Currently interested in baby equipment
+    explanation: >-
+      If you watch videos about prams and first baby essentials, you are probably researching the topic right now.
+      Google has an audience called “Baby & Children's Products” for people who are currently planning to buy such products (in-market segment). It could just as well be about a present for
+      friends, grandchildren or godchildren.
+    requires: [baby-videos]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: In-Market-Segment „/Baby & Children's Products“.
+
+  - id: bald-eltern
+    action: google-ads-personalisation
+    title: Probably about to become a parent or recently became one
+    explanation: >-
+      Baby equipment plus a flat search fits well with a family that is expecting a child and
+      needs more space. Google has audiences by parental status, down to “Parents of Infants (0-1 years)”. Google also estimates whether someone is a parent from what the person does online. A pregnancy itself, however, would be health information. In the EU, platforms may not choose ads based on a profile that relies on such specially protected data (DSA Art. 26(3)). Even so, the conclusion remains technically possible. And maybe you are simply moving and
+      giving away a pram.
+    requires: [baby-videos, wohnungssuche-andere-stadt]
+    level: documented
+    sensitive: true
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Detailed Demographics „Parental Status“, u. a. „Parents of Infants (0-1 years)“; „new parents“.
+      - ref: sim-google-ads-demographics
+        note: Google schätzt Demografie wie Elternstatus auch anhand von Aktivität.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+      - ref: law-gdpr
+        note: Art. 9 Abs. 1 (Gesundheitsdaten)
+
+  - id: bald-umzug
+    action: google-ads-personalisation
+    title: Probably moving soon
+    explanation: >-
+      Searching for flats in another city and ordering moving boxes – together this is a
+      clear sign of an upcoming move. Google explicitly names “moving homes” as a life event that advertisers can use to choose their audience. There is also an audience called “Moving & Relocation” for people who are currently looking into it. But it could also be someone helping another person
+      move.
+    requires: [wohnungssuche-andere-stadt, umzugskartons]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Life Events („moving homes“) und In-Market „/Real Estate/Moving & Relocation“.
+
+  - id: jobwechsel
+    action: google-location-timeline
+    title: Perhaps a new job in another city
+    explanation: >-
+      A fixed commute plus a flat search somewhere else can point to a change of job.
+      Research shows: personal traits such as where someone lives or their life situation can be estimated surprisingly well from online traces and texts. It is not documented that platforms draw exactly this conclusion
+      – and it could just as well be about studies, a relationship or family.
+    requires: [morgens-selber-ort, wohnungssuche-andere-stadt]
+    level: possible
+    sources:
+      - ref: sim-staab-2024
+        note: Sprachmodelle schätzen u. a. Ort und Einkommen aus Texten.
+      - sim-kosinski-2013
+
+  - id: interesse-geldanlage
+    action: google-ads-personalisation
+    title: Interested in investing
+    explanation: >-
+      Finance podcasts and finance creators together show a steady interest in money.
+      Google has the audiences “Avid Investors” (interest) and “Investment Services” (currently looking) for this. But interest does not mean that you actually invest money – many people
+      listen out of curiosity or first want to understand what it is all about.
+    requires: [geldanlage-podcasts, finanz-creator]
+    level: documented
+    sources:
+      - ref: sim-google-ads-audience-segments
+        note: Affinity „/Banking & Finance/Avid Investors“; In-Market „/Financial Services/Investment Services“.
+
+  - id: einkommen
+    action: google-ads-personalisation
+    title: Probably in work, with some room to save
+    explanation: >-
+      A fixed commute plus an interest in investing suggests that you have a regular
+      income. Google says that in some countries it estimates household income – also from what you do online. But Google stresses that it does not know or cannot estimate details such as age, gender or income for everyone. And people with little money in particular often research finances
+      very thoroughly.
+    requires: [morgens-selber-ort, geldanlage-podcasts, finanz-creator]
+    level: documented
+    sources:
+      - ref: sim-google-ads-demographics
+        note: Demografie-Kategorie „Household income“ (regional begrenzt); Schätzung anhand von Aktivität.
+
+  - id: finanzielle-sorgen
+    action: google-ads-personalisation
+    title: May have money worries
+    explanation: >-
+      Frequently paying in instalments and searching for sleep aids at night could together point to money worries. In research, such a conclusion is considered feasible in principle. But it is not documented as a platform's practice. Paying in instalments can simply be convenient,
+      and sleeping badly can have many causes. Google counts “negative financial status” among the sensitive topics where targeted ads are restricted. It is not one of the specially protected types of data under GDPR Art. 9.
+    requires: [ratenzahlung, einschlafhilfen-nachts]
+    level: possible
+    sensitive: true
+    sources:
+      - ref: sim-staab-2024
+        note: Einkommen gehört zu den Merkmalen, die Sprachmodelle aus Texten schätzen können.
+      - sim-kosinski-2013
+      - ref: sim-google-ads-personalized-policy
+        note: Sensitive interest category „Negative financial status“.
+
+  - id: schlafprobleme
+    action: google-location-timeline
+    title: May be sleeping badly
+    explanation: >-
+      If you search for sleep aids at night and are still out early on weekdays, you
+      may not be getting enough sleep. Research shows that search histories can give clues about health. Health data is specially protected in the EU. Platforms may not choose ads based on a profile that relies on such data (DSA Art. 26(3)). Even so, the conclusion remains technically possible. But maybe you just had a
+      restless week, or you are searching for someone else.
+    requires: [einschlafhilfen-nachts, morgens-selber-ort]
+    level: possible
+    sensitive: true
+    sources:
+      - ref: sim-paparrizos-2016
+        note: Online-Aktivitäten können Hinweise auf Gesundheitszustände liefern.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+      - ref: law-gdpr
+        note: Art. 9 Abs. 1 (Gesundheitsdaten)
+
+  - id: gesundheitsbewusst
+    action: google-ads-personalisation
+    title: Is currently making a conscious effort with their health
+    explanation: >-
+      Sport, a gym and searches at night for better sleep together paint a picture
+      of someone who is working on their health – or struggling with it. According to research, such conclusions are possible. Google says it does not use health to tailor ads. In 2022, Meta removed the option to target ads specifically by health topics. In the EU, online platforms may not choose ads based on a profile with health data anyway (DSA Art. 26(3)).
+    requires: [laufschuhe, fitnessstudio-likes, einschlafhilfen-nachts]
+    level: possible
+    sensitive: true
+    sources:
+      - sim-paparrizos-2016
+      - sim-kosinski-2013
+      - ref: sim-google-ads-audience-segments
+        note: „Google will never use sensitive information like health, race, religion, or sexual orientation to tailor ads to users.“
+      - ref: sim-meta-sensitive-targeting-2021
+        note: Seit 19.1.2022 keine Detailed-Targeting-Optionen mehr zu u. a. Gesundheit.
+      - ref: law-dsa
+        note: Art. 26 Abs. 3
+
+takeaways:
+  - text: >-
+      A single trace says little. Only together do assumptions about you become much more precise. Research shows: just a few “when and where” details or a series of likes are enough for surprisingly accurate predictions.
+    sources:
+      - sim-de-montjoye-2013
+      - sim-kosinski-2013
+  - text: >-
+      You can check what platforms estimate about you: in “My Ad Center”, Google shows
+      estimated details such as age and interests; at Meta, “Why am I seeing this
+      ad?” explains which interests led to an ad. There you can also change details
+      or limit personalised ads.
+    sources:
+      - sim-google-my-ad-center
+      - sim-meta-why-ads-2019
+  - text: >-
+      The simulator is deliberately simplified: it shows what can be inferred in principle, not what
+      a particular company actually knows about you. Real systems work with probabilities and also get things wrong. In the EU, online platforms may not show ads chosen based on a profile with specially protected data. They may not show profile-based ads to minors at all.
+    sources:
+      - sim-google-ads-demographics
+      - ref: law-dsa
+        note: Art. 26 Abs. 3 und Art. 28 Abs. 2
+
+reviewedAt: 2026-10-07

@@ -1,0 +1,117 @@
+- id: whatsapp-request-account-info
+  service: whatsapp
+  kind: export
+  title: Bericht über deine WhatsApp-Kontodaten anfordern
+  goal: "Du bekommst einen Bericht mit den Konto-Informationen und Einstellungen, die WhatsApp über dich gespeichert hat."
+  whyItMatters: "Der Bericht zeigt dir, was WhatsApp außerhalb deiner verschlüsselten Chats über dich weiß – etwa Profil, Gruppen und Einstellungen."
+  whatChanges: "WhatsApp erstellt einen Bericht. Du kannst ihn später herunterladen oder exportieren."
+  whatDoesNotChange: "Nachrichten sind nicht enthalten. Nach der Zustellung liegen sie nur auf deinen Geräten und eventuell in deinem Backup. Für Kanäle und Werbung gibt es eigene Berichte. Chats sicherst du mit der Funktion „Chat exportieren“."
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Öffne in WhatsApp die Einstellungen und tippe auf „Konto“."
+    - "Tippe auf „Konto-Info anfordern“ und dann auf „Bericht anfordern“. Die App zeigt an, ab wann der Bericht bereitsteht."
+    - "Sobald er verfügbar ist, öffne erneut „Konto-Info anfordern“ und tippe auf „Bericht herunterladen“ bzw. „Bericht exportieren“."
+  affects: [wa-account, wa-unencrypted-info, wa-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem WhatsApp-Hilfeartikel „Konto-Informationen anfordern“ (de) und dem Abschnitt „So übst du deine Rechte aus“ der EWR-Datenschutzrichtlinie abgeglichen."
+  sources: [whatsapp-help-request-account-info, whatsapp-privacy-policy-eea]
+- id: whatsapp-delete-account
+  service: whatsapp
+  kind: deletion
+  title: WhatsApp-Konto löschen
+  goal: "Dein Konto, dein Chatverlauf und deine Gruppenmitgliedschaften werden gelöscht."
+  whyItMatters: "Die App nur zu löschen reicht nicht. Dann bleiben die gespeicherten Informationen bei WhatsApp, bis das Konto wegen Inaktivität gelöscht wird – in der Regel nach 120 Tagen."
+  whatChanges: "Du verlierst den Zugang und wirst aus Gruppen entfernt. Dein Backup im Google-Konto wird gelöscht. Bei WhatsApp dauert das Löschen bis zu 90 Tage."
+  whatDoesNotChange: "Nachrichten, die du anderen geschickt hast, bleiben bei ihnen. Kopien können noch eine Weile in Sicherungen liegen. Anonymisierte Protokolldaten bleiben erhalten."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Sichere vorher wichtige Chats, denn gelöschte Konten lassen sich nicht wiederherstellen."
+    - "Öffne WhatsApp, dann „Einstellungen“ > „Konto“ > „Mein Konto löschen“."
+    - "Gib deine Telefonnummer im vollständigen internationalen Format ein und tippe auf „Konto löschen“."
+    - "Wähle einen Grund aus und bestätige mit „Konto löschen“."
+  affects: [wa-account, wa-unencrypted-info, wa-contacts, wa-usage]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem WhatsApp-Hilfeartikel „Konto löschen“ (de) abgeglichen; Fristen aus der EWR-Datenschutzrichtlinie."
+  sources: [whatsapp-help-delete-account, whatsapp-privacy-policy-eea]
+- id: whatsapp-live-location
+  service: whatsapp
+  kind: permission
+  title: Live-Standort beenden und Standortzugriff begrenzen
+  goal: "Du teilst deinen Standort in keinem Chat mehr. WhatsApp darf nur noch darauf zugreifen, wenn du es willst."
+  whyItMatters: "Ein vergessener Live-Standort zeigt anderen laufend, wo du bist. Der Inhalt ist zwar verschlüsselt, aber deine Gesprächspartner sehen ihn, bis er abläuft."
+  whatChanges: "Laufende Live-Standorte enden in allen Chats. Ohne Standort-Erlaubnis kann die App deinen genauen Standort nicht mehr abrufen."
+  whatDoesNotChange: "Deinen ungefähren Standort (Land oder Region) leitet WhatsApp weiter aus der Internet-Adresse deines Anschlusses und deiner Vorwahl ab. Wer deinen Standort schon gesehen hat, sieht das letzte Vorschaubild."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Öffne in WhatsApp „Einstellungen“ > „Datenschutz“ > „Live-Standort“."
+    - "Tippe auf „Teilen beenden“ und bestätige mit „Beenden“."
+    - "Android: Öffne die Telefon-Einstellungen > „Apps“ > „WhatsApp“ > „Berechtigungen“ > „Standort“ und wähle „Jedes Mal fragen“ oder „Nicht zulassen“."
+  affects: [wa-precise-location]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit dem WhatsApp-Hilfeartikel „Live-Standort verwenden“ (de, Android-Ansicht) abgeglichen. Den iPhone-Weg für die Berechtigung haben wir nicht separat geprüft."
+  sources: [whatsapp-help-live-location, whatsapp-privacy-policy-eea]
+- id: whatsapp-contact-access
+  service: whatsapp
+  kind: permission
+  title: Kontaktzugriff von WhatsApp prüfen
+  tradeOff: "Ohne Zugriff auf deine Kontakte zeigt WhatsApp in Chats Nummern statt Namen."
+  goal: "WhatsApp lädt die Nummern aus deinem Adressbuch nicht mehr regelmäßig hoch."
+  whyItMatters: "Mit Zugriff auf deine Kontakte liest WhatsApp meist täglich dein Adressbuch aus. Dazu gehören auch Nummern von Menschen ohne WhatsApp. Diese speichert WhatsApp als Hashwert – eine Art verschlüsselter Fingerabdruck der Nummer."
+  whatChanges: "Ohne Erlaubnis kann WhatsApp dein Adressbuch nicht mehr abgleichen. Du kannst trotzdem Nachrichten bekommen und Kontakte direkt in WhatsApp anlegen."
+  whatDoesNotChange: "Kontakte, die in deinem WhatsApp-Konto gespeichert sind, bleiben dort, bis du sie selbst löschst. Andere können deine Nummer weiter über ihr Adressbuch übermitteln."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Android: Öffne die Einstellungen deines Telefons und tippe auf „Apps“ > „WhatsApp“ > „Berechtigungen“ > „Kontakte und Konten“. Dort legst du fest, ob WhatsApp auf deine Kontakte zugreifen darf. Findest du den Punkt nicht, suche in den Einstellungen nach „Berechtigungen“."
+    - "iPhone: Öffne die Einstellungen > „Apps“ > „WhatsApp“ > „Kontakte“. Dort kannst du den Zugriff verweigern oder mit „Beschränkter Zugriff“ nur ausgewählte Kontakte freigeben."
+    - "Kontakte, die in deinem WhatsApp-Konto gespeichert sind, löschst du in WhatsApp unter „Einstellungen“ > „Datenschutz“ > „Kontakte“."
+  affects: [wa-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-11-11"
+    method: "Am 2026-11-11 erneut mit dem WhatsApp-Hilfeartikel „Kontaktnamen fehlen“ (de_DE, Android- und iPhone-Ansicht) abgeglichen: Android heißt der Punkt jetzt „Kontakte und Konten“; der iPhone-Weg „Einstellungen > Apps > WhatsApp > Kontakte“ mit „Beschränkter Zugriff“/„Voller Zugriff“ stimmt. Zuvor am 2026-10-07 im gerenderten Browser (de-DE) mit dem WhatsApp-Hilfeartikel „Kontaktnamen fehlen“ abgeglichen, jeweils in der Android- und der iOS-Ansicht (Weg zur Kontakt-Berechtigung, Folgen einer Verweigerung). Das Löschen gespeicherter Kontakte stammt aus dem Hilfeartikel „Informationen zum Hochladen von Kontakten“. Die Hilfe beschreibt den Weg zum Erlauben; die genaue Beschriftung der Option zum Verweigern nennt sie nicht und kann je nach Hersteller abweichen."
+  sources: [whatsapp-help-contact-names, whatsapp-help-contact-upload]
+- id: whatsapp-accounts-center
+  service: whatsapp
+  kind: setting
+  title: WhatsApp aus der Meta-Kontenübersicht entfernen
+  goal: "WhatsApp teilt keine Daten mehr mit Meta Platforms Ireland, damit Meta Inhalte und Werbung auf dich zuschneidet."
+  whyItMatters: "Ist WhatsApp in der Kontenübersicht, gehen unter anderem Telefonnummer, Profilbild und Nutzungsinfos an Meta. Werbung in Status und Kanälen nutzt dann Infos aus allen verknüpften Konten."
+  whatChanges: "Die Verknüpfung endet. Laut WhatsApp-Hilfe endet die Weitergabe innerhalb von 24 Stunden, die Verknüpfungen werden innerhalb von bis zu sieben Tagen entfernt. Die dafür genutzten Informationen löscht WhatsApp laut EWR-Richtlinie innerhalb von 90 Tagen, sofern keine Ausnahme greift."
+  whatDoesNotChange: "Meta-Firmen verarbeiten weiter Daten als Dienstleister für WhatsApp. Werbung im Tab „Aktuelles“ kann weiter erscheinen."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Öffne in WhatsApp die „Einstellungen“ und tippe auf „Meta-Konto“ > „Konto verwalten“. Je nach Umstellung heißt der Punkt noch „Kontenübersicht“."
+    - "Tippe neben „WhatsApp“ auf „Verwalten“ und dann auf „Aus diesem Meta-Konto entfernen“."
+    - "Bestätige mit „Ja, fortfahren“ > „Weiter“ > „Ja, jetzt verschieben“."
+  affects: [wa-account, wa-updates-tab]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Schritte am 2026-10-21 im gerenderten Browser (de-DE) mit dem WhatsApp-Hilfeartikel „WhatsApp in deinem Meta-Konto verwalten“ abgeglichen, in der Android- und der iOS-Ansicht (der Abschnitt zum Entfernen ist gleich). Der Artikel nennt den Einstieg aus WhatsApp und die deutschen Menünamen und weist darauf hin, dass die Kontenübersicht schrittweise in „Meta-Konto“ umbenannt wird. Dass du WhatsApp jederzeit in den WhatsApp-Einstellungen entfernen kannst, bestätigen auch die EWR-Richtlinie zur Kontenübersicht und der Hilfeartikel zu deinen WhatsApp-Daten in der Kontenübersicht. Der Artikel ist nicht regionsspezifisch; abgerufen aus einem Nicht-EU-Netz."
+  sources: [whatsapp-help-meta-account, whatsapp-help-accounts-center-data, whatsapp-accounts-center-policy-eea, meta-help-accounts-center-manage]

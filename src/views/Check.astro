@@ -1,0 +1,40 @@
+---
+import Base from '~/layouts/Base.astro';
+import Datenmuster from '~/islands/Datenmuster';
+import { companyCards, guideCards, serviceCards } from '~/domain/projections';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+const services = serviceCards(locale);
+
+const TXT_DE = {
+  description:
+    'Wähle die Apps, die du nutzt, und sieh, welche Bereiche deines Lebens sie berühren können – berechnet in deinem Browser, ohne Konto.',
+  title: 'Deine Apps im Detail',
+  lead: 'Was deine Apps zusammen erfahren können, wo sie zusammenhängen und wo du am meisten ändern kannst.',
+  noscript: 'Für die persönliche Übersicht brauchst du JavaScript. Alle Infos findest du auch ohne:',
+  noscriptLink: 'Alle Apps',
+};
+const TXT_EN: typeof TXT_DE = {
+  description:
+    'Choose the apps you use and see which areas of your life they can touch – calculated in your browser, without an account.',
+  title: 'Your apps in detail',
+  lead: 'What your apps can learn together, where they are connected and where you can change the most.',
+  noscript: 'You need JavaScript for the personal overview. You can find all the information without it too:',
+  noscriptLink: 'All apps',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+---
+<Base ownsSelection title={t.nav.check} description={s.description} path={href(locale, 'check')} crumbs={[{ label: t.nav.services, href: href(locale, 'apps') }, { label: t.nav.check }]}>
+  <section>
+    <div class="wrap">
+      <h1>{s.title}</h1>
+      <p class="lead">{s.lead}</p>
+      <Datenmuster client:load services={services} companies={companyCards(locale)} guides={guideCards(locale)} full locale={locale} />
+      <noscript>
+        <p class="panel">{s.noscript} <a href={href(locale, 'apps')}>{s.noscriptLink}</a>.</p>
+      </noscript>
+    </div>
+  </section>
+</Base>

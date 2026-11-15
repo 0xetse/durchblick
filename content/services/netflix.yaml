@@ -1,0 +1,360 @@
+id: netflix
+name: Netflix
+company: netflix
+category: video
+url: https://www.netflix.com/
+summary: "Netflix merkt sich, was du wann und wie lange ansiehst – bis hin zu Pause und Abspielen. Das nutzt Netflix vor allem für Empfehlungen. Im Abo mit Werbung kommen Daten für Werbung dazu, auch von Werbekunden."
+surprise:
+  action: netflix-account-delete
+  text: "Kündigen heißt bei Netflix nicht löschen. Titelverlauf, Empfehlungen und Bewertungen bewahrt Netflix nach der Kündigung noch 24 Monate auf – für den Fall, dass du zurückkommst. Früher gelöscht wird nur, wenn du es selbst beantragst."
+  sources:
+    - ref: netflix-help-delete-account
+      note: "„Es ist unsere Standardpraxis, Netflix-Konten 24 Monate nach der Kündigung der Mitgliedschaft automatisch zu löschen.“"
+    - ref: netflix-help-cancel
+      note: "„Wir speichern Ihren Titelverlauf nach der Schließung Ihres Kontos für 24 Monate.“"
+businessModel:
+  text: "Netflix finanziert sich vor allem über Abos. 2025 lag der Umsatz bei 45,2 Mrd. US-Dollar. Davon kamen gut 1,5 Mrd. aus Werbung – das sind rund 3 Prozent. In Deutschland ist das „Standard-Abo mit Werbung“ das günstigste Abo."
+  sources:
+    - ref: netflix-q4-2025-letter
+      note: "„For the year, we delivered $45.2B of revenue“; „Ad revenue rose more than 2.5x to over $1.5B.“"
+    - ref: netflix-help-plans
+      note: "„Standard-Abo mit Werbung: 6,99 € pro Monat“"
+dataPoints:
+  - id: netflix-account
+    category: account
+    title: "Netflix kennt deine E-Mail-Adresse und weitere Kontoangaben."
+    detail: "Zur Anmeldung braucht Netflix E-Mail-Adresse und Passwort. Je nach Nutzung kommen Name, Telefonnummer, Postanschrift, Geschlecht und Geburtsdatum dazu. Geburtsdatum und Geschlecht fragt Netflix vor allem im Abo mit Werbung ab."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Einzelheiten zu Ihrer Person: […] Kontaktinformationen (wie Ihre E-Mail-Adresse) sowie Authentifizierungsdaten […] Vor- und Nachname, Telefonnummer, Postanschrift, Geschlecht, Geburtsdatum“"
+      - ref: netflix-help-ads
+        note: "„Im Fall von verhaltensgesteuerter Werbung bitten wir Sie möglicherweise, Ihr Geburtsdatum und Ihr Geschlecht anzugeben.“"
+  - id: netflix-payment
+    category: purchases
+    title: "Netflix speichert, wie und was du bezahlst."
+    detail: "Dazu gehören Zahlungsart, Zahlungsverlauf, Rechnungsadresse sowie eingelöste Geschenkkarten und Angebote. Zahlst du über einen Partner, etwa deinen Mobilfunkanbieter, bekommt Netflix Angaben von dort."
+    provenance: provided
+    mechanisms: [provided, partners]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Zahlungsangaben: […] Dazu gehören Ihr Zahlungsverlauf, Ihre Rechnungsadresse, Geschenkkarten und Angebote“"
+  - id: netflix-viewing-history
+    category: activity
+    title: "Netflix speichert für jedes Profil, was du angesehen hast."
+    detail: "Der Titelverlauf listet jeden Film und jede Folge. Netflix merkt sich auch, wie lange du einen Titel angesehen hast, ob du ihn zu Ende geschaut hast und zu welcher Tageszeit du Netflix nutzt."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Ihren Netflix-Wiedergabe- und Spielverlauf“"
+      - ref: netflix-help-recommendations
+        note: "„die Tageszeit, zu der Sie Netflix nutzen“; „wie lange Sie einen Netflix-Titel angesehen haben“; „ob Sie diese Titel zu Ende angesehen haben“"
+      - ref: netflix-help-viewing-activity
+  - id: netflix-playback-events
+    category: activity
+    title: "Netflix zeichnet auf, wie du die App bedienst – bis hin zu Pause und Abspielen."
+    detail: "Erfasst werden Wiedergabe-Ereignisse wie Abspielen und Pause, Klicks, Texteingaben, aufgerufene Seiten sowie Zeit und Dauer deiner Nutzung. Bei interaktiven Titeln speichert Netflix deine Entscheidungen."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„einschließlich Wiedergabeereignisse wie Abspielen, Pause usw.“; „die Auswahl, die Sie bei der Nutzung interaktiver Titel treffen“; „Klicks auf Apps, Texteingabe, Seitenaufrufe, Zeit und Dauer des Zugriffs“"
+  - id: netflix-ratings-list
+    category: activity
+    title: "Netflix kennt deine Bewertungen, deine Liste und dein Profil."
+    detail: "Dazu gehören Daumen hoch oder runter, „Meine Liste“, „Weiterschauen“, Profilname und -bild sowie die Titel, die du beim Einrichten eines Profils als Lieblingstitel auswählst."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Profilname und -symbol, Netflix-Alias, Bewertungen und Feedback […] „Meine Liste“ (Titel-Watchlist), „Weiterschauen“-Informationen“"
+      - ref: netflix-help-recommendations
+        note: "„bitten wir Sie darum, ein paar Titel auszuwählen, die Ihnen gefallen“"
+  - id: netflix-searches
+    category: searches
+    title: "Netflix speichert, wonach du suchst."
+    detail: "Erfasst werden Suchen in der Netflix-App. Suchst du über deinen Fernseher oder einen Sprachassistenten nach Netflix-Inhalten, kann Netflix diese Suchen vom Partner bekommen."
+    provenance: observed
+    mechanisms: [usage, partners]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Suchabfragen auf dem Netflix-Dienst“; „Netflix-bezogene Suchabfragen und -befehle, die Sie über Partnergeräte oder Sprachassistent-Plattformen eingeben“"
+  - id: netflix-voice
+    category: voice
+    title: "Nutzt du Sprachfunktionen, speichert Netflix Aufnahmen und Abschriften."
+    detail: "Das betrifft Funktionen, bei denen du mit der Stimme suchst oder steuerst, und den Sprachchat in manchen Netflix-Spielen."
+    provenance: provided
+    mechanisms: [provided, permissions]
+    evidence: stated
+    condition: "nur wenn du sprachbezogene Funktionen oder Sprachchat in Spielen nutzt"
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Spracheingaben (einschließlich Transkripte und Aufnahmen) bei der Verwendung von sprachbezogenen Funktionen“"
+  - id: netflix-device-network
+    category: device
+    title: "Netflix erfasst Angaben zu deinen Geräten und deinem Heimnetz."
+    detail: "Dazu gehören Gerätekennungen – feste Nummern, an denen ein Gerät wiedererkannt wird –, auch für Geräte in deinem Netzwerk. Dazu kommen Gerätetyp, Software, Verbindungsart (WLAN oder Mobilfunk) und Fehlerberichte. Auch Hersteller deines Fernsehers oder dein Internetanbieter können Netflix Gerätedaten liefern."
+    technical: "Laut Datenschutzerklärung: „Geräte-IDs oder andere eindeutige Identifikatoren, einschließlich für Ihre Netzwerkgeräte und Geräte, die in Ihrem Netzwerk von Netflix unterstützt werden“ sowie „Cookie-Daten, rücksetzbare Gerätekennungen, Werbekennungen“."
+    provenance: observed
+    mechanisms: [device, partners]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "Abschnitt „Geräte- und Netzwerkdaten“ und „Von Partnern, deren Produkte und Dienste Sie nutzen“"
+  - id: netflix-location
+    category: location
+    title: "Netflix schätzt aus deiner IP-Adresse, wo du ungefähr bist."
+    detail: "Aus der IP-Adresse – der Internet-Adresse deines Anschlusses – ermittelt Netflix Stadt, Region und Postleitzahl. Für den Netflix-Haushalt erfasst Netflix nach eigener Angabe keine GPS-Daten."
+    provenance: derived
+    mechanisms: [device, derived]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„IP-Adressen (die verwendet werden können, um uns den allgemeinen Standort Ihres Geräts mitzuteilen, z. B. Ihre Stadt, Ihr Bundesland/Ihre Region und Ihre Postleitzahl)“"
+      - ref: netflix-help-household
+        note: "„Wir erfassen keine GPS-Daten, um den genauen physischen Standort Ihrer Geräte zu bestimmen.“"
+  - id: netflix-ad-interactions
+    category: activity
+    title: "Im Abo mit Werbung merkt sich Netflix, welche Werbung du siehst."
+    detail: "Netflix erfasst, welche Werbung du ansiehst und wie du darauf reagierst. Dazu kommen Werbekennungen deines Geräts, also eine Werbe-Nummer, die sich zurücksetzen lässt."
+    provenance: observed
+    mechanisms: [usage, device]
+    evidence: stated
+    condition: "im Abo mit Werbung oder bei Live-Events mit Werbung"
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Werbedaten: Wir erfassen Daten zu Werbung, die Sie auf dem Netflix-Dienst ansehen oder mit der Sie interagieren, Geräteinformationen (z. B. rücksetzbare Geräte-Identifikatoren)“"
+      - ref: netflix-help-privacy-choices
+        note: "„beispielsweise haben Sie ein werbefinanziertes Abo oder Sie sehen sich Live-Events oder andere besondere Veranstaltungen an, die Werbung enthalten“"
+  - id: netflix-advertiser-data
+    category: offplatform
+    title: "Für Werbung kann Netflix Daten von Werbekunden und deren Websites nutzen."
+    detail: "Firmen, die bei Netflix Werbung schalten, können Netflix Kennungen aus Cookies (kleinen Dateien im Browser), Angaben wie Alter oder Geschlecht und Hinweise auf deine Käufe und Interessen auf ihren Websites und Apps geben. Netflix erfasst auch selbst Daten auf diesen Websites, etwa über Pixel – kleine, unsichtbare Code-Stücke."
+    provenance: observed
+    mechanisms: [partners]
+    evidence: stated
+    condition: "im Abo mit Werbung; für Werbung nach deinem Verhalten braucht Netflix in der EU deine Einwilligung"
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Werbetreibende […] können uns eindeutige Identifikatoren (z. B. Cookies oder rücksetzbare Gerätekennungen), demografische Informationen und weitere Informationen (wie z. B. Informationen über die Interaktionen und Käufe auf ihren Websites und Apps […]) zur Verfügung stellen“; „Wir erfassen ebenfalls Daten auf den Websites und Apps Werbetreibender.“; EWR-Rechtsgrundlage Einwilligung für „Schalten von verhaltensgesteuerter Werbung“"
+  - id: netflix-communications
+    category: communications
+    title: "Netflix speichert, was du dem Kundendienst schreibst oder sagst."
+    detail: "Erfasst wird der Inhalt von Chats und Anrufen mit dem Kundendienst und deine Antworten auf Umfragen, etwa beim Kündigen. Netflix sieht auch, ob du seine E-Mails öffnest und Links darin anklickst."
+    provenance: provided
+    mechanisms: [provided, usage]
+    evidence: stated
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„erfassen wir den Inhalt dieser Kommunikation“; „Mithilfe von Pixel-Tags können wir sehen, wann Links in Mitteilungen angeklickt oder E-Mails geöffnet werden.“"
+  - id: netflix-games
+    category: content
+    title: "In Netflix-Spielen fallen Spielstände, Chats und eigene Inhalte an."
+    detail: "Netflix speichert Spielfortschritt und Bestenlisten. Bei Spielen mit Text- oder Sprachchat oder mit eigenen Inhalten wie Fotos können Netflix und Dienstleister mitlesen und aufzeichnen, um Regelverstöße zu finden."
+    provenance: provided
+    mechanisms: [provided, usage]
+    evidence: stated
+    condition: "nur wenn du Netflix-Spiele mit solchen Funktionen spielst"
+    sources:
+      - ref: netflix-privacy-statement
+        note: "Abschnitt „Ergänzende Datenschutzhinweise für Netflix Games“: „Wir und unsere Dienstanbieter können […] Mitteilungsinhalte und Text- und Sprachchat überwachen und/oder aufzeichnen“"
+inferences:
+  - id: netflix-taste
+    title: "Netflix schätzt, wie wahrscheinlich dir ein Titel gefällt."
+    detail: "Grundlage sind deine angesehenen Titel, Bewertungen, Tageszeit, Geräte und wie lange du schaust. Netflix vergleicht dich dazu mit Mitgliedern mit ähnlichem Geschmack. Alter und Geschlecht nutzt das Empfehlungssystem laut Netflix nicht."
+    level: documented
+    basedOn: [netflix-viewing-history, netflix-ratings-list, netflix-playback-events, netflix-device-network]
+    sources:
+      - ref: netflix-help-recommendations
+        note: "„Wir schätzen die Wahrscheinlichkeit, mit der Ihnen ein bestimmter Titel aus unserem Katalog gefallen wird“; „Das Empfehlungssystem berücksichtigt bei der Auswahl von Titeln keine demografischen Informationen wie Geschlecht oder Alter.“"
+  - id: netflix-household-ad-preferences
+    title: "Im Abo mit Werbung zieht Netflix Schlüsse über dich und deinen Haushalt."
+    detail: "Laut Datenschutzerklärung schätzt Netflix zum Beispiel, welche Art von Werbung du oder dein Haushalt lieber seht. Das nutzt Netflix, um Werbung auszuwählen."
+    level: documented
+    basedOn: [netflix-viewing-history, netflix-ad-interactions, netflix-account, netflix-advertiser-data]
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Rückschlüsse, die wir über Sie oder Ihren Haushalt auf der Grundlage von Daten treffen, die wir von Ihnen oder über Sie erheben (z. B. die Art von Werbung, die Sie oder Ihr Haushalt vorziehen zu sehen)“"
+  - id: netflix-household-check
+    title: "Netflix prüft, ob ein Gerät zu deinem Haushalt gehört."
+    detail: "Aus IP-Adresse, Gerätekennungen und Kontoaktivität ermittelt Netflix automatisch deinen Haushalt. So erkennt Netflix, ob jemand dein Konto außerhalb deiner Wohnung nutzt – das ist laut Nutzungsbedingungen nicht erlaubt."
+    level: documented
+    basedOn: [netflix-device-network, netflix-location, netflix-viewing-history]
+    sources:
+      - ref: netflix-help-household
+        note: "„wird Ihr Netflix-Haushalt automatisch basierend auf IP-Adresse, Geräte-IDs und Kontoaktivität ermittelt“"
+      - ref: netflix-help-privacy-choices
+        note: "Abschnitt „Feststellung, ob ein Netflix-Gerät zu Ihrem Netflix-Haushalt gehört“"
+  - id: netflix-daily-routine
+    title: "Dein Verlauf kann deinen Tagesablauf andeuten."
+    detail: "Netflix weiß, wann genau du schaust. Daraus ließe sich ablesen, wann du abends ins Bett gehst oder ob du nachts wach bist. Technisch ist das möglich. Dass Netflix solche Schlüsse zieht, ist nicht dokumentiert."
+    level: possible
+    basedOn: [netflix-viewing-history, netflix-playback-events]
+    sources:
+      - ref: netflix-ap-fine-2024
+        note: "Die Behörde beschreibt, dass Netflix Daten erhebt über „wat klanten kijken op het platform, en wanneer precies“"
+      - netflix-help-recommendations
+  - id: netflix-sensitive-topics
+    title: "Filme und Serien können heikle Themen berühren."
+    detail: "Wer viele Titel zu Glauben, Krankheit oder queeren Lebenswelten ansieht, hinterlässt sensible Spuren. Theoretisch ließen sich daraus Schlüsse ziehen. Für Netflix ist das nicht dokumentiert."
+    level: possible
+    basedOn: [netflix-viewing-history, netflix-searches]
+    sources:
+      - netflix-privacy-statement
+purposes:
+  - purpose: provide-service
+    detail: "Filme, Serien und Spiele abspielen, Profile und Abo verwalten, Zahlungen abwickeln und Netzwerkprobleme beheben."
+    sources: [netflix-privacy-statement]
+  - purpose: personalisation
+    detail: "Empfehlungen auf der Startseite: welche Reihen du siehst, welche Titel darin stehen und in welcher Reihenfolge."
+    sources: [netflix-privacy-statement, netflix-help-recommendations]
+  - purpose: advertising
+    detail: "Im Abo mit Werbung: Werbung auswählen, ausliefern und messen. Werbung nach deinem Verhalten nur mit Einwilligung. Außerdem wirbt Netflix auf anderen Websites und Apps für sich selbst."
+    sources: [netflix-privacy-statement, netflix-help-ads]
+  - purpose: measurement
+    detail: "Messen, wie gut Werbung auf Netflix wirkt und wie gut Netflix-Werbung auf anderen Plattformen wirkt."
+    sources: [netflix-privacy-statement, netflix-help-privacy-choices]
+  - purpose: product-development
+    detail: "Forschung und Auswertungen, um den Dienst, die Auswahl an Titeln und die Auslieferung zu verbessern, auch über Umfragen."
+    sources: [netflix-privacy-statement]
+  - purpose: safety
+    detail: "Systeme schützen, Betrug erkennen und Regelverstöße in Spielen mit Chat finden."
+    sources: [netflix-privacy-statement]
+  - purpose: legal
+    detail: "Gesetze einhalten und Nutzungsbedingungen durchsetzen – dazu gehört die Prüfung, ob ein Gerät zu deinem Netflix-Haushalt gehört."
+    sources: [netflix-privacy-statement, netflix-help-household]
+sharing:
+  - id: netflix-sharing-group
+    recipient: "Andere Netflix-Firmen"
+    detail: "Netflix gibt Daten innerhalb des Konzerns weiter, auch für Werbung und Forschung. Daten können dabei in Länder außerhalb der EU gehen. Dafür nutzt Netflix die Standardverträge der EU-Kommission."
+    sources: [netflix-privacy-statement]
+  - id: netflix-sharing-service-providers
+    recipient: "Dienstleister im Auftrag von Netflix"
+    detail: "Zum Beispiel für Zahlung, Infrastruktur, Sicherheit und Kundendienst. Sie dürfen die Daten laut Netflix nur für ihre Dienstleistung nutzen."
+    sources: [netflix-privacy-statement]
+  - id: netflix-sharing-ad-companies
+    recipient: "Werbekunden und Werbefirmen"
+    detail: "Im Abo mit Werbung gibt Netflix bestimmte Daten an Firmen weiter, die Werbung auswählen, ausliefern und ihren Erfolg messen. Welche Daten genau, nennt die Datenschutzerklärung nicht."
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„Wir können bestimmte personenbezogene Daten an Werbefirmen (siehe Definition oben) weitergeben, um auf Netflix eingeblendete Werbung auszuwählen“"
+  - id: netflix-sharing-marketing
+    recipient: "Plattformen, auf denen Netflix für sich wirbt"
+    detail: "Netflix schickt E-Mail-Adresse oder Telefonnummer in unlesbar gemachter Form, die sich trotzdem abgleichen lässt, an andere Plattformen. Gibt es dort ein Konto mit denselben Angaben, kann Netflix dir dort Werbung für Netflix zeigen. Ein genanntes Beispiel ist The Trade Desk. Was du angesehen hast, gibt Netflix dabei laut eigener Angabe nicht weiter."
+    sources:
+      - ref: netflix-help-privacy-choices
+        note: "„Beispielsweise teilen wir ggf. datenschutzrechtlich geschützte Kontaktdaten von Benutzern mit The Trade Desk“"
+      - ref: netflix-privacy-statement
+        note: "„Wir geben keine Informationen über Titelauswahlen von Filmen oder Serien weiter, die Sie auf unserem Dienst angesehen haben.“"
+  - id: netflix-sharing-partners
+    recipient: "Partner wie Fernseher-Hersteller und Internetanbieter"
+    detail: "Nutzt du Netflix über einen Partner, kann Netflix Daten an ihn weitergeben, etwa damit dir der Partner Netflix-Titel auf seiner Startseite vorschlägt. Dort können auch Verlauf und „Weiterschauen“ sichtbar sein."
+    sources: [netflix-privacy-statement]
+  - id: netflix-sharing-household
+    recipient: "Alle, die dein Konto mitnutzen"
+    detail: "Alle mit Zugang zum Konto können jedes Profil öffnen, ansehen und ändern – auch deinen Titelverlauf. Schützen kannst du ein Profil mit einer PIN."
+    sources:
+      - ref: netflix-privacy-statement
+        note: "„sodass alle, die Zugriff auf Ihr Netflix-Konto haben, jedes Profil sowie die mit dem Profil verknüpften Informationen aufrufen, verwenden, bearbeiten oder löschen können“"
+      - netflix-help-profile-lock
+retention:
+  text: "Netflix nennt in der Datenschutzerklärung keine festen Fristen. Daten bleiben gespeichert, solange sie für die Zwecke nötig sind. Nach einer Kündigung bleibt das Konto mit Titelverlauf, Empfehlungen und Bewertungen 24 Monate bestehen, dann wird es gelöscht. Früher geht es, wenn du die Löschung beantragst. E-Mails an das Datenschutz-Team bewahrt Netflix 6 Jahre auf. Die niederländische Datenschutzbehörde verhängte 2024 ein Bußgeld von 4,75 Mio. Euro, auch weil Netflix zwischen 2018 und 2020 unklar über Speicherfristen informiert hatte. Netflix hat dagegen Einspruch eingelegt."
+  sources:
+    - ref: netflix-privacy-statement
+      note: "„Die Aufbewahrung personenbezogener Daten durch uns basiert auf vielen Faktoren“"
+    - ref: netflix-help-delete-account
+      note: "„Aktuell beträgt dieser Zeitraum 24 Monate nach der Kündigung des Abos.“; „bewahren wir diese Korrespondenz 6 Jahre lang auf“"
+    - ref: netflix-ap-fine-2024
+      note: "„hoe lang Netflix persoonsgegevens bewaart“; „Netflix heeft bezwaar gemaakt tegen de boete.“"
+journey:
+  - id: netflix-journey-watch
+    title: "Du schaust, pausierst und suchst"
+    detail: "Netflix erfasst, welchen Titel du startest, wann du pausierst, wie lange du schaust und wonach du suchst. Dazu kommen Gerätedaten und ein ungefährer Standort aus der IP-Adresse."
+    dataPoints: [netflix-viewing-history, netflix-playback-events, netflix-searches, netflix-device-network, netflix-location]
+    sources: [netflix-privacy-statement]
+  - id: netflix-journey-profile
+    title: "Speicherung im Profil"
+    detail: "Alles landet im Titelverlauf des jeweiligen Profils. Alle, die das Konto mitnutzen, können ihn sehen, wenn das Profil keine PIN hat."
+    dataPoints: [netflix-viewing-history, netflix-ratings-list]
+    sources: [netflix-help-viewing-activity, netflix-privacy-statement]
+  - id: netflix-journey-recommendations
+    title: "So entstehen Empfehlungen"
+    detail: "Aus Verlauf, Bewertungen, Tageszeit, Gerät und Sehdauer schätzt Netflix, was dir gefallen könnte, und ordnet danach die Startseite."
+    dataPoints: [netflix-viewing-history, netflix-ratings-list, netflix-playback-events, netflix-device-network]
+    sources: [netflix-help-recommendations]
+  - id: netflix-journey-household
+    title: "Haushaltsprüfung"
+    detail: "Aus IP-Adresse, Gerätekennungen und Kontoaktivität prüft Netflix, ob ein Gerät zu deinem Haushalt gehört."
+    dataPoints: [netflix-device-network, netflix-location]
+    sources: [netflix-help-household, netflix-help-privacy-choices]
+  - id: netflix-journey-ads
+    title: "Werbung im Abo mit Werbung"
+    detail: "Werbung richtet sich nach dem Genre, das du ansiehst, deinem ungefähren Standort und deinen Angaben. Mit Einwilligung zählen auch Daten von Werbekunden und deren Websites. Werbefirmen messen, wie die Werbung wirkt."
+    dataPoints: [netflix-viewing-history, netflix-location, netflix-account, netflix-ad-interactions, netflix-advertiser-data]
+    sources: [netflix-help-ads, netflix-privacy-statement]
+  - id: netflix-journey-after
+    title: "Nach der Kündigung"
+    detail: "Das Konto bleibt 24 Monate bestehen, inklusive Titelverlauf. Danach löscht Netflix es – oder früher, wenn du es beantragst."
+    dataPoints: [netflix-viewing-history, netflix-ratings-list, netflix-account]
+    sources: [netflix-help-delete-account, netflix-help-cancel]
+assessment:
+  breadth:
+    level: 3
+    rationale: "Netflix erfasst Konto- und Zahlungsdaten, Seh- und Suchverlauf, Bedienung der App, Geräte im Heimnetz und Kundendienst-Gespräche. Im Abo mit Werbung kommen Daten von Werbekunden dazu – dann ist die Erfassung sehr breit."
+    confidence: medium
+    sources: [netflix-privacy-statement]
+  sensitivity:
+    level: 2
+    rationale: "Was du ansiehst, verrät vor allem Vorlieben. Es kann aber Gesundheit, Glauben oder Sexualität berühren. Private Nachrichten fallen kaum an, außer im Chat mancher Spiele."
+    confidence: medium
+    sources: [netflix-privacy-statement]
+  observation:
+    level: 4
+    rationale: "Netflix zeichnet fein auf: Abspielen, Pause, Sehdauer, Tageszeit und Gerät. Diese Signale sind laut Netflix das Herzstück der Empfehlungen."
+    confidence: high
+    sources: [netflix-privacy-statement, netflix-help-recommendations]
+  linkability:
+    level: 2
+    rationale: "Die Daten hängen an deinem Konto über alle Geräte hinweg. Netflix betreibt keine weiteren großen Dienste, mit denen es sie verbindet. Im Abo mit Werbung können mit deiner Einwilligung Daten von fremden Websites dazukommen."
+    confidence: medium
+    sources: [netflix-privacy-statement, netflix-help-privacy-choices]
+  adUse:
+    level: 2
+    rationale: "Werbung ist ein Nebengeschäft: 2025 rund 1,5 von 45,2 Mrd. US-Dollar Umsatz. Personalisierte Werbung gibt es nur im Abo mit Werbung und bei Live-Events. Werbung nach deinem Verhalten braucht deine Einwilligung."
+    confidence: high
+    sources: [netflix-q4-2025-letter, netflix-help-ads, netflix-privacy-statement]
+  sharing:
+    level: 3
+    rationale: "Neben Dienstleistern und Konzernfirmen bekommen Werbefirmen und Partner wie Fernseher-Hersteller Daten. Für Netflix-Werbung auf anderen Plattformen werden unlesbar gemachte Kontaktdaten abgeglichen. Den Verlauf gibt Netflix dafür laut eigener Angabe nicht weiter."
+    confidence: medium
+    sources: [netflix-privacy-statement, netflix-help-privacy-choices]
+  defaults:
+    level: 2
+    rationale: "Der Titelverlauf wird immer gespeichert, automatisches Löschen gibt es nicht. Nach einer Kündigung bleiben die Daten 24 Monate. Werbung nach deinem Verhalten braucht in der EU dagegen deine Einwilligung."
+    confidence: medium
+    sources: [netflix-help-hide-history, netflix-help-delete-account, netflix-privacy-statement]
+  controls:
+    level: 2
+    rationale: "Werbung nach deinem Verhalten, die Nutzung von Alter und Geschlecht für Werbung sowie Werbung für Netflix auf anderen Plattformen lassen sich abschalten. Den Titelverlauf kannst du aber nicht pausieren, nur einzelne Titel ausblenden. Die Aufzeichnung beim Schauen ist nicht abschaltbar."
+    confidence: medium
+    sources: [netflix-help-privacy-choices, netflix-help-hide-history]
+  deletion:
+    level: 3
+    rationale: "Kopie deiner Daten per Selbstbedienung (bis zu 30 Tage Wartezeit), Titelverlauf als Tabelle herunterladbar, Konto in App und Browser löschbar. Ein automatisches Löschen des Verlaufs gibt es nicht."
+    confidence: high
+    sources: [netflix-help-data-copy, netflix-help-viewing-activity, netflix-help-delete-account]
+  reachability:
+    level: 3
+    rationale: "Die Datenschutzeinstellungen liegen gesammelt im Kontobereich, je Profil. Viele davon beschreibt Netflix aber nur für den Webbrowser. In den Apps haben wir das nicht geprüft."
+    confidence: low
+    sources: [netflix-help-privacy-choices, netflix-help-data-copy]
+region: EU
+reviewedAt: "2026-10-08"

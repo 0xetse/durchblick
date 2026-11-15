@@ -1,0 +1,313 @@
+id: whatsapp
+name: WhatsApp
+company: meta
+category: messaging
+url: https://www.whatsapp.com/
+summary: "Your chats and calls are end-to-end encrypted. According to WhatsApp, it cannot read them. But it does collect your phone number, your address book and data about your device and how you use the app. Ads only appear in the “Updates” tab (Status and Channels)."
+surprise:
+  action: whatsapp-contact-access
+  text: "Even the numbers of people who do not use WhatsApp at all end up with WhatsApp – as soon as someone has them in their address book and gives WhatsApp access to their contacts. WhatsApp does not store the number in plain text, but as a kind of fingerprint, and remembers who has it in their address book. If the person signs up later, WhatsApp can connect them with these people straight away."
+  sources:
+    - ref: whatsapp-help-contact-upload
+      note: "„Dazu erstellen wir einen kryptografischen Hashwert ihrer Telefonnummer und löschen dann die Nummer. Jeder kryptografische Hashwert wird auf den Servern von WhatsApp gespeichert und mit den WhatsApp-Benutzer*innen verknüpft …“"
+businessModel:
+  text: "WhatsApp earns money mainly from businesses that pay to send messages to their customers. Subscriptions add to this. In March 2026, Meta announced it would bring ads in Status and Channels to the EU too. The EEA privacy policy provides for such ads. Meta's ad-free EU subscription also covers WhatsApp accounts in the same Accounts Center."
+  sources:
+    - ref: meta-sec-10q-2026-q2
+      note: "„FoA Other revenue, which consists of revenue from paid messaging from WhatsApp, subscriptions …“"
+    - ref: meta-help-ads-subscription
+      note: "Abo gilt für „Facebook-, Instagram-, Threads- oder WhatsApp-Konten“ in derselben Kontenübersicht"
+    - ref: whatsapp-ppcland-dma-report-2026
+      note: "Metas DMA-Bericht vom 6. März 2026: Start der Werbung in Status und Kanälen in der EU „in the coming weeks“"
+    - ref: whatsapp-privacy-policy-eea
+      note: "„… es kann sein, dass du andere Arten von Anzeigen in Status und Kanälen siehst.“"
+dataPoints:
+  - id: wa-account
+    category: account
+    title: "To have an account, you need your mobile number and a profile name."
+    detail: "You can also add a profile photo, a username and an “About” text if you want. WhatsApp also collects information about your age, for example if you enter it or add WhatsApp to Meta's Accounts Center."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Deine Konto-Informationen“"
+  - id: wa-message-content
+    category: communications
+    title: "According to WhatsApp, it cannot read your chats or listen to your calls."
+    detail: "Messages, photos, videos, voice messages, documents, calls and your status are end-to-end encrypted. Messages that cannot be delivered and media you send are kept by WhatsApp in encrypted form for up to 30 days. WhatsApp cannot read them there either. Exception: if you report someone, WhatsApp says it receives up to five of the most recent messages that this person or group sent you."
+    technical: "WhatsApp uses the Signal Protocol; the keys for decrypting are only on the devices of the people in the conversation. Temporarily stored messages and media are kept in encrypted form on WhatsApp servers."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Benutzerinhalte“: Speicherung bis zu 30 Tage in verschlüsselter Form"
+      - ref: whatsapp-help-e2ee
+        note: "„Niemand außerhalb des Chats kann sie lesen, anhören oder teilen, nicht einmal WhatsApp.“ / Signal-Protokoll"
+      - ref: whatsapp-help-block-report
+        note: "Abschnitt „Wenn du jemanden meldest“: bis zu fünf der letzten Nachrichten"
+  - id: wa-unencrypted-info
+    category: content
+    title: "Your profile photo, your “About” text and group names and descriptions are not encrypted."
+    detail: "WhatsApp can see this information. WhatsApp also knows who is in a group and when a group was created or changed."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "„Außerdem kannst du Inhalte bereitstellen, die nicht verschlüsselt werden. Das heißt, wir können sie sehen.“; Abschnitt „Deine Community- und Gruppeninformationen“"
+  - id: wa-contacts
+    category: contacts
+    title: "With your permission, WhatsApp regularly uploads the numbers in your address book."
+    detail: "Usually every day – including numbers of people who do not use WhatsApp. According to WhatsApp, it only stores these as a hash – a kind of encrypted fingerprint of the number. According to WhatsApp, it does not share your contact list with other Meta apps."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "only if you give WhatsApp access to your contacts"
+    sources:
+      - ref: whatsapp-help-contact-upload
+        note: "„WhatsApp greift üblicherweise täglich auf Telefonnummern in deinem Adressbuch zu und lädt sie hoch“; „Wir teilen deine Kontaktlisten nicht mit anderen Apps von Meta.“"
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Dein Netzwerk“"
+  - id: wa-contacts-by-others
+    category: contacts
+    title: "Other people pass your number on to WhatsApp."
+    detail: "Anyone who has you in their address book and uploads their contacts also sends your number – even if you do nothing. WhatsApp also records who contacts you, who you block and who blocks you."
+    provenance: provided
+    mechanisms: [other-users]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitte „Von anderen über dich bereitgestellte Informationen“ und „Dein Netzwerk“"
+  - id: wa-usage
+    category: activity
+    title: "WhatsApp records when and how you use the app."
+    detail: "Which features you use, whether you are online and when you were last online. When you send or receive messages and calls, and how long calls last. WhatsApp does not record what you write."
+    provenance: observed
+    mechanisms: [usage]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Nutzungsinformationen“; Abschnitt „Nachrichten“ unter Aufbewahrung (Telefonnummer, Datum und Uhrzeit, Dauer)"
+  - id: wa-device
+    category: device
+    title: "WhatsApp collects detailed data about your device and your connection."
+    detail: "Device model, operating system, battery level, signal strength, app version, mobile or internet provider and your internet connection's address (IP address). Also numbers that make your device recognisable – including ones for other Meta apps on the same device."
+    technical: "Among other things, the policy mentions individual IDs for Meta company products that are linked to the same device or account."
+    provenance: observed
+    mechanisms: [device]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Geräte- und Verbindungsdaten“: „individueller IDs für Produkte von Meta-Unternehmen, die mit demselben Gerät oder Konto verknüpft sind“"
+  - id: wa-approx-location
+    category: location
+    title: "From your internet address and dialling code, WhatsApp works out your country or region."
+    detail: "This happens even if you do not use any location features."
+    technical: "According to the policy, IP addresses and phone number area codes are used for this."
+    provenance: derived
+    mechanisms: [derived]
+    evidence: stated
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Allgemeine Standortinformationen“"
+  - id: wa-precise-location
+    category: location
+    title: "You only share your exact location if you want to – and it is encrypted."
+    detail: "For example, when you send your current location or your live location in a chat. This location data is end-to-end encrypted. WhatsApp cannot see it."
+    provenance: provided
+    mechanisms: [permissions]
+    evidence: stated
+    condition: "only if you use location features and give permission"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Genaue Standortinformationen“"
+      - whatsapp-help-live-location
+  - id: wa-business-chats
+    category: communications
+    title: "Chats with businesses follow the business's own rules."
+    detail: "Several employees at a business may read the messages you send it. Businesses are allowed to use chats for their own marketing, including for ads on Meta. They can also use Meta as a service provider or as an AI assistant."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only for chats with business accounts"
+    sources:
+      - ref: whatsapp-help-e2ee
+        note: "„… kann es die Chats, die es empfängt, für seine eigenen Marketingzwecke verwenden, einschließlich für Werbung auf Meta.“"
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Unternehmen auf WhatsApp“"
+  - id: wa-updates-tab
+    category: activity
+    title: "In the “Updates” tab, WhatsApp records which channels you follow and how you respond to ads."
+    detail: "Status and Channels are optional. If you use them, WhatsApp uses small files and similar technology for ads (cookies). According to WhatsApp, it does not use personal chats, calls or groups for ads."
+    provenance: observed
+    mechanisms: [usage, device]
+    evidence: stated
+    condition: "only if you use Status or Channels"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Cookies“: „Wenn du optionale Funktionen wie Status oder Kanäle nutzt, erheben wir auch Informationen mithilfe ähnlicher Technologien für Werbeanzeigen.“"
+      - ref: whatsapp-status-channels-policy
+        note: "Fassung für Nutzer außerhalb der EU: „channels followed and ad interaction information“; keine Nutzung persönlicher Nachrichten für Werbung"
+  - id: wa-meta-ai
+    category: prompts
+    title: "Meta can analyse what you exchange with Meta AI in WhatsApp."
+    detail: "If you use Meta AI, Meta receives your region, language, numbers that make your device recognisable, and usage data. According to Meta, it uses conversations with Meta AI to train its AI. This also applies to messages that you or others in the chat deliberately share with the AI."
+    provenance: provided
+    mechanisms: [provided]
+    evidence: stated
+    condition: "only if you use Meta AI in WhatsApp"
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „Wenn Meta optionale Erfahrungen über WhatsApp anbietet“"
+      - ref: meta-newsroom-ai-training-eu-2025
+        note: "Update vom 27. März 2026 zu Nachrichten, die mit KI-Funktionen geteilt werden"
+inferences:
+  - id: wa-ad-personalisation
+    title: "For ads in “Updates”, WhatsApp draws conclusions from your channels – and with linked accounts, also from Facebook and Instagram."
+    detail: "If you have added WhatsApp to Accounts Center, WhatsApp says it uses the info from all accounts in your Accounts Center. It uses this to tailor ads in Status and Channels. Without linking, the version of the policy for outside the EU lists: country, language, approximate location, channels you follow and how you respond to ads."
+    level: documented
+    basedOn: [wa-updates-tab, wa-account, wa-approx-location]
+    sources:
+      - ref: whatsapp-accounts-center-policy-eea
+        note: "„Wenn du zum Beispiel Anzeigen basierend auf deinen Einstellungen unter ‚Status und Kanäle‘ siehst, werden die Infos aus allen Konten in deiner Kontenübersicht genutzt …“"
+      - ref: whatsapp-status-channels-policy
+        note: "„we use this information to make inferences and personalize the ads we show you“"
+  - id: wa-social-graph-possible
+    title: "Who messages whom and when reveals relationships – even without the content."
+    detail: "Your contact list, groups and times could show who is close to you. This is a technical possibility, not a practice WhatsApp describes. WhatsApp says it does not pass this connection data or your contact list on to Meta – not even if you use a linked Accounts Center."
+    level: possible
+    basedOn: [wa-contacts, wa-contacts-by-others, wa-usage, wa-unencrypted-info]
+    sources:
+      - ref: whatsapp-accounts-center-policy-eea
+        note: "„… mit wem du kommunizierst, die Uhrzeit und das Datum …, sowie für deine Kontaktliste“ werden nicht an Meta weitergegeben"
+  - id: wa-routine-possible
+    title: "Your online times can show your daily rhythm."
+    detail: "“Last seen” and usage times show when you are awake and active. This is a possibility, not an analysis that WhatsApp describes. You decide who can see your online information in your privacy settings."
+    level: possible
+    basedOn: [wa-usage]
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitte „Nutzungsinformationen“ und „Benutzeroptionen“"
+purposes:
+  - purpose: provide-service
+    detail: "Delivering messages and calls, and providing groups, Status and Channels."
+    sources: [whatsapp-privacy-policy-eea]
+  - purpose: safety
+    detail: "Detecting spam, fraud and abuse – partly using reports from users and information from other Meta companies."
+    sources: [whatsapp-privacy-policy-eea]
+  - purpose: advertising
+    detail: "Showing ads and promoted channels in the “Updates” tab. Not in chats, calls or groups."
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea, whatsapp-status-channels-policy]
+  - purpose: personalisation
+    detail: "Suggesting channels and content. With a linked Accounts Center, also based on your other Meta accounts."
+    sources: [whatsapp-accounts-center-policy-eea]
+  - purpose: product-development
+    detail: "Fixing bugs, measuring performance and testing new features – also with Meta companies as service providers."
+    sources: [whatsapp-privacy-policy-eea]
+sharing:
+  - id: wa-share-meta-service
+    recipient: "Meta companies as service providers"
+    detail: "Meta companies run data centres, analytics, support and security for WhatsApp. For this, they receive, among other things, your phone number, device numbers, app version, when you last used the app and your settings. They act on behalf of WhatsApp, not for their own advertising."
+    sources:
+      - ref: whatsapp-privacy-policy-eea
+        note: "Abschnitt „So arbeiten wir mit anderen Meta-Unternehmen zusammen“"
+  - id: wa-share-accounts-center
+    recipient: "Meta Platforms Ireland (only with Accounts Center)"
+    detail: "If you choose to add WhatsApp to Accounts Center, information such as your phone number, profile photo, age details and usage information goes to Meta – also for ads. According to WhatsApp, messages, call data and your contact list are left out."
+    sources: [whatsapp-accounts-center-policy-eea]
+  - id: wa-share-businesses
+    recipient: "Businesses you chat with"
+    detail: "They receive your messages and can use them according to their own rules, including for ads on Meta."
+    sources: [whatsapp-help-e2ee, whatsapp-privacy-policy-eea]
+  - id: wa-share-providers
+    recipient: "External service providers and backup providers"
+    detail: "Providers of text messages and calls that you use to confirm your number. Services that check content or estimate your age. If you back up your chats to iCloud or Google, these providers receive the chats – depending on your backup setting."
+    sources: [whatsapp-privacy-policy-eea]
+retention:
+  text: "WhatsApp deletes delivered messages from its servers, and undelivered ones after 30 days. Account data is kept as long as the account exists. After you delete your account, the deletion takes up to 90 days. WhatsApp usually deletes inactive accounts after 120 days – without warning."
+  sources:
+    - ref: whatsapp-privacy-policy-eea
+      note: "Abschnitte „Aufbewahrung deiner Informationen“, „Löschen deiner Informationen“, „Verwaltung deiner Informationen“"
+journey:
+  - id: wa-journey-device
+    title: "Encryption happens on your phone"
+    detail: "Before a message leaves your device, it is encrypted. WhatsApp sees who it goes from, who it goes to and when – but not the content."
+    dataPoints: [wa-message-content, wa-usage]
+    sources: [whatsapp-help-e2ee, whatsapp-privacy-policy-eea]
+  - id: wa-journey-servers
+    title: "WhatsApp delivers the message"
+    detail: "WhatsApp passes on the encrypted message and deletes it after delivery. Along the way, data about your device, connection and usage is created."
+    dataPoints: [wa-device, wa-usage, wa-approx-location]
+    sources: [whatsapp-privacy-policy-eea]
+  - id: wa-journey-account
+    title: "Account and address book"
+    detail: "Your phone number, profile, groups and – with your permission – the numbers in your address book are linked to your account."
+    dataPoints: [wa-account, wa-contacts, wa-contacts-by-others, wa-unencrypted-info]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload]
+  - id: wa-journey-meta
+    title: "Meta companies as service providers"
+    detail: "Meta runs data centres, analytics and support for WhatsApp. Only if you use Accounts Center does data also flow into Meta's own personalised services."
+    dataPoints: [wa-account, wa-device, wa-usage]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+  - id: wa-journey-updates
+    title: "Ads in the “Updates” tab"
+    detail: "WhatsApp uses what you look at in Status and Channels and how you respond to ads for advertising – not the content of your chats."
+    dataPoints: [wa-updates-tab, wa-approx-location]
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+assessment:
+  breadth:
+    level: 3
+    rationale: "Many kinds of data: phone number, address book, groups, device and usage data, approximate location. According to the policy, data from other websites is not included. Message content is encrypted."
+    confidence: high
+    sources: [whatsapp-privacy-policy-eea]
+  sensitivity:
+    level: 2
+    rationale: "WhatsApp cannot read the most private things – chats, calls, status, shared location. What remains are contacts and connection data. They reveal relationships, but not content."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-e2ee]
+  observation:
+    level: 3
+    rationale: "WhatsApp records when you are online, when you send messages and make calls, which features you use and for how long. It does not record what you write."
+    confidence: high
+    sources: [whatsapp-privacy-policy-eea]
+  linkability:
+    level: 3
+    rationale: "Meta companies process data on behalf of WhatsApp. WhatsApp also collects device numbers for other Meta apps. Meta only links the data for its own personalised services if you add WhatsApp to Accounts Center."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-accounts-center-policy-eea]
+  adUse:
+    level: 2
+    rationale: "Ads only appear in the “Updates” tab, and in the EU only from 2026. Most of the money comes from businesses that pay for messages."
+    confidence: medium
+    sources: [meta-sec-10q-2026-q2, whatsapp-privacy-policy-eea, whatsapp-ppcland-dma-report-2026]
+  sharing:
+    level: 2
+    rationale: "Data goes mainly to service providers and to Meta companies working on behalf of WhatsApp. Advertisers do not get chats. Businesses only get what you write to them."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea]
+  defaults:
+    level: 3
+    rationale: "End-to-end encryption is always on. Accounts Center is optional, and so are Status and Channels. Uploading contacts needs your permission on the device. Once you have given it, it usually happens every day."
+    confidence: medium
+    sources: [whatsapp-help-e2ee, whatsapp-accounts-center-policy-eea, whatsapp-help-contact-upload]
+  controls:
+    level: 3
+    rationale: "You can control who sees your profile and “Last seen”. You can also control contact access, location sharing, Accounts Center and ads (with a subscription). You cannot turn off WhatsApp recording your connections and usage."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload, meta-help-ads-subscription]
+  deletion:
+    level: 4
+    rationale: "You can request an account report and delete your account directly in the app. After delivery, messages are no longer kept by WhatsApp. Inactive accounts are deleted automatically."
+    confidence: medium
+    sources: [whatsapp-help-request-account-info, whatsapp-help-delete-account, whatsapp-privacy-policy-eea]
+  reachability:
+    level: 3
+    rationale: "You will find the most important options in the app under Settings > Privacy or Account. But you control contact access and the ad-free subscription elsewhere: in your device settings and in Accounts Center."
+    confidence: medium
+    sources: [whatsapp-privacy-policy-eea, whatsapp-help-contact-upload]
+alternatives: messaging
+linkedWith: [facebook, instagram]
+region: EU
+reviewedAt: "2026-10-07"

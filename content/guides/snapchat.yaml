@@ -1,0 +1,246 @@
+- id: snapchat-my-ai-data
+  service: snapchat
+  kind: setting
+  title: Deine Gespräche mit My AI löschen
+  goal: Du löschst, was du My AI geschrieben und geschickt hast.
+  whyItMatters: >-
+    Chats mit Freund*innen löscht Snapchat von selbst. Gespräche mit My AI dagegen bleiben gespeichert, bis du sie löschst. Snap nutzt sie, um My AI zu verbessern und um Werbung für dich auszuwählen.
+  whatChanges: >-
+    Deine bisherigen Inhalte mit My AI werden gelöscht. Laut Snap kann es bis zu 30 Tage dauern, bis sie von Snaps Rechnern verschwunden sind.
+  whatDoesNotChange: >-
+    Neue Nachrichten an My AI werden wieder gespeichert. Chats mit „Team Snapchat“ musst du getrennt löschen. Die Hilfeseite sagt nicht, ob auch Schlüsse gelöscht werden, die Snap aus den Gesprächen schon gezogen hat, z. B. für Werbung.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/18937378754324
+  steps:
+    - "Einzelne Nachrichten der letzten 24 Stunden: Halte die Nachricht im Chat mit My AI gedrückt und tippe auf „Löschen“."
+    - "Alles löschen: Tippe auf dein Profilsymbol und dann auf das Zahnradsymbol ⚙️, um die Einstellungen zu öffnen."
+    - "iPhone: Scrolle nach unten zu „Datenschutzeinstellungen“, tippe auf „Daten löschen“ und dann auf „My AI-Daten löschen“. Bestätige."
+    - "Android: Scrolle nach unten zu „Account-Aktionen“, tippe auf „My AI-Daten löschen“ und bestätige."
+  affects: [my-ai-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite (Seitentext per Abruf gelesen); Speicherdauer mit der Hilfeseite „Wann löscht Snapchat Snaps und Chats?“ abgeglichen."
+  sources:
+    - ref: snapchat-help-my-ai-delete
+      note: "Schritte für iOS und Android, Löschdauer bis zu 30 Tage, Team-Snapchat-Chats getrennt"
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Abschnitt „Snaps und Chats mit My AI“"
+    - ref: snap-privacy-by-product
+      note: "Abschnitt My AI: Nutzung für Verbesserung und Anzeigen"
+- id: snapchat-ghost-mode
+  service: snapchat
+  kind: setting
+  title: Geistmodus einschalten und Standort prüfen
+  goal: Du verbirgst deinen Standort auf der Snap Map vor anderen und entscheidest, ob Snap ihn überhaupt bekommt.
+  whyItMatters: >-
+    Auf der Snap Map können Freund*innen sehen, wo du gerade bist. Das ist praktisch, verrät aber viel: wo du wohnst, zur Schule gehst oder feierst. Teile deinen Standort nur mit Menschen, die du gut kennst.
+  whatChanges: >-
+    Im Geistmodus sieht niemand sonst deinen Standort auf der Karte. Du kannst wählen, wie lange: 3 Stunden, 24 Stunden oder bis du ihn wieder ausschaltest. Nimmst du Snapchat die Standortberechtigung, bekommt Snap deinen genauen Standort gar nicht mehr.
+  whatDoesNotChange: >-
+    Im Geistmodus wird dein Standort laut Snap weiter mit Snap geteilt. Auch My AI kann ihn noch nutzen. Wer deinen Live-Standort von dir bekommt, sieht ihn weiter, dafür gibt es eine eigene Einstellung. Snaps, die du an die Snap Map schickst, können trotzdem auf der Karte erscheinen. Ohne Standortberechtigung schätzt Snap deinen ungefähren Ort weiter aus deiner IP-Adresse (der Internet-Adresse deines Anschlusses).
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012322854932
+  steps:
+    - "Öffne in Snapchat die Map."
+    - "Tippe auf das Zahnradsymbol ⚙️, um die Karteneinstellungen zu öffnen."
+    - "Schalte den „Geistmodus“ ein."
+    - "Wähle aus, wie lange du im Geistmodus bleiben möchtest (3 Stunden, 24 Stunden oder bis zum Ausschalten)."
+    - "Optional: Wenn Snap deinen genauen Standort gar nicht bekommen soll, entziehe Snapchat in den Einstellungen deines Handys die Standortberechtigung."
+  affects: [precise-location]
+  tradeOff: "Freund*innen sehen dich nicht mehr auf der Karte. Ohne Standortberechtigung funktionieren manche Filter, Linsen und Ortstipps nicht."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite „Wie aktiviere ich den Geistmodus?“ (Seitentext per Abruf gelesen). Die Seite verortet das Zahnrad „unten rechts“, eine andere Hilfeseite „oben“; die Position wurde deshalb weggelassen. Schritt zur Geräteberechtigung laut „Datenschutz nach Produkt“, Abschnitt Standort."
+  sources:
+    - ref: snapchat-help-ghost-mode
+      note: "Schritte und Hinweis, dass der Standort weiter mit Snap geteilt wird"
+    - ref: snapchat-help-my-ai-location
+      note: "My AI im Geistmodus"
+    - ref: snap-privacy-by-product
+      note: "Abschnitte Snap Map und Standort: Live-Standort, Geräteberechtigung, ungefährer Standort aus IP-Adresse"
+    - ref: snapchat-help-map-safety
+      note: "Tipps zum Teilen des Standorts"
+- id: snapchat-ad-preferences
+  service: snapchat
+  kind: setting
+  title: Werbung nach Daten von anderen Firmen abschalten
+  goal: Du verhinderst, dass Snap Werbung nach deinem Verhalten auf anderen Websites, nach Kundenlisten oder über fremde Werbenetzwerke auswählt.
+  whyItMatters: >-
+    Viele Websites und Apps melden Snap, was du dort tust, z. B. über das Snap Pixel, ein unsichtbares Code-Stück. Firmen können auch Listen mit Telefonnummern oder E-Mail-Adressen ihrer Kundschaft hochladen. Laut Snap wiegen diese Daten bei der Werbeauswahl schwer.
+  whatChanges: >-
+    Mit „Aktivitätsbasiert“ aus nutzt Snap dein Verhalten auf fremden Websites und in Apps nicht mehr für deine Werbung. Mit „Zielgruppenspezifisch“ aus richtet Snap keine Werbung mehr nach Kundenlisten an dich. Mit „Werbenetzwerke von Drittanbietern“ aus siehst du keine Werbung mehr über fremde Werbenetzwerke.
+  whatDoesNotChange: >-
+    Du siehst weiter Werbung. Sie richtet sich weiter nach dem, was du in Snapchat tust, z. B. welche Storys du ansiehst. Firmen können Snap weiterhin Daten schicken. Für weniger Zuschnitt in der EU gibt es eine eigene Einstellung.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012345515796
+  steps:
+    - "Tippe in deinem Profil auf das Zahnradsymbol ⚙️, um die Einstellungen zu öffnen."
+    - "Tippe auf „Mein Account“."
+    - "Scrolle nach unten zu „Meinen Account verwalten“ und tippe auf „Anzeigenpräferenzen“. Auf Android tippst du zuerst auf „Anzeigen“ und dann auf „Anzeigenpräferenzen“."
+    - "Schalte „Aktivitätsbasiert“ aus."
+    - "Schalte „Zielgruppenspezifisch“ aus."
+    - "Schalte „Werbenetzwerke von Drittanbietern“ aus."
+  affects: [advertiser-data]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite „Anzeigen auf Snapchat verstehen“ (Seitentext per Abruf gelesen)."
+  sources:
+    - ref: snapchat-help-ads
+      note: "Abschnitte „Zielgruppenspezifische Anzeigen“, „Aktivitätsbasierte Anzeigen“ und „Werbenetzwerke von Drittanbietern“"
+    - ref: snap-ads-privacy
+      note: "Abschnitt „Kontrolle über die Anzeigen, die du siehst“"
+- id: snapchat-eu-personalisation
+  service: snapchat
+  kind: setting
+  title: In der EU der Personalisierung widersprechen
+  goal: Du sorgst dafür, dass Snap Inhalte und Werbung nicht mehr nach deinem Profil auswählt.
+  whyItMatters: >-
+    Ein EU-Gesetz, das Gesetz über digitale Dienste (DSA), verlangt, dass große Plattformen auch Inhalte ohne Zuschnitt auf dich anbieten. Snap bietet dafür in der EU eine eigene Einstellung an.
+  whatChanges: >-
+    Laut Snap siehst du dann nur noch Werbung passend zum Umfeld. Sie richtet sich z. B. nach dem öffentlichen Video daneben, der Tageszeit und der Sprache deines Handys. Entdecken und Spotlight zeigen dann Inhalte, die nicht auf dich zugeschnitten sind.
+  whatDoesNotChange: >-
+    Du siehst weiter Werbung. Snap zeichnet weiter auf, wie du die App nutzt. Deine Gespräche mit My AI bleiben gespeichert, bis du sie löschst.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/8961631424020
+  steps:
+    - "Tippe in deinem Profil auf das Zahnradsymbol ⚙️, um die Einstellungen zu öffnen."
+    - "Tippe auf „Personalisierungskontrollen“. Laut Snap steht die Option im Bereich „Kontrollen der EU“."
+    - "Schalte die Personalisierung aus."
+    - "Alternativ: Tippe in Entdecken oder Spotlight auf „…“ und dann auf „Warum sehe ich diesen Inhalt?“. So kommst du ebenfalls zu den Einstellungen."
+    - "Hab etwas Geduld: Laut Snap kann es dauern, bis sich die Inhalte ändern."
+  affects: [usage, advertiser-data, my-ai-chats, content-analysis]
+  tradeOff: "Inhalte und Werbung passen weniger zu deinen Interessen."
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: >-
+      Schritte mit den offiziellen Snapchat-Hilfeseiten „So bewerten wir Content in Entdecken“ und „So ranken wir Inhalte in Spotlight“ (deutsche Fassungen, abgerufen 2026-10-21) abgeglichen: „Oder du gehst direkt zu den Einstellungen und wählst dort die Option ‚Personalisierungskontrollen‘“ bzw. über „…“ und „Warum sehe ich diesen Inhalt?“. Wirkung auf Werbung mit der Seite „Snap und Anzeigen“ abgeglichen (Bereich „Kontrollen der EU“ auf der Seite „Einstellungen“, „Personalisierungskontrolle“ deaktiviert → kontextbezogene Anzeigen). Die Hilfeseiten nennen die Option mal im Singular, mal im Plural, und nicht die genaue Beschriftung des Schalters. Nicht in der App geprüft.
+  sources:
+    - ref: snapchat-help-rank-discover
+      note: "Abschnitt zum Deaktivieren personalisierter Inhalte: Einstellungen → „Personalisierungskontrollen“"
+    - ref: snapchat-help-rank-spotlight
+      note: "Gleicher Weg für Spotlight, Hinweis auf Verzögerung"
+    - ref: snap-ads-privacy
+      note: "Abschnitt zu EU, UK, Norwegen und Schweiz: „Personalisierungskontrolle“, kontextbezogene Anzeigen"
+    - ref: snap-newsroom-dsa-2023
+      note: "Abschalten personalisierter Entdecken- und Spotlight-Inhalte"
+- id: snapchat-contacts
+  service: snapchat
+  kind: permission
+  title: Hochgeladene Kontakte löschen und Zugriff beenden
+  goal: Du löschst dein Adressbuch bei Snap und verhinderst, dass es neu hochgeladen wird.
+  whyItMatters: >-
+    Gibst du Snapchat deine Kontakte frei, speichert Snap Namen, Telefonnummern und E-Mail-Adressen daraus. Also auch von Menschen, die Snapchat gar nicht nutzen. Die Liste bleibt gespeichert, bis du sie in der App löschst.
+  whatChanges: >-
+    Snap löscht die Kontakte, die du geteilt hast. Ohne Berechtigung auf dem Handy kann Snapchat dein Adressbuch nicht erneut lesen.
+  whatDoesNotChange: >-
+    Nur die Berechtigung am Handy zu entziehen löscht laut Snap die schon geteilten Kontakte nicht in allen Fällen. Andere können dich weiter in „Freunde finden“ sehen, z. B. weil du in ihrem Adressbuch stehst. Wer dich dort sehen darf, stellst du getrennt unter „Wer mich in „Freunde finden“ sehen kann“ ein.
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012328615828
+  steps:
+    - "Tippe in deinem Profil auf das Zahnradsymbol ⚙️, um die Einstellungen zu öffnen."
+    - "Gehe zu „Datenschutzeinstellungen“ und tippe auf „Daten löschen“."
+    - "Tippe auf „Kontaktdaten löschen“."
+    - "Entziehe Snapchat in den Einstellungen deines Handys den Zugriff auf deine Kontakte."
+  affects: [contacts]
+  tradeOff: "Snapchat schlägt dir keine Freund*innen mehr aus deinem Adressbuch vor."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite „Freunde auf Snapchat hinzufügen“ (Seitentext per Abruf gelesen). Die Seite nennt den Weg ohne Unterschied zwischen iOS und Android; bei My AI liegt „Daten löschen“ auf Android unter „Account-Aktionen“, das kann hier ähnlich sein."
+  sources:
+    - ref: snapchat-help-add-friends
+      note: "„Datenschutzeinstellungen“ > „Daten löschen“ > „Kontaktdaten löschen“; Geräteberechtigung entfernt geteilte Kontakte nicht in allen Fällen"
+    - ref: snap-privacy-policy
+      note: "Speicherung der geteilten Kontaktliste, Berechtigungen in den App-Einstellungen ändern"
+    - ref: snapchat-help-privacy-settings
+      note: "Einstellung „Wer mich in „Freunde finden“ sehen kann“"
+- id: snapchat-download-data
+  service: snapchat
+  kind: export
+  title: Eine Kopie deiner Snapchat-Daten anfordern
+  goal: Du siehst, welche Daten Snap zu deinem Konto gespeichert hat.
+  whyItMatters: >-
+    Nach der DSGVO, dem EU-Datenschutzgesetz, darfst du erfahren, was über dich gespeichert ist. In der Kopie stehen z. B. deine Freundesliste, dein Suchverlauf und gespeicherte Standortdaten.
+  whatChanges: >-
+    Du bekommst eine ZIP-Datei mit deinen Daten. Snap bemüht sich, sie innerhalb von 7 Tagen bereitzustellen. Große Downloads können länger dauern.
+  whatDoesNotChange: >-
+    Es wird nichts gelöscht. Snap speichert Daten unterschiedlich lange, deshalb fehlt manches, z. B. längst gelöschte Chats.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://accounts.snapchat.com/accounts/downloadmydata
+  steps:
+    - "Melde dich auf accounts.snapchat.com an. In der App erreichst du die Seite über die Einstellungen und „Meine Daten“."
+    - "Klicke auf „Meine Daten“."
+    - "Wähle die Daten aus, die du haben möchtest, und den Zeitraum. Ohne Zeitraum bekommst du alles."
+    - "Bestätige die E-Mail-Adresse, an die Snap dir Bescheid geben soll."
+    - "Klicke unten auf „Senden“."
+    - "Sobald die E-Mail kommt: Wähle „Exporte anzeigen“ und dann „Herunterladen“."
+  affects: [account, contacts, precise-location, searches, my-ai-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite „Wie lade ich meine Daten aus Snapchat herunter?“ (Seitentext per Abruf gelesen)."
+  sources:
+    - ref: snapchat-help-download-data
+      note: "Abschnitt „Wie greife ich auf meine Snapchat Daten zu?“ und Bearbeitungszeit"
+    - ref: snap-eea-privacy-notice
+      note: "Rechte auf Auskunft und Übertragbarkeit"
+- id: snapchat-delete-account
+  service: snapchat
+  kind: deletion
+  title: Dein Snapchat-Konto löschen
+  goal: Du beendest die Nutzung und lässt dein Konto und die zugehörigen Daten löschen.
+  whyItMatters: >-
+    Gespräche mit My AI, Memorys und hochgeladene Kontakte bleiben, solange dein Konto besteht. Das Konto zu löschen beendet das.
+  whatChanges: >-
+    Dein Konto wird zuerst 30 Tage lang deaktiviert. In dieser Zeit kannst du es zurückholen und deine Daten herunterladen. Danach wird es dauerhaft gelöscht. Laut Snap sind die Daten nach 60 Tagen dauerhaft gelöscht.
+  whatDoesNotChange: >-
+    Manche Daten bewahrt Snap aus rechtlichen, Sicherheits- und geschäftlichen Gründen auf, z. B. Angaben zu Käufen. Was andere gespeichert oder per Screenshot festgehalten haben, bleibt bei ihnen.
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012328360596
+  steps:
+    - "Optional vorher: Lade deine Daten und Memorys herunter."
+    - "In der App: Tippe in deinem Profil auf das Zahnradsymbol ⚙️, scrolle zu „Account-Aktionen“ und tippe auf „Account löschen“."
+    - "Im Browser: Melde dich im Snapchat Accounts-Portal an und tippe auf „Meinen Account löschen“."
+    - "Gib dein Passwort ein und tippe auf „Weiter“, um die Löschung zu bestätigen."
+  affects: [account, content, my-ai-chats, contacts, usage]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Abgleich mit offizieller deutscher Snapchat-Hilfeseite „Wie deaktiviere oder lösche ich meinen Snapchat Account?“ (Seitentext per Abruf gelesen)."
+  sources:
+    - ref: snapchat-help-delete-account
+      note: "Schritte für App und Web, 30 Tage Deaktivierung, Löschung nach 60 Tagen, Ausnahmen"
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Empfänger können Inhalte per Screenshot speichern"

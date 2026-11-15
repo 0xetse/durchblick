@@ -1,0 +1,123 @@
+---
+import Base from '~/layouts/Base.astro';
+import { dict, href, localeOf } from '~/i18n';
+import { Badge } from '~/components/Glyph';
+import { CONTROL_DIMENSIONS, EXPOSURE_DIMENSIONS } from '~/domain/schema';
+import { STALE_AFTER_MONTHS } from '~/domain/freshness';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+
+const TXT_DE = {
+  title: 'Methodik: Quellen, Sicherheit der Aussagen, Einordnung',
+  description: 'Wie Durchblick Aussagen belegt, Gewissheit kennzeichnet, Apps einordnet und Anleitungen aktuell hält.',
+  levels: 'Stufen:',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'Methodology: sources, how certain a statement is, assessment',
+  description: 'How Durchblick backs up statements, marks how certain they are, assesses apps and keeps guides up to date.',
+  levels: 'Levels:',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+---
+<Base title={s.title} description={s.description} path={href(locale, 'methodology')} crumbs={[{ label: t.nav.methodology }]}>
+  <section>
+    <div class="wrap prose">
+      {locale === 'en' ? (
+        <>
+          <h1>How we work</h1>
+          <p class="lead">Privacy is a topic where it is easy to exaggerate and quick to lose trust. That is why we show where every statement comes from, how certain it is and how we make our assessments.</p>
+
+          <h2>1. Sources</h2>
+          <ol>
+            <li><strong>Primary sources:</strong> privacy policies, help pages and technical documentation of the providers, supervisory authorities, laws and courts.</li>
+            <li><strong>Research and journalism:</strong> peer-reviewed studies, recognised security and privacy research, major investigations.</li>
+            <li><strong>Secondary sources:</strong> explainer pages and encyclopaedias – only as a supplement, never as the only evidence for a statement about a provider.</li>
+          </ol>
+          <p>For every source we store the address, publisher, date retrieved and region. Uncertain research findings are not quietly turned into facts. Where a source is in German, we mark it as such.</p>
+          <p>Words in quotation marks on the English pages that come from a German-language source are our own translation. The original wording is on the German pages and in the linked source; that wording is what counts.</p>
+        </>
+      ) : (
+        <>
+          <h1>Wie wir arbeiten</h1>
+          <p class="lead">Datenschutz ist ein Thema, bei dem Übertreibung leicht fällt und Vertrauen schnell verspielt ist. Deshalb legen wir offen, woher jede Aussage kommt, wie sicher sie ist und wie wir einordnen.</p>
+
+          <h2>1. Quellen</h2>
+          <ol>
+            <li><strong>Primärquellen:</strong> Datenschutzerklärungen, Hilfeseiten und technische Dokumentation der Anbieter, Aufsichtsbehörden, Gesetze und Gerichte.</li>
+            <li><strong>Forschung und Journalismus:</strong> begutachtete Studien, anerkannte Sicherheits- und Datenschutzforschung, große Recherchen.</li>
+            <li><strong>Sekundärquellen:</strong> Erklärseiten und Lexika – nur ergänzend, nie als alleiniger Beleg für eine Aussage über einen Anbieter.</li>
+          </ol>
+          <p>Zu jeder Quelle speichern wir Adresse, Herausgeber, Abrufdatum und Region. Unsichere Forschungsergebnisse werden nicht stillschweigend zu Tatsachen.</p>
+          <p>Wo wir fremdsprachige Quellen auf Deutsch wiedergeben, ist das unsere Übersetzung oder Zusammenfassung. Maßgeblich ist der Wortlaut der verlinkten Quelle.</p>
+        </>
+      )}
+
+      <h2>{locale === 'en' ? '2. Where does the data come from?' : '2. Woher stammen die Daten?'}</h2>
+      <ul class="legend-list">
+        <li><Badge kind="provided" label={t.provenance.provided.label} /> {t.provenance.provided.hint}</li>
+        <li><Badge kind="observed" label={t.provenance.observed.label} /> {t.provenance.observed.hint}</li>
+        <li><Badge kind="derived" label={t.provenance.derived.label} /> {t.provenance.derived.hint}</li>
+      </ul>
+
+      <h2>{locale === 'en' ? '3. How certain is the statement?' : '3. Wie sicher ist die Aussage?'}</h2>
+      <ul class="legend-list">
+        <li><strong>{t.evidence.stated.label}:</strong> {t.evidence.stated.hint}</li>
+        <li><strong>{t.evidence.technical.label}:</strong> {t.evidence.technical.hint}</li>
+        <li><strong>{t.evidence.research.label}:</strong> {t.evidence.research.hint}</li>
+        <li><Badge kind="documented" label={t.inference.documented.label} /> {t.inference.documented.hint}</li>
+        <li><Badge kind="possible" label={t.inference.possible.label} /> {t.inference.possible.hint} {locale === 'en' ? 'We never present this as a fact.' : 'Wir stellen das nie als Tatsache dar.'}</li>
+      </ul>
+
+      {locale === 'en' ? (
+        <>
+          <p>This distinction is enforced technically: content that does not say where the data comes from, how certain the statement is and which source backs it up cannot be published at all – the automatic check stops.</p>
+
+          <h2 id="datenprofil">4. Assessment instead of a score</h2>
+          <p>We deliberately give <strong>no overall score</strong> such as “42 out of 100”. A number like that pretends to be precise, hides a value judgement (what counts for more?) and invites a false sense of security. Instead we assess each service on ten points, each in four levels, with reasons and sources:</p>
+        </>
+      ) : (
+        <>
+          <p>Die Unterscheidung ist technisch erzwungen: Ein Inhalt ohne Angabe, woher die Daten stammen, wie sicher die Aussage ist und welche Quelle sie belegt, lässt sich gar nicht veröffentlichen – die automatische Prüfung bricht dann ab.</p>
+
+          <h2 id="datenprofil">4. Einordnung statt Punktzahl</h2>
+          <p>Wir vergeben bewusst <strong>keine Gesamtnote</strong> wie „42 von 100“. Eine solche Zahl täuscht Messgenauigkeit vor, versteckt eine Wertentscheidung (was wiegt schwerer?) und lädt zu falscher Sicherheit ein. Stattdessen ordnen wir jeden Dienst in zehn Punkten ein, jeweils in vier Stufen, mit Begründung und Quelle:</p>
+        </>
+      )}
+      <h3>{t.groups.exposure}</h3>
+      <ul>{EXPOSURE_DIMENSIONS.map((d) => <li><strong>{t.dimensions[d].label}</strong> – {t.dimensions[d].question}</li>)}</ul>
+      <p class="small muted">{s.levels} {t.exposureLevels.join(' · ')}</p>
+      <h3>{t.groups.control}</h3>
+      <ul>{CONTROL_DIMENSIONS.map((d) => <li><strong>{t.dimensions[d].label}</strong> – {t.dimensions[d].question}</li>)}</ul>
+      <p class="small muted">{s.levels} {t.controlLevels.join(' · ')}</p>
+
+      {locale === 'en' ? (
+        <>
+          <p>We assess the default behaviour for adults in the EU with an account. We assess documented practices – nobody on the outside can fully check what actually happens internally. There is no ranking of services. The exact description of the levels is documented in the source code.</p>
+
+          <h2>5. How up to date</h2>
+          <p>Settings change all the time. Every guide carries the date it was checked. We only write down steps if an official help page confirms them; otherwise the guide says “{t.freshness.needsVerification}” and we only link to the official settings page. After {STALE_AFTER_MONTHS} months without a check, the note “{t.freshness.stale}” appears.</p>
+
+          <h2>6. What we are not</h2>
+          <p>Durchblick is a source of information, not legal advice. We earn nothing from the alternatives we mention and take no money from the companies we assess.</p>
+
+          <h2>7. Found a mistake?</h2>
+          <p>If a statement is wrong or out of date, we want to know. We document corrections with a date. <em>(A way to contact us will follow with the legal notice.)</em></p>
+        </>
+      ) : (
+        <>
+          <p>Bewertet wird das Standardverhalten für Erwachsene in der EU mit Konto. Wir bewerten dokumentierte Praktiken – was intern tatsächlich passiert, kann niemand von außen vollständig prüfen. Es gibt keine Rangliste der Dienste. Die genaue Beschreibung der Stufen ist im Quellcode dokumentiert.</p>
+
+          <h2>5. Aktualität</h2>
+          <p>Einstellungen ändern sich ständig. Jede Anleitung trägt ein Prüfdatum. Schritte schreiben wir nur auf, wenn eine offizielle Hilfeseite sie bestätigt; sonst steht dort „Schritte noch nicht geprüft“ und wir verlinken nur die offizielle Einstellungsseite. Nach {STALE_AFTER_MONTHS} Monaten ohne Prüfung erscheint der Hinweis „Möglicherweise veraltet“.</p>
+
+          <h2>6. Was wir nicht sind</h2>
+          <p>Durchblick ist ein Informationsangebot, keine Rechtsberatung. Wir verdienen nicht an Alternativen, die wir nennen, und nehmen kein Geld von bewerteten Unternehmen.</p>
+
+          <h2>7. Fehler gefunden?</h2>
+          <p>Wenn eine Aussage falsch oder veraltet ist, wollen wir das wissen. Korrekturen dokumentieren wir mit Datum. <em>(Kontaktweg folgt mit dem Impressum.)</em></p>
+        </>
+      )}
+    </div>
+  </section>
+</Base>

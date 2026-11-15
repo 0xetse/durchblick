@@ -1,0 +1,193 @@
+- id: tiktok-personalised-ads
+  service: tiktok
+  kind: setting
+  title: Personalisierte Werbung in TikTok ablehnen
+  goal: Du sorgst dafür, dass TikTok Werbung nicht mehr anhand deines Verhaltens auswählt.
+  whyItMatters: >-
+    Im EWR braucht TikTok deine Einwilligung, um Werbung nach deinen Aktivitäten in und außerhalb der App auszuwählen. Diese Einwilligung kannst du jederzeit in den Einstellungen zurücknehmen.
+  whatChanges: >-
+    Laut TikTok werden Daten zu deinen Aktivitäten in und außerhalb von TikTok dann nicht mehr genutzt, um
+    Anzeigen für dich auszuwählen.
+  whatDoesNotChange: >-
+    Du siehst weiterhin Werbung, nur allgemeinere – laut TikTok z. B. nach Land, Sprache und Alter. Dein Feed richtet sich weiter nach deinen Interessen. TikTok erfasst auch weiterhin, wie du die App nutzt, für andere Zwecke.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Tippe in der TikTok-App unten auf „Profil“."
+    - "Tippe oben auf die Schaltfläche „Menü ☰“ und wähle „Einstellungen und Datenschutz“."
+    - "Tippe auf „Anzeigen“."
+    - "Schalte den Schieberegler unter „Personalisierung von Anzeigen“ aus."
+  affects: [viewing-behaviour, off-tiktok-activity]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Abgleich mit offizieller TikTok-Hilfeseite (im Browser gerendert)"
+  sources:
+    - ref: tiktok-privacy-center-ads
+      note: "Abschnitt „EWR, Vereinigtes Königreich und Schweiz“: Schieberegler „Personalisierung von Anzeigen“"
+    - ref: tiktok-help-targeted-ads
+      note: "Menüpfad Profil > Menü ☰ > Einstellungen und Datenschutz > Anzeigen"
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitt zu Werbung: Einwilligung, Widerruf in den Einstellungen"
+- id: tiktok-off-tiktok-activity
+  service: tiktok
+  kind: setting
+  title: Aktivitäten außerhalb von TikTok trennen
+  goal: Du trennst Daten, die Partner über dein Verhalten auf anderen Websites und in Apps an TikTok gemeldet haben.
+  whyItMatters: >-
+    Viele Websites haben ein kleines, unsichtbares Code-Stück von TikTok eingebaut, das sogenannte TikTok Pixel. Über solche Werkzeuge melden sie z. B. Käufe oder Seitenaufrufe an TikTok. Diese Daten können für personalisierte Werbung genutzt werden.
+  whatChanges: >-
+    Laut TikTok-Hilfe werden gemeldete Aktivitäten von deinem Konto getrennt. Das kann bis zu 30 Tage dauern. Löschen kannst du sie höchstens alle 24 Stunden.
+  whatDoesNotChange: >-
+    Websites können weiterhin Daten an TikTok senden. Das Trennen löst nur die Verbindung zu deinem Konto. Es verhindert nicht, dass fremde Websites Daten sammeln.
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios, web]
+  steps:
+    - "Tippe in der TikTok-App unten auf „Profil“."
+    - "Tippe oben auf die Schaltfläche „Menü ☰“ und wähle „Einstellungen und Datenschutz“."
+    - "Tippe auf „Anzeigen“."
+    - "Tippe auf „Aktivitäten löschen“ und dann auf „Bestätigen“."
+    - "Optional: Tippe auf „Verbindung zu Werbeträgern trennen“ und deaktiviere die Einstellung neben einzelnen Werbeträgern."
+  affects: [off-tiktok-activity]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Abgleich mit offizieller TikTok-Hilfeseite (im Browser gerendert)"
+  sources:
+    - ref: tiktok-help-off-tiktok-data
+      note: "Abschnitte „Verbindung zu Werbeträgern trennen“ und „Aktivitäten löschen“"
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitt zu Informationen von Werbetreibenden und Partnern"
+- id: tiktok-non-personalised-feed
+  service: tiktok
+  kind: setting
+  title: Für-dich-Feed ohne Personalisierung nutzen
+  tradeOff: "Dein Feed zeigt dann beliebte Videos statt solcher, die auf dich zugeschnitten sind."
+  goal: Du lässt dir beliebte Videos aus deiner Region und weltweit zeigen statt Empfehlungen nach deinem Profil.
+  whyItMatters: >-
+    TikTok wertet laufend aus, was du dir ansiehst, und baut daraus den Für-dich-Feed. Wegen eines EU-Gesetzes, des Gesetzes über digitale Dienste (DSA), bietet TikTok in Europa auch einen Feed an, der nicht auf dich zugeschnitten ist.
+  whatChanges: >-
+    Laut TikTok wird der Für-dich-Feed zum Feed „Beliebt“. Er zeigt beliebte Inhalte aus deiner Region und weltweit. „Gefolgt“ und „Freund*innen“ können nach Zeit sortiert sein, das Neueste zuerst. Auch LIVE, „Erkunden“, Kommentare und Kontoempfehlungen richten sich dann nicht mehr nach dir.
+  whatDoesNotChange: >-
+    TikTok erfasst weiterhin, was du ansiehst. Die Werbung ändert sich dadurch nicht. Die Suche bleibt auf dich zugeschnitten, bis du auch die eigene Einstellung „personalisierte Suche“ abschaltest.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps: []
+  affects: [viewing-behaviour]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      Wirkung in der offiziellen Hilfeseite „So empfiehlt TikTok Inhalte“ bestätigt (im Browser gerendert). Die dort verlinkte Seite mit den Schritten („managing-personalization-on-tiktok“, Weiterleitung auf faq_detail?id=7543604773367536184) lieferte am 2026-10-07 auch beim erneuten Abruf nur „Es ist etwas schiefgelaufen“ – mit de-DE und en-US, Desktop und Mobil, langer Wartezeit und „Erneut versuchen“. Newsroom-Beitrag zum DSA, Transparenzzentrum (Empfehlungssystem, regionale Maßnahmen) und Datenschutzzentrum („Deine Datenschutztools“) beschreiben die Wirkung, aber keine Schritte. Schritte daher nicht übernommen. Am 2026-10-21 erneut versucht (aus einem Nicht-EU-Netz): Die Hilfeseite leitet weiter auf www.tiktok.com/support/faq_detail?id=7543604773367536184, liefert aber nur eine leere Seitenhülle ohne Text (Region „US-TTP“). Eine Suche nach einer anderen offiziellen Seite mit Schritten für den nicht personalisierten Feed fand nur Seiten zu „Inhaltseinstellungen“/„Themen verwalten“, nicht zu dieser Einstellung. Weiter keine Schritte.
+  sources:
+    - ref: tiktok-help-recommends-content
+      note: "Abschnitt „So verwaltest du die Personalisierungseinstellungen auf TikTok“"
+    - ref: tiktok-newsroom-dsa-2023
+      note: "Abschnitt zur Abschaltung der Personalisierung"
+- id: tiktok-contacts
+  service: tiktok
+  kind: permission
+  title: Kontaktsynchronisierung und Standortberechtigung prüfen
+  goal: Du entscheidest, ob TikTok dein Adressbuch und deinen genauen Standort bekommt.
+  whyItMatters: >-
+    Gleichst du deine Kontakte mit TikTok ab, bekommt TikTok Namen, Nummern und E-Mail-Adressen aus deinem Telefonbuch. Also auch Daten von Menschen, die TikTok gar nicht nutzen. Deinen genauen Standort bekommt TikTok nur, wenn du ihn am Gerät freigibst.
+  whatChanges: >-
+    TikTok gleicht dein Adressbuch nicht mehr ab und bekommt keinen genauen Standort von deinem Gerät.
+  whatDoesNotChange: >-
+    Deinen ungefähren Standort bestimmt TikTok weiterhin, z. B. aus deiner IP-Adresse (der Internet-Adresse deines Anschlusses) und deiner SIM-Karte. Schon hochgeladene Kontakte werden durch das Ausschalten nicht gelöscht. Laut TikTok werden daraus weiter Konten vorgeschlagen, bis du sie ausdrücklich entfernst.
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Tippe in der TikTok-App unten auf „Profil“."
+    - "Tippe oben auf die Schaltfläche „Menü ☰“ und wähle „Einstellungen und Datenschutz“."
+    - "Tippe auf „Privacy“ und dann auf „Sync contacts and Facebook friends“ (Bezeichnungen laut englischer Hilfeseite)."
+    - "Schalte „Sync contacts“ aus."
+    - "Entferne dort bei Bedarf bereits synchronisierte Kontakte („Remove previously synced contacts“)."
+    - "Schalte in den Geräteeinstellungen die Standortdienste für TikTok aus."
+  affects: [contacts, precise-location]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Abgleich mit offizieller TikTok-Hilfeseite (im Browser gerendert)"
+  sources:
+    - ref: tiktok-help-suggested-accounts
+      note: "Abschnitt „Sync contacts and Facebook friends“"
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitte zu Kontakten und Standortinformationen: genauer Standort nur bei aktivierten Standortdiensten in den Geräteeinstellungen"
+- id: tiktok-download-data
+  service: tiktok
+  kind: export
+  title: Eine Kopie deiner TikTok-Daten anfordern
+  goal: Du siehst, welche Daten TikTok zu deinem Konto gespeichert hat.
+  whyItMatters: >-
+    Nach der DSGVO, dem EU-Datenschutzgesetz, darfst du erfahren, was über dich gespeichert ist, und deine Daten mitnehmen. Die Kopie zeigt dir das ganz konkret.
+  whatChanges: >-
+    Du bekommst eine Datei mit deinen Konto- und Aktivitätsdaten. Laut TikTok kann die Vorbereitung einige Tage dauern. Danach kannst du die Datei bis zu 4 Tage lang herunterladen.
+  whatDoesNotChange: >-
+    Es wird nichts gelöscht oder geändert. Laut TikTok fehlen manche Daten, z. B. solche, die die Privatsphäre anderer betreffen, und teils die letzten 24 bis 48 Stunden. Was TikTok aus deinen Daten über dich schätzt, ist nicht unbedingt vollständig enthalten.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Tippe in der TikTok-App unten auf „Profil“."
+    - "Tippe oben auf die Schaltfläche „Menü ☰“ und wähle „Einstellungen und Datenschutz“."
+    - "Tippe auf „Konto“ und dann auf „Deine Daten herunterladen“."
+    - "Wähle aus, welche Informationen enthalten sein sollen, und wähle ein Dateiformat."
+    - "Tippe auf „Daten anfordern“."
+    - "Sobald TikTok dich benachrichtigt, lade die Datei unter „Daten herunterladen“ herunter."
+  affects: [account, content, viewing-behaviour, searches, messages]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Abgleich mit offizieller TikTok-Hilfeseite (im Browser gerendert)"
+  sources:
+    - ref: tiktok-help-requesting-data
+      note: "Abschnitt „So lädst du deine Daten herunter“"
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitt zu deinen Rechten"
+- id: tiktok-delete-account
+  service: tiktok
+  kind: deletion
+  title: Dein TikTok-Konto löschen
+  goal: Du beendest die Nutzung und lässt dein Konto und die zugehörigen Daten löschen.
+  whyItMatters: >-
+    Solange dein Konto besteht, bewahrt TikTok deine Daten ohne feste Frist auf. Das Konto zu löschen ist der wirksamste Weg, das zu beenden.
+  whatChanges: >-
+    Dein Profil und deine Inhalte werden entfernt. TikTok löscht die Daten, außer es muss sie aufbewahren.
+  whatDoesNotChange: >-
+    Daten, die TikTok aus rechtlichen Gründen oder wegen Regelverstößen aufbewahrt, können länger gespeichert bleiben. Inhalte, die andere geteilt oder heruntergeladen haben, sind nicht betroffen.
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Tippe in der TikTok-App unten auf „Profil“."
+    - "Tippe oben auf die Schaltfläche „Menü ☰“."
+    - "Tippe auf „Einstellungen und Datenschutz“."
+    - "Tippe auf „Konto“ und dann auf „Konto deaktivieren oder löschen“."
+    - "Folge den Anweisungen zum Löschen des Kontos."
+  affects: [account, content, messages, viewing-behaviour]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Abgleich mit offizieller TikTok-Hilfeseite (im Browser gerendert)"
+  sources:
+    - ref: tiktok-help-delete-account
+      note: "Menüpfad zum Löschen"
+    - ref: tiktok-privacy-policy-eea
+      note: "Abschnitte zu Speicherdauer und deinen Rechten"

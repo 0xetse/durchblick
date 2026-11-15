@@ -1,0 +1,167 @@
+- id: telegram-secret-chat
+  service: telegram
+  kind: setting
+  title: Start a Secret Chat for private conversations
+  goal: "A one-to-one conversation is end-to-end encrypted: only you and the other person can read it, not Telegram."
+  whyItMatters: "Normal Telegram chats are stored at Telegram, and Telegram has the keys. Only in Secret Chats does the content stay on your two devices."
+  whatChanges: "The new chat is end-to-end encrypted and is not stored at Telegram. Messages cannot be forwarded. With the self-destruct timer, they disappear from both devices after a time you choose."
+  whatDoesNotChange: "Your existing normal chat with the person stays as it is. Groups cannot be Secret Chats. Telegram still sees your account, your contacts and your IP address. The other person can still take screenshots."
+  tradeOff: "The Secret Chat is only on the device where you started it. If you log out, it is gone."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://telegram.org/faq/de#f-wie-kann-ich-einen-geheimen-chat-starten
+  steps:
+    - "Open the normal chat with the person and tap their profile picture at the top."
+    - "Tap “…” and then “Start Secret Chat”."
+    - "Optional: Set the self-destruct timer. iPhone: in the Secret Chat, tap the small stopwatch in the text input field. Android: in the Secret Chat, tap the profile picture at the top."
+    - "Optional: Compare the key image in the Secret Chat's settings, ideally in person. If it is the same, the connection is secure."
+  affects: [tg-cloud-chats, tg-secret-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Steps checked against the German Telegram FAQ (“How do I start a Secret Chat?”, “How do self-destructing messages work?”, comparing keys); features checked against the English FAQ and section 3.3.2 of the privacy policy. Not checked in the app."
+  sources: [telegram-faq-de, telegram-faq, telegram-privacy-policy]
+- id: telegram-phone-number
+  service: telegram
+  kind: setting
+  title: Decide who sees your phone number
+  goal: "Only the people you want to show it to see your mobile number."
+  whyItMatters: "In groups, you meet many strangers. Anyone who sees your number can also reach you outside Telegram."
+  whatChanges: "Others only see your number according to your setting. By default, these are only people you have saved as a contact."
+  whatDoesNotChange: "People who already know your number and have saved it still see it. Telegram itself still knows your number – and can give it to authorities if a court orders it."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios, desktop-app]
+  officialUrl: https://telegram.org/faq/de#f-wer-kann-meine-nummer-sehen
+  steps:
+    - "In Telegram, open “Settings” → “Privacy and Security” → “Phone Number”."
+    - "Choose who may see your number."
+  affects: [tg-account]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menu path checked against the German Telegram FAQ (“Who can see my number?”) and the English FAQ (“Settings > Privacy and Security > Phone Number”). The FAQ does not give the names of the individual options. Not checked in the app."
+  sources: [telegram-faq-de, telegram-faq]
+- id: telegram-contact-sync
+  service: telegram
+  kind: setting
+  title: Stop contact syncing and delete saved contacts
+  goal: "Telegram no longer matches your address book and deletes the saved contacts."
+  whyItMatters: "With your consent, Telegram saves numbers and names from your address book – including people who do not use Telegram at all."
+  whatChanges: "The contacts saved at Telegram are deleted. When syncing is off, Telegram no longer uploads new contacts."
+  whatDoesNotChange: "Others can still pass on your number through their address book. Chats and groups stay. Telegram still knows the people you write to."
+  tradeOff: "Telegram then no longer shows you automatically who from your address book uses Telegram."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Open “Settings” → “Privacy and Security”. On iPhone, also tap “Data Settings”."
+    - "Turn off contact syncing."
+    - "Tap “Delete Synced Contacts”."
+  affects: [tg-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against section 3.4 of the German privacy policy (“In the Telegram settings under Privacy and Security (on iOS in the Data Settings submenu), you can stop syncing contacts at any time or delete the contacts from our servers.”) and the German FAQ (“Delete Synced Contacts”). The sources do not give the exact label of the syncing switch. Not checked in the app."
+  sources: [telegram-privacy-policy, telegram-faq-de]
+- id: telegram-frequent-contacts
+  service: telegram
+  kind: setting
+  title: Turn off suggestions for frequent contacts
+  goal: "Telegram no longer works out who you write to often, and deletes this data."
+  whyItMatters: "For the suggestions in search, Telegram rates which people and bots you deal with often."
+  whatChanges: "The rating and the data that goes with it are deleted. No more suggestions appear at the top of search."
+  whatDoesNotChange: "Your chats stay stored at Telegram. Metadata such as IP address and devices stays for up to 12 months."
+  tradeOff: "You can no longer find people you often write to with a single tap in search."
+  impact: low
+  minutes: 1
+  difficulty: easy
+  platforms: [android, ios]
+  steps:
+    - "Open “Settings” → “Privacy and Security”. On iPhone, also tap “Data Settings”."
+    - "Turn off “Suggest Frequent Contacts” (the FAQ uses a slightly different name)."
+  affects: [tg-usage-aggregates]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against section 5.5 of the German privacy policy (“To turn off this feature and delete the relevant data, go to Settings > Privacy and Security (on iOS also Data Settings) and turn off ‘Suggest Frequent Contacts’.”) and the German FAQ. The two sources use slightly different names. Not checked in the app."
+  sources: [telegram-privacy-policy, telegram-faq-de]
+- id: telegram-export-data
+  service: telegram
+  kind: export
+  title: Export your Telegram data
+  goal: "You get a copy of your chats and account data as a file."
+  whyItMatters: "Normal chats are stored at Telegram. With the export, you see what is stored there and can back it up before you delete anything."
+  whatChanges: "Telegram creates a copy, either as a web page (HTML) or as a machine-readable file (JSON)."
+  whatDoesNotChange: "Nothing is deleted at Telegram. Secret Chats are only on your device and are not in the cloud."
+  impact: medium
+  minutes: 15
+  difficulty: medium
+  platforms: [desktop-app]
+  officialUrl: https://core.telegram.org/import-export
+  steps:
+    - "Install Telegram Desktop on your computer and log in."
+    - "Click “Settings” → “Advanced” → “Export Telegram data”."
+    - "Choose the format: “HTML” to read in your browser or “JSON” as a machine-readable file."
+    - "After the export, open the file “export_results.html” in your browser."
+  affects: [tg-account, tg-cloud-chats, tg-contacts]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Menu path checked against the official Telegram documentation “Telegram Data Export Schema” (core.telegram.org/import-export, retrieved 2026-10-21): “make sure you have Telegram Desktop installed on your computer, then click Settings > Advanced > Export Telegram data”, export as JSON or HTML, start file “export_results.html”. The page only gives English menu names. The FAQ confirms that Telegram Desktop can export data. Not checked in the app."
+  sources: [telegram-core-export, telegram-faq, telegram-blog-export, telegram-privacy-policy]
+- id: telegram-delete-account
+  service: telegram
+  kind: deletion
+  title: Delete your Telegram account
+  goal: "Your account with all messages, media and contacts in the Telegram cloud is deleted."
+  whyItMatters: "Deleting the app is not enough. Your chats stay at Telegram until you delete the account or it is deleted automatically after a long time without use."
+  whatChanges: "Telegram removes your messages, media, contacts and other data from the cloud. This cannot be undone."
+  whatDoesNotChange: "Others keep their copies of your messages. Groups and channels you created stay, without a creator. If you sign up again later, people who have your number in their address book get a message."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://my.telegram.org/auth?to=delete
+  steps:
+    - "First export what you want to keep. The deletion is final."
+    - "First delete groups or channels you created, or hand them over to an admin."
+    - "Ideally on a computer, open the deactivation page telegram.org/deactivate."
+    - "Enter your phone number in international format. The code arrives via Telegram, not by SMS. Enter it and confirm the deletion."
+  affects: [tg-account, tg-cloud-chats, tg-contacts, tg-usage-aggregates]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the German FAQ (“Can I delete my account?”), the English FAQ and the login page my.telegram.org (redirect from telegram.org/deactivate; “Enter your number and we will send you a confirmation code via Telegram (not SMS).”). We did not see the label of the final confirmation button, because that requires logging in."
+  sources: [telegram-faq-de, telegram-faq, telegram-delete-page, telegram-privacy-policy]
+- id: telegram-account-self-destruct
+  service: telegram
+  kind: setting
+  title: Shorten the time until your account is deleted automatically
+  goal: "If you stop using Telegram, your account is deleted automatically sooner."
+  whyItMatters: "By default, Telegram only deletes an account after 18 months without use. Your chats stay at Telegram for that long."
+  whatChanges: "If you do not log in within the shorter period, your account is deleted along with your messages, media and contacts."
+  whatDoesNotChange: "As long as you use Telegram, nothing happens. Others keep their copies of your messages."
+  tradeOff: "If you take a break longer than the period you chose, your account and all your chats are gone."
+  impact: low
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  steps: []
+  affects: [tg-account, tg-cloud-chats, tg-contacts]
+  region: global
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: "Searched again on 2026-10-21: the privacy policy (section 10.4) and the FAQ (German and English) still only confirm the default period of 18 months and that you can change the period “in the settings”. core.telegram.org and the deletion page my.telegram.org also give no menu path and no selectable periods. We only found menu paths (e.g. “Privacy and Security” → “If away for”) in third-party guides. Therefore no steps."
+  sources: [telegram-privacy-policy, telegram-faq-de]

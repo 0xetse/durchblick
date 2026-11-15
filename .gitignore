@@ -1,0 +1,12 @@
+node_modules
+dist/
+.astro/
+playwright-report/
+test-results/
+*.tmp.mjs
+.env
+.env.*
+.DS_Store
+
+# Ausgefüllte Nutzertest-Bögen bleiben lokal (personenbezogene Zitate)
+docs/user-test/sessions/

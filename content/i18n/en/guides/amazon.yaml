@@ -1,0 +1,188 @@
+- id: amazon-ad-consent
+  service: amazon
+  kind: setting
+  title: Say no to personalised ads on Amazon
+  goal: You withdraw your consent for Amazon to use your data for personalised ads.
+  whyItMatters: >-
+    Amazon needs your consent for personalised ads. Amazon shows these ads in its shop and on other websites. With your consent, Amazon also passes identifiers to advertising partners, for example numbers from cookies – small files in your browser.
+  whatChanges: >-
+    If you withdraw your consent, Amazon, according to the company, no longer uses your data for personalised ads. On the page “Advertising Preferences and Transparency”, you can also have your data deleted from Amazon's advertising systems.
+  whatDoesNotChange: >-
+    You still see ads, just less relevant ones. Recommendations in the shop and your order history stay. Amazon still measures how well ads work and looks for fraud. For this, it relies on its “legitimate interest” – which does not need consent.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/privacyprefs/retail?oCT=ads
+  steps: []
+  affects: [purchases, searches, clickstream, device]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      Checked again on 2026-10-21: the privacy notice and the “Interest-based ads” notice (as of 22 Dec 2025) still link
+      privacyprefs and adprefs but describe no steps. Steps (the “show personalised ads” toggle, “delete ad data”,
+      “save selection”) appear only on the help page for users without an account; whether they are the same when
+      signed in is not confirmed.
+  sources:
+    - ref: amazon-interest-based-ads
+      note: "Abschnitte 'Welche Wahlmöglichkeiten habe ich?' und 'Rechtsgrundlage'"
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Welche Wahlmöglichkeiten habe ich?'"
+- id: amazon-cross-service
+  service: amazon
+  kind: setting
+  title: Check data use across Amazon services
+  goal: You decide whether Amazon links data from its shop, Alexa, Prime Video, Kindle and devices.
+  whyItMatters: >-
+    Since March 2024, Amazon in the EU needs your consent to combine data from its different services. This also applies if it wants to use this to tailor ads to you in other services.
+  whatChanges: >-
+    Without your consent, Amazon, according to the company, no longer uses your data across services for recommendations and ads – so it no longer uses data from one service in another.
+  whatDoesNotChange: >-
+    Things you explicitly want to use keep working, for example ordering in the shop via Alexa. Amazon still combines data from its services for legal obligations, fraud protection and security.
+  impact: medium
+  minutes: 3
+  difficulty: medium
+  platforms: [web]
+  steps: []
+  affects: [carrier-partner-data, alexa-voice, purchases]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      Checked again on 2026-10-21: the help page on cross-service use, the privacy notice and “Manage personal
+      information” still give no menu path and no link to the setting; a web search found no official instructions.
+  sources:
+    - ref: amazon-cross-service-use
+      note: "Ganzer Artikel"
+- id: amazon-browsing-history
+  service: amazon
+  kind: review
+  title: Delete or turn off your browsing history on Amazon
+  tradeOff: "Recommendations based on the products you have looked at go away."
+  goal: You remove recently viewed items and stop new ones from being saved.
+  whyItMatters: >-
+    Your browsing history shows which items you have looked at, and it affects your recommendations. On shared devices, others can see it too.
+  whatChanges: >-
+    Viewed items disappear from the history. If it is turned off, no new ones are added.
+  whatDoesNotChange: >-
+    Orders stay in your order history. Amazon still records how you click through the website. The setting only applies to the browser or device you are using.
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/gp/history
+  steps:
+    - Open the “Browsing History” page.
+    - Select the gear icon at the top right.
+    - Select “Remove items” to delete your history so far.
+    - To stop saving anything in future, select “More settings” under the gear icon and turn off your browsing history.
+  affects: [clickstream]
+  region: EU
+  verification:
+    status: needs-verification
+    checkedAt: "2026-10-21"
+    method: >-
+      Steps taken from the official help page (unchanged on 2026-10-21). It is aimed at users without an account;
+      “Manage personal information” also links the browsing history for accounts but gives no steps. Whether the
+      steps are the same when signed in is still not confirmed.
+  sources:
+    - ref: amazon-browsing-history-help
+      note: "Abschnitt 'Deinen Browserverlauf anzeigen oder ändern'"
+    - ref: amazon-privacy-notice-de
+      note: "Link 'Browserverlauf hier verwalten'"
+- id: amazon-alexa-recordings
+  service: amazon
+  kind: setting
+  title: Delete Alexa voice recordings and have them deleted automatically
+  goal: You delete saved voice recordings and make sure they are no longer stored permanently.
+  whyItMatters: >-
+    Alexa recordings are processed on Amazon's computers on the internet and linked to your account. Some of them are listened to by people to improve speech recognition.
+  whatChanges: >-
+    Deleted recordings and their text transcripts are removed at Amazon. You can choose to have recordings deleted automatically after 3 or 18 months, or not saved at all.
+  whatDoesNotChange: >-
+    Even without saved recordings, Amazon keeps the text transcripts for 30 days. Records of actions such as timers, orders or shopping lists stay. Voice ID may no longer work.
+  impact: medium
+  minutes: 5
+  difficulty: easy
+  platforms: [android, ios, web]
+  officialUrl: https://www.amazon.de/alexadatenschutzeinstellungen
+  steps:
+    - In the Alexa app, open “More” > “Alexa Privacy”, or open the Alexa privacy settings in your browser.
+    - Under “Review Voice History”, you can delete recordings one by one, by time period, by device or all at once.
+    - There, choose to have recordings older than 3 or 18 months deleted automatically, or not saved at all.
+    - Under “More” > “Alexa Privacy”, you can also control whether your recordings are used to improve the services.
+  affects: [alexa-voice]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Menu paths and options checked against Amazon's official Alexa privacy FAQ (German version).
+  sources:
+    - ref: amazon-alexa-privacy
+      note: "FAQ 'Kann ich meine Alexa-Sprachaufzeichnungen überprüfen, verwalten und löschen?'"
+- id: amazon-request-data
+  service: amazon
+  kind: export
+  title: Request your data from Amazon
+  goal: You get a copy of your personal information, including information that is not shown in “Your Account”.
+  whyItMatters: >-
+    In “Your Account” you can see orders and addresses, but not, for example, your search history. The copy you request shows more.
+  whatChanges: >-
+    You get a download link by email. The data comes in a format that computer programs can process further.
+  whatDoesNotChange: Nothing is deleted or changed.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.amazon.de/hz/privacy-central/data-requests/preview.html
+  steps:
+    - Open the “Request Your Data” page and sign in.
+    - Choose which information you want to receive.
+    - Select “Submit Request”.
+    - Confirm the request using the link in the confirmation email.
+    - As soon as the data is ready, download it using the secure link in the email.
+  affects: [account, purchases, searches, clickstream, alexa-voice]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Steps checked against the official Amazon.de help page “Persönliche Informationen anfordern” (German version).
+  sources:
+    - ref: amazon-request-data
+      note: "Abschnitt 'So forderst du deine persönlichen Informationen an'"
+- id: amazon-close-account
+  service: amazon
+  kind: deletion
+  title: Close your Amazon account and have your data deleted
+  goal: You have your Amazon account closed for good and your personal information deleted.
+  whyItMatters: >-
+    As long as the account exists, Amazon stores, among other things, all your orders.
+  whatChanges: >-
+    The account is closed worldwide on all Amazon websites that use the same sign-in details. It cannot be restored. You can no longer use digital content you bought or linked services.
+  whatDoesNotChange: >-
+    Amazon usually keeps purchase data such as name, product, date, delivery address and price for 10 years because of legal obligations. But it no longer uses it for ads. You have to close any other accounts one by one.
+  impact: high
+  minutes: 10
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://www.amazon.de/privacy/data-deletion
+  steps:
+    - Open the “Close Your Amazon Account” page and sign in with the account you want to close.
+    - Check the products and services linked to your account.
+    - Optionally choose a reason, and tick the box “Yes, I want to permanently close my Amazon Account and delete my data”.
+    - Select “Close My Account”.
+    - Confirm the request within five days using the message you get by email or text message.
+  affects: [account, purchases, searches, clickstream, reviews-lists]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: Steps checked against the official Amazon.de help page “Kontoschließung und Datenlöschung anfordern” (German version).
+  sources:
+    - ref: amazon-close-account
+      note: "Abschnitte zu Antrag und Konsequenzen"
+    - ref: amazon-privacy-notice-de
+      note: "Abschnitt 'Zusätzliche Informationen zur Datenspeicherung'"

@@ -1,0 +1,177 @@
+- id: netflix-viewing-history-hide
+  service: netflix
+  kind: setting
+  title: Titel aus dem Netflix-Titelverlauf ausblenden
+  tradeOff: "Ausgeblendete Titel verschwinden auch aus „Weiterschauen“ und prägen deine Empfehlungen nicht mehr."
+  goal: "Einzelne Titel oder der ganze Verlauf eines Profils tauchen bei Netflix nicht mehr als angesehen auf."
+  whyItMatters: "Der Titelverlauf ist die wichtigste Grundlage für Empfehlungen. Alle, die dein Konto mitnutzen, können ihn sehen."
+  whatChanges: "Ausgeblendete Titel erscheinen nicht mehr als angesehen und werden nicht mehr für Vorschläge ähnlicher Titel genutzt – außer du siehst sie erneut an."
+  whatDoesNotChange: "Netflix nennt das „ausblenden“. Ob die Einträge damit auch aus Netflix' Systemen gelöscht sind, sagt die Hilfeseite nicht. Neue Titel werden weiter gespeichert, pausieren lässt sich der Verlauf nicht."
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Rufe in einem Webbrowser die Konto-Seite auf."
+    - "Wähle „Profile“ und dann das gewünschte Profil."
+    - "Öffne den „Titelverlauf“ für dieses Profil."
+    - "Klicke neben einer Folge oder einem Titel auf das Ausblenden-Symbol. Bei einer Folge fragt Netflix, ob die ganze Serie ausgeblendet werden soll."
+    - "Um den gesamten Verlauf auszublenden, wähle unten auf der Seite „Alle verbergen“ und bestätige."
+  affects: [netflix-viewing-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der Netflix-Hilfeseite „So blenden Sie Titel aus dem Titelverlauf aus“ (de) abgeglichen. Laut Hilfeseite kann es bis zu 24 Stunden dauern, bis der Titel auf allen Geräten verschwunden ist; aus einem Kinderprofil heraus geht es nicht."
+  sources:
+    - ref: netflix-help-hide-history
+      note: "Ganzer Artikel"
+- id: netflix-ads-behavioural
+  service: netflix
+  kind: setting
+  title: Werbung nach deinem Verhalten bei Netflix ausschalten
+  goal: "Im Abo mit Werbung wählt Netflix Werbung nicht mehr nach deinem Verhalten auf anderen Websites und Apps aus."
+  whyItMatters: "Im Abo mit Werbung kann Netflix Daten von Werbekunden nutzen, etwa über deine Käufe auf deren Websites. Dazu kommen Alter, Geschlecht und dein ungefährer Standort."
+  whatChanges: "Netflix zeigt keine Werbung mehr, die nach deinem Verhalten ausgewählt ist. Schaltest du auch „Demografisch ausgerichtete Werbung“ aus, nutzt Netflix Geburtsdatum und Geschlecht nicht mehr für die Auswahl. Mit „Partnereinstellungen deaktivieren“ nimmst du die Erlaubnis für alle Partnerfirmen auf einmal zurück."
+  whatDoesNotChange: "Du siehst weiter Werbung, etwa passend zum Genre, das du ansiehst, oder zu deinem ungefähren Standort. Die Einstellung gilt nur für das gewählte Profil. In Kinderprofilen gibt es keine Werbung nach Verhalten."
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Melde dich in einem Webbrowser an und öffne den Bereich „Konto“."
+    - "Wähle das Profil, um das es geht."
+    - "Öffne das Menü „Datenschutzeinstellungen“."
+    - "Ändere die Einstellung „Verhaltensgesteuerte Werbung“."
+    - "Ändere bei Bedarf auch „Demografisch ausgerichtete Werbung“, „Zustimmungszwecke für Nutzer*innen“ und „Zwecke mit berechtigtem Interesse“."
+  affects: [netflix-advertiser-data, netflix-ad-interactions, netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menüpfad und Namen der Einstellungen mit der Netflix-Hilfeseite „Wie können Sie bestimmte Nutzungsarten Ihrer personenbezogenen Daten unterbinden?“ (de) abgeglichen. Die Einstellungen erscheinen nur, wenn du ein Abo mit Werbung hast oder Live-Events mit Werbung ansiehst. Selbst nicht in einem Konto geprüft."
+  sources:
+    - ref: netflix-help-privacy-choices
+      note: "Abschnitte „Opt-out für verhaltensgesteuerte Werbung“, „Verhaltensgesteuerte Werbung“, „Demografische Daten“"
+    - ref: netflix-help-ads
+      note: "Abschnitt „Auswahl von Werbung“"
+- id: netflix-id-matching
+  service: netflix
+  kind: setting
+  title: Netflix-Werbung auf anderen Plattformen per Kontaktdaten-Abgleich abschalten
+  goal: "Netflix gleicht deine E-Mail-Adresse oder Telefonnummer nicht mehr mit anderen Plattformen ab, um dir dort Werbung für Netflix zu zeigen."
+  whyItMatters: "Netflix schickt Kontaktdaten in unlesbar gemachter Form an andere Plattformen, zum Beispiel an The Trade Desk. Findet die Plattform dieselbe Adresse bei sich, kann Netflix dich dort mit Werbung erreichen. Das betrifft alle Abos, nicht nur das Abo mit Werbung."
+  whatChanges: "Für dieses Profil nutzt Netflix den Abgleich von Kontaktdaten nicht mehr für Werbung auf anderen Plattformen."
+  whatDoesNotChange: "Netflix kann dir auf anderen Websites weiter Werbung zeigen, etwa über Cookies oder die Werbe-Nummer deines Handys. Die Werbe-Nummer stellst du in den Einstellungen deines Geräts ein. E-Mails von Netflix bleiben davon unberührt."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Melde dich in einem Webbrowser an und öffne den Bereich „Konto“."
+    - "Wähle das Profil, um das es geht."
+    - "Öffne das Menü „Datenschutzeinstellungen“."
+    - "Ändere die Einstellung „Kommunikation auf der Basis von Kennungs-Matching“."
+  affects: [netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Menüpfad und Name der Einstellung mit der Netflix-Hilfeseite „Wie können Sie bestimmte Nutzungsarten Ihrer personenbezogenen Daten unterbinden?“ (de) und der Datenschutzerklärung abgeglichen. Selbst nicht in einem Konto geprüft."
+  sources:
+    - ref: netflix-help-privacy-choices
+      note: "Abschnitt „Kommunikation von Netflix auf der Basis von Kennungs-Matching“"
+    - ref: netflix-privacy-statement
+      note: "Abschnitt „Kommunikations- und Marketing-Einstellungen“"
+- id: netflix-profile-lock
+  service: netflix
+  kind: setting
+  title: Netflix-Profil mit einer PIN sperren
+  goal: "Nur wer die PIN kennt, kann dein Profil öffnen – und damit deinen Titelverlauf sehen."
+  whyItMatters: "Alle, die dein Netflix-Konto mitnutzen, können jedes Profil öffnen, den Verlauf ansehen und Einstellungen ändern."
+  whatChanges: "Beim Öffnen des Profils und beim Ansehen heruntergeladener Titel fragt Netflix nach einer vierstelligen PIN."
+  whatDoesNotChange: "Wer das Konto selbst verwaltet, kann die PIN über die Konto-Seite ändern oder entfernen. Netflix erfasst deine Nutzung weiterhin wie bisher. Bei Zusatzmitgliedskonten gibt es keine Profilsperre."
+  impact: low
+  minutes: 3
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Rufe in einem Browser die Konto-Seite auf."
+    - "Wähle „Profile“ und dann das gewünschte Profil."
+    - "Wähle „Profilsperre“."
+    - "Klicke auf „Profilsperre einrichten“, gib vier Ziffern ein und klicke auf „PIN speichern“."
+    - "In der App: „Mein Netflix“ → oben auf den Profilnamen → „Profile verwalten“ → Profil wählen → „Profilsperre“ → „Profilsperre einrichten“, Passwort eingeben, vier Ziffern eingeben."
+  affects: [netflix-viewing-history, netflix-ratings-list]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der Netflix-Hilfeseite „Profil-PIN hinzufügen, ändern oder entfernen“ (de, Webbrowser sowie Android/iOS) abgeglichen."
+  sources:
+    - ref: netflix-help-profile-lock
+      note: "Ganzer Artikel"
+    - ref: netflix-privacy-statement
+      note: "Abschnitt C „Zugriff auf Konten und Profile“"
+- id: netflix-export
+  service: netflix
+  kind: export
+  title: Kopie deiner Netflix-Daten anfordern
+  goal: "Du bekommst eine Kopie der Daten, die Netflix über dich gespeichert hat."
+  whyItMatters: "So siehst du selbst, was Netflix aufzeichnet – vom Titelverlauf bis zu Geräten und Werbeeinstellungen."
+  whatChanges: "Netflix prüft deine Anfrage und schickt dir die Daten. Das kann bis zu 30 Tage dauern. Den Titelverlauf eines Profils kannst du zusätzlich sofort als Tabelle (CSV-Datei) herunterladen."
+  whatDoesNotChange: "Beim Herunterladen wird nichts gelöscht. Nutzt du nur ein Profil in einem fremden Konto, geht die Anfrage per E-Mail an privacy@netflix.com – und der Kontoinhaber erfährt davon."
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://www.netflix.com/account/getmyinfo
+  steps:
+    - "Melde dich an, rufe netflix.com/account/getmyinfo auf und folge den Anweisungen."
+    - "Warte auf die Bestätigung: Nach der Prüfung kann es bis zu 30 Tage dauern, bis Netflix dir die Daten schickt."
+    - "Für den Titelverlauf sofort: Konto-Seite → „Profile“ → Profil wählen → „Titelverlauf“ → unten „Alle herunterladen“."
+  affects: [netflix-viewing-history, netflix-ratings-list, netflix-device-network, netflix-account]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Mit den Netflix-Hilfeseiten „Welche personenbezogenen Daten speichert Netflix …“ und „Titelverlauf und Geräteaktivität anzeigen“ (de) abgeglichen. Die Hilfeseite beschreibt den Ablauf auf getmyinfo nicht im Detail."
+  sources:
+    - ref: netflix-help-data-copy
+      note: "„Folgen Sie den Anweisungen unter https://www.netflix.com/account/getmyinfo.“; „Bitte beachten Sie, dass der Kontoinhaber von Ihrer Anfrage in Kenntnis gesetzt wird.“"
+    - ref: netflix-help-viewing-activity
+      note: "„Mit der Option Alle herunterladen unten auf der Seite können Sie die Liste im Tabellenformat herunterladen.“"
+- id: netflix-account-delete
+  service: netflix
+  kind: deletion
+  title: Netflix-Konto löschen statt nur kündigen
+  goal: "Dein Netflix-Konto wird endgültig gelöscht, statt nach der Kündigung noch 24 Monate gespeichert zu bleiben."
+  whyItMatters: "Wer nur kündigt, lässt Titelverlauf, Empfehlungen, Bewertungen und Kontodaten 24 Monate bei Netflix liegen."
+  whatChanges: "Ist dein Abo aktiv, endet es mit dem Abrechnungszeitraum. Danach löscht Netflix das Konto dauerhaft. Bis dahin kannst du die Löschung auf der Konto-Seite rückgängig machen."
+  whatDoesNotChange: "Manche Daten bewahrt Netflix länger auf, etwa für Buchhaltung oder aus rechtlichen Gründen. E-Mails an privacy@netflix.com bleiben 6 Jahre. Zahlst du über einen Partner, musst du dort kündigen."
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://www.netflix.com/account
+  steps:
+    - "Gehe im Browser auf deiner Konto-Seite zum Bereich „Sicherheit“ und melde dich, falls nötig, an."
+    - "Wähle „Konto löschen“."
+    - "Führe den Sicherheitscheck durch."
+    - "Markiere das Kontrollkästchen und wähle „Dauerhaft löschen“."
+    - "In der App: „Mein Netflix“ → oben auf den Profilnamen → „Konto“ → im Bereich „Einstellungen“ „Konto löschen“, dann Sicherheitscheck und „Dauerhaft löschen“."
+    - "Schon gekündigt? Schreibe von der E-Mail-Adresse deines Kontos an privacy@netflix.com und bitte um Löschung."
+  affects: [netflix-account, netflix-viewing-history, netflix-ratings-list, netflix-payment]
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Schritte mit der Netflix-Hilfeseite „Löschen Ihres Netflix-Kontos“ (de, Webbrowser und Netflix-App) abgeglichen."
+  sources:
+    - ref: netflix-help-delete-account
+      note: "Ganzer Artikel"
+    - ref: netflix-help-cancel
+      note: "Abschnitt „Reaktivierung von Netflix“"

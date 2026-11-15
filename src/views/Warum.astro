@@ -1,0 +1,83 @@
+---
+/**
+ * "Warum wichtig?": documented real-world cases, each with what happened, what
+ * it means for you and – where one exists – a setting that helps.
+ */
+import Base from '~/layouts/Base.astro';
+import { Evidence } from '~/components/Evidence';
+import { getContent } from '~/domain/content';
+import { sourceCards } from '~/domain/projections';
+import { dict, href, localeOf } from '~/i18n';
+
+const locale = localeOf(Astro.url.pathname);
+const t = dict(locale);
+
+const TXT_DE = {
+  title: 'Warum es wichtig ist, auf deine Daten zu achten',
+  description: 'Echte, belegte Fälle: verkaufte Standortdaten, Datenlecks, Gesundheitsdaten bei Facebook – und was du daraus mitnehmen kannst.',
+  lead: 'Einzelne Angaben wirken harmlos. Diese echten Fälle zeigen, was passieren kann, wenn Daten verkauft werden, ins Netz gelangen oder an Stellen landen, mit denen niemand gerechnet hat.',
+  meaning: 'Was das für dich heißt:',
+  action: (title: string, app: string) => `Das kannst du tun: ${title} (${app}) →`,
+  endTitle: 'Und bei dir?',
+  endText: 'Es geht nicht um Geheimnisse, sondern um Schlüsse, die andere aus vielen kleinen Angaben ziehen. Mit ein paar Einstellungen bestimmst du mit, was deine Apps sammeln und wofür sie es nutzen.',
+  traces: 'Ausprobieren: Was verraten harmlose Spuren?',
+};
+const TXT_EN: typeof TXT_DE = {
+  title: 'Why it matters to look after your data',
+  description: 'Real, documented cases: location data that was sold, data leaks, health data sent to Facebook – and what you can take away from them.',
+  lead: 'Single pieces of information seem harmless. These real cases show what can happen when data is sold, leaks onto the internet or ends up in places nobody expected.',
+  meaning: 'What this means for you:',
+  action: (title, app) => `What you can do: ${title} (${app}) →`,
+  endTitle: 'And for you?',
+  endText: 'It is not about secrets. It is about the conclusions others draw from many small pieces of information. With a few settings, you have a say in what your apps collect and what they use it for.',
+  traces: 'Try it: what do harmless traces give away?',
+};
+const s = locale === 'en' ? TXT_EN : TXT_DE;
+
+const { examples, guides, services } = getContent(locale);
+const guideOf = (id?: string) => (id ? guides.find((g) => g.id === id) : undefined);
+const serviceName = (id: string) => {
+  const x = services.find((y) => y.id === id);
+  return x?.shortName ?? x?.name ?? id;
+};
+const settingsHref = href(locale, 'settings');
+// Evidence takes an optional `locale` (being added in parallel); passed via a
+// spread so this view type-checks before and after that change.
+---
+<Base title={s.title} description={s.description} path={href(locale, 'why')} crumbs={[{ label: t.nav.why }]}>
+  <section>
+    <div class="wrap narrow">
+      <h1>{s.title}</h1>
+      <p class="lead">{s.lead}</p>
+
+      <ol class="cases">
+        {examples.map((e, i) => {
+          const g = guideOf(e.action);
+          return (
+            <li class="case" id={e.id}>
+              <article aria-labelledby={`case-${e.id}`}>
+                <p class="meta"><span class="case-no">{String(i + 1).padStart(2, '0')}</span> {e.year} · {t.areas[e.area].title}</p>
+                <h2 id={`case-${e.id}`}>{e.title}</h2>
+                <p>{e.happened}</p>
+                <p class="case-meaning"><strong>{s.meaning}</strong> {e.meaning}</p>
+                <Evidence sources={sourceCards(e.sources)} locale={locale} />
+                {g && (
+                  <p class="case-action"><a href={href(locale, 'guide', g.id)}>{s.action(g.title, serviceName(g.service))}</a></p>
+                )}
+              </article>
+            </li>
+          );
+        })}
+      </ol>
+
+      <div class="case-end">
+        <h2>{s.endTitle}</h2>
+        <p>{s.endText}</p>
+        <div class="cluster">
+          <a class="btn btn-primary" href={settingsHref}>{t.nav.settings}</a>
+          <a class="btn" href={href(locale, 'traces')}>{s.traces}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

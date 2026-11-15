@@ -1,0 +1,150 @@
+- id: youtube-watch-history-pause
+  service: youtube
+  kind: setting
+  title: YouTube-Wiedergabeverlauf pausieren
+  tradeOff: "Ohne Verlauf zeigt YouTube auf der Startseite kaum noch Empfehlungen."
+  goal: "YouTube speichert neu angesehene Videos nicht mehr in deinem Konto."
+  whyItMatters: "Dein Wiedergabeverlauf ist die wichtigste Grundlage für Empfehlungen und fließt in Werbung ein."
+  whatChanges: "Neue Videos landen nicht mehr im Verlauf und beeinflussen deine Empfehlungen nicht mehr."
+  whatDoesNotChange: "Der bisherige Verlauf bleibt, bis du ihn löschst. Gibt es kaum Verlauf, zeigt YouTube auf der Startseite keine Empfehlungen mehr."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/product/youtube
+  steps:
+    - "Rufe am Computer „Meine Aktivitäten“ für YouTube auf und melde dich an."
+    - "Klicke links auf den Tab „Steuerung“."
+    - "Wähle „Deaktivieren“."
+  affects: [youtube-watch-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der YouTube-Hilfeseite zum Wiedergabeverlauf (de, Computer) abgeglichen."
+  sources: [youtube-help-watch-history]
+- id: youtube-history-auto-delete
+  service: youtube
+  kind: setting
+  title: YouTube-Verlauf automatisch löschen
+  goal: "Ältere Einträge im YouTube-Verlauf verschwinden regelmäßig von selbst."
+  whyItMatters: "Für neue Nutzer ist automatisches Löschen erst nach 36 Monaten voreingestellt. Eine kürzere Frist begrenzt, wie weit die gespeicherten Daten über dich zurückreichen."
+  whatChanges: "Einträge, die älter sind als die gewählte Frist, werden laufend gelöscht. Empfehlungen gibt es weiterhin."
+  whatDoesNotChange: "Neue Aktivitäten werden weiter gespeichert. Manche Daten bewahrt Google für bestimmte Zwecke länger auf."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://myactivity.google.com/product/youtube
+  steps:
+    - "Rufe „Meine Aktivitäten“ auf und melde dich an."
+    - "Klicke auf „YouTube-Verlauf“ und dann auf „Verlauf verwalten“."
+    - "Klicke auf „Automatisch löschen“."
+    - "Wähle den gewünschten Zeitraum, klicke auf „Weiter“ und dann auf „Bestätigen“."
+  affects: [youtube-watch-history, youtube-search-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der YouTube-Hilfeseite zum Wiedergabeverlauf (de, Computer) abgeglichen."
+  sources: [youtube-help-watch-history, google-blog-auto-delete-2020]
+- id: youtube-search-history-pause
+  service: youtube
+  kind: setting
+  title: YouTube-Suchverlauf pausieren
+  goal: "Deine Suchanfragen auf YouTube werden nicht mehr gespeichert."
+  whyItMatters: "Suchanfragen verraten oft genau, was dich gerade beschäftigt, und beeinflussen Empfehlungen."
+  whatChanges: "Neue Suchanfragen werden nicht mehr gespeichert; gelöschte Suchanfragen wirken sich nicht mehr auf Empfehlungen aus."
+  whatDoesNotChange: "Bereits gespeicherte Suchanfragen bleiben, bis du sie löschst. Der Wiedergabeverlauf ist eine eigene Einstellung."
+  impact: medium
+  minutes: 2
+  difficulty: easy
+  platforms: [android]
+  steps:
+    - "Melde dich in der YouTube-App an und tippe auf dein Profilbild."
+    - "Tippe auf „Einstellungen“ und dann „Verlauf verwalten“."
+    - "Tippe auf den Tab „Steuerung“."
+    - "Entferne das Häkchen bei „Suchanfragen bei YouTube speichern“."
+  affects: [youtube-search-history]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der YouTube-Hilfeseite zum Suchverlauf (de, Android) abgeglichen; iOS und Computer nicht geprüft."
+  sources: [youtube-help-search-history]
+- id: youtube-ads-personalisation
+  service: youtube
+  kind: setting
+  title: Personalisierte Werbung in der YouTube-App ausschalten
+  goal: "Werbung auf YouTube wird nicht mehr danach ausgewählt, was Google über dich weiß."
+  whyItMatters: "Für Werbung auf YouTube zählen die Art der Videos, die du ansiehst, besuchte Websites, Apps auf deinem Gerät, Standort, Altersgruppe und Geschlecht."
+  whatChanges: "Werbung richtet sich nicht mehr danach, was Google über dich weiß. Die Einstellung gilt für dein ganzes Google-Konto."
+  whatDoesNotChange: "Du siehst weiter Werbung, ausgewählt etwa nach dem Inhalt der Videos. Dein Verlauf bleibt für Empfehlungen gespeichert."
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, web]
+  officialUrl: https://myadcenter.google.com/
+  steps:
+    - "Öffne in der YouTube-App „Konto“ und dann „Einstellungen“."
+    - "Scrolle zu „Datenschutz“ und dann „Einstellungen für Werbung bei Google“."
+    - "Wähle neben „Personalisierte Werbung“ die Option „Aus“."
+    - "Bestätige deine Auswahl."
+  affects: [youtube-watch-history, youtube-offplatform, youtube-ad-interactions, youtube-account]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Schritte mit der Hilfeseite zu Mein Anzeigen-Center (de, Abschnitt YouTube-App auf Android, angemeldet) abgeglichen."
+  sources: [google-help-my-ad-center, youtube-help-ads]
+- id: youtube-export
+  service: youtube
+  kind: export
+  title: YouTube-Daten herunterladen
+  goal: "Du bekommst eine Kopie deiner YouTube-Daten wie Verlauf, Playlists und Videos."
+  whyItMatters: "So siehst du, was YouTube über dich gespeichert hat, und sicherst eigene Inhalte."
+  whatChanges: "Du bekommst eine gepackte Datei – per Download-Link oder in einem Online-Speicher."
+  whatDoesNotChange: "Beim Herunterladen wird nichts bei YouTube gelöscht."
+  impact: low
+  minutes: 10
+  difficulty: easy
+  platforms: [web]
+  officialUrl: https://takeout.google.com/
+  steps:
+    - "Melde dich an und öffne Google Datenexport (takeout.google.com)."
+    - "Wähle alle Produkte außer YouTube ab."
+    - "Klicke auf „Nächster Schritt“, wähle Übermittlungsart und Dateiformat und erstelle den Export."
+  affects: [youtube-watch-history, youtube-search-history, youtube-uploads-comments]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-07"
+    method: "Allgemeine Takeout-Schritte (de) abgeglichen; Produktbezeichnung für YouTube im Takeout-Menü nicht selbst geprüft."
+  sources: [google-help-takeout]
+- id: youtube-channel-delete
+  service: youtube
+  kind: deletion
+  title: YouTube-Kanal schließen oder löschen
+  goal: "Deine öffentlichen YouTube-Inhalte werden endgültig entfernt, ohne das ganze Google-Konto zu löschen."
+  whyItMatters: "Kommentare, Videos und Playlists können lange öffentlich sichtbar bleiben."
+  whatChanges: "Videos, Kommentare, Nachrichten und Playlists werden endgültig gelöscht."
+  whatDoesNotChange: "Dein Google-Konto wird dadurch nicht gelöscht; Verlauf und Werbeeinstellungen verwaltest du separat."
+  impact: medium
+  minutes: 5
+  difficulty: medium
+  platforms: [web]
+  officialUrl: https://studio.youtube.com/
+  steps:
+    - "Melde dich am Computer im Browser in YouTube Studio an. In der App geht das nicht."
+    - "Wähle in der linken Seitenleiste „Einstellungen“."
+    - "Wähle „Kanal“ und dann „Erweiterte Einstellungen“."
+    - "Wähle unten „YouTube-Inhalte entfernen“. Gib deine Anmeldedaten ein, falls du dazu aufgefordert wirst."
+    - "Wähle „Ich möchte meine Inhalte endgültig löschen“. Willst du den Kanal nur vorübergehend verbergen, wähle stattdessen „Ich möchte meinen Kanal ausblenden“."
+    - "Setze die Häkchen zur Bestätigung und wähle „Inhalte löschen“."
+  affects: [youtube-uploads-comments]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: "Schritte mit der YouTube-Hilfeseite „YouTube-Kanal löschen oder ausblenden“ (de) abgeglichen."
+  sources: [youtube-help-delete-channel, youtube-help-privacy-basics]

@@ -1,0 +1,38 @@
+name: Fehler melden / Bug report
+description: Etwas auf der Website funktioniert nicht wie erwartet. / Something on the website does not work as expected.
+labels: ["fehler"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sicherheitsprobleme bitte **nicht** hier melden, sondern vertraulich (siehe SECURITY.md).
+        Please report security issues privately (see SECURITY.md), not here.
+  - type: input
+    id: seite
+    attributes:
+      label: Seite / Page
+      placeholder: /plan/
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Schritte zum Nachstellen / Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Erwartet und tatsächlich / Expected and actual behaviour
+    validations:
+      required: true
+  - type: input
+    id: umgebung
+    attributes:
+      label: Gerät, Browser, Version / Device, browser, version
+      placeholder: iPhone 15, Safari 26 · Windows 11, Firefox 155 · NVDA
+    validations:
+      required: true

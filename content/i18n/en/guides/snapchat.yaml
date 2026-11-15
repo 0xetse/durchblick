@@ -1,0 +1,246 @@
+- id: snapchat-my-ai-data
+  service: snapchat
+  kind: setting
+  title: Delete your conversations with My AI
+  goal: You delete what you have written and sent to My AI.
+  whyItMatters: >-
+    Snapchat deletes chats with friends by itself. Conversations with My AI, however, stay saved until you delete them. Snap uses them to improve My AI and to choose ads for you.
+  whatChanges: >-
+    Your past content with My AI is deleted. According to Snap, it can take up to 30 days until it is gone from Snap's servers.
+  whatDoesNotChange: >-
+    New messages to My AI are saved again. You have to delete chats with “Team Snapchat” separately. The help page does not say whether conclusions Snap has already drawn from the conversations, e.g. for ads, are also deleted.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/18937378754324
+  steps:
+    - "Single messages from the last 24 hours: In the chat with My AI, press and hold the message and tap “Delete”."
+    - "Delete everything: Tap your profile icon and then the gear icon ⚙️ to open Settings."
+    - "iPhone: Scroll down to “Privacy Controls”, tap “Clear Data” and then “Clear My AI Data”. Confirm."
+    - "Android: Scroll down to “Account Actions”, tap “Clear My AI Data” and confirm."
+  affects: [my-ai-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page (German version; page text read by fetching it). How long data is kept was checked against the help page “When does Snapchat delete Snaps and Chats?” (German version)."
+  sources:
+    - ref: snapchat-help-my-ai-delete
+      note: "Schritte für iOS und Android, Löschdauer bis zu 30 Tage, Team-Snapchat-Chats getrennt"
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Abschnitt „Snaps und Chats mit My AI“"
+    - ref: snap-privacy-by-product
+      note: "Abschnitt My AI: Nutzung für Verbesserung und Anzeigen"
+- id: snapchat-ghost-mode
+  service: snapchat
+  kind: setting
+  title: Turn on Ghost Mode and check your location
+  goal: You hide your location on the Snap Map from others and decide whether Snap gets it at all.
+  whyItMatters: >-
+    On the Snap Map, friends can see where you are right now. This is handy, but it reveals a lot: where you live, go to school or go out. Only share your location with people you know well.
+  whatChanges: >-
+    In Ghost Mode, nobody else sees your location on the map. You can choose for how long: 3 hours, 24 hours or until you turn it off again. If you take away Snapchat's location permission, Snap no longer gets your precise location at all.
+  whatDoesNotChange: >-
+    According to Snap, in Ghost Mode your location is still shared with Snap. My AI can also still use it. People you share your Live Location with still see it; there is a separate setting for that. Snaps you send to the Snap Map can still appear on the map. Without location permission, Snap still estimates your rough location from your internet connection's address (IP address).
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012322854932
+  steps:
+    - "In Snapchat, open the Map."
+    - "Tap the gear icon ⚙️ to open the map settings."
+    - "Turn on “Ghost Mode”."
+    - "Choose how long you want to stay in Ghost Mode (3 hours, 24 hours or until you turn it off)."
+    - "Optional: If you do not want Snap to get your precise location at all, remove Snapchat's location permission in your phone's settings."
+  affects: [precise-location]
+  tradeOff: "Friends no longer see you on the map. Without location permission, some filters, Lenses and place tips do not work."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page “How do I turn on Ghost Mode?” (German version; page text read by fetching it). The page places the gear icon “at the bottom right”, another help page places it “at the top”; we have therefore left out its position. Step about the device permission based on “Privacy by Product”, section Location."
+  sources:
+    - ref: snapchat-help-ghost-mode
+      note: "Schritte und Hinweis, dass der Standort weiter mit Snap geteilt wird"
+    - ref: snapchat-help-my-ai-location
+      note: "My AI im Geistmodus"
+    - ref: snap-privacy-by-product
+      note: "Abschnitte Snap Map und Standort: Live-Standort, Geräteberechtigung, ungefährer Standort aus IP-Adresse"
+    - ref: snapchat-help-map-safety
+      note: "Tipps zum Teilen des Standorts"
+- id: snapchat-ad-preferences
+  service: snapchat
+  kind: setting
+  title: Turn off ads based on data from other companies
+  goal: You stop Snap from choosing ads based on your behaviour on other websites, on customer lists or through outside ad networks.
+  whyItMatters: >-
+    Many websites and apps tell Snap what you do there, e.g. through the Snap Pixel, an invisible piece of code. Companies can also upload lists of their customers' phone numbers or email addresses. According to Snap, this data carries a lot of weight when choosing ads.
+  whatChanges: >-
+    With “Activity-Based” off, Snap no longer uses your behaviour on other websites and in apps for your ads. With “Audience-Based” off, Snap no longer targets ads at you based on customer lists. With “Third-Party Ad Networks” off, you no longer see ads through outside ad networks.
+  whatDoesNotChange: >-
+    You still see ads. They are still based on what you do in Snapchat, e.g. which Stories you watch. Companies can still send data to Snap. For less personalisation in the EU, there is a separate setting.
+  impact: high
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012345515796
+  steps:
+    - "In your profile, tap the gear icon ⚙️ to open Settings."
+    - "Tap “My Account”."
+    - "Scroll down to “Manage My Account” and tap “Ad Preferences”. On Android, first tap “Ads” and then “Ad Preferences”."
+    - "Turn off “Activity-Based”."
+    - "Turn off “Audience-Based”."
+    - "Turn off “Third-Party Ad Networks”."
+  affects: [advertiser-data]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page “Understanding ads on Snapchat” (German version; page text read by fetching it)."
+  sources:
+    - ref: snapchat-help-ads
+      note: "Abschnitte „Zielgruppenspezifische Anzeigen“, „Aktivitätsbasierte Anzeigen“ und „Werbenetzwerke von Drittanbietern“"
+    - ref: snap-ads-privacy
+      note: "Abschnitt „Kontrolle über die Anzeigen, die du siehst“"
+- id: snapchat-eu-personalisation
+  service: snapchat
+  kind: setting
+  title: Object to personalisation in the EU
+  goal: You make sure Snap no longer chooses content and ads based on your profile.
+  whyItMatters: >-
+    An EU law, the Digital Services Act (DSA), requires large platforms to also offer content that is not tailored to you. Snap offers a separate setting for this in the EU.
+  whatChanges: >-
+    According to Snap, you will then only see ads that fit the context. They are based, for example, on the public video next to them, the time of day and the language of your phone. Discover and Spotlight then show content that is not tailored to you.
+  whatDoesNotChange: >-
+    You still see ads. Snap still records how you use the app. Your conversations with My AI stay saved until you delete them.
+  impact: high
+  minutes: 2
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/8961631424020
+  steps:
+    - "In your profile, tap the gear icon ⚙️ to open Settings."
+    - "Tap “Personalization Controls”. According to Snap, the option is in the “European Union Controls” section."
+    - "Turn personalisation off."
+    - "Alternatively: In Discover or Spotlight, tap “…” and then “Why am I seeing this content?”. This also takes you to Settings."
+    - "Be patient: according to Snap, it can take a while until the content changes."
+  affects: [usage, advertiser-data, my-ai-chats, content-analysis]
+  tradeOff: "Content and ads match your interests less well."
+  region: EU
+  verification:
+    status: verified
+    checkedAt: "2026-10-21"
+    method: >-
+      Steps checked against the official Snapchat help pages “How We Rank Content on Discover” and “How We Rank Content on Spotlight” (German versions, retrieved 2026-10-21): go “directly to Settings” and choose “Personalization Controls”, or tap “…” and “Why am I seeing this content?”. Effect on ads checked against the page “Snap and ads” (section “EU controls” on the “Settings” page, “Personalisation control” turned off → contextual ads). The help pages use the singular in one place and the plural in another, and do not give the exact label of the switch. Not checked in the app.
+  sources:
+    - ref: snapchat-help-rank-discover
+      note: "Abschnitt zum Deaktivieren personalisierter Inhalte: Einstellungen → „Personalisierungskontrollen“"
+    - ref: snapchat-help-rank-spotlight
+      note: "Gleicher Weg für Spotlight, Hinweis auf Verzögerung"
+    - ref: snap-ads-privacy
+      note: "Abschnitt zu EU, UK, Norwegen und Schweiz: „Personalisierungskontrolle“, kontextbezogene Anzeigen"
+    - ref: snap-newsroom-dsa-2023
+      note: "Abschalten personalisierter Entdecken- und Spotlight-Inhalte"
+- id: snapchat-contacts
+  service: snapchat
+  kind: permission
+  title: Delete uploaded contacts and stop access
+  goal: You delete your address book at Snap and stop it from being uploaded again.
+  whyItMatters: >-
+    If you give Snapchat access to your contacts, Snap saves names, phone numbers and email addresses from them. This includes people who do not use Snapchat at all. The list stays saved until you delete it in the app.
+  whatChanges: >-
+    Snap deletes the contacts you have shared. Without the permission on your phone, Snapchat cannot read your address book again.
+  whatDoesNotChange: >-
+    According to Snap, only removing the permission on your phone does not delete contacts you have already shared in all cases. Others can still see you in “Quick Add”, e.g. because you are in their address book. You set who can see you there separately under “See Me in Quick Add”.
+  impact: medium
+  minutes: 3
+  difficulty: easy
+  platforms: [android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012328615828
+  steps:
+    - "In your profile, tap the gear icon ⚙️ to open Settings."
+    - "Go to “Privacy Controls” and tap “Clear Data”."
+    - "Tap “Clear Contact Data”."
+    - "In your phone's settings, remove Snapchat's access to your contacts."
+  affects: [contacts]
+  tradeOff: "Snapchat no longer suggests friends from your address book."
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page “Adding friends on Snapchat” (German version; page text read by fetching it). The page gives the path without a difference between iOS and Android; for My AI, “Clear Data” is under “Account Actions” on Android, which may be similar here."
+  sources:
+    - ref: snapchat-help-add-friends
+      note: "„Datenschutzeinstellungen“ > „Daten löschen“ > „Kontaktdaten löschen“; Geräteberechtigung entfernt geteilte Kontakte nicht in allen Fällen"
+    - ref: snap-privacy-policy
+      note: "Speicherung der geteilten Kontaktliste, Berechtigungen in den App-Einstellungen ändern"
+    - ref: snapchat-help-privacy-settings
+      note: "Einstellung „Wer mich in „Freunde finden“ sehen kann“"
+- id: snapchat-download-data
+  service: snapchat
+  kind: export
+  title: Request a copy of your Snapchat data
+  goal: You see which data Snap has saved about your account.
+  whyItMatters: >-
+    Under the GDPR, the EU data protection law, you have the right to know what is saved about you. The copy includes, for example, your friends list, your search history and saved location data.
+  whatChanges: >-
+    You get a ZIP file with your data. Snap tries to provide it within 7 days. Large downloads can take longer.
+  whatDoesNotChange: >-
+    Nothing is deleted. Snap keeps data for different lengths of time, so some things are missing, e.g. chats deleted long ago.
+  impact: low
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://accounts.snapchat.com/accounts/downloadmydata
+  steps:
+    - "Log in at accounts.snapchat.com. In the app, you reach the page through Settings and “My Data”."
+    - "Click “My Data”."
+    - "Choose the data you want and the time period. Without a time period, you get everything."
+    - "Confirm the email address where Snap should let you know."
+    - "Click “Submit” at the bottom."
+    - "As soon as the email arrives: Choose “See exports” and then “Download”."
+  affects: [account, contacts, precise-location, searches, my-ai-chats]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page “How do I download my data from Snapchat?” (German version; page text read by fetching it)."
+  sources:
+    - ref: snapchat-help-download-data
+      note: "Abschnitt „Wie greife ich auf meine Snapchat Daten zu?“ und Bearbeitungszeit"
+    - ref: snap-eea-privacy-notice
+      note: "Rechte auf Auskunft und Übertragbarkeit"
+- id: snapchat-delete-account
+  service: snapchat
+  kind: deletion
+  title: Delete your Snapchat account
+  goal: You stop using Snapchat and have your account and the data linked to it deleted.
+  whyItMatters: >-
+    Conversations with My AI, Memories and uploaded contacts stay as long as your account exists. Deleting the account ends this.
+  whatChanges: >-
+    Your account is first deactivated for 30 days. During this time, you can get it back and download your data. After that, it is deleted for good. According to Snap, the data is permanently deleted after 60 days.
+  whatDoesNotChange: >-
+    Snap keeps some data for legal, security and business reasons, e.g. details about purchases. What others have saved or captured in a screenshot stays with them.
+  impact: high
+  minutes: 5
+  difficulty: easy
+  platforms: [web, android, ios]
+  officialUrl: https://help.snapchat.com/hc/de/articles/7012328360596
+  steps:
+    - "Optional, beforehand: Download your data and Memories."
+    - "In the app: In your profile, tap the gear icon ⚙️, scroll to “Account Actions” and tap “Delete Account”."
+    - "In the browser: Log in to the Snapchat Accounts Portal and tap “Delete My Account”."
+    - "Enter your password and tap “Continue” to confirm the deletion."
+  affects: [account, content, my-ai-chats, contacts, usage]
+  region: global
+  verification:
+    status: verified
+    checkedAt: "2026-10-08"
+    method: "Checked against the official Snapchat help page “How do I deactivate or delete my Snapchat account?” (German version; page text read by fetching it)."
+  sources:
+    - ref: snapchat-help-delete-account
+      note: "Schritte für App und Web, 30 Tage Deaktivierung, Löschung nach 60 Tagen, Ausnahmen"
+    - ref: snapchat-help-snaps-chats-deletion
+      note: "Empfänger können Inhalte per Screenshot speichern"
