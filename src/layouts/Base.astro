@@ -91,7 +91,10 @@ const trustServices = content.services.map((s) => ({ id: s.id, name: s.shortName
           </ul>
         </nav>
         <a class="lang-switch" href={switchHref} hreflang={other} lang={other} aria-label={t.nav.switchToLabel}>{other.toUpperCase()}</a>
-        <TrustPanel client:idle services={trustServices} locale={locale} />
+        {/* Hydrate when the browser is idle, but within 1 s at the latest: on a busy
+            device requestIdleCallback may never fire, and until hydration the panel
+            shows no live values and no "Alles löschen". */}
+        <TrustPanel client:idle={{ timeout: 1000 }} services={trustServices} locale={locale} />
         <nav aria-label={t.nav.main} class="main-nav main-nav-menu">
           <details class="nav-menu">
             <summary class="btn btn-quiet">{t.nav.menu}</summary>
