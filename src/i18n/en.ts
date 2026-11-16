@@ -29,7 +29,7 @@ export const en: Dictionary = {
     trustBadge: 'No trackers',
     trustBadgeLong: 'This site: no cookies, no trackers – check for yourself',
     switchTo: 'Deutsch',
-    switchToLabel: 'Diese Seite auf Deutsch',
+    switchToLabel: 'DE – Diese Seite auf Deutsch',
     here: 'You are here',
     start: 'Home',
     main: 'Main navigation',
