@@ -11,6 +11,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { parse } from 'yaml';
+import { excerpt, mdCell, mdCodeCell, mdRow } from './lib/markdown-table.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const walk = (dir) =>
@@ -91,16 +92,20 @@ if (process.argv.includes('--summary')) {
   process.exit(0);
 }
 
-const esc = (t) => t.replace(/\|/g, '\\|').replace(/\s+/g, ' ');
 const out = [];
 out.push('# Inventar wörtlicher Zitate Dritter', '');
 out.push(`Erzeugt mit \`node scripts/zitate-inventar.mjs\`. Erfasst Zitate in typografischen Anführungszeichen ab ${MIN_CHARS} Zeichen in \`content/\` (inkl. \`content/i18n/en/\` und \`content/sources/\`) und \`docs/research/\`.`, '');
 out.push('**Keine rechtliche Bewertung.** Die Markierungen sind Heuristiken, die Stellen für eine Prüfung auffindbar machen. Nicht markiert heißt nicht „geklärt“. Sprache wird geschätzt; „?“ = nicht bestimmbar.', '');
 out.push(`Zitate gesamt: **${rows.length}** · markiert: **${flagged.length}**`, '');
 out.push('| Quellentyp | Zitate |', '|---|---|');
-for (const [t, n] of Object.entries(byType).sort((a, b) => b[1] - a[1])) out.push(`| ${t} | ${n} |`);
+for (const [t, n] of Object.entries(byType).sort((a, b) => b[1] - a[1])) out.push(mdRow([mdCell(t), mdCell(n)]));
 out.push('', '## Markierte Stellen (zuerst prüfen)', '', '| Fundstelle | Feld | Quelle (Typ, Tier) | Herausgeber | Sprache Zitat/Quelle | Länge | Markierung | Auszug |', '|---|---|---|---|---|---|---|---|');
-for (const r of flagged) out.push(`| \`${r.rel}:${r.line}\` | ${r.field} | ${r.ref} (${r.type}, ${r.tier}) | ${esc(String(r.publisher))} | ${r.ql}/${r.sl} | ${r.len} | ${r.flags.join('; ')} | ${esc(r.q.slice(0, 70))}… |`);
+const source = (r) => mdCell(`${r.ref} (${r.type}, ${r.tier})`);
+for (const r of flagged) {
+  out.push(mdRow([mdCodeCell(`${r.rel}:${r.line}`), mdCell(r.field), source(r), mdCell(r.publisher), mdCell(`${r.ql}/${r.sl}`), mdCell(r.len), mdCell(r.flags.join('; ')), mdCell(excerpt(r.q, 70))]));
+}
 out.push('', '## Alle übrigen Stellen', '', '| Fundstelle | Feld | Quelle (Typ, Tier) | Sprache Zitat/Quelle | Länge | Auszug |', '|---|---|---|---|---|---|');
-for (const r of rows.filter((x) => !x.flags.length)) out.push(`| \`${r.rel}:${r.line}\` | ${r.field} | ${r.ref} (${r.type}, ${r.tier}) | ${r.ql}/${r.sl} | ${r.len} | ${esc(r.q.slice(0, 70))}… |`);
+for (const r of rows.filter((x) => !x.flags.length)) {
+  out.push(mdRow([mdCodeCell(`${r.rel}:${r.line}`), mdCell(r.field), source(r), mdCell(`${r.ql}/${r.sl}`), mdCell(r.len), mdCell(excerpt(r.q, 70))]));
+}
 console.log(out.join('\n'));
