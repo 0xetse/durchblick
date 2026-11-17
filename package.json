@@ -20,7 +20,7 @@
     "test:e2e": "playwright test",
     "test:e2e:engines": "PW_ENGINES=1 playwright test --project=firefox --project=webkit --project=iphone",
     "validate:content": "vitest run tests/content",
-    "audit:deps": "npm audit --omit=dev --audit-level=moderate",
+    "audit:deps": "node scripts/audit-deps.mjs",
     "verify": "npm run lint && npm run check && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {
