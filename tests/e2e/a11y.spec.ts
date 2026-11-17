@@ -40,3 +40,17 @@ test('keyboard: skip link moves focus to main content', async ({ page, isMobile 
   // The address keeps its selection (#d=…) instead of switching to #main.
   await expect(page).toHaveURL(/\/$/);
 });
+
+test('language switch includes visible EN in accessible name', async ({ page }) => {
+  await page.goto('/');
+  const languageSwitch = page.locator('a.lang-switch');
+  await expect(languageSwitch).toHaveText('EN');
+  await expect(languageSwitch).toHaveAccessibleName(/^EN\b.*This page in English$/);
+});
+
+test('language switch includes visible DE in accessible name', async ({ page }) => {
+  await page.goto('/en/');
+  const languageSwitch = page.locator('a.lang-switch');
+  await expect(languageSwitch).toHaveText('DE');
+  await expect(languageSwitch).toHaveAccessibleName(/^DE\b.*Diese Seite auf Deutsch$/);
+});

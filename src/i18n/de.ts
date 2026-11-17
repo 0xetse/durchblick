@@ -41,7 +41,7 @@ export const de = {
     trustBadgeLong: 'Diese Seite: keine Cookies, keine Tracker – prüf es nach',
     /** Language switch: label of the OTHER language, in that language. */
     switchTo: 'English',
-    switchToLabel: 'This page in English',
+    switchToLabel: 'EN – This page in English',
     here: 'Du bist hier',
     start: 'Start',
     main: 'Hauptnavigation',
