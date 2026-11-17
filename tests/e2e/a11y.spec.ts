@@ -54,17 +54,3 @@ test('language switch includes visible DE in accessible name', async ({ page }) 
   await expect(languageSwitch).toHaveText('DE');
   await expect(languageSwitch).toHaveAccessibleName(/^DE\b.*Diese Seite auf Deutsch$/);
 });
-
-test('language switch includes visible EN in accessible name', async ({ page }) => {
-  await page.goto('/');
-  const languageSwitch = page.locator('a.lang-switch');
-  await expect(languageSwitch).toHaveText('EN');
-  await expect(languageSwitch).toHaveAccessibleName(/^EN\b.*This page in English$/);
-});
-
-test('language switch includes visible DE in accessible name', async ({ page }) => {
-  await page.goto('/en/');
-  const languageSwitch = page.locator('a.lang-switch');
-  await expect(languageSwitch).toHaveText('DE');
-  await expect(languageSwitch).toHaveAccessibleName(/^DE\b.*Diese Seite auf Deutsch$/);
-});
