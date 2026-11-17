@@ -26,6 +26,19 @@ Nicht im Rahmen: die Dienste, über die Durchblick schreibt; Angriffe, die volle
 
 Durchblick ist eine statische Website ohne Backend, ohne Konten und ohne Cookies. Eine App-Auswahl wird im Browser verarbeitet und nur für den aktuellen Tab gespeichert; dauerhaft nur nach ausdrücklicher Zustimmung und nur lokal. Wie das umgesetzt und getestet ist, steht in [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md) und im Bedrohungsmodell [`docs/security/threat-model.md`](docs/security/threat-model.md). Diese Dokumente beschreiben den Stand und seine Grenzen – sie sind keine Garantie.
 
+## Abhängigkeiten und bekannte Schwachstellen
+
+Die CI prüft mit `npm run audit:deps` alle Produktionsabhängigkeiten (`npm audit --omit=dev`) und schlägt bei jeder Meldung ab Schweregrad „moderate“ fehl. Ausnahmen sind nur für einzelne, geprüfte Advisories möglich und stehen in [`scripts/audit-exceptions.json`](scripts/audit-exceptions.json). Jede Ausnahme gilt nur für genau eine GHSA-ID, ein Paket und den betroffenen Versionsbereich und läuft nach höchstens 30 Tagen ab. Danach schlägt die CI wieder fehl, und die Ausnahme muss neu bewertet werden. Die CI schlägt auch dann fehl, wenn eine Ausnahme nicht mehr gebraucht wird; sie wird dann gelöscht. Die Regeln stehen in `scripts/lib/audit-policy.mjs`.
+
+### Aktuelle Ausnahmen
+
+**GHSA-fc5q-39xc-vjpf – picomatch `<=4.0.7`, ReDoS durch wiederholte Extglobs (hoch, CVSS 7.5), gültig bis 2026-12-17.**
+
+- *Stand:* Es gibt keine korrigierte Version (neueste Version 4.0.7, das Advisory nennt keine gepatchte Version; der Fix in micromatch/picomatch#194 ist noch nicht übernommen). Auch die neuesten Versionen von Astro, Vite und tinyglobby setzen picomatch 4.0.7 voraus. Installiert sind picomatch 4.0.7 (Astro, Vite, tinyglobby, @rollup/pluginutils) und 2.3.2 (anymatch über unstorage, @prefresh/vite).
+- *Warum nicht ausnutzbar:* Der Angriff setzt voraus, dass Angreifende das Glob-Muster selbst bestimmen, z. B. `+(*a)`. Durchblick wird statisch gebaut, ohne Server und ohne Adapter. picomatch läuft nur beim Build und in Entwicklungswerkzeugen, mit Mustern, die fest im Repository stehen (`import.meta.glob` in `src/domain/content.ts`), und ist nicht im ausgelieferten Browser-Code enthalten.
+- *Nicht gewählt:* `npm audit fix --force` (würde Astro auf 5.3.0 zurückstufen und das Problem nicht beheben), ein npm-Override (es gibt keine sichere Zielversion) und das Abschalten der Prüfung.
+- *Neu bewerten:* sobald eine korrigierte picomatch-Version erscheint, wenn sich das Advisory ändert, spätestens am Ablaufdatum, und in jedem Fall, bevor Durchblick serverseitig gerendert wird (SSR/Adapter).
+
 ## Unterstützte Versionen
 
 Unterstützt wird nur der aktuelle Stand von `main`. Es gibt noch keine stabile Veröffentlichung (siehe [`README.md`](README.md#projektstatus)).

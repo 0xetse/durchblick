@@ -4,3 +4,6 @@
 /public/_headers       @0xetse
 /public/sw.js          @0xetse
 /public/.well-known/   @0xetse
+/scripts/audit-deps.mjs            @0xetse
+/scripts/audit-exceptions.json     @0xetse
+/scripts/lib/audit-policy.mjs      @0xetse
