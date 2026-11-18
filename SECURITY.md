@@ -32,12 +32,11 @@ Die CI prüft mit `npm run audit:deps` alle Produktionsabhängigkeiten (`npm aud
 
 ### Aktuelle Ausnahmen
 
-**GHSA-fc5q-39xc-vjpf – picomatch `<=4.0.7`, ReDoS durch wiederholte Extglobs (hoch, CVSS 7.5), gültig bis 2026-12-17.**
+Derzeit keine.
 
-- *Stand:* Es gibt keine korrigierte Version (neueste Version 4.0.7, das Advisory nennt keine gepatchte Version; der Fix in micromatch/picomatch#194 ist noch nicht übernommen). Auch die neuesten Versionen von Astro, Vite und tinyglobby setzen picomatch 4.0.7 voraus. Installiert sind picomatch 4.0.7 (Astro, Vite, tinyglobby, @rollup/pluginutils) und 2.3.2 (anymatch über unstorage, @prefresh/vite).
-- *Warum nicht ausnutzbar:* Der Angriff setzt voraus, dass Angreifende das Glob-Muster selbst bestimmen, z. B. `+(*a)`. Durchblick wird statisch gebaut, ohne Server und ohne Adapter. picomatch läuft nur beim Build und in Entwicklungswerkzeugen, mit Mustern, die fest im Repository stehen (`import.meta.glob` in `src/domain/content.ts`), und ist nicht im ausgelieferten Browser-Code enthalten.
-- *Nicht gewählt:* `npm audit fix --force` (würde Astro auf 5.3.0 zurückstufen und das Problem nicht beheben), ein npm-Override (es gibt keine sichere Zielversion) und das Abschalten der Prüfung.
-- *Neu bewerten:* sobald eine korrigierte picomatch-Version erscheint, wenn sich das Advisory ändert, spätestens am Ablaufdatum, und in jedem Fall, bevor Durchblick serverseitig gerendert wird (SSR/Adapter).
+### Frühere Ausnahmen
+
+**GHSA-fc5q-39xc-vjpf – picomatch `<=4.0.7`, ReDoS durch wiederholte Extglobs (vom 17.11. bis 18.11.2026).** GitHub hat das Advisory am 18.11.2026 zurückgezogen (`withdrawn_at` 2026-11-18T15:38:56Z, Titel „Withdrawn Advisory“, mit Verweis auf eine Stellungnahme des picomatch-Maintainers in micromatch/picomatch#235: Globs sind reguläre Ausdrücke, Muster aus nicht vertrauenswürdigen Quellen sollen nicht verwendet werden). `npm audit` meldet es nicht mehr, Dependabot führt den Hinweis als behoben. Die Ausnahme wurde deshalb gelöscht. Installiert ist unverändert picomatch 4.0.7. Die frühere Bewertung gilt weiter: Durchblick verwendet nur fest im Repository stehende Glob-Muster beim Build.
 
 ## Unterstützte Versionen
 

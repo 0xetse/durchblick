@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { collectAdvisories, evaluate } from '../../scripts/lib/audit-policy.mjs';
+import { collectAdvisories, evaluate, validateExceptions } from '../../scripts/lib/audit-policy.mjs';
 import exceptionsFile from '../../scripts/audit-exceptions.json';
 
 const advisory = (over: Record<string, unknown> = {}) => ({
@@ -88,7 +88,14 @@ describe('audit policy', () => {
     expect(() => evaluate(report(), [exception({ reason: '' })], { today })).toThrow(/reason/);
   });
 
+  // Checks the committed file on its own, independent of the picomatch fixture
+  // above; an empty list is valid.
   it('the committed exceptions are well-formed', () => {
-    expect(() => evaluate(report(advisory()), exceptionsFile, { today })).not.toThrow();
+    expect(Array.isArray(exceptionsFile)).toBe(true);
+    expect(() => validateExceptions(exceptionsFile)).not.toThrow();
+  });
+
+  it('passes a clean report without exceptions', () => {
+    expect(evaluate(report(), [], { today })).toMatchObject({ ok: true, failures: [], accepted: [], stale: [] });
   });
 });
