@@ -1,9 +1,1 @@
-[
-  {
-    "id": "GHSA-fc5q-39xc-vjpf",
-    "package": "picomatch",
-    "range": "<=4.0.7",
-    "expires": "2026-12-17",
-    "reason": "No fixed picomatch release exists (latest 4.0.7, first_patched_version null; upstream fix micromatch/picomatch#194 unmerged). Exploitation needs an attacker-controlled glob pattern. Durchblick ships a static site without server or adapter; picomatch runs only in build and dev tooling with patterns fixed in the repository, and is not in the browser bundle. Details: SECURITY.md."
-  }
-]
+[]
