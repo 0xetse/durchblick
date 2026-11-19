@@ -6,7 +6,7 @@
   "description": "Privacy-first Plattform, die zeigt, was digitale Dienste über dich erfassen – und was du tun kannst.",
   "license": "MIT",
   "engines": {
-    "node": "^22.23.4 || ^24.15.0 || >=26.0.0"
+    "node": "^22.23.4 || ^24.16.0 || >=26.3.0"
   },
   "scripts": {
     "dev": "astro dev",
