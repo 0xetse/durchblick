@@ -16,6 +16,13 @@ updates:
     ignore:
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
+      # TypeScript 7 drops the compiler API that typescript-eslint and
+      # @astrojs/check (astro check) build on; with 7.0.2 both abort, so lint
+      # and typecheck would stop working. Minor/patch updates of TypeScript 6
+      # still arrive. Remove this entry once typescript-eslint and
+      # @astrojs/check officially support TypeScript 7 in their peer ranges.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
     # Batch minor/patch updates of development tools into one PR.
     groups:
       dev-tools:
