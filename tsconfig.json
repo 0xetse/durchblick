@@ -5,8 +5,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "baseUrl": ".",
-    "paths": { "~/*": ["src/*"] },
+    "paths": { "~/*": ["./src/*"] },
     "types": ["vite/client"]
   }
 }
