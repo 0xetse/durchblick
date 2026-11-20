@@ -24,7 +24,7 @@ Sicherheitsprobleme bitte **nicht** als Issue melden, sondern wie in [`SECURITY.
 
 ## Entwicklung
 
-Voraussetzung: Node 22 ab 22.23.4, Node 24 ab 24.15 oder Node ≥ 26 (siehe `engines` in `package.json`).
+Voraussetzung: Node 22 ab 22.23.4, Node 24 ab 24.16 oder Node ≥ 26.3 (siehe `engines` in `package.json`).
 
 ```bash
 npm ci                 # exakt die Versionen aus package-lock.json

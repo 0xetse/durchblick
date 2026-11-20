@@ -72,7 +72,7 @@ docs/           Recherche, Produkt, Architektur, Privacy, Security, Reviews
 
 ## Entwicklung
 
-Voraussetzung: Node 22 ab 22.23.4, Node 24 ab 24.15 oder Node ≥ 26 (siehe `engines` in `package.json`).
+Voraussetzung: Node 22 ab 22.23.4, Node 24 ab 24.16 oder Node ≥ 26.3 (siehe `engines` in `package.json`).
 
 ```bash
 npm ci                 # exakt die Versionen aus package-lock.json
@@ -163,6 +163,6 @@ Durchblick (German for “seeing through it”) is a privacy-friendly web app th
 
 - **Status:** pre-release. The source code is public for review and contributions; this is **not** a stable product release, and there is no official hosted instance yet.
 - **AI-assisted:** much of the code, tests, research notes and text were produced with an AI assistant (Claude by Anthropic), directed and reviewed by the maintainer, Etse ([@0xetse](https://github.com/0xetse)). Every claim about a service links to a source; unverified guide steps are marked. No independent external audit has taken place.
-- **Develop:** Node 22.23.4+, 24.15+ or ≥ 26, `npm ci`, `npm run dev`; checks: `npm run verify`.
+- **Develop:** Node 22.23.4+, 24.16+ or ≥ 26.3, `npm ci`, `npm run dev`; checks: `npm run verify`.
 - **Contribute:** [`CONTRIBUTING.md`](CONTRIBUTING.md) · **Security:** [`SECURITY.md`](SECURITY.md) · **Code of Conduct:** [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 - **License:** code MIT, own editorial content and docs CC BY 4.0, third-party material excluded – see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).
