@@ -49,7 +49,8 @@ export const de = {
   },
   footer: {
     about: 'Unabhängige, belegte Informationen zum Datenschutz im Alltag. Keine Rechtsberatung, keine Affiliate-Links, kein Tracking.',
-    contentDate: 'Stand der Inhalte',
+    /** Followed by the span of the individual documented reviews, e.g. "zwischen 07.10. und 11.11.2026". */
+    contentReviewed: 'Inhalte zuletzt geprüft',
   },
   areas: {
     identity: { label: 'Identität', title: 'Wer du bist', hint: 'Name, Alter, E-Mail, Telefonnummer, Profil' },

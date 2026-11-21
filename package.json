@@ -12,6 +12,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "build:test": "astro build && node scripts/mark-test-build.mjs",
+    "compare:builds": "node scripts/compare-builds.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",

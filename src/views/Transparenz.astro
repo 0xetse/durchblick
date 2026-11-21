@@ -4,6 +4,8 @@ import TransparencyLive from '~/islands/TransparencyLive';
 import { keyDescriptions } from '~/domain/storage';
 import { TAB_KEY, tabKeyDescription } from '~/domain/selection';
 import { dict, href, localeOf } from '~/i18n';
+import { commitUrl, readBuildInfo } from '~/build/build-info';
+import { version } from '../../package.json';
 
 const locale = localeOf(Astro.url.pathname);
 const t = dict(locale);
@@ -23,6 +25,30 @@ const TXT_EN: typeof TXT_DE = {
 };
 const s = locale === 'en' ? TXT_EN : TXT_DE;
 const privacyHref = href(locale, 'privacy');
+// Technical state of this build: version from package.json, commit from the build environment.
+const build = readBuildInfo();
+const buildUrl = commitUrl(build);
+const buildState = build.commit === null ? 'unknown' : build.modified ? 'modified' : 'clean';
+const TECH = {
+  de: {
+    h: 'Technischer Stand',
+    version: 'Softwareversion',
+    commit: 'Git-Commit',
+    unknown: 'unbekannt',
+    modified: 'lokal geändert – dieser Build enthält Änderungen, die in keinem veröffentlichten Commit stehen',
+    linkHint: '(Quellcode dieses Stands auf GitHub)',
+    reviewed: 'Die Angabe „Inhalte zuletzt geprüft …“ im Fuß jeder Seite nennt den Zeitraum der einzelnen, dokumentierten Prüfungen von Apps, Anleitungen, Alternativen und Experiment (vom ältesten bis zum jüngsten Prüfdatum). Sie ist kein Datum einer vollständigen redaktionellen Durchsicht aller Inhalte.',
+  },
+  en: {
+    h: 'Technical state',
+    version: 'Software version',
+    commit: 'Git commit',
+    unknown: 'unknown',
+    modified: 'modified locally – this build contains changes that are not in any published commit',
+    linkHint: '(source code of this state on GitHub)',
+    reviewed: 'The note “Content last reviewed …” at the bottom of every page gives the span of the individual, documented reviews of apps, guides, alternatives and the experiment (from the oldest to the most recent review date). It is not the date of a full editorial review of all content.',
+  },
+}[locale];
 ---
 <Base title={s.title} description={s.description} path={href(locale, 'transparency')} crumbs={[{ label: s.crumb }]}>
   <section>
@@ -87,6 +113,22 @@ const privacyHref = href(locale, 'privacy');
           <p>Links zu offiziellen Einstellungsseiten (z. B. von Google oder Meta) öffnen die Seite des Anbieters. Ab dort gelten dessen Regeln. Wir verraten der anderen Seite nicht, dass du von Durchblick kommst (kein „Referrer“).</p>
         </>
       )}
+      <h3 id="technical-state">{TECH.h}</h3>
+      <dl data-build-state={buildState}>
+        <dt>{TECH.version}</dt>
+        <dd data-build-version>{version}</dd>
+        <dt>{TECH.commit}</dt>
+        <dd>
+          {build.commit === null ? (
+            <span data-build-commit="">{TECH.unknown}</span>
+          ) : buildUrl ? (
+            <a href={buildUrl} target="_blank" rel="noopener noreferrer"><code data-build-commit={build.commit}>{build.commit}</code> <span class="small muted">{TECH.linkHint}</span></a>
+          ) : (
+            <><code data-build-commit={build.commit}>{build.commit}</code> – {TECH.modified}</>
+          )}
+        </dd>
+      </dl>
+      <p>{TECH.reviewed}</p>
     </div>
   </section>
 </Base>

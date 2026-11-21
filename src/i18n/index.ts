@@ -5,6 +5,7 @@
  */
 import { de, type Dictionary } from './de';
 import { en } from './en';
+import { parseCalendarDate, type CalendarDate } from '~/domain/dates';
 
 export const LOCALES = ['de', 'en'] as const;
 export type Locale = (typeof LOCALES)[number];
@@ -73,6 +74,28 @@ export function localizeUrl(url: string, locale: Locale): string {
     .replace('://values.snap.com/de-DE/', '://values.snap.com/')
     .replace(/:\/\/telegram\.org\/faq\/de(#.*)?$/, '://telegram.org/faq')
     .replace(/([?&])hl=de\b/, '$1hl=en');
+}
+
+const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/**
+ * The span of the documented reviews, e.g. "zwischen 07.10. und 11.11.2026" /
+ * "between 7 Oct and 11 Nov 2026". The year is repeated only when it differs;
+ * a single day reads "am 11.11.2026" / "on 11 Nov 2026". Fixed formats, so the
+ * output does not depend on the ICU data of the build machine.
+ */
+export function formatReviewRange(range: { from: string; to: string }, locale: Locale = DEFAULT_LOCALE): string {
+  const from = parseCalendarDate(range.from);
+  const to = parseCalendarDate(range.to);
+  if (!from || !to) throw new Error(`invalid review range: ${range.from} – ${range.to}`);
+  if (range.from > range.to) throw new Error(`review range ends before it starts: ${range.from} – ${range.to}`);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const de = (d: CalendarDate, withYear: boolean) => `${pad(d.day)}.${pad(d.month)}.${withYear ? d.year : ''}`;
+  const en = (d: CalendarDate, withYear: boolean) => `${d.day} ${MONTHS_EN[d.month - 1]}${withYear ? ` ${d.year}` : ''}`;
+  const fmt = locale === 'en' ? en : de;
+  if (range.from === range.to) return locale === 'en' ? `on ${fmt(to, true)}` : `am ${fmt(to, true)}`;
+  const sameYear = from.year === to.year;
+  return locale === 'en' ? `between ${fmt(from, !sameYear)} and ${fmt(to, true)}` : `zwischen ${fmt(from, !sameYear)} und ${fmt(to, true)}`;
 }
 
 /** Formats an ISO date (YYYY-MM-DD) for display. */
