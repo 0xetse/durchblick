@@ -30,7 +30,14 @@ Durchblick ist eine statische Website ohne Backend, ohne Konten und ohne Cookies
 
 Die CI prüft mit `npm run audit:deps` alle Produktionsabhängigkeiten (`npm audit --omit=dev`) und schlägt bei jeder Meldung ab Schweregrad „moderate“ fehl. Ausnahmen sind nur für einzelne, geprüfte Advisories möglich und stehen in [`scripts/audit-exceptions.json`](scripts/audit-exceptions.json). Jede Ausnahme gilt nur für genau eine GHSA-ID, ein Paket und den betroffenen Versionsbereich und läuft nach höchstens 30 Tagen ab. Danach schlägt die CI wieder fehl, und die Ausnahme muss neu bewertet werden. Die CI schlägt auch dann fehl, wenn eine Ausnahme nicht mehr gebraucht wird; sie wird dann gelöscht. Die Regeln stehen in `scripts/lib/audit-policy.mjs`.
 
-**Technische Durchsetzung, Stand 2026-11-21:** Automatisch geprüft werden die genaue Zuordnung (GHSA-ID, Paket, Versionsbereich), das Format jeder Ausnahme, das eingetragene Ablaufdatum und ob eine Ausnahme noch gebraucht wird. Die Höchstdauer von 30 Tagen ist eine Projektregel, die bei der Prüfung jeder neuen Ausnahme eingehalten wird; der Code prüft sie noch nicht. Diese Prüfung ist als eigene Änderung geplant.
+**Format und Gültigkeit einer Ausnahme:** Jede Ausnahme hat die Felder `id` (GHSA-ID), `package`, `range`, `added`, `expires` und `reason` (Begründung). `added` ist das Datum, an dem die Ausnahme geprüft und eingetragen wurde, `expires` der letzte Tag, an dem sie gilt. Beide müssen echte Kalenderdaten im Format JJJJ-MM-TT sein. `scripts/lib/audit-policy.mjs` prüft bei jedem Lauf technisch:
+
+- `added` liegt nicht in der Zukunft.
+- `expires` liegt nicht vor `added` und höchstens 30 Kalendertage danach (`expires` − `added` ≤ 30).
+- Am Tag `expires` gilt die Ausnahme noch; ab dem Folgetag schlägt die CI fehl.
+- Gerechnet wird in ganzen Kalendertagen nach UTC; „heute“ ist das aktuelle UTC-Datum. Das Ergebnis hängt deshalb nicht von der lokalen Zeitzone oder der Sommerzeit ab. Lokal kann das UTC-Datum in den Stunden um Mitternacht vom lokalen Datum abweichen.
+
+`added` ist ein **deklariertes** Startdatum: Es wird im Pull Request zusammen mit der Ausnahme geprüft, ist aber technisch nicht gegen spätere Änderung geschützt. Die 30-Tage-Grenze begrenzt die Gültigkeit **eines Eintrags**, nicht die Gesamtdauer, über die ein Advisory durch wiederholte Verlängerung ausgenommen bleibt. Jede Verlängerung ist eine neue Bewertung mit neuen Daten in einem eigenen Pull Request.
 
 ### Aktuelle Ausnahmen
 
