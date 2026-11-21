@@ -1,6 +1,6 @@
 # Durchblick
 
-**Was erfahren deine Apps über dich?** Durchblick ist eine datenschutzfreundliche Web-App (PWA): Du tippst an, welche Apps du nutzt, und siehst in wenigen Minuten, welche Bereiche deines Lebens sie berühren können, einen belegten Fakt, den die wenigsten kennen, und eine Einstellung, die du sofort ändern kannst – ohne Konto, ohne Cookies, ohne Tracking.
+**Was erfahren deine Apps über dich?** Durchblick ist eine datenschutzfreundliche Web-App (PWA): Du tippst an, welche Apps du nutzt, und siehst in wenigen Minuten, welche Bereiche deines Lebens sie berühren können, einen belegten Fakt zu einer deiner Apps und eine Einstellung, die du sofort ändern kannst – ohne Konto, ohne Cookies, ohne Tracking.
 
 *English summary [below](#english-summary).*
 
@@ -23,7 +23,7 @@ Durchblick wird von **Etse** ([@0xetse](https://github.com/0xetse)) betreut – 
 **Das Projekt wird mit KI-Unterstützung entwickelt.** Ein großer Teil von Code, Tests, Recherche-Notizen und Texten wurde mit einem KI-Assistenten (Claude von Anthropic) erstellt und überarbeitet. Entscheidungen, Prüfaufträge und Freigaben liegen bei einem Menschen. Was das für die Qualität heißt:
 
 - KI-Recherche kann Fehler enthalten. Deshalb hat jede Aussage über einen Dienst eine Quelle, die man selbst prüfen kann, und ungeprüfte Anleitungen sind als solche gekennzeichnet.
-- Sicherheits- und Datenschutzeigenschaften sind durch automatisierte Tests und dokumentierte Reviews belegt, die ebenfalls KI-gestützt entstanden sind. Eine unabhängige externe Prüfung gab es bisher nicht.
+- Sicherheits- und Datenschutzeigenschaften werden durch automatisierte Tests geprüft und in Reviews dokumentiert, die ebenfalls KI-gestützt entstanden sind. Tests zeigen das Verhalten in den geprüften Fällen, keine Fehlerfreiheit. Eine unabhängige externe Prüfung gab es bisher nicht.
 - Die Entscheidungswege stehen in [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) und [`docs/reviews/`](docs/reviews/). Die Git-Historie dieses Repositorys beginnt mit der Veröffentlichung des Quellcodes.
 
 Korrekturen von Menschen mit Fachwissen sind ausdrücklich willkommen ([`CONTRIBUTING.md`](CONTRIBUTING.md)).
@@ -50,7 +50,9 @@ Fast alle wissen, dass Dienste Daten sammeln – kaum jemand weiß, welche, wie,
 | Alternativen | `/alternativen/` | neutral, mit Komfort-Abwägungen; zuerst „Was du ohne Wechsel erreichst" |
 | Vertrauen | Kopfzeile auf jeder Seite, `/transparenz/` | „Was weiß Durchblick über dich?" – live: Cookies, fremde Verbindungen, Gespeichertes, „Alles löschen" |
 | Methodik | `/methodik/` | Quellen, Sicherheit der Aussagen, Einordnung statt Punktzahl, Aktualität |
-| Englisch | `/en/…` | alle Seiten auf Englisch mit englischen Pfaden (`/en/settings/`, `/en/apps/<id>/` …); Sprachumschalter in der Kopfzeile behält Seite und App-Auswahl |
+| Datenschutzerklärung | `/datenschutz/` | was beim Seitenabruf passiert, was auf dem Gerät gespeichert wird, externe Links |
+| Impressum | `/impressum/` | Platzhalter der Vorabversion; die Angaben nach § 5 DDG folgen vor einer öffentlichen Veröffentlichung |
+| Englisch | `/en/…` | alle Seiten auf Englisch mit englischen Pfaden (`/en/settings/`, `/en/apps/<id>/`, `/en/guides/<id>/`, `/en/privacy/`, `/en/legal-notice/` …); Sprachumschalter in der Kopfzeile behält Seite und App-Auswahl |
 
 ## Architektur
 
@@ -93,14 +95,19 @@ Durchblick wird mit kleinen moderierten Nutzertests weiterentwickelt. Testplan, 
 npm run lint           # ESLint (TS, Astro, jsx-a11y, Verbot von Netzwerk-APIs im App-Code)
 npm run check          # astro check (Typen)
 npm test               # Vitest: Domain-Logik, Komponenten, Content-Validierung, Link-Allowlist
-npm run build && npm run test:e2e   # Playwright braucht den gebauten Stand; startet selbst scripts/serve-dist.mjs auf Port 4321
-npm run verify         # alles nacheinander, inkl. Build
-npm run audit:deps     # Audit der Produktionsabhängigkeiten
+npm run build && npm run test:e2e   # Playwright (Chromium) braucht den gebauten Stand; startet selbst scripts/serve-dist.mjs auf Port 4321
+npm run test:e2e:engines            # dieselben Abläufe in Firefox, WebKit und iPhone-Emulation (WebKit), ebenfalls gegen dist/
+npm run verify         # lint, check, test, build und test:e2e nacheinander (ohne audit:deps und test:e2e:engines)
+npm run audit:deps     # Audit der Produktionsabhängigkeiten mit Ausnahmeliste (siehe SECURITY.md)
 ```
 
-**Was die Netzwerk-Prüfung zeigt** (`tests/e2e/trust.spec.ts`): Auf 14 festgelegten Seiten (Deutsch und Englisch) gehen in den getesteten Browsern nur Anfragen an die eigene Herkunft, es entstehen keine Cookies, ohne Zustimmung wird nichts gespeichert, und die Konsole meldet keine CSP-Verstöße. Ein weiterer Test zeigt, dass die ausgelieferte CSP Anfragen an fremde Hosts blockiert und die Seite sich nicht einbetten lässt. Das belegt das Verhalten dieser Seiten in diesen Browsern – nicht für jede Umgebung, Erweiterung oder künftige Änderung.
+**Was die Netzwerk-Prüfung zeigt** (`tests/e2e/trust.spec.ts`): Auf 14 festgelegten Seiten (Deutsch und Englisch) gehen in den getesteten Browsern nur Anfragen an die eigene Herkunft, es entstehen keine Cookies, `localStorage` bleibt ohne Zustimmung leer, und die Konsole meldet keine CSP-Verstöße. Ein weiterer Test zeigt, dass die ausgelieferte CSP Anfragen an fremde Hosts blockiert und die Seite sich nicht einbetten lässt. Das belegt das Verhalten dieser Seiten in diesen Browsern – nicht für jede Umgebung, Erweiterung oder künftige Änderung. `sessionStorage` und der Cache des Service Workers werden in diesem Test nicht geprüft; was dort liegt, steht unter [Datenschutz-Philosophie](#datenschutz-philosophie).
 
-Die CI (`.github/workflows/ci.yml`) führt Lint, Typen, Tests, Build und Browser-Tests bei Pushes auf `main` und bei jedem Pull Request aus. Workflows aus Forks laufen erst nach Freigabe durch die Maintainer.
+**Automatische Prüfungen auf GitHub:**
+
+- **CI** (`.github/workflows/ci.yml`) bei Pushes auf `main` und bei jedem Pull Request, in zwei Jobs: `verify` (`npm ci`, `npm run audit:deps`, Lint, Typen, Unit- und Inhaltstests, Build, E2E in Chromium) und `engines` (Build und E2E in Firefox, WebKit und iPhone-Emulation). Beide sind für Merges nach `main` erforderlich. Workflows aus Forks laufen erst nach Freigabe durch die Maintainer.
+- **CodeQL** (GitHub-Standardkonfiguration) analysiert JavaScript/TypeScript und die GitHub-Actions-Workflows bei Pull Requests, bei Pushes auf `main` und wöchentlich. Bei Pull Requests von Dependabot wird die Analyse derzeit übersprungen; sie läuft dann nach dem Merge auf `main`.
+- **Dependabot** (`.github/dependabot.yml`) schlägt wöchentlich Updates für npm-Pakete und GitHub Actions vor; jedes Update kommt als Pull Request und durchläuft dieselbe CI. Ausgenommen sind Major-Updates von `@types/node` und `typescript` (Begründung jeweils in der Datei).
 
 Port 4321 muss für die E2E-Tests frei sein (eine laufende Vorschau mit `npx astro preview stop` beenden). `astro preview` läuft außerhalb eines Terminals im Hintergrund weiter und weicht bei belegtem Port still auf 4322 aus – deshalb nutzen die Tests einen eigenen Server.
 
@@ -108,9 +115,35 @@ Browser für die E2E-Tests: Auf einem normalen Rechner einmalig `npx playwright 
 
 ## Datenschutz-Philosophie
 
-Wir erheben nichts ohne klaren Produktgrund. Keine Konten, Cookies, Analyse, Drittanbieter-Ressourcen. Persönliche Auswahl wird im Browser berechnet; dauerhaft gespeichert wird nur nach ausdrücklicher Zustimmung und nur lokal. Präzise statt plakativ: *„Deine Auswahl, deine Antworten und dein Fortschritt verlassen dein Gerät nicht."* – denn den Seitenabruf selbst sieht das Hosting wie bei jeder Website.
+Wir erheben nichts ohne klaren Produktgrund. Keine Konten, Cookies, Analyse, Drittanbieter-Ressourcen. Persönliche Auswahl wird im Browser berechnet und nicht an einen Server gesendet. Präzise statt plakativ: *„Deine Auswahl, deine Antworten und dein Fortschritt verlassen dein Gerät nicht."* – denn den Seitenabruf selbst sieht das Hosting wie bei jeder Website.
+
+**Was im Browser gespeichert wird:**
+
+| Speicherort | Was | Zustimmung nötig? | Wie lange |
+|---|---|---|---|
+| `sessionStorage` | die App-Auswahl dieses Tabs (nur Kennungen wie „google“) | nein – nur dieser Tab, nie automatisch in einer Adresse | bis der Tab geschlossen wird; der Browser kann sie zum Wiederherstellen geschlossener Tabs noch aufbewahren |
+| `localStorage` | App-Auswahl, erledigte Plan-Schritte und die Zustimmung selbst | **ja** („auf diesem Gerät merken“) | bis „Alles löschen“ oder bis die Websitedaten im Browser gelöscht werden |
+| Cache Storage (Service Worker) | Offline-Kopien öffentlicher Dateien dieser Website: feste Kernseiten, Manifest, Icon sowie Skripte, Styles und Schriften des Builds | nein | bis eine neue Service-Worker-Version alte Caches löscht oder die Websitedaten gelöscht werden |
+
+Im Cache Storage liegen nur Dateien, die für alle gleich sind. Die App-Auswahl landet dort nicht: Besuchte Seiten werden nicht zwischengespeichert, und Adressen werden ohne Fragment (`#d=…`) abgelegt (`public/sw.js`). „Alles löschen“ auf `/transparenz/` entfernt die Einträge in `localStorage`, die Auswahl dieses Tabs und eine Auswahl in der Adresse; die öffentlichen Offline-Kopien bleiben. Cookies setzt Durchblick nicht.
 
 **Grenzen, die wir nicht wegversprechen:** Das Hosting verarbeitet beim Abruf technisch die IP-Adresse. Was der Browser selbst aufbewahrt (Verlauf, Wiederherstellung geschlossener Tabs, Synchronisation), liegt außerhalb der Kontrolle der Seite. Ein bewusst geteilter Link mit Auswahl landet beim Empfänger wie jeder Link im Verlauf. Die Tests belegen das Verhalten in den getesteten Browsern; sie sind keine Garantie für jede Umgebung. Details: [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md), Bedrohungsmodell: [`docs/security/threat-model.md`](docs/security/threat-model.md).
+
+## Selbst betreiben (Hosting)
+
+Durchblick ist eine statische Website: Der Inhalt von `dist/` lässt sich auf jedem statischen Hosting ausliefern. Zwei Builds:
+
+- `npm run build` – Produktions-Build.
+- `npm run build:test` – derselbe Build für nicht öffentliche Testumgebungen: `noindex` auf allen Seiten, eine `robots.txt`, die alles sperrt, und zusätzlich `X-Robots-Tag: noindex, nofollow` in `_headers` (`scripts/mark-test-build.mjs`).
+
+**Sicherheits-Header:** Die seitenspezifische Content-Security-Policy (mit Hashes für Skripte und Styles) steht als `<meta>`-Tag in jeder Seite und wirkt unabhängig vom Hosting. Alles, was ein `<meta>`-Tag nicht leisten kann, steht in `public/_headers` (Format von Netlify und Cloudflare Pages). Diese Datei wirkt **nur**, wenn die Hosting-Plattform das Format auswertet; sonst müssen die Header dort anders eingerichtet werden. Erwartet werden:
+
+- `Content-Security-Policy` mit u. a. `frame-ancestors 'none'`, `connect-src 'self'`, `form-action 'none'`, `object-src 'none'`
+- `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`
+- `Strict-Transport-Security`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`
+- `Cache-Control: no-cache` für `/sw.js` (damit Updates des Service Workers ankommen) und lange Caches nur für die gehashten Dateien unter `/_astro/`
+
+Die genauen Werte stehen in `public/_headers`. Nach jedem Deployment bitte prüfen, dass die Header tatsächlich ankommen, z. B. mit `curl -sI https://<deine-domain>/` oder in den Entwicklerwerkzeugen des Browsers. Die E2E-Tests wenden `_headers` über `scripts/serve-dist.mjs` lokal an; sie sagen nichts darüber, was eine bestimmte Hosting-Plattform tatsächlich ausliefert. Weitere Anforderungen an das Hosting (EU, minimale Logs, keine eingefügten Skripte): [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md).
 
 ## Inhalte & Quellen
 
@@ -137,7 +170,7 @@ Wir erheben nichts ohne klaren Produktgrund. Keine Konten, Cookies, Analyse, Dri
 ## Roadmap (Auszug)
 
 1. **Jetzt: Nutzertests fortführen** – Wizard auf echtem iPhone/Safari, englische Fassung mit englischsprachiger Testperson. Neue Features sind erlaubt, wenn Tests sie begründen (D-050).
-2. Vor Launch: Betreiber/Impressum, Hosting für den Start (EU, minimale Logs; D-N5), Rechtsprüfung der Einordnungen, Name/Marke, redaktionelle Durchsicht, Prüfung der 17 noch nicht verifizierten Anleitungen.
+2. Vor Launch: Betreiber/Impressum, Hosting für den Start (EU, minimale Logs; D-N5), Rechtsprüfung der Einordnungen, Name/Marke, redaktionelle Durchsicht, Prüfung der noch nicht verifizierten Anleitungen (Stand 2026-11-21: 10 von 88, Feld `verification.status` in `content/guides/`).
 3. Danach: weitere Dienste (Microsoft, Apple), Änderungsprotokoll je Dienst, Privatsphäre-Beleg (lokaler Export).
 4. Später: lokaler Import von Google Takeout / Meta-Export im Web Worker (Machbarkeit dokumentiert).
 

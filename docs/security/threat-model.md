@@ -1,6 +1,7 @@
 # Bedrohungsmodell
 
 Stand: 2026-10-07 · Methode: STRIDE-orientiert, mit Fokus auf das künftige lokale Import-Feature
+Teilaktualisierung 2026-11-21: T3, T7, neue Zeilen T11/T12 (Speicherorte im Browser) und der Abschnitt „Sicherheitsmaßnahmen im Repository“ gegen den Code geprüft und angepasst. Die übrigen Zeilen sind auf dem Stand vom 2026-10-07.
 
 ## Schützenswerte Güter
 
@@ -15,11 +16,13 @@ Stand: 2026-10-07 · Methode: STRIDE-orientiert, mit Fokus auf das künftige lok
 |---|---|---|---|---|
 | T1 | Supply-Chain (Tampering) | kompromittiertes npm-Paket schleust Tracking/Exfiltration in das Bundle | wenige, exakt gepinnte Abhängigkeiten; `package-lock.json`; Audit (auch in der CI); CSP mit `default-src`/`connect-src 'self'` blockiert Verbindungen zu fremden Hosts (bis 2026-11 fehlte das – die CSP regelte nur Skripte und Styles); E2E-Test auf fremde Anfragen | umgesetzt |
 | T2 | XSS | Inhalt (YAML) enthält HTML/JS | Inhalte werden als Text gerendert (Astro/Preact escapen), `set:html` nur für JSON-LD, mit `<` als `\u003c` maskiert; URLs im Schema nur `https://` ohne Zugangsdaten; CSP ohne `unsafe-inline` | umgesetzt |
-| T3 | Bösartige Links | manipulierte `officialUrl` führt auf Phishing-Seite | Schema erlaubt nur `https:`; Review-Pflicht für Content-Änderungen; künftig: Allowlist offizieller Domains je Dienst (Test) | teilweise (Allowlist offen) |
+| T3 | Bösartige Links | manipulierte `officialUrl` führt auf Phishing-Seite | Schema erlaubt nur `https:`; Review-Pflicht für Content-Änderungen; Allowlist offizieller Domains je Unternehmen, geprüft in `tests/content/links.test.ts` | umgesetzt |
 | T4 | Hoster injiziert Skripte | CDN-Analyse/Bot-Schutz fügt JS ein | Hosting-Anforderung; CSP blockiert unbekannte Skripte und macht Verstoß sichtbar | Entscheidung offen |
 | T5 | Clickjacking | Einbettung in fremde Seite | `frame-ancestors 'none'`, `X-Frame-Options: DENY` (Header) | umgesetzt (Header-Datei) |
 | T6 | Referrer-Leck | Zielseite erfährt, dass man von „Konto löschen"-Anleitung kommt | `Referrer-Policy: no-referrer`, `rel=noreferrer` | umgesetzt |
-| T7 | Information Disclosure lokal | Mitbenutzer des Geräts sieht ausgewählte Dienste | Speichern nur nach Zustimmung; Löschen mit einem Klick | umgesetzt |
+| T7 | Information Disclosure lokal | Mitbenutzer des Geräts sieht ausgewählte Dienste | ohne Zustimmung nur `sessionStorage` dieses Tabs und nie automatisch in Adressen (D-057); `localStorage` nur nach Zustimmung; „Alles löschen“ entfernt `localStorage`-Einträge, Tab-Auswahl und Auswahl in der Adresse | umgesetzt; Rest-Risiko: Browser bewahren `sessionStorage` zur Tab-Wiederherstellung auf, und ein bewusst geteilter Link (`#d=…`) landet im Verlauf |
+| T11 | Information Disclosure über Offline-Cache | Cache Storage verrät, welche Apps jemand angesehen hat | Service Worker speichert nur feste Kernseiten, Manifest, Icon, Schriften und gehashte Build-Dateien, keine besuchten Einzelseiten (seit SW v5), Adressen ohne Fragment `#d=…` (seit SW v4); E2E-Test prüft den Cache-Inhalt (`tests/e2e/state.spec.ts`) | umgesetzt; der Cache liegt ohne Zustimmung vor (nur öffentliche Dateien) und wird von „Alles löschen“ nicht geleert |
+| T12 | Speicher ohne Wissen | Daten bleiben gespeichert, ohne dass die Person es weiß | `/transparenz/` und die Kopfzeile zeigen live, was gespeichert ist; jeder `localStorage`-Schlüssel ist beschrieben (`src/domain/storage.ts`) | umgesetzt für `localStorage` und die Tab-Auswahl; den Offline-Cache erklärt `/transparenz/` im Text, listet ihn aber nicht live auf |
 | T8 | Falsche/veraltete Inhalte | Einstellung verschoben, Anleitung führt ins Leere | Prüfdatum, `needs-verification`, „Möglicherweise veraltet" nach 6 Monaten | umgesetzt |
 | T9 | Service-Worker-Missbrauch | veralteter/bösartiger SW bleibt aktiv | SW nur gleiche Herkunft, `Cache-Control: no-cache` für `sw.js`, Versionierung | umgesetzt |
 | T10 | Rechtlicher Angriff | Unternehmen geht gegen Bewertung vor | Methodik offen, keine Zahl/kein Ranking, Quellen je Aussage, Korrekturprozess | umgesetzt, Rechtsprüfung offen |
@@ -42,5 +45,6 @@ Das ist der Teil mit dem höchsten Risiko, weil die Daten hochsensibel sind.
 ## Sicherheitsmaßnahmen im Repository
 
 - Keine Secrets: Das Produkt benötigt keine Umgebungsvariablen. `.env*` ist in `.gitignore`. Siehe `docs/security/security.md`.
-- `npm run audit:deps` prüft Produktionsabhängigkeiten und läuft seit 2026-11 in der CI. Stand 2026-11-11: 0 Befunde (zod auf 4.6.7, undici über `npm audit fix`). Bekannt in der **Dev**-Kette: 7 × moderate, alle eine Lücke: `minimatch` < 11.0.1 (GHSA-g3hv-75wg-m249, DoS durch Glob-Muster) über `@typescript-eslint/typescript-estree`, das selbst in der neuesten Version (8.72.2) `minimatch ^10.2.2` verlangt. Geprüft 2026-11-12: Ein `overrides` auf `minimatch@11.0.8` läuft (Lint grün, Audit 0), wird aber **nicht** übernommen – es verlässt den von typescript-eslint unterstützten Bereich, und die Lücke betrifft nur ein Entwicklungswerkzeug, das unsere eigenen Glob-Muster liest. Der von npm vorgeschlagene „Fix“ ist ein Downgrade auf typescript-eslint 8.36.0 und wird ebenfalls nicht übernommen. Wieder prüfen, sobald typescript-eslint auf minimatch 11 wechselt.
-- `security.txt` vorbereitet; Kontakt vor Veröffentlichung festlegen.
+- `npm run audit:deps` prüft Produktionsabhängigkeiten und läuft in der CI (Job `verify`); einzelne geprüfte Advisories können mit Ablaufdatum ausgenommen werden (`scripts/audit-exceptions.json`, Regeln in `SECURITY.md`). Stand 2026-11-21: 0 Befunde und keine Ausnahmen; auch `npm audit` einschließlich der Entwicklungsabhängigkeiten meldet 0. Die frühere Lücke in der Dev-Kette (`minimatch`, GHSA-g3hv-75wg-m249) besteht nicht mehr.
+- Dependabot schlägt Updates wöchentlich als Pull Request vor; CodeQL analysiert den Code und die Workflows (siehe `README.md`, „Tests & Qualität“).
+- `public/.well-known/security.txt` nennt die vertrauliche Meldung über GitHub und eine Kontaktadresse (siehe `SECURITY.md`).

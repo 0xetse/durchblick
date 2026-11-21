@@ -24,11 +24,13 @@ Nicht im Rahmen: die Dienste, über die Durchblick schreibt; Angriffe, die volle
 
 ## Wie Durchblick gebaut ist
 
-Durchblick ist eine statische Website ohne Backend, ohne Konten und ohne Cookies. Eine App-Auswahl wird im Browser verarbeitet und nur für den aktuellen Tab gespeichert; dauerhaft nur nach ausdrücklicher Zustimmung und nur lokal. Wie das umgesetzt und getestet ist, steht in [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md) und im Bedrohungsmodell [`docs/security/threat-model.md`](docs/security/threat-model.md). Diese Dokumente beschreiben den Stand und seine Grenzen – sie sind keine Garantie.
+Durchblick ist eine statische Website ohne Backend, ohne Konten und ohne Cookies. Eine App-Auswahl wird im Browser verarbeitet und ohne Zustimmung nur für den aktuellen Tab gespeichert (`sessionStorage`); dauerhaft (`localStorage`) nur nach ausdrücklicher Zustimmung und nur lokal. Der Service Worker legt ohne Zustimmung Offline-Kopien öffentlicher Dateien der Website im Cache Storage ab, aber keine Auswahl und keine besuchten Einzelseiten (Übersicht in [`README.md`](README.md#datenschutz-philosophie)). Wie das umgesetzt und getestet ist, steht in [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md) und im Bedrohungsmodell [`docs/security/threat-model.md`](docs/security/threat-model.md). Diese Dokumente beschreiben den Stand und seine Grenzen – sie sind keine Garantie.
 
 ## Abhängigkeiten und bekannte Schwachstellen
 
 Die CI prüft mit `npm run audit:deps` alle Produktionsabhängigkeiten (`npm audit --omit=dev`) und schlägt bei jeder Meldung ab Schweregrad „moderate“ fehl. Ausnahmen sind nur für einzelne, geprüfte Advisories möglich und stehen in [`scripts/audit-exceptions.json`](scripts/audit-exceptions.json). Jede Ausnahme gilt nur für genau eine GHSA-ID, ein Paket und den betroffenen Versionsbereich und läuft nach höchstens 30 Tagen ab. Danach schlägt die CI wieder fehl, und die Ausnahme muss neu bewertet werden. Die CI schlägt auch dann fehl, wenn eine Ausnahme nicht mehr gebraucht wird; sie wird dann gelöscht. Die Regeln stehen in `scripts/lib/audit-policy.mjs`.
+
+**Technische Durchsetzung, Stand 2026-11-21:** Automatisch geprüft werden die genaue Zuordnung (GHSA-ID, Paket, Versionsbereich), das Format jeder Ausnahme, das eingetragene Ablaufdatum und ob eine Ausnahme noch gebraucht wird. Die Höchstdauer von 30 Tagen ist eine Projektregel, die bei der Prüfung jeder neuen Ausnahme eingehalten wird; der Code prüft sie noch nicht. Diese Prüfung ist als eigene Änderung geplant.
 
 ### Aktuelle Ausnahmen
 
