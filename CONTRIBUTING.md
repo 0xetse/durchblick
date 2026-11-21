@@ -33,11 +33,16 @@ npm run lint           # ESLint
 npm run check          # Typen (astro check)
 npm test               # Unit- und Inhaltstests (Vitest)
 npm run build          # statischer Output in dist/
-npx playwright install chromium   # einmalig
-npm run test:e2e       # Browser-Tests gegen den gebauten Stand
+npx playwright install chromium   # einmalig, für test:e2e
+npm run test:e2e       # Browser-Tests (Chromium) gegen den gebauten Stand
+npx playwright install firefox webkit   # einmalig, für test:e2e:engines
+npm run test:e2e:engines   # dieselben Abläufe in Firefox, WebKit und iPhone-Emulation (WebKit)
+npm run audit:deps     # Audit der Produktionsabhängigkeiten (siehe SECURITY.md)
 ```
 
-Vor einem Pull Request bitte mindestens `npm run lint`, `npm run check`, `npm test` und `npm run build` ausführen. Bei Änderungen an Seiten oder Inseln auch `npm run test:e2e`. Aufbau des Projekts: [`README.md`](README.md#architektur) und [`docs/architecture/`](docs/architecture/).
+Auf Linux installiert `npx playwright install --with-deps <browser>` zusätzlich die nötigen Systembibliotheken (so macht es die CI).
+
+Vor einem Pull Request bitte mindestens `npm run lint`, `npm run check`, `npm test` und `npm run build` ausführen. Bei Änderungen an Seiten oder Inseln auch `npm run test:e2e`; `test:e2e:engines` läuft in jedem Fall in der CI. Aufbau des Projekts: [`README.md`](README.md#architektur) und [`docs/architecture/`](docs/architecture/).
 
 ## Pull Requests
 

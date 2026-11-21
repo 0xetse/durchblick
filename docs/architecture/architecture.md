@@ -21,12 +21,12 @@ content/*.yaml ──(Build: Zod-Validierung + Integritätsprüfung)──► As
 | Bereich | Wahl | Begründung | ADR |
 |---|---|---|---|
 | Framework | **Astro 7** (statischer Output) | HTML zuerst, null JS als Standard, Inseln nur bei Bedarf, sehr gutes SEO, i18n-Routing, eingebaute CSP mit Hashes | ADR-0001 |
-| Interaktive Inseln | **Preact 10** | ~4 kB, React-kompatible API, SSR-fähig; Inseln sind ohne JS als statisches HTML lesbar | ADR-0001 |
+| Interaktive Inseln | **Preact 11** | ~4 kB, React-kompatible API, SSR-fähig; Inseln sind ohne JS als statisches HTML lesbar | ADR-0001 |
 | Sprache | TypeScript (strictest) | Typsicherheit über Content, Domain-Logik und UI | – |
 | Content | YAML in `content/`, **Zod 4**-Schemas in `src/domain/schema.ts` | redaktionell lesbar, diffbar, CMS-/API-migrationsfähig; Laufzeitvalidierung im Build | ADR-0002 |
 | Styles | eigenes CSS mit Design-Tokens (CSS Custom Properties) | keine Utility-Framework-Abhängigkeit; Tokens für Hell/Dunkel | – |
 | Schriften | selbst gehostet (Fontsource): Fraunces (Display), Atkinson Hyperlegible Next (Text) | keine Anfragen an Schrift-CDNs; Atkinson ist auf Lesbarkeit bei Sehschwäche ausgelegt | – |
-| PWA | handgeschriebener Service Worker (`public/sw.js`, ~50 Zeilen) + Manifest | inspizierbar, keine Workbox-Abhängigkeit, nur gleiche Herkunft | ADR-0003 |
+| PWA | handgeschriebener Service Worker (`public/sw.js`, ~130 Zeilen) + Manifest | inspizierbar, keine Workbox-Abhängigkeit, nur gleiche Herkunft | ADR-0003 |
 | Tests | Vitest (Unit, Content, Komponenten), Playwright + axe-core (E2E, Barrierefreiheit, Netzwerk-Prüfung: nur eigene Herkunft auf den geprüften Seiten) | – | – |
 | Qualität | ESLint (typescript-eslint, astro, jsx-a11y), `astro check` | Lint-Regel verbietet `fetch`/XHR/WebSocket/`sendBeacon` im App-Code | – |
 
