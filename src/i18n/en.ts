@@ -37,7 +37,7 @@ export const en: Dictionary = {
   },
   footer: {
     about: 'Independent, sourced information about privacy in everyday life. No legal advice, no affiliate links, no tracking.',
-    contentDate: 'Content as of',
+    contentReviewed: 'Content last reviewed',
   },
   areas: {
     identity: { label: 'Identity', title: 'Who you are', hint: 'Name, age, email, phone number, profile' },

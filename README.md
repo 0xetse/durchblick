@@ -34,7 +34,7 @@ Fast alle wissen, dass Dienste Daten sammeln – kaum jemand weiß, welche, wie,
 
 1. **Was erfahren sie?** 2. **Wie erfahren sie es?** 3. **Was bedeutet das?** 4. **Was kannst du tun?**
 
-## Was die App kann (0.5.1, 14 Apps, Deutsch und Englisch)
+## Was die App kann (14 Apps, Deutsch und Englisch)
 
 | Bereich | Route | Kurz |
 |---|---|---|
@@ -135,6 +135,9 @@ Durchblick ist eine statische Website: Der Inhalt von `dist/` lässt sich auf je
 
 - `npm run build` – Produktions-Build.
 - `npm run build:test` – derselbe Build für nicht öffentliche Testumgebungen: `noindex` auf allen Seiten, eine `robots.txt`, die alles sperrt, und zusätzlich `X-Robots-Tag: noindex, nofollow` in `_headers` (`scripts/mark-test-build.mjs`).
+- `npm run compare:builds` baut beide nacheinander und prüft, dass sie sich **nur** in diesen drei Punkten unterscheiden (das `noindex`-Tag in jeder Seite, `robots.txt`, die zusätzliche `X-Robots-Tag`-Regel in `_headers`), und durchsucht beide nach lokalen Pfaden, Benutzer-, Rechner- und Branch-Namen sowie unbekannten E-Mail-Adressen. Danach liegt in `dist/` der Test-Build.
+
+**Build-Stand:** Jeder Build kennt den Git-Commit, aus dem er stammt (12 Zeichen), und zeigt ihn auf `/transparenz/` mit Link zum öffentlichen Commit. Quelle ist, in dieser Reihenfolge: die Umgebungsvariable `DURCHBLICK_COMMIT`, `GITHUB_SHA` (GitHub Actions) oder `git rev-parse HEAD`. Ungültige Werte werden ignoriert; ohne gültigen Wert steht dort „unbekannt“ (und kein Link). Hat der Arbeitsbaum ungespeicherte Änderungen, ist der Build als „lokal geändert“ gekennzeichnet und verlinkt keinen Commit. Es fließen keine Zeitstempel, Branch-, Rechner- oder Benutzernamen ein: Derselbe unveränderte Commit ergibt denselben Build. Wer ohne `.git` baut (z. B. auf einer Hosting-Plattform), kann `DURCHBLICK_COMMIT` setzen.
 
 **Sicherheits-Header:** Die seitenspezifische Content-Security-Policy (mit Hashes für Skripte und Styles) steht als `<meta>`-Tag in jeder Seite und wirkt unabhängig vom Hosting. Alles, was ein `<meta>`-Tag nicht leisten kann, steht in `public/_headers` (Format von Netlify und Cloudflare Pages). Diese Datei wirkt **nur**, wenn die Hosting-Plattform das Format auswertet; sonst müssen die Header dort anders eingerichtet werden. Erwartet werden:
 
@@ -144,6 +147,14 @@ Durchblick ist eine statische Website: Der Inhalt von `dist/` lässt sich auf je
 - `Cache-Control: no-cache` für `/sw.js` (damit Updates des Service Workers ankommen) und lange Caches nur für die gehashten Dateien unter `/_astro/`
 
 Die genauen Werte stehen in `public/_headers`. Nach jedem Deployment bitte prüfen, dass die Header tatsächlich ankommen, z. B. mit `curl -sI https://<deine-domain>/` oder in den Entwicklerwerkzeugen des Browsers. Die E2E-Tests wenden `_headers` über `scripts/serve-dist.mjs` lokal an; sie sagen nichts darüber, was eine bestimmte Hosting-Plattform tatsächlich ausliefert. Weitere Anforderungen an das Hosting (EU, minimale Logs, keine eingefügten Skripte): [`docs/privacy/privacy-architecture.md`](docs/privacy/privacy-architecture.md).
+
+## Versionen und Releases
+
+- **Softwareversion:** einzige Quelle ist `version` in `package.json`; der Fuß jeder Seite zeigt sie an. Sie wird **nur bei einem Release** erhöht, nicht bei jedem Commit. Orientierung: [Semantic Versioning](https://semver.org/lang/de/) (vor 1.0: neue Funktionen → Minor, Korrekturen → Patch).
+- **Ablauf eines Releases:** die Abschnitte „Unveröffentlicht“ in `CHANGELOG.md` unter `## X.Y.Z – JJJJ-MM-TT` zusammenführen → `npm version X.Y.Z --no-git-tag-version` (ändert `package.json` und `package-lock.json`) → Pull Request → nach dem Merge den Tag `vX.Y.Z` auf den Merge-Commit setzen.
+- **Zwischen zwei Releases** zeigen Builds dieselbe Versionsnummer; welcher Stand genau ausgeliefert ist, steht als Git-Commit auf `/transparenz/`.
+- **Stand der Inhalte:** Der Fuß nennt den Zeitraum der dokumentierten Einzelprüfungen („Inhalte zuletzt geprüft zwischen … und …“), berechnet aus den Prüfdaten der Inhalte (`reviewedAt` der Apps und Alternativen, `verification.checkedAt` der Anleitungen, `reviewedAt` des Experiments). Er ändert sich nur, wenn sich eines dieser Daten nach einer echten Prüfung ändert – nie durch technische Änderungen. Er ist kein Datum einer vollständigen redaktionellen Durchsicht.
+- Ältere Dokumente (z. B. Nutzertests, Reviews) nennen die Version, die damals geprüft wurde; diese Angaben bleiben bewusst stehen.
 
 ## Inhalte & Quellen
 

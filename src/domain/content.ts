@@ -6,6 +6,7 @@
  */
 import { parse } from 'yaml';
 import type { Locale } from '~/i18n';
+import { isCalendarDate } from './dates';
 import { z } from 'zod';
 import {
   alternativeCategorySchema,
@@ -143,15 +144,46 @@ export interface ContentBundle {
   examples: Example[];
 }
 
-/** Most recent date anything was reviewed or checked: apps, guides, alternatives, simulator. */
-export function contentAsOf(b: ContentBundle): string {
-  const dates = [
+/**
+ * Every documented review or check date in the content: apps (`reviewedAt`),
+ * guides (`verification.checkedAt`), alternatives (`reviewedAt`) and the
+ * traces experiment (`simulator.reviewedAt`). Only these fields – nothing
+ * from the build – so technical changes never move them.
+ */
+export function reviewDates(b: ContentBundle): string[] {
+  return [
     ...b.services.map((s) => s.reviewedAt),
     ...b.guides.map((g) => g.verification.checkedAt),
     ...b.alternatives.map((a) => a.reviewedAt),
     b.simulator.reviewedAt,
   ];
-  return dates.reduce((latest, d) => (d > latest ? d : latest));
+}
+
+export interface ReviewRange {
+  /** Oldest documented review date (YYYY-MM-DD). */
+  from: string;
+  /** Most recent documented review date (YYYY-MM-DD). */
+  to: string;
+}
+
+/**
+ * Oldest and most recent documented review date. This is the span of the
+ * individual reviews, not the date of a full editorial review of everything.
+ * Fails on an impossible date so a typo cannot reach the footer.
+ */
+export function contentReviewRange(b: ContentBundle): ReviewRange {
+  const dates = reviewDates(b);
+  if (dates.length === 0) throw new Error('content has no review dates');
+  const invalid = dates.filter((d) => !isCalendarDate(d));
+  if (invalid.length) throw new Error(`invalid review date(s): ${[...new Set(invalid)].join(', ')}`);
+  // Valid ISO dates sort correctly as strings.
+  const sorted = [...dates].sort();
+  return { from: sorted[0]!, to: sorted[sorted.length - 1]! };
+}
+
+/** Most recent date anything was reviewed or checked: apps, guides, alternatives, simulator. */
+export function contentAsOf(b: ContentBundle): string {
+  return contentReviewRange(b).to;
 }
 
 export function refId(ref: SourceRefInput): string {

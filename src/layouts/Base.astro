@@ -1,9 +1,10 @@
 ---
 import '~/styles/global.css';
 import '~/styles/ui.css';
-import { dict, formatDate, href, localeOf, switchPath, type Locale } from '~/i18n';
+import { dict, formatReviewRange, href, localeOf, switchPath, type Locale } from '~/i18n';
 import TrustPanel from '~/islands/TrustPanel';
-import { contentAsOf, getContent } from '~/domain/content';
+import { contentReviewRange, getContent } from '~/domain/content';
+// The only source of the software version.
 import { version } from '../../package.json';
 
 interface Props {
@@ -39,7 +40,7 @@ const nav = [
 const currentOf = (n: (typeof nav)[number]) =>
   current === n.href ? 'page' : [n.href, ...n.also].some((p) => current.startsWith(p)) ? 'true' : undefined;
 const content = getContent(locale);
-const asOf = formatDate(contentAsOf(content), locale);
+const reviewed = formatReviewRange(contentReviewRange(content), locale);
 const trustServices = content.services.map((s) => ({ id: s.id, name: s.shortName ?? s.name }));
 ---
 <!doctype html>
@@ -125,7 +126,7 @@ const trustServices = content.services.map((s) => ({ id: s.id, name: s.shortName
         <div>
           <p class="brand-foot">{t.site.name}</p>
           <p class="small muted">{t.footer.about}</p>
-          <p class="meta">{t.footer.contentDate} {asOf} · Version {version}</p>
+          <p class="meta" data-footer-meta>{t.footer.contentReviewed} {reviewed} · Version {version}</p>
         </div>
         <ul class="footer-links">
           <li><a href={href(locale, 'check')}>{t.nav.check}</a></li>
