@@ -137,6 +137,18 @@ Durchblick ist eine statische Website: Der Inhalt von `dist/` lässt sich auf je
 - `npm run build:test` – derselbe Build für nicht öffentliche Testumgebungen: `noindex` auf allen Seiten, eine `robots.txt`, die alles sperrt, und zusätzlich `X-Robots-Tag: noindex, nofollow` in `_headers` (`scripts/mark-test-build.mjs`).
 - `npm run compare:builds` baut beide nacheinander und prüft, dass sie sich **nur** in diesen drei Punkten unterscheiden (das `noindex`-Tag in jeder Seite, `robots.txt`, die zusätzliche `X-Robots-Tag`-Regel in `_headers`), und durchsucht beide nach lokalen Pfaden, Benutzer-, Rechner- und Branch-Namen sowie unbekannten E-Mail-Adressen. Danach liegt in `dist/` der Test-Build.
 
+**Deployment-Pakete und Prüfung nach dem Upload** (nichts wird automatisch hochgeladen):
+
+```bash
+npm run package:deploy -- --expect test     # → release/durchblick-TEST-<commit>.zip
+npm run package:deploy -- --expect prod     # → release/durchblick-PRODUKTION-<commit>.zip
+npm run verify:deploy -- https://<domain>/ --expect test --commit <commit>
+npm run verify:deploy -- https://<domain>/ --expect prod --commit <commit>
+```
+
+- `package:deploy` baut die gewählte Variante aus dem **committeten** Stand (bei ungespeicherten Änderungen bricht es ab) und prüft `dist/` vollständig, bevor es etwas schreibt: Build-Commit und Stand „clean“ auf beiden Transparenzseiten, Indexierungsregeln (Test: `noindex` auf jeder Seite, `robots.txt` sperrt alles, `X-Robots-Tag` in `_headers`; Produktion: nichts davon), Sicherheits-Header in `_headers`, CSP-Meta-Tag und interne Verweise jeder Seite, Pflichtdateien, keine unerwarteten oder versteckten Dateien, keine lokalen Pfade, Benutzer-, Rechner- oder Branch-Namen. Erst dann wird die ZIP (Dateien direkt im Stammverzeichnis) in eine temporäre Datei geschrieben, gegen `dist/` geprüft und unter dem endgültigen Namen abgelegt; vorhandene Dateien werden nie überschrieben.
+- `verify:deploy` prüft eine ausgelieferte Website nur lesend: HTTPS-Weiterleitung, Status der wichtigsten Seiten, Sicherheits-Header (fehlende oder widersprüchliche lassen die Prüfung scheitern), `robots.txt`, `X-Robots-Tag`, Robots-Meta-Tags, Build-Commit, Weiterleitung `/plan` → `/plan/` und 404 für unbekannte Seiten. Eine Test-Prüfung scheitert an jeder indexierbaren Stelle, eine Produktions-Prüfung an jeder Indexierungssperre. Kontaktiert wird nur die angegebene Adresse (nur `https`, keine Zugangsdaten, kein Pfad, keine lokalen oder internen Adressen – auch nicht über DNS); Weiterleitungen werden nicht verfolgt.
+
 **Build-Stand:** Jeder Build kennt den Git-Commit, aus dem er stammt (12 Zeichen), und zeigt ihn auf `/transparenz/` mit Link zum öffentlichen Commit. Quelle ist, in dieser Reihenfolge: die Umgebungsvariable `DURCHBLICK_COMMIT`, `GITHUB_SHA` (GitHub Actions) oder `git rev-parse HEAD`. Ungültige Werte werden ignoriert; ohne gültigen Wert steht dort „unbekannt“ (und kein Link). Hat der Arbeitsbaum ungespeicherte Änderungen, ist der Build als „lokal geändert“ gekennzeichnet und verlinkt keinen Commit. Es fließen keine Zeitstempel, Branch-, Rechner- oder Benutzernamen ein: Derselbe unveränderte Commit ergibt denselben Build. Wer ohne `.git` baut (z. B. auf einer Hosting-Plattform), kann `DURCHBLICK_COMMIT` setzen.
 
 **Sicherheits-Header:** Die seitenspezifische Content-Security-Policy (mit Hashes für Skripte und Styles) steht als `<meta>`-Tag in jeder Seite und wirkt unabhängig vom Hosting. Alles, was ein `<meta>`-Tag nicht leisten kann, steht in `public/_headers` (Format von Netlify und Cloudflare Pages). Diese Datei wirkt **nur**, wenn die Hosting-Plattform das Format auswertet; sonst müssen die Header dort anders eingerichtet werden. Erwartet werden:
