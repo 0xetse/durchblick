@@ -1,5 +1,7 @@
 node_modules
 dist/
+# Deployment-Pakete aus `npm run package:deploy`
+release/
 .astro/
 playwright-report/
 test-results/

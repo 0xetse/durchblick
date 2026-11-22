@@ -13,6 +13,8 @@
     "build": "astro build",
     "build:test": "astro build && node scripts/mark-test-build.mjs",
     "compare:builds": "node scripts/compare-builds.mjs",
+    "package:deploy": "node scripts/package-deploy.mjs",
+    "verify:deploy": "node scripts/verify-deploy.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
